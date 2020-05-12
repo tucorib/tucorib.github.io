@@ -122,28 +122,30 @@
 				};
 				
 				for(var y=0; y<ymax; y++){
-					var row = $('<div>', { class: 'row' });
+					var row = $('<div>', { class: 'd-flex flex-row w-100' });
 					
 					for(var x=0; x<xmax; x++){
 						var e = $('<div>', {
 							class: function(){
+								var c = 'm-1 box rounded';
 								if(x == xa && y == ya){
-									return 'm-1 col box btn btn-primary';
+									return c + ' btn-primary';
 								}
 								else if(x == xb && y == yb){
-									return 'm-1 col box btn btn-danger';
+									return c + ' btn-danger';
 								}
 								else if(x == xc && y == yc){
-									return 'm-1 col box btn btn-success';
+									return c + ' btn-success';
 								}
 								else{
-									return 'm-1 col box btn btn-secondary';
+									return c + ' btn-secondary';
 								}
 							},
 							html: '&nbsp;'
 						})
 						.attr('data-x', x)
 						.attr('data-y', y)
+						.css('width', 100/xmax + '%')
 						.click(function(){
 							clickHandler($(this).data('x'),$(this).data('y'));
 						});
