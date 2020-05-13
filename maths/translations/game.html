@@ -4,17 +4,21 @@
 
 	<head>
 		<meta charset="UTF-8">
+		
+		<!-- Page title -->
 		<title>Translations</title>
+		<!-- Smartphone screen dimension management -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
+		<!-- Libraries -->
 		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"></link>
-		<script src="https://raw.githack.com/jcubic/jquery.resize/master/jquery.resize.js"></script>
-		
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+		
+		<!-- Button style (making them squared) -->
 		<style>
 			.box {
 				position: relative;
@@ -28,6 +32,158 @@
 		</style>
 		
 		<script>
+			// --- Initial values
+			var minxmax = 3; // Start x bounds
+			var	minymax = 3; // Start y bounds
+			var xmax = minxmax; // x bounds
+			var	ymax = minymax; // y bounds
+			var maxlives = 3; // Start max lives
+			var score = 0; // Score
+			var combos = 0; // Combos
+			var lives = maxlives; // Lives
+			
+			// Launch new game
+			var newGame = function(){
+				// Reset values
+				score = 0;
+				combos = 0;
+				xmax = minxmax;
+				ymax = minymax;
+				lives = maxlives;
+				// Update UI
+				$('.score').text(score);
+				$('.combos').text(combos);
+				$('.life').show();
+				// New run
+				newRun();
+			};
+			
+			// Launch new run
+			var newRun = function(){
+				// Remove old buttons
+				var arena = $('#arena');
+				arena.empty();
+				
+				// Compute blue button coordinates
+				var xa = Math.floor(Math.random() * xmax);
+				var ya = Math.floor(Math.random() * ymax);
+				
+				// Compute red button coordinates
+				var xb = 0;
+				var yb = 0;
+				do{
+					xb = Math.floor(Math.random() * xmax);
+					yb = Math.floor(Math.random() * ymax);
+				} while(
+					(xa==xb && ya==yb) ||
+					(Math.abs(xa-xb)==xmax-1 && Math.abs(ya-yb)==ymax-1)
+				)
+				
+				// Compute green button coordinates
+				var xc = 0;
+				var yc = 0;
+				do{
+					xc = Math.max(0, xa - xb) + Math.floor(Math.random() * (xmax - Math.abs(xb - xa)));
+					
+					yc = Math.max(0, ya - yb) + Math.floor(Math.random() * (ymax - Math.abs(yb - ya)));
+				} while(
+					(xa == xc && ya == yc) ||
+					(xb == xc && yb == yc)
+				)
+				
+				// Compute answer button coordinates
+				var xd = xc + xb - xa;
+				var yd = yc + yb - ya;
+				
+				// Button click action
+				var clickHandler = function(x,y){
+					// If click on solution
+					if(x == xd && y == yd){
+						combos += 1; // Increase combos counter
+						score += Math.floor(combos*xmax*ymax*lives/maxlives); // Increase score
+						xmax +=1; // Increase x bounds
+						ymax +=1; // Increase y bounds
+						// Update UI
+						$('.score').text(score);
+						$('.combos').text(combos);
+						// Open greetings popup
+						$('#modal-right').modal('show');
+					}
+					// Else
+					else{
+						lives -= 1; // Remove life
+						combos = 0;// Reinitialize combos
+						// Update UI						
+						$('.life[data-life='+lives+']').toggle( "explode" );
+						$('.combos').text(combos);
+						// If no more life
+						if(lives == 0){
+							$('#modal-wrong').modal('show'); // Open game over popup
+						}
+						else{
+							$(arena).effect( "shake" ); // Shake buttons
+						}
+					}
+				};
+				
+				// Create buttons
+				for(var y=0; y<ymax; y++){
+					// Add row container
+					var row = $('<div>', { class: 'd-flex flex-row w-100' });
+					
+					for(var x=0; x<xmax; x++){
+					// Create button
+						var button = $('<div>', {
+							// UI style
+							class: function(){
+								var c = 'm-1 box rounded';
+								if(x == xa && y == ya){
+									return c + ' btn-primary'; // blue
+								}
+								else if(x == xb && y == yb){
+									return c + ' btn-danger'; // red
+								}
+								else if(x == xc && y == yc){
+									return c + ' btn-success'; // green
+								}
+								else{
+									return c + ' btn-secondary'; // gray
+								}
+							},
+							 // Empty content
+							html: '&nbsp;'
+						})
+						.attr('data-x', x)
+						.attr('data-y', y)
+						.css('width', 100/xmax + '%')
+						// Link click action to button
+						.click(function(){
+							clickHandler($(this).data('x'),$(this).data('y'));
+						});
+						// Add button to row
+						$(row).append(button);
+					}
+					// Add row to grid
+					$(arena).append(row);
+				}
+			};
+			// When page is ready
+			$(document).ready(function(){
+				// Create lives images
+				for(var i=0; i<maxlives; i++){
+					$('<img>', {
+						src: 'https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_960_720.png',
+						class: 'life',
+						width: '40px',
+						height: '40px'
+					})
+					.attr('data-life', maxlives-i)
+					.appendTo($('#lives'));
+				}
+				// Start new game
+				newGame();
+			});
+			
 			// Easter egg :)
 			console.log(
 `        .-"-.
@@ -40,159 +196,35 @@
       \`.=^=^=.'
         \`~~~\`
 `);
-			
-			var minxmax = 3;
-			var	minymax = 3;
-			var xmax = minxmax;
-			var	ymax = minymax;
-			var maxlives = 3;
-			var score = 0;
-			var combos = 0;
-			var lives = maxlives;
-			
-			var setXmax = function(x){ xmax = x; $('#dropdownMenuButtonX').text(x); newGame(); };
-			var setYmax = function(y){ ymax = y; $('#dropdownMenuButtonY').text(y); newGame(); };
-			
-			var newGame = function(){
-				score = 0;
-				combos = 0;
-				xmax = minxmax;
-				ymax = minymax;
-				$('.score').text(score);
-				$('.combos').text(combos);
-				lives = maxlives;
-				$('.life').show();
-				newRun();
-			};
-			
-			var newRun = function(){
-				var arena = $('#arena');
-				arena.empty();
-				
-				var xa = Math.floor(Math.random() * xmax);
-				var ya = Math.floor(Math.random() * ymax);
-				
-				var xb = 0;
-				var yb = 0;
-				do{
-					xb = Math.floor(Math.random() * xmax);
-					yb = Math.floor(Math.random() * ymax);
-				} while(
-					(xa==xb && ya==yb) ||
-					(Math.abs(xa-xb)==xmax-1 && Math.abs(ya-yb)==ymax-1)
-				)
-				
-				var xc = 0;
-				var yc = 0;
-				do{
-					xc = Math.max(0, xa - xb) + Math.floor(Math.random() * (xmax - Math.abs(xb - xa)));
-					
-					yc = Math.max(0, ya - yb) + Math.floor(Math.random() * (ymax - Math.abs(yb - ya)));
-				} while(
-					(xa == xc && ya == yc) ||
-					(xb == xc && yb == yc)
-				)
-				
-				var xd = xc + xb - xa;
-				var yd = yc + yb - ya;
-				
-				
-				var clickHandler = function(x,y){
-					if(x == xd && y == yd){
-						combos += 1;
-						score += Math.floor(combos*xmax*ymax*lives/maxlives);
-						xmax +=1;
-						ymax +=1;
-						$('.score').text(score);
-						$('.combos').text(combos);
-						$('#modal-right').modal('show');
-					}
-					else{
-						$('.life[data-life='+lives+']').toggle( "explode" );
-						lives -= 1;
-						combos = 0;
-						$('.combos').text(combos);
-						if(lives == 0){
-							$('#modal-wrong').modal('show');
-						}
-						else{
-							$(arena).effect( "shake" );
-						}
-					}
-				};
-				
-				for(var y=0; y<ymax; y++){
-					var row = $('<div>', { class: 'd-flex flex-row w-100' });
-					
-					for(var x=0; x<xmax; x++){
-						var e = $('<div>', {
-							class: function(){
-								var c = 'm-1 box rounded';
-								if(x == xa && y == ya){
-									return c + ' btn-primary';
-								}
-								else if(x == xb && y == yb){
-									return c + ' btn-danger';
-								}
-								else if(x == xc && y == yc){
-									return c + ' btn-success';
-								}
-								else{
-									return c + ' btn-secondary';
-								}
-							},
-							html: '&nbsp;'
-						})
-						.attr('data-x', x)
-						.attr('data-y', y)
-						.css('width', 100/xmax + '%')
-						.click(function(){
-							clickHandler($(this).data('x'),$(this).data('y'));
-						});
-						
-						$(row).append(e);
-					}
-					
-					$(arena).append(row);
-				}
-			};
-			
-			$(document).ready(function(){
-				for(var i=0; i<maxlives; i++){
-					$('<img>', {
-						src: 'https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_960_720.png',
-						class: 'life',
-						width: '40px',
-						height: '40px'
-					})
-					.attr('data-life', maxlives-i)
-					.appendTo($('#lives'));
-				}
-			
-				newGame();
-			});
 		</script>
 	</head>
 	
 	<body>
 		<div class="container">
+			<!-- Rules -->
 			<div class="jumbotron">
 				<h5 class="text-center">Sélectionne l'image du bouton <span class="badge badge-success">vert</span> par la translation qui transforme le bouton <span class="badge badge-primary">bleu</span> en bouton <span class="badge badge-danger">rouge</span></h5>
 			</div>
+			
 			<div class="jumbotron">
+				<!-- Score -->
 				<div class="container-fluid">
 					<h5><span>Score:</span> <span class="score">0</span> <span>points</span></h5>
 				</div>
+				<!-- Combos -->
 				<div class="container-fluid">
 					<h5><span>Combos:</span> <span class="combos">0</span></h5>
 				</div>
+				<!-- Lives -->
 				<div class="container-fluid">
 					<div id="lives" class="container-fluid flex-fill text-center"></div>
 				</div>
 			</div>
 			
+			<!-- Button grid container -->
 			<div id="arena" class="container"></div>
 			
+			<!-- Greetings modal -->
 			<div id="modal-right" class="modal" tabindex="-1" role="dialog">
 			  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
 				<div class="modal-content">
@@ -213,6 +245,7 @@
 			  </div>
 			</div>
 			
+			<!-- Game over modal -->
 			<div id="modal-wrong" class="modal" tabindex="-1" role="dialog">
 			  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
 				<div class="modal-content">
