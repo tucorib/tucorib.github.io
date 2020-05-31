@@ -17,6 +17,11 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 		<script src="https://code.highcharts.com/highcharts.js"></script>
 		
+		<!-- Images -->
+		<link rel="preload" href="img/door-closed.png" as="image">
+		<link rel="preload" href="img/door-opened-goat.png" as="image">
+		<link rel="preload" href="img/door-opened-car.png" as="image">
+		
 		<script>
 			// Session
 			var session = null;
@@ -49,7 +54,12 @@
 				$('#keep-freq').text(session.keep.freq);				
 				$('#change-won').text(session.change.won);
 				$('#change-nb').text(session.change.nb);
-				$('#change-freq').text(session.change.freq);				
+				$('#change-freq').text(session.change.freq);
+				
+				if(!autoSimulation || autoSimulationIndex == 2*autoSimulationNb-1 || (autoSimulationIndex+1) % (2*autoSimulationNb/10) == 0){
+					keepChart.redraw();
+					changeChart.redraw();
+				}			
 			}
 			
 			function startSession(){
@@ -79,18 +89,22 @@
 				// Init correct door
 				correctDoor = Math.ceil(Math.random() * 3);
 				wrongDoor = null;
-				// Update rules
-				$('#step-0').show();
-				$('#step-1').addClass('invisible');
-				$('#step-2').addClass('invisible');
-				// Activate buttons
-				$('#btn-door-1').attr('disabled', false).removeClass('btn-info btn-danger btn-success').addClass('btn-secondary');
-				$('#btn-door-2').attr('disabled', false).removeClass('btn-info btn-danger btn-success').addClass('btn-secondary');
-				$('#btn-door-3').attr('disabled', false).removeClass('btn-info btn-danger btn-success').addClass('btn-secondary');
-				// Reset doors
-				$('#img-door-1').attr('src', 'img/door-closed.png');
-				$('#img-door-2').attr('src', 'img/door-closed.png');
-				$('#img-door-3').attr('src', 'img/door-closed.png');
+				
+				// Update UI
+				if(!autoSimulation){
+					// Update rules
+					$('#step-0').show();
+					$('#step-1').addClass('invisible');
+					$('#step-2').addClass('invisible');
+					// Activate buttons
+					$('#btn-door-1').attr('disabled', false).removeClass('btn-info btn-danger btn-success').addClass('btn-secondary');
+					$('#btn-door-2').attr('disabled', false).removeClass('btn-info btn-danger btn-success').addClass('btn-secondary');
+					$('#btn-door-3').attr('disabled', false).removeClass('btn-info btn-danger btn-success').addClass('btn-secondary');
+					// Reset doors
+					$('#img-door-1').attr('src', 'img/door-closed.png');
+					$('#img-door-2').attr('src', 'img/door-closed.png');
+					$('#img-door-3').attr('src', 'img/door-closed.png');
+				}
 				
 				if(autoSimulation){
 					setTimeout(function(){
@@ -112,25 +126,30 @@
 			function handleStep0Choice(doorIndex){
 				// Select door
 				selectedDoor = doorIndex;
-				$('#btn-door-' + selectedDoor)
-				.removeClass('btn-secondary')
-				.addClass('btn-info');
 				
 				// Mark wrong door
 				var otherDoors = [1,2,3].filter(door => door != doorIndex && door != correctDoor);
 				wrongDoor = otherDoors[Math.floor(Math.random() * otherDoors.length)];
-				$('#btn-door-' + wrongDoor)
-				.attr('disabled', true)
-				.removeClass('btn-secondary')
-				.addClass('btn-danger');
 				
-				// Open wrong door
-				$('#img-door-' + wrongDoor).attr('src', 'img/door-opened-goat.png');
-				
-				// Update rules
-				$('#step-1-selected-door').text(selectedDoor);
-				$('#step-1-wrong-door').text(wrongDoor);
-				$('#step-1').removeClass('invisible');
+				// Update UI
+				if(!autoSimulation){
+					$('#btn-door-' + selectedDoor)
+					.removeClass('btn-secondary')
+					.addClass('btn-info');
+					
+					$('#btn-door-' + wrongDoor)
+					.attr('disabled', true)
+					.removeClass('btn-secondary')
+					.addClass('btn-danger');
+					
+					// Open wrong door
+					$('#img-door-' + wrongDoor).attr('src', 'img/door-opened-goat.png');
+					
+					// Update rules
+					$('#step-1-selected-door').text(selectedDoor);
+					$('#step-1-wrong-door').text(wrongDoor);
+					$('#step-1').removeClass('invisible');
+				}
 				
 				// Next step
 				step = 1;
@@ -150,54 +169,57 @@
 			};
 			
 			function handleStep1Choice(doorIndex){
-				$('#btn-door-' + selectedDoor)
-				.removeClass('btn-info');
-				
-				if(doorIndex == correctDoor)
-					$('#btn-door-' + doorIndex)
-					.removeClass('btn-secondary')
-					.addClass('btn-success');
-				else{
-					$('#btn-door-' + doorIndex)
-					.removeClass('btn-secondary')
-					.addClass('btn-info');
-					$('#btn-door-' + correctDoor)
-					.removeClass('btn-secondary')
-					.addClass('btn-success');
-				}
-				
 				// Update session & rules
 				if(doorIndex == selectedDoor){
 					session.keep.nb += 1;
 					if(doorIndex == correctDoor){
 						session.keep.won += 1;
-						$('#step-2-label').text('Vous avez gagné!');
-					}
-					else{
-						$('#step-2-label').text('Vous avez perdu...');
 					}
 					session.keep.freq = Math.round(Math.pow(10,decimalPlaces) * session.keep.won / session.keep.nb)/Math.pow(10,decimalPlaces);
-					keepChart.series[0].addPoint([session.keep.nb, session.keep.freq], true, false);
+					keepChart.series[0].addPoint([session.keep.nb, session.keep.freq], false, false);
 				}
 				else{
 					session.change.nb += 1;
 					if(doorIndex == correctDoor){
 						session.change.won += 1;
+					}
+					session.change.freq = Math.round(Math.pow(10,decimalPlaces) * session.change.won / session.change.nb)/Math.pow(10,decimalPlaces);
+					changeChart.series[0].addPoint([session.change.nb, session.change.freq], false, false);
+				}
+				
+				// Update UI
+				if(!autoSimulation){
+					$('#btn-door-' + selectedDoor)
+					.removeClass('btn-info');
+					
+					if(doorIndex == correctDoor)
+						$('#btn-door-' + doorIndex)
+						.removeClass('btn-secondary')
+						.addClass('btn-success');
+					else{
+						$('#btn-door-' + doorIndex)
+						.removeClass('btn-secondary')
+						.addClass('btn-info');
+						$('#btn-door-' + correctDoor)
+						.removeClass('btn-secondary')
+						.addClass('btn-success');
+					}
+					
+					if(doorIndex == correctDoor){
 						$('#step-2-label').text('Vous avez gagné!');
 					}
 					else{
 						$('#step-2-label').text('Vous avez perdu...');
 					}
-					session.change.freq = Math.round(Math.pow(10,decimalPlaces) * session.change.won / session.change.nb)/Math.pow(10,decimalPlaces);
-					changeChart.series[0].addPoint([session.change.nb, session.change.freq], true, false);
-				}
-				$('#step-2').removeClass('invisible');
-				
-				// Show doors
-				$('#img-door-' + correctDoor).attr('src', 'img/door-opened-car.png');
-				if(doorIndex != correctDoor)
-					$('#img-door-' + selectedDoor).attr('src', 'img/door-opened-goat.png');
 					
+					$('#step-2').removeClass('invisible');
+					
+					// Show doors
+					$('#img-door-' + correctDoor).attr('src', 'img/door-opened-car.png');
+					if(doorIndex != correctDoor)
+						$('#img-door-' + selectedDoor).attr('src', 'img/door-opened-goat.png');
+				}
+				
 				displayResults();
 				
 				if(autoSimulation && autoSimulationIndex < 2*autoSimulationNb-1){
@@ -210,13 +232,11 @@
 			
 			function handleAutoCheckbox(){
 				if($('#auto-simulation').is(":checked")){
-					$("#auto-speed-group").removeClass('invisible');
 					$("#auto-count-group").removeClass('invisible');
 					$("#auto-button-group").removeClass('invisible');
 					autoSimulation = true;
 				}
 				else{
-					$("#auto-speed-group").addClass('invisible');
 					$("#auto-count-group").addClass('invisible');
 					$("#auto-button-group").addClass('invisible');
 					autoSimulation = false;
@@ -233,15 +253,6 @@
 				handleAutoCheckbox();
 				
 				// Init sliders
-				$("#auto-speed")
-				.on('input', function(slideEvt){
-					var value = parseInt($(slideEvt.target).val());
-					autoSimulationSpeed = value;
-					$("#auto-speed-value").text(value);
-				})
-				.val(autoSimulationSpeed)
-				.trigger('input');
-				
 				$("#auto-count")
 				.on('input', function(slideEvt) {
 					var value = parseInt($(slideEvt.target).val());
@@ -310,6 +321,10 @@
 		</script>
 	</head>
 	<body>
+		<img src="img/door-closed.png" style="display: none"/>
+		<img src="img/door-opened-goat.png" style="display: none"/>
+		<img src="img/door-opened-car.png" style="display: none"/>
+		
 		<div class="container">
 			<!-- Rules -->
 			<div id="rules" class="jumbotron text-center">
@@ -329,7 +344,7 @@
 			</div>
 			
 			<!-- Doors -->
-			<div class="jumbotron row">
+			<div id="doors" class="jumbotron row">
 				<div class="col text-center">
 					<img id="img-door-1" src="img/door-closed.png" class="img-fluid"/>
 					<br />
@@ -344,6 +359,20 @@
 					<img id="img-door-3" src="img/door-closed.png" class="img-fluid" />
 					<br />
 					<button id="btn-door-3" type="button" class="btn" onclick="selectDoor(3);">Porte 3</button>
+				</div>
+			</div>
+			
+			<div class="container">
+				<div class="form-check custom-control custom-checkbox">
+					<input id="auto-simulation" type="checkbox" class="custom-control-input"/>
+					<label class="custom-control-label" for="auto-simulation">Simulation automatique</label>
+				</div>
+				<div id="auto-count-group" class="form-group row invisible">
+					<span id="auto-count-label" class="col-4">Nombre: <span id="auto-count-value">1</span></span>
+					<input id="auto-count" class="col-8 form-control-range custom-range" type="range" min="1" max="10000" step="1" />					
+				</div>
+				<div id="auto-button-group" class="form-group text-center invisible">
+					<button type="button" class="btn btn-primary" onclick="startSession();">Lancer</button>
 				</div>
 			</div>
 			
@@ -398,24 +427,6 @@
 						</tbody>
 					</table>
 					<br/>
-				</div>
-			</div>
-			
-			<div class="jumbotron">
-				<div class="form-check custom-control custom-checkbox">
-					<input id="auto-simulation" type="checkbox" class="custom-control-input"/>
-					<label class="custom-control-label" for="auto-simulation">Simulation automatique</label>
-				</div>
-				<div id="auto-speed-group" class="form-group row invisible">
-					<span id="auto-speed-label" class="col-4">Vitesse: <span id="auto-speed-value">1</span></span>
-					<input id="auto-speed" class="col-8 form-control-range custom-range" type="range" min="1" max="1000" step="1" />					
-				</div>
-				<div id="auto-count-group" class="form-group row invisible">
-					<span id="auto-count-label" class="col-4">Nombre: <span id="auto-count-value">1</span></span>
-					<input id="auto-count" class="col-8 form-control-range custom-range" type="range" min="1" max="10000" step="1" />					
-				</div>
-				<div id="auto-button-group" class="form-group text-center invisible">
-					<button type="button" class="btn btn-primary" onclick="startSession();">Lancer</button>
 				</div>
 			</div>
 		</div>
