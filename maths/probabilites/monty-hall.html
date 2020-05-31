@@ -33,13 +33,14 @@
 			var correctDoor = null;
 			// Wrong door
 			var wrongDoor = null;
+			// Simulation index
+			var simulationIndex = 0;
 			
 			// Auto-simulation
-			var autoSimulation = false;
+			var autoRun = false;
 			// Auto-simulation spped (actions per seconds)
 			var autoSimulationSpeed = 1000;
 			// Auto-simulation run count
-			var autoSimulationIndex = 0;
 			var autoSimulationNb = 1000;
 			
 			// Charts
@@ -56,7 +57,7 @@
 				$('#change-nb').text(session.change.nb);
 				$('#change-freq').text(session.change.freq);
 				
-				if(!autoSimulation || autoSimulationIndex == 2*autoSimulationNb-1 || (autoSimulationIndex+1) % (2*autoSimulationNb/10) == 0){
+				if(!autoRun || simulationIndex == 2*autoSimulationNb-1 || (simulationIndex+1) % (2*autoSimulationNb/10) == 0){
 					keepChart.redraw();
 					changeChart.redraw();
 				}			
@@ -76,7 +77,7 @@
 						freq: 0
 					},
 				};
-				autoSimulationIndex = 0;
+				simulationIndex = 0;
 				keepChart.series[0].setData([]);
 				changeChart.series[0].setData([]);
 				displayResults();
@@ -91,11 +92,9 @@
 				wrongDoor = null;
 				
 				// Update UI
-				if(!autoSimulation){
+				if(!autoRun){
 					// Update rules
-					$('#step-0').show();
-					$('#step-1').addClass('invisible');
-					$('#step-2').addClass('invisible');
+					$('#rules').carousel(0);
 					// Activate buttons
 					$('#btn-door-1').attr('disabled', false).removeClass('btn-info btn-danger btn-success').addClass('btn-secondary');
 					$('#btn-door-2').attr('disabled', false).removeClass('btn-info btn-danger btn-success').addClass('btn-secondary');
@@ -106,7 +105,7 @@
 					$('#img-door-3').attr('src', 'img/door-closed.png');
 				}
 				
-				if(autoSimulation){
+				if(autoRun){
 					setTimeout(function(){
 						var choice = Math.ceil(Math.random() * 3);
 						handleStep0Choice(Math.ceil(Math.random() * 3));
@@ -132,7 +131,7 @@
 				wrongDoor = otherDoors[Math.floor(Math.random() * otherDoors.length)];
 				
 				// Update UI
-				if(!autoSimulation){
+				if(!autoRun){
 					$('#btn-door-' + selectedDoor)
 					.removeClass('btn-secondary')
 					.addClass('btn-info');
@@ -148,16 +147,16 @@
 					// Update rules
 					$('#step-1-selected-door').text(selectedDoor);
 					$('#step-1-wrong-door').text(wrongDoor);
-					$('#step-1').removeClass('invisible');
+					$('#rules').carousel('next');
 				}
 				
 				// Next step
 				step = 1;
 				
-				if(autoSimulation){
+				if(autoRun){
 					setTimeout(function(){
 						var choice = null;
-						if(autoSimulationIndex % 2 == 0){
+						if(simulationIndex % 2 == 0){
 							choice = selectedDoor;
 						}
 						else{
@@ -188,7 +187,7 @@
 				}
 				
 				// Update UI
-				if(!autoSimulation){
+				if(!autoRun){
 					$('#btn-door-' + selectedDoor)
 					.removeClass('btn-info');
 					
@@ -204,6 +203,10 @@
 						.removeClass('btn-secondary')
 						.addClass('btn-success');
 					}
+					$('#btn-door-1').attr('disabled', true);
+					$('#btn-door-2').attr('disabled', true);
+					$('#btn-door-3').attr('disabled', true);
+					
 					
 					if(doorIndex == correctDoor){
 						$('#step-2-label').text('Vous avez gagné!');
@@ -212,7 +215,7 @@
 						$('#step-2-label').text('Vous avez perdu...');
 					}
 					
-					$('#step-2').removeClass('invisible');
+					$('#rules').carousel('next');
 					
 					// Show doors
 					$('#img-door-' + correctDoor).attr('src', 'img/door-opened-car.png');
@@ -220,38 +223,22 @@
 						$('#img-door-' + selectedDoor).attr('src', 'img/door-opened-goat.png');
 				}
 				
+				simulationIndex += 1;
 				displayResults();
 				
-				if(autoSimulation && autoSimulationIndex < 2*autoSimulationNb-1){
-					setTimeout(function(){
-						autoSimulationIndex += 1;
-						startRun();
-					}, 1000 / autoSimulationSpeed);
+				if(autoRun){
+					if(simulationIndex < 2*autoSimulationNb-1){
+						setTimeout(function(){
+							startRun();
+						}, 1000 / autoSimulationSpeed);
+					}
+					else{
+						$('#btn-auto').button('toggle');
+					}
 				}
 			};
 			
-			function handleAutoCheckbox(){
-				if($('#auto-simulation').is(":checked")){
-					$("#auto-count-group").removeClass('invisible');
-					$("#auto-button-group").removeClass('invisible');
-					autoSimulation = true;
-				}
-				else{
-					$("#auto-count-group").addClass('invisible');
-					$("#auto-button-group").addClass('invisible');
-					autoSimulation = false;
-				}
-			}
-			
 			$(document).ready(function(){
-				// Init auto checkbox
-				$('#auto-simulation').change(function(){
-					handleAutoCheckbox();
-				})
-				.prop("checked", false )
-				.trigger('change');
-				handleAutoCheckbox();
-				
 				// Init sliders
 				$("#auto-count")
 				.on('input', function(slideEvt) {
@@ -261,7 +248,19 @@
 				})
 				.val(autoSimulationNb)
 				.trigger('input');
-
+				// Init toggle styles
+				$('#btn-auto').click(function(event){
+					autoRun = !autoRun;
+					if(autoRun){
+						$(this).removeClass('btn-success').addClass('btn-danger').text('Stop');
+						startSession();
+						$("html, body").animate( { scrollTop: $('#results').offset().top }, 1500);
+					}
+					else{
+						$(this).removeClass('btn-danger').addClass('btn-success').text('Lancer');
+					}
+				});
+				
 				// Init charts
 				keepChart = Highcharts.chart('keep-chart', {
 					chart: {
@@ -325,59 +324,80 @@
 		<img src="img/door-opened-goat.png" style="display: none"/>
 		<img src="img/door-opened-car.png" style="display: none"/>
 		
+		<!-- Game -->
+		<h4 class="text-center">Jeu du Monty Hall</h4>
 		<div class="container">
-			<!-- Rules -->
-			<div id="rules" class="jumbotron text-center">
-				<div id="step-0">
-					<p>Trois portes sont devant vous. Derrière l'une d'entre-elles se cache une voiture, et derrière les deux autres se cache une chèvre.</p>
-					<p>Sélectionnez une porte en cliquant sur le bouton en dessous de celle-ci.</p>
-				</div>
-				<div id="step-1" class="invisible">
-					<p>Vous venez de sélectionner la porte <span id="step-1-selected-door" class="badge badge-info">0</span>.</p>
-					<p>Le présentateur vous indique que la voiture ne se trouve pas derrière la porte <span id="step-1-wrong-door" class="badge badge-danger">0</span>.</p>
-					<p>Allez-vous conserver votre choix initial, ou voulez vous changer de porte? Sélectionnez la porte que vous souhaitez ouvrir en cliquant sur le bouton en dessous de celle-ci.</p>
-				</div>
-				<div id="step-2" class="invisible">
-					<p id="step-2-label">0</p>
-					<button type="button" class="btn btn-primary" onclick="startRun();">Nouvelle partie</button>
-				</div>
+			<ul id="tab-list" class="nav nav-pills nav-fill" role="tablist">
+			  	<li class="nav-item">
+			    	<a id="manual-tab" class="nav-link active" href="#manual" data-toggle="tab" role="tab" aria-controls="manual" aria-selected="true">Simulation manuelle</a>
+			  	</li>
+			  	<li class="nav-item">
+			    	<a id="auto-tab" class="nav-link" href="#auto" data-toggle="tab" role="tab" aria-controls="auto" aria-selected="false">Simulation automatique</a>
+			  	</li>
+			</ul>
+			<div id="tab-content" class="tab-content">
+			  	<div class="tab-pane fade show active" id="manual" role="tabpanel" aria-labelledby="manual-tab">
+			  		<!-- Doors -->
+					<div id="doors" class="jumbotron">
+						<div class="row">
+							<div class="col text-center">
+								<img id="img-door-1" src="img/door-closed.png" class="img-fluid"/>
+								<br />
+								<button id="btn-door-1" type="button" class="btn" onclick="selectDoor(1);">Porte 1</button>
+							</div>
+							<div class="col text-center">
+								<img id="img-door-2" src="img/door-closed.png" class="img-fluid"/>
+								<br />
+								<button id="btn-door-2" type="button" class="btn" onclick="selectDoor(2);">Porte 2</button>
+							</div>
+							<div class="col text-center">
+								<img id="img-door-3" src="img/door-closed.png" class="img-fluid" />
+								<br />
+								<button id="btn-door-3" type="button" class="btn" onclick="selectDoor(3);">Porte 3</button>
+							</div>
+						</div>
+						<br/>
+						<!-- Rules -->
+						<div id="rules" class="carousel slide" data-interval="0">
+							<div class="carousel-inner">
+								<div id="step-0" class="carousel-item text-center active">
+									<p>Trois portes sont devant vous. Derrière l'une d'entre-elles se cache une voiture, et derrière les deux autres se cache une chèvre.</p>
+									<p>Sélectionnez une porte en cliquant sur le bouton en dessous de celle-ci.</p>
+								</div>
+								<div id="step-1" class="carousel-item text-center">
+									<p>Vous venez de sélectionner la porte <span id="step-1-selected-door" class="badge badge-info">0</span>.</p>
+									<p>Le présentateur vous indique que la voiture ne se trouve pas derrière la porte <span id="step-1-wrong-door" class="badge badge-danger">0</span>.</p>
+									<p>Allez-vous conserver votre choix initial, ou voulez vous changer de porte? Sélectionnez la porte que vous souhaitez ouvrir en cliquant sur le bouton en dessous de celle-ci.</p>
+								</div>
+								<div id="step-2" class="carousel-item text-center">
+									<p id="step-2-label">0</p>
+									<button id="new-run" type="button" class="btn btn-primary" onclick="startRun();">Nouvelle partie</button>
+								</div>
+							</div>
+						</div>
+					</div>
+			  	</div>
+			 	<div class="tab-pane fade" id="auto" role="tabpanel" aria-labelledby="auto-tab">
+			 		<div class="jumbotron">
+				 		<div class="container">
+				 			<!-- Auto configuration -->
+					 		<div id="auto-count-group" class="form-group text-center">
+								<span id="auto-count-label">Nombre de simulations: <span id="auto-count-value">1</span></span>
+								<input id="auto-count" class="form-control-range custom-range" type="range" min="1" max="10000" step="1" />					
+							</div>
+							<br/>
+							<div id="auto-button-group" class="text-center">
+								<button type="button" id="btn-auto" class="btn btn-success">Lancer</button>
+							</div>
+						</div>
+			 		</div>
+			 	</div>
 			</div>
-			
-			<!-- Doors -->
-			<div id="doors" class="jumbotron row">
-				<div class="col text-center">
-					<img id="img-door-1" src="img/door-closed.png" class="img-fluid"/>
-					<br />
-					<button id="btn-door-1" type="button" class="btn" onclick="selectDoor(1);">Porte 1</button>
-				</div>
-				<div class="col text-center">
-					<img id="img-door-2" src="img/door-closed.png" class="img-fluid"/>
-					<br />
-					<button id="btn-door-2" type="button" class="btn" onclick="selectDoor(2);">Porte 2</button>
-				</div>
-				<div class="col text-center">
-					<img id="img-door-3" src="img/door-closed.png" class="img-fluid" />
-					<br />
-					<button id="btn-door-3" type="button" class="btn" onclick="selectDoor(3);">Porte 3</button>
-				</div>
-			</div>
-			
-			<div class="container">
-				<div class="form-check custom-control custom-checkbox">
-					<input id="auto-simulation" type="checkbox" class="custom-control-input"/>
-					<label class="custom-control-label" for="auto-simulation">Simulation automatique</label>
-				</div>
-				<div id="auto-count-group" class="form-group row invisible">
-					<span id="auto-count-label" class="col-4">Nombre: <span id="auto-count-value">1</span></span>
-					<input id="auto-count" class="col-8 form-control-range custom-range" type="range" min="1" max="10000" step="1" />					
-				</div>
-				<div id="auto-button-group" class="form-group text-center invisible">
-					<button type="button" class="btn btn-primary" onclick="startSession();">Lancer</button>
-				</div>
-			</div>
+
+			<hr/>
 			
 			<!-- Results -->
-			<h4 class="text-center">Résultats</h4>
+			<h4 id="results" class="text-center">Résultats</h4>
 			<div class="row">
 				<div class="col text-center">
 					Conserver le choix
