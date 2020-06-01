@@ -1,0 +1,25 @@
+{
+	"domains": {
+		"Probabilités": {
+			"thumb": "/maths/img/probabilites.png"
+		},
+		"Transformations géométriques": {
+			"thumb": "/maths/img/transformations.png"
+		}
+	},
+	
+	"activities": [
+		{
+			"name": "Jeu de Monty Hall",
+			"url": "probabilites/monty-hall.html",
+			"level": "4e",
+			"domains" : ["Probabilités"]
+		},
+		{
+			"name": "Translations",
+			"url": "translations/game.html",
+			"level": "4e",
+			"domains" : ["Transformations géométriques"]
+		}
+	]
+}
