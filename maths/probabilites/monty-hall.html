@@ -66,10 +66,10 @@
 					if(!autoRun || autoDisplay || simulationIndex == 0 || simulationIndex == 2*autoSimulationNb){
 					    $('#keep-won').text(session.keep.won);
 						$('#keep-nb').text(session.keep.nb);
-						$('#keep-freq').text(session.keep.freq.toPrecision(decimalPlaces));				
+						$('#keep-freq').text(session.keep.freq ? session.keep.freq.toPrecision(decimalPlaces) : '-');				
 						$('#change-won').text(session.change.won);
 						$('#change-nb').text(session.change.nb);
-						$('#change-freq').text(session.change.freq.toPrecision(decimalPlaces));
+						$('#change-freq').text(session.change.freq ? session.change.freq.toPrecision(decimalPlaces) : '-');
 					}
 					
 				   callback();
@@ -107,12 +107,12 @@
 					keep: {
 						won: 0,
 						nb: 0,
-						freq: 0
+						freq: null
 					},
 					change: {
 						won: 0,
 						nb: 0,
-						freq: 0
+						freq: null
 					},
 				};
 				simulationIndex = 0;
@@ -396,7 +396,7 @@
 		<img src="img/door-opened-car.png" style="display: none"/>
 		
 		<!-- Game -->
-		<h4 class="text-center">Jeu du Monty Hall</h4>
+		<h1 class="text-center">Jeu du Monty Hall</h1>
 		<div class="container">
 			<ul id="tab-list" class="nav nav-pills nav-fill" role="tablist">
 			  	<li class="nav-item">
@@ -432,11 +432,11 @@
 						<div id="rules" class="carousel slide" data-interval="0" data-keyboard="false" data-touch="false">
 							<div class="carousel-inner">
 								<div id="step-0" class="carousel-item active">
-									<p>Trois portes sont devant vous. Derrière l'une d'entre-elles se cache une voiture, et derrière les deux autres se cache une chèvre.</p>
+									<p>Trois portes sont devant vous. Derrière la porte gagnante se cache une voiture, et derrière les deux autres se cache une chèvre.</p>
 									<p class="text-center text-primary">Choisissez la porte que vous pensez être gagnante en cliquant sur le bouton en dessous de celle-ci.</p>
 								</div>
 								<div id="step-1" class="carousel-item">
-									<p class="text-center">Vous venez de sélectionner la porte <span class="badge badge-info step-1-selected-door">0</span></p>
+									<p>Vous venez de sélectionner la porte <span class="badge badge-info step-1-selected-door">0</span></p>
 									<p>On vous informe maintenant que la voiture ne se trouve pas derrière la porte <span class="badge badge-danger step-1-wrong-door">0</span></p>
 									<div class="alert alert-success">
 										<h4 class="alert-heading">Questions</h4>
@@ -451,9 +451,9 @@
 									<p class="text-center text-primary">Ouvrez la porte que vous pensez être gagnante en cliquant sur le bouton en dessous de celle-ci.</p>
 								</div>
 								<div id="step-2" class="carousel-item text-center">
-									<p id="step-2-label" class="h4">0</p>
+									<h2 id="step-2-label" ></h2>
 									<div class="alert alert-info text-left">
-										<p>Les tableaux et graphiques ci-dessous représentent les résultats de vos parties. En faisant un grand nombre de parties, les fréquences s'approcheront des probabilités réelles de gagner dans chacun des deux cas.</p>
+										<p>Les tableaux et graphiques ci-dessous représentent les résultats de vos parties. En faisant un très grand nombre de parties, vous pourrez découvrir les probabilités réelles de gagner dans chacun des deux cas: les fréquences de parties gagnées s'approcheront des valeurs réelles.</p>
 										<p>Afin de gagner du temps, pensez à utiliser la simulation automatique!</p>
 									</div>
 									<button id="new-run" type="button" class="btn btn-primary" onclick="startRun();">Faire une nouvelle partie</button>
@@ -515,7 +515,7 @@
 							<tr class="row">
 								<td id="keep-won" class="col">0</td>
 								<td id="keep-nb" class="col">0</td>
-								<td id="keep-freq" class="col font-weight-bold">0</td>
+								<td id="keep-freq" class="col font-weight-bold">-</td>
 							</tr>
 							<tr class="row">
 								<td class="col"><div id="keep-chart" class="w-100"></div></td>
@@ -540,7 +540,7 @@
 							<tr class="row">
 								<td id="change-won" class="col">0</td>
 								<td id="change-nb" class="col">0</td>
-								<td id="change-freq" class="col font-weight-bold">0</td>
+								<td id="change-freq" class="col font-weight-bold">-</td>
 							</tr>
 							<tr class="row">
 								<td class="col"><div id="change-chart" class="w-100"></div></td>
