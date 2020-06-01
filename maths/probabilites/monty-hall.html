@@ -22,6 +22,16 @@
 		<link rel="preload" href="img/door-opened-goat.png" as="image">
 		<link rel="preload" href="img/door-opened-car.png" as="image">
 		
+		<style>
+			.progress-bar {
+			    -webkit-transition: none;
+			    -moz-transition: none;
+			    -ms-transition: none;
+			    -o-transition: none;
+			    transition: none;
+			}​
+		</style>
+		
 		<script>
 			// Session
 			var session = null;
@@ -38,10 +48,12 @@
 			
 			// Auto-simulation
 			var autoRun = false;
-			// Auto-simulation spped (actions per seconds)
-			var autoSimulationSpeed = 1000;
+			// Auto-simulation spped
+			var autoSimulationSpeed = 0;
 			// Auto-simulation run count
 			var autoSimulationNb = 1000;
+			// Auto realtime display
+			var autoDisplay = true;
 			
 			// Charts
 			var keepChart = null;
@@ -49,25 +61,44 @@
 			
 			var decimalPlaces = 6;
 			
-			function displayResults(){
-				$('#keep-won').text(session.keep.won);
-				$('#keep-nb').text(session.keep.nb);
-				$('#keep-freq').text(session.keep.freq.toPrecision(decimalPlaces));				
-				$('#change-won').text(session.change.won);
-				$('#change-nb').text(session.change.nb);
-				$('#change-freq').text(session.change.freq.toPrecision(decimalPlaces));
+			function displayResults(callback){
+				var promiseTables = new Promise (function (callback) {
+					if(!autoRun || autoDisplay || simulationIndex == 0 || simulationIndex == 2*autoSimulationNb){
+					    $('#keep-won').text(session.keep.won);
+						$('#keep-nb').text(session.keep.nb);
+						$('#keep-freq').text(session.keep.freq.toPrecision(decimalPlaces));				
+						$('#change-won').text(session.change.won);
+						$('#change-nb').text(session.change.nb);
+						$('#change-freq').text(session.change.freq.toPrecision(decimalPlaces));
+					}
+					
+				   callback();
+				});
+				var promiseProgress = new Promise(function(callback) {
+					if(autoRun && autoDisplay || simulationIndex == 0 || simulationIndex == 2*autoSimulationNb){
+						$('#auto-progress')
+						.attr('aria-valuenow', simulationIndex)
+						.css("width", (100*simulationIndex / (2*autoSimulationNb)) + '%')
+						.text(Math.round((100*simulationIndex / (2*autoSimulationNb))) + '%');
+					}
+					
+					if(autoDisplay || simulationIndex == 0 || simulationIndex == 2*autoSimulationNb){
+						$('#auto-progress').show();
+						$('#auto-progress-working').hide();
+					}
+					else{
+						$('#auto-progress').hide();
+						$('#auto-progress-working').show();
+					}
+					
+					callback();
+				});
 				
-				if(!autoRun || simulationIndex == 2*autoSimulationNb-1 || (simulationIndex+1) % (2*autoSimulationNb/10) == 0){
-					keepChart.redraw();
-					changeChart.redraw();
-				}
-				
-				if(autoRun && (simulationIndex == 0 || simulationIndex == 2*autoSimulationNb || (simulationIndex+1) % (2*autoSimulationNb/10) == 0)){
-					$('#auto-progress')
-					.attr('aria-valuenow', simulationIndex)
-					.css("width", (100*simulationIndex / (2*autoSimulationNb)) + '%')
-					.text(Math.round((100*simulationIndex / (2*autoSimulationNb))) + '%');
-				}
+				promiseTables
+				.then(promiseProgress)
+				.then(function(){
+					callback();
+				});
 			}
 			
 			function startSession(){
@@ -87,7 +118,9 @@
 				simulationIndex = 0;
 				keepChart.series[0].setData([]);
 				changeChart.series[0].setData([]);
-				displayResults();
+				displayResults(function(){
+					startRun();
+				});
 				startRun();
 			}
 			
@@ -113,10 +146,8 @@
 				}
 				
 				if(autoRun){
-					setTimeout(function(){
-						var choice = Math.ceil(Math.random() * 3);
-						handleStep0Choice(Math.ceil(Math.random() * 3));
-					}, 1000 / autoSimulationSpeed);
+					var choice = Math.ceil(Math.random() * 3);
+					handleStep0Choice(Math.ceil(Math.random() * 3));
 				}
 			}
 			
@@ -165,20 +196,20 @@
 				step = 1;
 				
 				if(autoRun){
-					setTimeout(function(){
-						var choice = null;
-						if(simulationIndex % 2 == 0){
-							choice = selectedDoor;
-						}
-						else{
-							choice = [1,2,3].filter(door => door != selectedDoor && door != wrongDoor)[0];
-						}
-						handleStep1Choice(choice);
-					}, 1000 / autoSimulationSpeed);
+					var choice = null;
+					if(simulationIndex % 2 == 0){
+						choice = selectedDoor;
+					}
+					else{
+						choice = [1,2,3].filter(door => door != selectedDoor && door != wrongDoor)[0];
+					}
+					handleStep1Choice(choice);
 				}
 			};
 			
 			function handleStep1Choice(doorIndex){
+				var autoChartDisplay = !autoRun || autoDisplay || simulationIndex == 0 || simulationIndex == 2*autoSimulationNb;
+				
 				// Update session & rules
 				if(doorIndex == selectedDoor){
 					session.keep.nb += 1;
@@ -186,7 +217,7 @@
 						session.keep.won += 1;
 					}
 					session.keep.freq = session.keep.won / session.keep.nb;
-					keepChart.series[0].addPoint([session.keep.nb, session.keep.freq], false, false);
+					keepChart.series[0].addPoint([session.keep.nb, session.keep.freq], autoChartDisplay, false, false);
 				}
 				else{
 					session.change.nb += 1;
@@ -194,7 +225,7 @@
 						session.change.won += 1;
 					}
 					session.change.freq = session.change.won / session.change.nb;
-					changeChart.series[0].addPoint([session.change.nb, session.change.freq], false, false);
+					changeChart.series[0].addPoint([session.change.nb, session.change.freq], autoChartDisplay, false, false);
 				}
 				
 				// Update UI
@@ -218,7 +249,6 @@
 					$('#btn-door-2').attr('disabled', true);
 					$('#btn-door-3').attr('disabled', true);
 					
-					
 					if(doorIndex == correctDoor){
 						$('#step-2-label').text('Vous avez gagné!');
 					}
@@ -235,19 +265,19 @@
 				}
 				
 				simulationIndex += 1;
-				displayResults();
-				
-				if(autoRun){
-					if(simulationIndex < 2*autoSimulationNb){
-						setTimeout(function(){
-							startRun();
-						}, 1000 / autoSimulationSpeed);
+				displayResults(function(){
+					if(autoRun){
+						if(simulationIndex < 2*autoSimulationNb){
+							setTimeout(function(){
+								startRun();
+							}, autoSimulationSpeed);
+						}
+						else{
+							$('#btn-auto').trigger('click');
+							$('#auto-progress').removeClass('progress-bar-striped progress-bar-animated');
+						}
 					}
-					else{
-						$('#btn-auto').trigger('click');
-						$('#auto-progress').removeClass('progress-bar-striped progress-bar-animated');
-					}
-				}
+				});
 			};
 			
 			$(document).ready(function(){
@@ -261,7 +291,7 @@
 				})
 				.val(autoSimulationNb)
 				.trigger('input');
-				// Init toggle styles
+				// Init toggle auto run
 				$('#btn-auto').click(function(event){
 					autoRun = !autoRun;
 					if(autoRun){
@@ -274,12 +304,31 @@
 						$('#auto-progress').removeClass('progress-bar-striped progress-bar-animated');
 					}
 				});
+				// Init realtime display
+				$('#auto-display').click(function(event){
+					autoDisplay = !autoDisplay;
+					if(autoDisplay){
+						$('#auto-progress').show();
+						$('#auto-progress-working').hide();
+					}
+					else if(autoRun){
+						$('#auto-progress').hide();
+						$('#auto-progress-working').show();
+					}
+				});
+				$('#auto-display').prop('checked', autoDisplay);
 				
 				// Init charts
 				keepChart = Highcharts.chart('keep-chart', {
 					chart: {
-				        zoomType: 'x'
-				    },
+					    animation: false,
+					    zoomType: 'x'
+					},
+					plotOptions: {
+					    series: {
+							animation: false
+				    	}
+				  	},
 				    title: null,
 		            xAxis: {
 		            	title: {
@@ -305,8 +354,14 @@
 		        });
 		        changeChart = Highcharts.chart('change-chart', {
 					chart: {
-				        zoomType: 'x'
-				    },
+					    animation: false,
+					    zoomType: 'y'
+					},
+					plotOptions: {
+					    series: {
+							animation: false
+				    	}
+				  	},
 				    title: null,
 		            xAxis: {
 		            	title: {
@@ -410,19 +465,31 @@
 			 	<div class="tab-pane fade" id="auto" role="tabpanel" aria-labelledby="auto-tab">
 			 		<div class="jumbotron">
 				 		<div class="container">
-				 			<!-- Auto configuration -->
-					 		<div id="auto-count-group" class="form-group text-center">
-								<span id="auto-count-label">Nombre de simulations: <span id="auto-count-value">1</span></span>
-								<input id="auto-count" class="form-control-range custom-range" type="range" min="1" max="2000" step="1" />					
-							</div>
-							<br/>
-							<div id="auto-button-group" class="text-center">
-								<button type="button" id="btn-auto" class="btn btn-success">Lancer</button>
-							</div>
-							<br/>
-							<div class="progress">
-							  	<div id="auto-progress" class="progress-bar bg-success font-weight-bold" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1000"></div>
-							</div>
+				 			<form>
+					 			<!-- Auto configuration -->
+						 		<div class="form-group text-center">
+									<span id="auto-count-label">Nombre de simulations: <span id="auto-count-value">1</span></span>
+									<input id="auto-count" class="form-control-range custom-range" type="range" min="1" max="2000" step="1" />					
+								</div>
+								<br/>
+								<div class="text-center">
+									<button type="button" id="btn-auto" class="btn btn-success">Lancer</button>
+								</div>
+								<br/>
+								<div class="progress">
+								  	<div id="auto-progress" class="progress-bar progress-bar-animated bg-success font-weight-bold" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1000"></div>
+								  	<div id="auto-progress-working" class="progress-bar progress-bar-striped progress-bar-animated bg-secondary font-weight-bold w-100" style="display: none">Simulation en cours...</div>
+								</div>
+								<br/>
+								<div class="text-center">
+									<div class="custom-switch">
+										<input class="custom-control-input" type="checkbox" id="auto-display" />
+										<label class="custom-control-label active" for="auto-display">
+											Afficher les résultats en temps réel (prend beaucoup plus de temps)
+										</label>
+									</div>
+								</div>
+							</form>
 						</div>
 			 		</div>
 			 	</div>
