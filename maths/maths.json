@@ -29,7 +29,7 @@
 			"url": "/maths/probabilites/monty-hall.html",
 			"level": "4e",
 			"domains" : ["Probabilités"],
-			"description": "description",
+			"descriptionHTML": "<p class=\"card-text\">description</p>",
 			"thumb": "/maths/probabilites/img/thumb.png"
 		},
 		{
@@ -37,7 +37,7 @@
 			"url": "/maths/translations/game.html",
 			"level": "4e",
 			"domains" : ["Transformations géométriques"],
-			"description": "description",
+			"descriptionHTML": "<p class=\"card-text\">Un petit jeu pour tester votre compréhension des translations.</p>",
 			"thumb": "/maths/translations/img/thumb.png"
 		}
 	]
