@@ -105,29 +105,34 @@
 					
 					$('#activities-control')
 					.append(
-						$('<a>', {
-							href: '#',
-							click: function(){
-								$('#activities').carousel(i);
-							}
-						})
+						$('<div>', { class: 'col text-center mx-auto' })
 						.append(
-							$('<figure>', { class: 'figure m-2' })
+							$('<a>', {
+								href: '#',
+								class: 'text-center',
+								click: function(){
+									$("html, body").animate( { scrollTop: $('#activities').offset().top }, 1000);
+									$('#activities').carousel(i);
+								}
+							})
 							.append(
-								$('<img>', { 
-									src: activity['thumb'],
-									alt: activity['name'],
-									style: 'object-fit: cover;',
-									width: '100px',
-									height: '100px',
-									class: 'mb-2 figure-img img-fluid rounded'
-								 })
-							)
-							.append(
-								$('<figcaption>', {  class: 'figure-caption text-center' }).append(activity['name'])
-							)
-							.append(
-								$('<figcaption>', {  class: 'figure-caption text-center' }).append('(' + activity['level'] + ')')
+								$('<figure>', { class: 'figure m-2' })
+								.append(
+									$('<img>', { 
+										src: activity['thumb'],
+										alt: activity['name'],
+										style: 'object-fit: cover;',
+										width: '100px',
+										height: '100px',
+										class: 'mb-2 figure-img rounded'
+									 })
+								)
+								.append(
+									$('<figcaption>', {  class: 'figure-caption text-center' }).append(activity['name'])
+								)
+								.append(
+									$('<figcaption>', {  class: 'figure-caption text-center text-break' }).append('(' + activity['level'] + ')')
+								)
 							)
 						)
 					);
@@ -142,7 +147,7 @@
 				<div id="activities" class="carousel slide w-100" data-ride="carousel" data-interval="10000">
         			<div class="carousel-inner"></div>
 				</div>
-				<div id="activities-control" class="w-100 d-flex flex-nowrap text-center" style="overflow-x: auto"></div>
+				<div id="activities-control" class="w-100 row row-cols-2 row-cols-md-4 m-0" style="overflow-x: auto"></div>
 			</div>
 		</div>
 	</body>
