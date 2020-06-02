@@ -5,21 +5,40 @@
 		},
 		"Transformations géométriques": {
 			"thumb": "/maths/img/transformations.png"
+		},
+		"Opérations": {
+			"thumb": "/maths/img/operations.png"
+		},
+		"Equations": {
+			"thumb": "/maths/img/equations.png"
+		},
+		"Polynômes": {
+			"thumb": "/maths/img/polynomes.png"
+		},
+		"Exponentielle": {
+			"thumb": "/maths/img/exponentielle.png"
+		},
+		"Fontions": {
+			"thumb": "/maths/img/fonctions.png"
 		}
 	},
 	
 	"activities": [
 		{
 			"name": "Jeu de Monty Hall",
-			"url": "probabilites/monty-hall.html",
+			"url": "/maths/probabilites/monty-hall.html",
 			"level": "4e",
-			"domains" : ["Probabilités"]
+			"domains" : ["Probabilités"],
+			"description": "description",
+			"thumb": "/maths/probabilites/img/thumb.png"
 		},
 		{
 			"name": "Translations",
-			"url": "translations/game.html",
+			"url": "/maths/translations/game.html",
 			"level": "4e",
-			"domains" : ["Transformations géométriques"]
+			"domains" : ["Transformations géométriques"],
+			"description": "description",
+			"thumb": "/maths/translations/img/thumb.png"
 		}
 	]
 }
