@@ -1,0 +1,12 @@
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+@import "../node_modules/bootstrap/scss/grid";
+	
+.img-thumb-container { width: 100%; position: relative; padding-top: 56.25%; overflow: hidden; }
+.img-thumb-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+
+@for $i from 0 through 10 {
+	.h-maxlines-#{$i} { height: calc(#{$i} * #{$headings-line-height}em); display: -webkit-box; -webkit-line-clamp: #{$i}; -webkit-box-orient: vertical; overflow: hidden; }
+}
