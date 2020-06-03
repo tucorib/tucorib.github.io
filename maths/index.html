@@ -102,7 +102,7 @@
 								)
 								.append(
 									$('<div>', { class: 'text-muted' })
-									.append(activity['notions'].join(', '))
+									.append(activity['notions'].map(function(notion){ return $('<span>', { title: getNotionParents(notion).join(' > '), text: notion })[0].outerHTML; }).join(', '))
 									.append($('<br>'))
 									.append(activity['level'])
 								)
