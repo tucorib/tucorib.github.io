@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr" dir="ltr">
+
+	<head>
+		<meta charset="UTF-8">
+		
+		<!-- Page title -->
+		<title>Probabilités - Monty Hall</title>
+		<!-- Smartphone screen dimension management -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		<!-- Libraries -->
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/darkly/bootstrap.min.css">
+		<link rel="stylesheet" href="/css/bootstrap-thumbnails.css">
+	    <script>
+			var structure = null;
+			
+			function getNotionParents(notion, parents, root){
+				if(parents == null)
+					return getNotionParents(notion, [], structure['notions']);
+				
+				var keys = Object.keys(root);
+				for (var k = 0; k < keys.length; k++) {
+					var key = keys[k];
+					if(key == notion)
+						return parents;
+					else if(root.hasOwnProperty(key) && root[key] != null){
+						var sub = getNotionParents(notion, parents.concat([key]), root[key]);
+						if(sub != null)
+							return sub;
+					}
+				}
+			}
+			
+			// Init tables
+			$.getJSON("maths.json", function(data) {
+				structure = data;
+				
+				$.each(structure['activities'], function(i, activity){
+					var notions = activity['notions'].reduce(function(accumulator, notion){
+						if(structure['domains'].hasOwnProperty(notion)){
+							return accumulator.concat($('<img>', {
+		        				src: structure['domains'][notion]['thumb'],
+		        				class: 'rounded w-100 h-auto',
+		        				alt: notion,
+		        				title: notion,
+        					}));
+						}
+							
+						var parents = getNotionParents(notion);
+						if(parents != null)
+							return parents.reduce(function(parentsAccumulator, _parent){
+								if(parentsAccumulator == null && structure['domains'].hasOwnProperty(_parent)){
+									return accumulator.concat($('<img>', {
+				        				src: structure['domains'][_parent]['thumb'],
+				        				class: 'rounded w-100 h-auto',
+				        				alt: _parent,
+				        				title: _parent,
+		        					}));
+								}
+							}, null);
+		    		}, []);
+		    	
+					$('#activities')
+					.append(
+						$('<a>', { 
+							class: 'col text-decoration-none text-reset mb-5',
+							href: activity['url'],
+						})
+						.append(
+							$('<div>', { class: 'img-thumb-container img-16-9 mb-2 w-100' })
+							.append(
+								$('<img>', { 
+									src: activity['thumb'],
+									alt: activity['name'],
+								 })
+							)
+						)
+						.append(
+							$('<div>', { class: 'row mx-0' })
+							.append(
+								$('<div>', { class: 'col-2 p-0 m-0 mr-2' })
+								.append(notions)
+							)
+							.append(
+								$('<div>', { class: 'col-8 m-0 p-0' })
+								.append(
+									$('<span>', {
+										class: 'font-weight-bold h-maxlines-2 h5 mb-2',
+										title: activity['name'],
+									})
+									.append(activity['name'])
+								)
+								.append(
+									$('<div>', { class: 'mb-1' })
+									.append(activity['descriptionHTML'])
+								)
+								.append(
+									$('<div>', { class: 'text-muted' })
+									.append(activity['notions'].join(', '))
+									.append($('<br>'))
+									.append(activity['level'])
+								)
+							)
+						)	 
+					);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<h4 class="font-weight-bold mb-4">Activités interactives</h4>
+			<div id="activities" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 w-100">
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+{
+	"domains": {
+		"Probabilités": {
+			"thumb": "/maths/img/probabilites.png"
+		},
+		"Transformations géométriques": {
+			"thumb": "/maths/img/transformations.png"
+		},
+		"Opérations": {
+			"thumb": "/maths/img/operations.png"
+		},
+		"Equations": {
+			"thumb": "/maths/img/equations.png"
+		},
+		"Polynômes": {
+			"thumb": "/maths/img/polynomes.png"
+		},
+		"Exponentielle": {
+			"thumb": "/maths/img/exponentielle.png"
+		},
+		"Fontions": {
+			"thumb": "/maths/img/fonctions.png"
+		}
+	},
+	
+	"notions": {
+		"Géométrie": {
+			"Transformations géométriques": {
+				"Translations": null
+			}
+		},
+		"Probabilités": null
+	},
+	
+	"activities": [
+		{
+			"name": "Le jeu de Monty Hall: Une probabilité... improbable!",
+			"url": "/maths/probabilites/monty-hall.html",
+			"level": "4e",
+			"notions" : ["Probabilités"],
+			"descriptionHTML": "<p class=\"card-text\">Trois portes. Une voiture. Deux chèvres. Faites vos jeux!</p>",
+			"thumb": "/maths/probabilites/img/thumb.png",
+			"tags": ["insolite"]
+		},
+		{
+			"name": "Maîtriser les translations, le jeu",
+			"url": "/maths/translations/game.html",
+			"level": "4e",
+			"notions" : ["Translations"],
+			"descriptionHTML": "<p class=\"card-text\">Venez tester votre compréhension des translations.</p>",
+			"thumb": "/maths/translations/img/thumb.png",
+			"tags": ["jeu"]
+		}
+	]
+}
