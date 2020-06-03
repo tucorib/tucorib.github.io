@@ -23,22 +23,33 @@
 		}
 	},
 	
+	"notions": {
+		"Géométrie": {
+			"Transformations géométriques": {
+				"Translations": null
+			}
+		},
+		"Probabilités": null
+	},
+	
 	"activities": [
 		{
-			"name": "Jeu de Monty Hall",
+			"name": "Le jeu de Monty Hall: Une probabilité... improbable!",
 			"url": "/maths/probabilites/monty-hall.html",
 			"level": "4e",
-			"domains" : ["Probabilités"],
-			"descriptionHTML": "<p class=\"card-text\">description</p>",
-			"thumb": "/maths/probabilites/img/thumb.png"
+			"notions" : ["Probabilités"],
+			"descriptionHTML": "<p class=\"card-text\">Trois portes. Une voiture. Deux chèvres. Faites vos jeux!</p>",
+			"thumb": "/maths/probabilites/img/thumb.png",
+			"tags": ["insolite"]
 		},
 		{
-			"name": "Translations",
+			"name": "Maîtriser les translations, le jeu",
 			"url": "/maths/translations/game.html",
 			"level": "4e",
-			"domains" : ["Transformations géométriques"],
-			"descriptionHTML": "<p class=\"card-text\">Un petit jeu pour tester votre compréhension des translations.</p>",
-			"thumb": "/maths/translations/img/thumb.png"
+			"notions" : ["Translations"],
+			"descriptionHTML": "<p class=\"card-text\">Venez tester votre compréhension des translations.</p>",
+			"thumb": "/maths/translations/img/thumb.png",
+			"tags": ["jeu"]
 		}
 	]
 }

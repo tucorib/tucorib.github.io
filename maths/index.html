@@ -15,126 +15,99 @@
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/darkly/bootstrap.min.css">
 		<link rel="stylesheet" href="/css/bootstrap-borders.css">
 	    <script>
 			var structure = null;
+			
+			function getNotionParents(notion, parents, root){
+				if(parents == null)
+					return getNotionParents(notion, [], structure['notions']);
+				
+				var keys = Object.keys(root);
+				for (var k = 0; k < keys.length; k++) {
+					var key = keys[k];
+					if(key == notion)
+						return parents;
+					else if(root.hasOwnProperty(key) && root[key] != null){
+						var sub = getNotionParents(notion, parents.concat([key]), root[key]);
+						if(sub != null)
+							return sub;
+					}
+				}
+			}
 			
 			// Init tables
 			$.getJSON("maths.json", function(data) {
 				structure = data;
 				
 				$.each(structure['activities'], function(i, activity){
-					var domains = activity['domains'].map(function(domain){
-						return $('<img>', {
-	        				src: structure['domains'][domain]['thumb'],
-	        				class: 'rounded',
-	        				alt: domain,
-	        				title: domain,
-	        				width: '48px',
-	        				height: '48px',
-	        			})
-			    	});
-		    	
-					$('#activities .carousel-inner')
-					.append(
-						$('<div>', { class: 'carousel-item' + (i == 0 ? ' active' : '') })
-						.append(
-							$('<div>', {
-								class: 'card mb-3 border-secondary'
-							})
-							.append(
-								$('<div>', { class: 'row m-0'})
-								.append(
-									$('<div>', { class: 'd-flex flex-column col-12 col-md-8 order-last order-md-first p-0' })
-									.append(
-										$('<div>', {
-											class: 'card-header d-flex'
-										})
-										.append(
-											$('<a>', {
-								    			href: activity['url'],
-								    			target: '_blank',
-								    			class: 'font-weight-bold card-title flex-grow-4 h4 mb-0',
-								    			text: activity['name']
-								    		})	
-										)
-										.append(
-											// Social share
-										)
-									)
-									.append(
-										$('<div>', {
-											class: 'card-body'
-										})
-										.append(
-											$('<div>', { class: 'float-right d-flex flex-wrap' })
-											.append(domains)
-										)
-										.append(
-											activity['descriptionHTML']
-										)
-									)
-									.append(
-										$('<div>', {
-											class: 'card-footer text-muted'
-										})
-										.append(
-							    			$('<small>', {
-							    				class: 'float-right',
-							    				text: activity['domains'].join(', ')
-							    			})
-										)
-										.append(
-											$('<small>', {
-							    				text: activity['level']
-							    			})
-										)
-									)
-								)
-								.append(
-									$('<img>', { 
-										src: activity['thumb'],
-										alt: activity['name'],
-										style: 'object-fit: cover;',
-										class: 'p-0 col-12 col-md-4 order-first order-md-last border-radius-top border-md-radius-right m-0 pl-md-0'
-									 })
-								)
-							)
-						)
-					);
-					
-					$('#activities-control')
-					.append(
-						$('<div>', { class: 'col text-center mx-auto' })
-						.append(
-							$('<a>', {
-								href: '#',
-								class: 'text-center',
-								click: function(){
-									$("html, body").animate( { scrollTop: $('#activities').offset().top }, 1000);
-									$('#activities').carousel(i);
+					var notions = activity['notions'].reduce(function(accumulator, notion){
+						if(structure['domains'].hasOwnProperty(notion)){
+							return accumulator.concat($('<img>', {
+		        				src: structure['domains'][notion]['thumb'],
+		        				class: 'rounded w-100 h-auto',
+		        				alt: notion,
+		        				title: notion,
+        					}));
+						}
+							
+						var parents = getNotionParents(notion);
+						if(parents != null)
+							return parents.reduce(function(parentsAccumulator, _parent){
+								if(parentsAccumulator == null && structure['domains'].hasOwnProperty(_parent)){
+									return accumulator.concat($('<img>', {
+				        				src: structure['domains'][_parent]['thumb'],
+				        				class: 'rounded w-100 h-auto',
+				        				alt: _parent,
+				        				title: _parent,
+		        					}));
 								}
-							})
+							}, null);
+		    		}, []);
+		    	
+					$('#activities')
+					.append(
+						$('<a>', { 
+							class: 'col text-decoration-none text-reset mb-5',
+							href: activity['url'],
+						})
+						.append(
+							$('<div>', { class: 'img-thumb-container img-16-9 mb-2 w-100' })
 							.append(
-								$('<figure>', { class: 'figure m-2' })
-								.append(
-									$('<img>', { 
-										src: activity['thumb'],
-										alt: activity['name'],
-										style: 'object-fit: cover;',
-										width: '100px',
-										height: '100px',
-										class: 'mb-2 figure-img rounded'
-									 })
-								)
-								.append(
-									$('<figcaption>', {  class: 'figure-caption text-center' }).append(activity['name'])
-								)
-								.append(
-									$('<figcaption>', {  class: 'figure-caption text-center text-break' }).append('(' + activity['level'] + ')')
-								)
+								$('<img>', { 
+									src: activity['thumb'],
+									alt: activity['name'],
+								 })
 							)
 						)
+						.append(
+							$('<div>', { class: 'row mx-0' })
+							.append(
+								$('<div>', { class: 'col-2 p-0 m-0 mr-2' })
+								.append(notions)
+							)
+							.append(
+								$('<div>', { class: 'col-8 m-0 p-0' })
+								.append(
+									$('<span>', {
+										class: 'font-weight-bold h-maxlines-2 h5 mb-2',
+										title: activity['name'],
+									})
+									.append(activity['name'])
+								)
+								.append(
+									$('<div>', { class: 'mb-1' })
+									.append(activity['descriptionHTML'])
+								)
+								.append(
+									$('<div>', { class: 'text-muted' })
+									.append(activity['notions'].join(', '))
+									.append($('<br>'))
+									.append(activity['level'])
+								)
+							)
+						)	 
 					);
 				});
 			});
@@ -142,12 +115,8 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="jumbotron">
-				<h1>Activités</h1>
-				<div id="activities" class="carousel slide w-100" data-ride="carousel" data-interval="10000">
-        			<div class="carousel-inner"></div>
-				</div>
-				<div id="activities-control" class="w-100 row row-cols-2 row-cols-md-4 m-0" style="overflow-x: auto"></div>
+			<h4 class="font-weight-bold mb-4">Activités interactives</h4>
+			<div id="activities" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 w-100">
 			</div>
 		</div>
 	</body>
