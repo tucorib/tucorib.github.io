@@ -28,7 +28,10 @@ github_username:  jekyll
 markdown: kramdown
 theme: minima
 plugins:
+  - jekyll-include_sass
   - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -41,3 +44,17 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+language: "fr"
+title: "T2S Public"
+
+sass:
+    sass_dir: _includes/scss
+    style: compressed
+   
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
