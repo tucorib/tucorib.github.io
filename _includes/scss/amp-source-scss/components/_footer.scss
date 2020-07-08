@@ -1,0 +1,13 @@
+// Footer
+//
+// Default
+
+@if $enable-amp-footer {
+	footer {
+		min-height: 220px;
+		color: $footer-color;
+		background: $footer-bg;
+		
+		@include font-size($font-size-sm);
+	}
+}

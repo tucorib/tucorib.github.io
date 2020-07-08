@@ -58,3 +58,13 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+
+home:
+  youtube:
+      width: 560
+      height: 315
+      autoplay: false
+  img:
+      width: 560
+      height: 315
+      

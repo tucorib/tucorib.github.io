@@ -1,0 +1,14 @@
+// stylelint-disable declaration-no-important
+
+//
+// Visibility utilities
+//
+@if $enable-amp-visibility {
+	.visible {
+	  visibility: visible;
+	}
+	
+	.invisible {
+	  visibility: hidden;
+	}
+}

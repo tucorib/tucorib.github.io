@@ -1,18 +1,3 @@
-{% assign day = include.date | date: "%-d" %}
-{{- day -}}{% if day == "1" %}<sup>er</sup>{% endif %}
-{% assign m = include.date | date: "%-m" %}
-{% case m %}
-    {% when  '1' %}Janvier
-    {% when  '2' %}Février
-    {% when  '3' %}Mars
-    {% when  '4' %}Avril
-    {% when  '5' %}Mai
-    {% when  '6' %}Juin
-    {% when  '7' %}Juillet
-    {% when  '8' %}Août
-    {% when  '9' %}Septembre
-    {% when '10' %}Octobre
-    {% when '11' %}Novembre
-    {% when '12' %}Décembre
-{% endcase %}
-{{ include.date | date: "%Y" }}
+<amp-date-display datetime="{{ include.date | date: "%Y-%m-%dT%H:%M:%S%z" }}" locale="{{ site.language }}" layout="{{ include.layout }}">
+  <template type="amp-mustache">{% raw %}{{day}} {{monthName}} {{year}}{% endraw %}</template>
+</amp-date-display>

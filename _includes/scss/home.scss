@@ -1,6 +1,5 @@
-@import "typography";
+@import "amp-source-scss/amp-source";
 
-.content {
-	width: 45rem;
-  	margin: 0 auto;
-}
+@import "variables";
+@import "typography";
+@import "layout";

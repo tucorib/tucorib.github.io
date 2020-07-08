@@ -1,0 +1,6 @@
+// stylelint-disable declaration-no-important
+@if $enable-amp-overflow-classes {
+	@each $value in $overflows {
+	  .overflow-#{$value} { overflow: $value; }
+	}
+}
