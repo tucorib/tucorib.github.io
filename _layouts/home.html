@@ -4,31 +4,44 @@ title: test
 ---
 <h1>Actualités</h1>
 
-{% for post in site.posts %}
-	{% if post.youtube %}
-	<amp-youtube data-videoid="{{ post.youtube }}"
+<amp-state id="allArticles"
+         credentials="include"
+         src="/api/feed.json"></amp-state>
+<input class="form-control" type="text" on="input-throttled:AMP.setState({filteredArticles: allArticles.filter(a => ((a.title.toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.description.toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.tags.join(' ').toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.categories.join(' ').toLowerCase().indexOf(event.value.toLowerCase()) != -1) ) ), inputValue: event.value }), top-blog-page.scrollTo(duration=200)" placeholder="🔍 Search" [value]="inputValue">
+
+<amp-list
+  load-more="auto"
+  items="."
+  credentials="include"
+  src="/api/feed.json"
+  [src]="filteredArticles"
+  height="2160"
+  [height]="(1080) * filteredArticles.length"
+  layout="fixed-height"
+  binding="no"
+>
+  <div placeholder>Loading ...</div>
+  <div fallback>Failed to load data.</div>
+  <template type="amp-mustache">
+	<amp-youtube data-videoid="{% raw %}{{youtube}}{% endraw %}"
 		layout="responsive"
 		width="{{ site.home.youtube.width }}"
 		height="{{ site.home.youtube.height }}"
 		{% if site.home.youtube.autoplay %}autoplay{% endif %}>
 	</amp-youtube>
-	{% elsif post.img %}
-	<amp-img alt="{{ post.tag }}"
-		src="{{ post.img }}" 
-		layout="responsive"
-		width="{{ site.home.img.width }}"
-		height="{{ site.home.img.height }}">
-	</amp-img>
-	{% endif %}
 	<div class="post-info">
 		<div class="post-meta">
 			<div style="display: flex">
-				{% include date.html date=post.date layout="flex-item" %}
-				<div class="flex-grow-0">{% for tag in post.tags %}<span class="post-tag">{{ tag }}</span>{% endfor %}</div>
+				<amp-date-display datetime="{% raw %}{{datetime}}{% endraw %}" locale="{{ site.language }}" layout="flex-item">
+			  		<template type="amp-mustache">{% raw %}{{day}} {{monthName}} {{year}}{% endraw %}</template>
+				</amp-date-display>
+							
+				<div class="flex-grow-0">{% raw %}{{#tags}}{% endraw %}<span class="post-tag">{% raw %}{{.}}{% endraw %}</span>{% raw %}{{/tags}}{% endraw %}</div>
 			</div>
 		</div>
-		<h2>{{ post.title }}</h2>
-		{{ post.excerpt }}
+		<h2>{% raw %}{{title}}{% endraw %}</h2>
+		{% raw %}{{description}}{% endraw %}
 	</div>
 	<hr/>
-{% endfor %}
+  </template>
+</amp-list>
