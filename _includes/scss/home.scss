@@ -3,3 +3,13 @@
 @import "variables";
 @import "typography";
 @import "layout";
+
+input.search{
+	@extend .form-control;
+	margin-bottom: $spacer * 1.5;	
+}
+
+amp-youtube{
+	padding-right: 0;	
+}
+

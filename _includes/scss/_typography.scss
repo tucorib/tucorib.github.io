@@ -4,9 +4,6 @@ body {
   line-height: 1.5;
 }
 
-div.post-meta amp-date-display{
-	font-size: 10pt;
-}
-
-span.post-tag{
+.post-date{
+	color: $secondary;
 }
