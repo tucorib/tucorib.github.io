@@ -1,0 +1,12 @@
+@import "variables";
+
+@keyframes glow {
+  from {
+    color: #fff;
+	text-shadow: $flash-text-shadow;
+  }
+  to {
+	color: $flash-color;
+    text-shadow: $flash-text-shadow;
+  }
+}

@@ -1,9 +1,17 @@
 body {
   font-family: "Open Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  font-size: 12pt;
-  line-height: 1.5;
+  font-size: $body-font-size;
+  line-height: $body-line-height;
 }
 
 .post-date{
 	color: $secondary;
+}
+
+.flash{
+	margin-top: $spacer * 0.5;
+	color: $flash-color;
+	text-shadow: $flash-text-shadow; 
+	animation: glow 1s ease-in-out infinite alternate;
+	float: right;
 }

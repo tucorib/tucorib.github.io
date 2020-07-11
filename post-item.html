@@ -1,13 +1,16 @@
 ---
-limit: 20
+limit: 5
 permalink: /api/feed.json
 ---
+{% capture dayago %}{{ "now" | date: "%s" | minus: 86400 }}{% endcapture %}
 [
 	{% for post in site.posts limit: page.limit %}
+	{% capture posttime %}{{ post.date | date: "%s" }}{% endcapture %}
 	{
 		"title": "{{ post.title }}",
 		"description": "{{ post.description }}",
 		"datetime": "{{ post.datetime }}",
+		"flash": {% if posttime > dayago %}"visible"{% else %}"invisible"{% endif %},
 		{% if post.link %}
 		"link": "{{ post.link }}",
 		{% endif %}

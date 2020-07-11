@@ -4,7 +4,7 @@ body{
 }
 	
 div.wrapper{
-	max-width: 985px;
+	max-width: $wrapper-max-width;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -21,5 +21,19 @@ span.post-tag{
 }
 
 hr{
-	border-color: rgb(48, 52, 54);	
+	background: $hr-background;
+	height: 1px;
+}
+
+input.search{
+	border-color: $main-color;
+	background: transparent;	
+}
+
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
 }
