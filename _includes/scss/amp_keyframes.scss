@@ -2,11 +2,11 @@
 
 @keyframes glow {
   from {
-    color: #fff;
-	text-shadow: $flash-text-shadow;
+    color: $body-color;
+	text-shadow: $flash-text-shadow-from;
   }
   to {
 	color: $flash-color;
-    text-shadow: $flash-text-shadow;
+    text-shadow: $flash-text-shadow-to;
   }
 }

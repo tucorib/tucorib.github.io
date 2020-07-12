@@ -1,9 +1,9 @@
-<amp-mega-menu height="50" layout="fixed-height">
+<amp-mega-menu height="40px" layout="fixed-height">
   	<nav>
     	<ul>
     		{% for nav in site.data.navigation %}
     		<li {% if page.url == nav.link %}class="active"{% endif %}>
-	        	<a href="{{ nav.link }}">{{ nav.name }}</a>
+	        	<a href="{{ nav.link }}"><i class="nav-icon {{ nav.icon }}" aria-hidden="true"></i></a>
 	      	</li>
     		{% endfor %}
     	</ul>

@@ -21,6 +21,11 @@ nav{
 
 amp-mega-menu nav{
 	background-color: transparent;
+	border: 1px solid $main-color;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	height: 100%;
 }
 
 nav ul{
@@ -45,7 +50,13 @@ nav ul li a{
 	width: 100%;
 	height: 100%;	
 	display: block;
-	padding: $spacer;
+	padding: $spacer * 0.5;
+}
+
+.nav-icon{
+	@extend .h3;
+	margin-bottom: 0;
+	margin-right: $spacer * 0.5;	
 }
 
 a:hover{

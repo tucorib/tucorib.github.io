@@ -1,6 +1,12 @@
 - name: Accueil
+  icon: "fa fa-home"
   link: /
 - name: Actualités
+  icon: "fa fa-rss"
   link: /news/
+- name: Jeux
+  icon: "fa fa-gamepad"
+  link: /games/
 - name: A Propos
+  icon: "fa fa-question"
   link: /about/
