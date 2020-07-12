@@ -58,6 +58,8 @@ defaults:
       layout: "post"
 
 home:
+  carousel:
+    delay: 8000
   youtube:
       width: 560
       height: 315

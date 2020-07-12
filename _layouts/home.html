@@ -1,49 +1,17 @@
 ---
 layout: amp
-title: test
 ---
-<h1>Actualités</h1>
 
-<amp-state id="allArticles"
-         credentials="include"
-         src="/api/feed.json"></amp-state>
-<input class="search" type="text" on="input-throttled:AMP.setState({filteredArticles: allArticles.filter(a => ((a.title.toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.description.toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.tags.join(' ').toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.categories.join(' ').toLowerCase().indexOf(event.value.toLowerCase()) != -1) ) ), inputValue: event.value }), top-blog-page.scrollTo(duration=200)" placeholder="🔍 Rechercher" [value]="inputValue">
+<h2>Dernières actualités</h2>
 
-<amp-list
-  load-more="auto"
-  items="."
-  credentials="include"
-  src="/api/feed.json"
-  [src]="filteredArticles"
-  height="2160"
-  [height]="(1080) * filteredArticles.length"
-  layout="fixed-height"
-  binding="no"
->
-  <div placeholder>Loading ...</div>
-  <div fallback>Failed to load data.</div>
-  <template type="amp-mustache">
-  	<div class="container-fluid">
-		  	<div class="row">
-			  	<amp-youtube data-videoid="{% raw %}{{youtube}}{% endraw %}"
-					layout="responsive"
-					width="{{ site.home.youtube.width }}"
-					height="{{ site.home.youtube.height }}"
-					class="col-md-4 col-12"
-					dock
-					{% if site.home.youtube.autoplay %}autoplay{% endif %}>
-				</amp-youtube>
-		  		<div class="col-md-8 col-12 post-infos">
-			  		<span class="flash h3 {% raw %}{{flash}}{% endraw %}" title="Moins d'un jour"><i class="fa fa-bolt" aria-hidden="true"></i></span>
-			  		<h1 class="h2">{% raw %}{{title}}{% endraw %}</h1>
-					<div>{% raw %}{{#tags}}{% endraw %}<span class="post-tag">{% raw %}{{.}}{% endraw %}</span>{% raw %}{{/tags}}{% endraw %}</div>
-					<amp-date-display datetime="{% raw %}{{datetime}}{% endraw %}" locale="{{ site.language }}" layout="flex-item">
-				  		<template type="amp-mustache"><small class="post-date">{% raw %}{{day}} {{monthName}} {{year}}{% endraw %}</small></template>
-					</amp-date-display>
-					{% raw %}{{description}}{% endraw %}
-		  		</div>
-		  	</div>
-	</div>
-	<hr/>
-  </template>
-</amp-list>
+<amp-carousel height="{{ site.home.youtube.height }}"
+  	layout="fixed-height"
+  	type="slides"
+  	autoplay
+  	loop
+  	delay="{{ site.home.carousel.delay }}">
+  	{% for post in site.posts limit:3 %}
+  		{% include post-item-include.html post=post %}
+  	{% endfor %}
+  	</template>
+</amp-carousel>

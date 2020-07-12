@@ -9,6 +9,50 @@ div.wrapper{
 	margin-right: auto;
 }
 
+amp-mega-menu{
+	margin-bottom: $spacer;
+}
+
+nav{
+	max-width: $wrapper-max-width;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+amp-mega-menu nav{
+	background-color: transparent;
+}
+
+nav ul{
+	display: flex;
+	padding-left: 0;
+}
+
+nav ul li{
+	flex-grow: 1;
+	text-align: center;
+	padding: 0;
+	font-weight: bold;
+	@extend .h3;
+	color: $body-color;
+}
+
+nav ul li.active{
+	background-color: $main-color;
+}
+
+nav ul li a{
+	width: 100%;
+	height: 100%;	
+	display: block;
+	padding: $spacer;
+}
+
+a:hover{
+	text-decoration: none;	
+	color: $main-color;
+}
+
 div.post-meta{
 	margin-top: auto;
 }

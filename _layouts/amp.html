@@ -2,7 +2,7 @@
 <html ⚡ lang="{{ site.language }}">
   	<head>
     	<meta charset="utf-8">
-    	<title>{{ site.title }}</title>
+    	<title>{{ site.title }} | {{ page.title }}</title>
     	<link rel="shortcut icon" href="/static/img/amp_favicon.png">
     	{% if page.description %}
     	<meta property="og:description" content="{{ page.description }}">
@@ -12,7 +12,11 @@
     	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     	<link href="https://fonts.googleapis.com/css?family=Open Sans:300,400,600,700,800" rel="stylesheet" type="text/css">
     	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    	<style amp-custom>{% include_sass scss/home.scss %}</style>
+    	{% if page.scss != nil %} 
+    	<style amp-custom>
+    	{% include_sass {{ page.scss }} %}
+    	</style>
+    	{% endif %}
     	{% feed_meta %}
     	{% seo %}
     	
@@ -33,7 +37,7 @@
 	    <noscript><style amp-boilerplate>{% include_sass scss/amp_noscript_boilerplate.scss %}</style></noscript>
 	    <style amp-keyframes>{% include_sass scss/amp_keyframes.scss %}</style>
     	<script async src="https://cdn.ampproject.org/v0.js"></script>
-    	<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    	<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
 		<script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
 	  	<script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
 	  	<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
@@ -43,10 +47,13 @@
 	  	<script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
 	  	<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
 	  	<script async custom-element="amp-video-docking" src="https://cdn.ampproject.org/v0/amp-video-docking-0.1.js"></script>
+	  	<script async custom-element="amp-mega-menu" src="https://cdn.ampproject.org/v0/amp-mega-menu-0.1.js"></script>
+	  	
   	</head>
   	<body>
+  		{% include navigation.html %}
   		<div class="wrapper">
-    	{{ content }}
+    		{{ content }}
     	</div>
   	</body>
 </html>

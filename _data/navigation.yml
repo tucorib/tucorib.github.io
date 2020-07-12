@@ -1,4 +1,6 @@
-- name: Home
+- name: Accueil
   link: /
-- name: About
-  link: /about.html
+- name: Actualités
+  link: /news/
+- name: A Propos
+  link: /about/

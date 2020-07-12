@@ -5,3 +5,9 @@
 @import "layout";
 
 @import "utilities/post-item";
+
+input.search{
+	@extend .form-control;
+	margin-bottom: $spacer * 1.5;	
+}
+

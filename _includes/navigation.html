@@ -1,0 +1,11 @@
+<amp-mega-menu height="50" layout="fixed-height">
+  	<nav>
+    	<ul>
+    		{% for nav in site.data.navigation %}
+    		<li {% if page.url == nav.link %}class="active"{% endif %}>
+	        	<a href="{{ nav.link }}">{{ nav.name }}</a>
+	      	</li>
+    		{% endfor %}
+    	</ul>
+  	</nav>
+</amp-mega-menu>
