@@ -46,6 +46,7 @@ plugins:
 #   - vendor/ruby/
 
 language: "fr"
+future: false
 sass:
     sass_dir: _includes/scss
     style: compressed
