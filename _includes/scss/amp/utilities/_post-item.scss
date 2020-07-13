@@ -1,0 +1,23 @@
+.flash{
+	margin-top: $spacer;
+	margin-right: $spacer;
+}
+
+amp-youtube{
+	padding-right: 0;	
+}
+
+h2{
+	margin-bottom: 0;
+}
+
+div.post-meta{
+	margin-top: auto;
+}
+
+span.post-tag{
+	@extend .badge;
+	@extend .badge-pill;
+	@extend .badge-dark;
+	margin-right: $spacer * 0.5;
+}

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <!doctype html>
 <html ⚡ lang="{{ site.language }}">
   	<head>
@@ -14,7 +15,7 @@
     	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     	{% if page.scss != nil %} 
     	<style amp-custom>
-    	{% include_sass {{ page.scss }} %}
+    	{% include_sass scss/amp.scss %}
     	</style>
     	{% endif %}
     	{% feed_meta %}
@@ -33,9 +34,9 @@
 	        ]
 	      }
 	    </script>
-	    <style amp-boilerplate>{% include_sass scss/amp_boilerplate.scss %}</style>
-	    <noscript><style amp-boilerplate>{% include_sass scss/amp_noscript_boilerplate.scss %}</style></noscript>
-	    <style amp-keyframes>{% include_sass scss/amp_keyframes.scss %}</style>
+	    <style amp-boilerplate>{% include_sass scss/amp/amp_boilerplate.scss %}</style>
+	    <noscript><style amp-boilerplate>{% include_sass scss/amp/amp_noscript_boilerplate.scss %}</style></noscript>
+	    <style amp-keyframes>{% include_sass scss/amp/amp_keyframes.scss %}</style>
     	<script async src="https://cdn.ampproject.org/v0.js"></script>
     	<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
 		<script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>

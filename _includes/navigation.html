@@ -3,7 +3,7 @@
     	<ul>
     		{% for nav in site.data.navigation %}
     		<li {% if page.url == nav.link %}class="active"{% endif %}>
-	        	<a href="{{ nav.link }}"><i class="nav-icon {{ nav.icon }}" aria-hidden="true"></i></a>
+	        	<a href="{{ nav.link }}" title="{{ nav.name }}" ><i class="nav-icon {{ nav.icon }} fa-2x" aria-hidden="true"></i></a>
 	      	</li>
     		{% endfor %}
     	</ul>

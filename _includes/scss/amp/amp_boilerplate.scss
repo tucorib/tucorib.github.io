@@ -1,4 +1,5 @@
-@import "variables";
+@import "common/variables";
+@import "amp/variables";
 
 body {
         -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;

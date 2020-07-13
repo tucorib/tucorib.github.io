@@ -50,13 +50,13 @@ future: false
 sass:
     sass_dir: _includes/scss
     style: compressed
-   
+
 defaults:
   - scope:
       path: ""
       type: "posts"
     values:
-      layout: "post"
+      layout: "empty"
 
 home:
   carousel:

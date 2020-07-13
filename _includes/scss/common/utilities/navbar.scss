@@ -1,0 +1,40 @@
+nav{
+	max-width: $wrapper-max-width;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid $main-color;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	height: 100%;
+}
+
+nav ul{
+	display: flex;
+	height: 100%;
+	padding-left: 0;
+}
+
+nav ul li{
+	flex-grow: 1;
+	height: 100%;
+	text-align: center;
+	padding: 0;
+	font-weight: bold;
+	color: $body-color;
+}
+
+nav ul li.active{
+	background-color: $main-color;
+}
+
+nav ul li a{
+	width: 100%;
+	height: 100%;	
+	display: block;
+	padding: 0;
+}
+
+.nav-icon{
+	line-height: $body-line-height / 1.2;
+}

@@ -1,11 +1,5 @@
-body {
-  font-family: $font-family;
-  font-size: $body-font-size;
-  line-height: $body-line-height;
-}
-
 .post-date{
-	color: $secondary;
+	color: #6c757d;
 }
 
 .flash{
@@ -13,8 +7,4 @@ body {
 	text-shadow: $flash-text-shadow-from; 
 	animation: glow 1s ease-in-out infinite alternate;
 	float: right;
-}
-
-a{
-	color: $body-color;
 }

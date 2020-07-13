@@ -8,14 +8,16 @@
 			dock
 			{% if site.home.youtube.autoplay %}autoplay{% endif %}>
 		</amp-youtube>
-  		<div class="col-md-8 col-12 post-infos">
-	  		<span class="flash h3 {% raw %}{{flash}}{% endraw %}" title="Moins d'une semaine"><i class="fa fa-bolt" aria-hidden="true"></i></span>
-	  		<h2>{% raw %}{{title}}{% endraw %}</h2>
-			<amp-date-display datetime="{% raw %}{{datetime}}{% endraw %}" locale="{{ site.language }}" layout="flex-item">
-		  		<template type="amp-mustache"><small class="post-date">{% raw %}{{day}} {{monthName}} {{year}}{% endraw %}</small></template>
-			</amp-date-display>
-			<div>{% raw %}{{#tags}}{% endraw %}<span class="post-tag">{% raw %}{{.}}{% endraw %}</span>{% raw %}{{/tags}}{% endraw %}</div>
-			<p class="text-justify">{% raw %}{{description}}{% endraw %}</p>
-  		</div>
+		<a href="{% raw %}{{url}}{% endraw %}"  class="col-md-8 col-12">
+	  		<div class="post-infos">
+		  		<span class="flash h3 {% raw %}{{flash}}{% endraw %}" title="Moins d'une semaine"><i class="fa fa-bolt" aria-hidden="true"></i></span>
+		  		<h2>{% raw %}{{title}}{% endraw %}</h2>
+				<amp-date-display datetime="{% raw %}{{datetime}}{% endraw %}" locale="{{ site.language }}" layout="flex-item">
+			  		<template type="amp-mustache"><small class="post-date">{% raw %}{{day}} {{monthName}} {{year}}{% endraw %}</small></template>
+				</amp-date-display>
+				<div>{% raw %}{{#tags}}{% endraw %}<span class="post-tag">{% raw %}{{.}}{% endraw %}</span>{% raw %}{{/tags}}{% endraw %}</div>
+				<p class="text-justify">{% raw %}{{description}}{% endraw %}</p>
+	  		</div>
+  		</a>
   	</div>
 </div>
