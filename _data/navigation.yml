@@ -1,9 +1,9 @@
 - name: Accueil
-  icon: "fa fa-home"
+  icon: "fas fa-home"
   link: /
 - name: Actualités
-  icon: "fa fa-rss"
+  icon: "fas fa-rss"
   link: /news/
 - name: A Propos
-  icon: "fa fa-question"
+  icon: "fas fa-address-card"
   link: /about/
