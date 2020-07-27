@@ -4,7 +4,20 @@ layout: amp
 
 <h2>Dernières actualités</h2>
 
-<amp-carousel height="{{ site.home.youtube.height }}"
+<amp-carousel height="{{ site.home.carousel.height_sm }}"
+	media="{{ site.device.sm }}"
+  	layout="fixed-height"
+  	type="slides"
+  	autoplay
+  	loop
+  	delay="{{ site.home.carousel.delay }}">
+  	{% for post in site.posts limit:3 %}
+  		{% include post-item-include.html post=post %}
+  	{% endfor %}
+  	</template>
+</amp-carousel>
+<amp-carousel height="{{ site.home.carousel.height_xl }}"
+  	media="{{ site.device.xl }}"
   	layout="fixed-height"
   	type="slides"
   	autoplay
@@ -17,3 +30,5 @@ layout: amp
 </amp-carousel>
 
 <h2>Besoin de cours en ligne?</h2>
+
+Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.

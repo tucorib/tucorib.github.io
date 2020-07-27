@@ -58,9 +58,15 @@ defaults:
     values:
       layout: "empty"
 
+device:
+  sm: "(max-width: 768px)"
+  xl: "(min-width: 768px)"
+  
 home:
   carousel:
     delay: 8000
+    height_sm: 377
+    height_xl: 250
   youtube:
       width: 560
       height: 315
