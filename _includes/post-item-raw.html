@@ -12,9 +12,17 @@
 	  		<div class="post-infos">
 		  		<span class="flash h3 {% raw %}{{flash}}{% endraw %}" title="Moins d'une semaine"><i class="fa fa-bolt" aria-hidden="true"></i></span>
 		  		<h2>{% raw %}{{title}}{% endraw %}</h2>
-				<amp-date-display datetime="{% raw %}{{datetime}}{% endraw %}" locale="{{ site.language }}" layout="flex-item">
-			  		<template type="amp-mustache"><small class="post-date">{% raw %}{{day}} {{monthName}} {{year}}{% endraw %}</small></template>
-				</amp-date-display>
+				<span class="post-meta">
+					<amp-date-display datetime="{% raw %}{{datetime}}{% endraw %}" locale="{{ site.language }}" layout="flex-item">
+				  		<template type="amp-mustache">
+				  			<small class="post-date">
+				  				{% raw %}{{day}} {{monthName}} {{year}}{% endraw %}
+			  				</small>
+		  				</template>
+					</amp-date-display>
+					<div>/</div>
+  					<div><small>Niveau conseillé: <span class="post-level">{% raw %}{{level}}{% endraw %}</span></small></div>
+				</span>
 				<div>{% raw %}{{#tags}}{% endraw %}<span class="post-tag">{% raw %}{{.}}{% endraw %}</span>{% raw %}{{/tags}}{% endraw %}</div>
 				<p class="text-justify">{% raw %}{{description}}{% endraw %}</p>
 	  		</div>

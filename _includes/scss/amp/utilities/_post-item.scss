@@ -11,8 +11,13 @@ h2{
 	margin-bottom: 0;
 }
 
-div.post-meta{
-	margin-top: auto;
+.post-meta div{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.i-amphtml-layout-flex-item, [layout="flex-item"]:not(.i-amphtml-layout-flex-item){
+	display: inline-block;	
 }
 
 span.post-tag{
@@ -20,4 +25,5 @@ span.post-tag{
 	@extend .badge-pill;
 	@extend .badge-dark;
 	margin-right: $spacer * 0.5;
+	margin-bottom: $spacer * 0.5;
 }

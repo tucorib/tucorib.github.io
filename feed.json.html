@@ -25,6 +25,7 @@ permalink: /api/feed.json
 		"categories"  : [],
 		{% endif %}
 		"url": "{{ post.url }}",
+		"level": "{{ post.level }}",
 		{% if post.tags %}
 		"tags": [
 			{% for tag in post.tags %}
