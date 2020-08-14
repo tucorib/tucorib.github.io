@@ -1,0 +1,19 @@
+body {
+  	font-family: $font-family;
+  	font-size: $body-font-size;
+  	line-height: $body-line-height;
+}
+
+a{
+	color: $body-color;
+}
+
+a:hover{
+	text-decoration: none;	
+	color: $main-color;
+}
+
+em{
+	font-weight: bolder;
+	font-style: normal;
+}

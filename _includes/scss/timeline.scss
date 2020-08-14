@@ -1,0 +1,14 @@
+.timeline-image {
+    border: 7px solid $main-color;
+    border-radius: 100%;
+    background-color: $main-color;
+    width: 120px;
+    height: 120px;
+}
+@media only screen and (max-width:767px){
+	.timeline-image {
+		border-width: 4px;
+		width: 60px;
+    	height: 60px;
+	}
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Allow /contact/
+Sitemap: https://tucorib.github.io/sitemap.xml

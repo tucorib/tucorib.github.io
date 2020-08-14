@@ -1,0 +1,9 @@
+- name: Accueil
+  icon: "fas fa-home"
+  link: /
+- name: Actualités
+  icon: "fas fa-rss"
+  link: /news/
+- name: Me contacter
+  icon: "fas fa-address-card"
+  link: /contact/
