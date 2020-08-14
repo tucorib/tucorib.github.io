@@ -4,6 +4,6 @@
 - name: Actualités
   icon: "fas fa-rss"
   link: /news/
-- name: A Propos
+- name: Me contacter
   icon: "fas fa-address-card"
-  link: /about/
+  link: /contact/

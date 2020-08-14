@@ -1,6 +1,8 @@
 ---
 layout: amp
 ---
+{% assign psize = site.posts | size %}
+{% if psize > 0 %}
 <amp-state id="allArticles"
          credentials="include"
          src="/api/feed.json"></amp-state>
@@ -18,9 +20,12 @@ layout: amp
   binding="no"
 >
   <div placeholder>Chargement ...</div>
-  <div fallback>Failed to load data.</div>
+  <div fallback><p class="text-center">Un problème est survenu!</p></div>
   <template type="amp-mustache">
   	{% include post-item-raw.html %}
   	<hr />
   </template>
 </amp-list>
+{% else %}
+<p class="text-center">Bientôt la première vidéo de la chaîne Youtube!</p>
+{% endif %}
