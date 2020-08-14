@@ -1,0 +1,156 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 12pt;
+  line-height: 1.5;
+}
+
+a {
+  color: #fff;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #8d1597;
+}
+
+em {
+  font-weight: bolder;
+  font-style: normal;
+}
+
+body {
+  background-color: #181a1b;
+  color: #fff;
+}
+
+div.wrapper {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+hr {
+  background: linear-gradient(to right, #181a1b, #8d1597);
+  height: 1px;
+}
+
+hr.hr-offer {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  height: 1px;
+}
+
+hr.hr-secondary {
+  background: #6c757d;
+}
+
+hr.hr-success {
+  background: #28a745;
+}
+
+input.search {
+  border-color: #8d1597;
+  background: transparent;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.btn-primary, .bg-primary {
+  background: #8d1597;
+  border-color: #8d1597;
+}
+
+ul li {
+  margin-bottom: 1rem;
+}
+
+nav {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #8d1597;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  height: 100%;
+}
+
+nav ul {
+  display: flex;
+  height: 100%;
+  padding-left: 0;
+}
+
+nav ul li {
+  flex-grow: 1;
+  height: 100%;
+  text-align: center;
+  padding: 0;
+  font-weight: bold;
+  color: #fff;
+}
+
+nav ul li.active {
+  background-color: #8d1597;
+}
+
+nav ul li a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding: 0;
+}
+
+.nav-icon {
+  line-height: 1.25;
+}
+
+body {
+  background-color: #181a1b !important;
+  color: #fff !important;
+}
+
+div.wrapper {
+  max-width: 1140px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+hr {
+  background: linear-gradient(to right, #181a1b, #8d1597) !important;
+  height: 1px !important;
+}
+
+input.search {
+  border-color: #8d1597 !important;
+  background: transparent !important;
+}
+
+.jumbotron, .modal-content {
+  background-color: #121212 !important;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  background-color: #8d1597 !important;
+}
+
+a {
+  color: #fff !important;
+}
+
+button.btn-primary {
+  background-color: #8d1597 !important;
+  border-color: #8d1597 !important;
+}
+
+a.text-primary, span.text-primary, p.text-primary {
+  color: #8d1597 !important;
+}
+
+/*# sourceMappingURL=game.css.map */
