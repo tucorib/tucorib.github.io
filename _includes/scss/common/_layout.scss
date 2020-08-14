@@ -26,3 +26,12 @@ input.search{
 .invisible {
   visibility: hidden;
 }
+
+.btn-primary{
+	background: $main-color;
+	border-color: $main-color;
+}
+
+ul li{
+	margin-bottom: $spacer * 1;	
+}
