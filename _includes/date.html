@@ -1,0 +1,3 @@
+<amp-date-display datetime="{{ include.date | date: "%Y-%m-%dT%H:%M:%S%z" }}" locale="{{ site.language }}" layout="{{ include.layout }}">
+  <template type="amp-mustache">{% raw %}{{day}} {{monthName}} {{year}}{% endraw %}</template>
+</amp-date-display>

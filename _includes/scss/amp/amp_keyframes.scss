@@ -1,0 +1,13 @@
+@import "common/variables";
+@import "amp/variables";
+
+@keyframes glow {
+  from {
+    color: $body-color;
+	text-shadow: $flash-text-shadow-from;
+  }
+  to {
+	color: $flash-color;
+    text-shadow: $flash-text-shadow-to;
+  }
+}

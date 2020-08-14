@@ -1,0 +1,31 @@
+{% capture weekago %}{{ "now" | date: "%s" | minus: 604800 }}{% endcapture %}
+{% capture posttime %}{{ post.date | date: "%s" }}{% endcapture %}
+<div class="container-fluid">
+  	<div class="row">
+	  	<amp-youtube data-videoid="{{ include.post.youtube }}"
+			layout="responsive"
+			width="{{ site.home.youtube.width }}"
+			height="{{ site.home.youtube.height }}"
+			class="col-md-4 col-12"
+			dock
+			{% if site.home.youtube.autoplay %}autoplay{% endif %}>
+		</amp-youtube>
+  		<div class="col-md-8 col-12 post-infos">
+	  		<span class="flash h3 {% if posttime > weekago %}visible{% else %}invisible{% endif %}" title="Moins d'une semaine"><i class="fa fa-bolt" aria-hidden="true"></i></span>
+	  		<h2>{{ include.post.title }}</h2>
+	  		<span class="post-meta">
+				<amp-date-display datetime="{{ include.post.datetime }}" locale="{{ site.language }}" layout="flex-item">
+			  		<template type="amp-mustache">
+			  			<small class="post-date">
+			  				{% raw %}{{day}} {{monthName}} {{year}}{% endraw %}
+		  				</small>
+		  			</template>
+				</amp-date-display>
+				<div>/</div>
+  				<div><small>Niveau conseillé: <span class="post-level">{{ include.post.level }}</span></small></div>
+			</span>
+			<div>{% for tag in  include.post.tags %}<span class="post-tag">{{ tag }}</span>{% endfor %}</div>
+			<p class="text-justify">{{ include.post.description }}</p>
+  		</div>
+  	</div>
+</div>

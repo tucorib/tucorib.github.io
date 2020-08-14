@@ -1,0 +1,31 @@
+---
+layout: amp
+---
+{% assign psize = site.posts | size %}
+{% if psize > 0 %}
+<amp-state id="allArticles"
+         credentials="include"
+         src="/api/feed.json"></amp-state>
+<input class="search" type="text" on="input-throttled:AMP.setState({filteredArticles: allArticles.filter(a => ((a.title.toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.description.toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.tags.join(' ').toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.categories.join(' ').toLowerCase().indexOf(event.value.toLowerCase()) != -1) ) ), inputValue: event.value }), top-blog-page.scrollTo(duration=200)" placeholder="🔍 Rechercher" [value]="inputValue">
+
+<amp-list
+  load-more="auto"
+  items="."
+  credentials="include"
+  src="/api/feed.json"
+  [src]="filteredArticles"
+  height="2160"
+  [height]="(1080) * filteredArticles.length"
+  layout="fixed-height"
+  binding="no"
+>
+  <div placeholder>Chargement ...</div>
+  <div fallback><p class="text-center">Un problème est survenu!</p></div>
+  <template type="amp-mustache">
+  	{% include post-item-raw.html %}
+  	<hr />
+  </template>
+</amp-list>
+{% else %}
+<p class="text-center">Des vidéos mathématiques et ludiques sont en préparation sur la chaîne Youtube...</p>
+{% endif %}

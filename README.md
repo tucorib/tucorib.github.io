@@ -1,1 +1,0 @@
-# tucorib.github.io
