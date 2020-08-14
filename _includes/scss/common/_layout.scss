@@ -14,6 +14,20 @@ hr{
 	height: 1px;
 }
 
+hr.hr-offer{
+	margin-top: $spacer*0.5;
+	margin-bottom: $spacer*0.5;
+	height: 1px;
+}
+
+hr.hr-secondary{
+	background: #6c757d;	
+}
+
+hr.hr-success{
+	background: #28a745;	
+}
+
 input.search{
 	border-color: $main-color;
 	background: transparent;	
@@ -27,7 +41,7 @@ input.search{
   visibility: hidden;
 }
 
-.btn-primary{
+.btn-primary,.bg-primary{
 	background: $main-color;
 	border-color: $main-color;
 }
