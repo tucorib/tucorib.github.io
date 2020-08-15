@@ -14,10 +14,10 @@
     *::before,
     *::after {
       // Bootstrap specific; comment out `color` and `background`
-      //color: $black !important; // Black prints faster
-      text-shadow: none !important;
-      //background: transparent !important;
-      box-shadow: none !important;
+      //color: $black ; // Black prints faster
+      text-shadow: none ;
+      //background: transparent ;
+      box-shadow: none ;
     }
 
     a {
@@ -47,7 +47,7 @@
     //}
 
     pre {
-      white-space: pre-wrap !important;
+      white-space: pre-wrap ;
     }
     pre,
     blockquote {
@@ -85,15 +85,15 @@
 
     // Specify a size and min-width to make printing closer across browsers.
     // We don't set margin here because it breaks `size` in Chrome. We also
-    // don't use `!important` on `size` as it breaks in Chrome.
+    // don't use `` on `size` as it breaks in Chrome.
     @page {
       size: $print-page-size;
     }
     body {
-      min-width: $print-body-min-width !important;
+      min-width: $print-body-min-width ;
     }
     .container {
-      min-width: $print-body-min-width !important;
+      min-width: $print-body-min-width ;
     }
 
     // Bootstrap components
@@ -105,18 +105,18 @@
     }
 
     .table {
-      border-collapse: collapse !important;
+      border-collapse: collapse ;
 
       td,
       th {
-        background-color: $white !important;
+        background-color: $white ;
       }
     }
 
     .table-bordered {
       th,
       td {
-        border: 1px solid $gray-300 !important;
+        border: 1px solid $gray-300 ;
       }
     }
 
