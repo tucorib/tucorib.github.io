@@ -8,11 +8,12 @@
     	<meta property="og:description" content="{{ page.description }}">
     	<meta name="description" content="{{ page.description }}">
     	{% endif %}
+    	<meta http-equiv="cache-control" content="max-age=86400" />
     	
     	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="preload">
     	<link href="https://fonts.googleapis.com/css?family=Open Sans:300,400,600,700,800&display=swap" rel="preload" type="text/css">
-    	<link href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" rel="preload" type="text/css">
- 		<link href="https://use.fontawesome.com/releases/v5.13.1/css/v4-shims.css" rel="preload" type="text/css">
+    	<link href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" rel="stylesheet" type="text/css">
+ 		<link href="https://use.fontawesome.com/releases/v5.13.1/css/v4-shims.css" rel="stylesheet" type="text/css">
     	{% if page.scss != nil %} 
     	<style amp-custom>
     	{% include css/amp.css %}
@@ -24,16 +25,14 @@
     	
     	<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     	<script async src="https://cdn.ampproject.org/v0.js"></script>
-    	<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
-		<script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
-	  	<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
-	  	<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
-	  	<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
-	  	<script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
-	  	<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    	
 	  	<script async custom-element="amp-mega-menu" src="https://cdn.ampproject.org/v0/amp-mega-menu-0.1.js"></script>
 	  	{% assign psize = site.posts | size %}
 		{% if psize > 0 %}
+		<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
+		<script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+		<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+		<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
 		<script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
 		<script async custom-element="amp-date-display" src="https://cdn.ampproject.org/v0/amp-date-display-0.1.js"></script>
 		<script async custom-element="amp-video-docking" src="https://cdn.ampproject.org/v0/amp-video-docking-0.1.js"></script>
