@@ -3,7 +3,7 @@
   	<head>
     	<meta charset="utf-8">
     	<title>{{ site.title }} | {{ page.title }}</title>
-    	<link rel="shortcut icon" href="/static/img/amp_favicon.png">
+    	<link rel="shortcut icon" href="/assets/img/logo-128.png">
     	{% if page.description %}
     	<meta property="og:description" content="{{ page.description }}">
     	<meta name="description" content="{{ page.description }}">
@@ -22,29 +22,36 @@
     	{% seo %}
     	<meta name="google-site-verification" content="Da7MELhhJqTEsd2kgrrY5krNiZdyzx1LT24evhTmdmA" />
     	
-    	<link rel="canonical" href="{{ page.url | relative_url }}">
     	<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-	    <style amp-boilerplate>{% include css/amp/amp_boilerplate.css %}</style>
-	    <noscript><style amp-boilerplate>{% include css/amp/amp_noscript_boilerplate.css %}</style></noscript>
-	    <style amp-keyframes>{% include css/amp/amp_keyframes.css %}</style>
     	<script async src="https://cdn.ampproject.org/v0.js"></script>
     	<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
 		<script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
-	  	<script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
 	  	<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
 	  	<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
-	  	<script async custom-element="amp-date-display" src="https://cdn.ampproject.org/v0/amp-date-display-0.1.js"></script>
 	  	<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
 	  	<script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
 	  	<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-	  	<script async custom-element="amp-video-docking" src="https://cdn.ampproject.org/v0/amp-video-docking-0.1.js"></script>
 	  	<script async custom-element="amp-mega-menu" src="https://cdn.ampproject.org/v0/amp-mega-menu-0.1.js"></script>
-	  	
+	  	{% assign psize = site.posts | size %}
+		{% if psize > 0 %}
+		<script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+		<script async custom-element="amp-date-display" src="https://cdn.ampproject.org/v0/amp-date-display-0.1.js"></script>
+		<script async custom-element="amp-video-docking" src="https://cdn.ampproject.org/v0/amp-video-docking-0.1.js"></script>
+		{% endif %}
+		<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
   	</head>
   	<body>
   		{% include navigation.html %}
   		<div class="wrapper">
+  			<amp-img alt="Wallpaper"
+				src="/assets/img/maths-wallpaper.png"
+				width="1140"
+				height="641"
+				layout="responsive">
+			</amp-img>
+			<br/>
     		{{ content }}
     	</div>
+    	<style amp-keyframes>{% include css/amp/amp_keyframes.css %}</style>
   	</body>
 </html>
