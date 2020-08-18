@@ -9937,6 +9937,9 @@ em {
   font-style: normal;
 }
 
+@font-face {
+  font-display: swap;
+}
 body {
   background-color: #181a1b;
   color: #fff;
