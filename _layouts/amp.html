@@ -11,10 +11,10 @@
     	
     	{% if page.scss != nil %}
     	<style amp-custom>
+    	{% include css/amp.css %}
     	{% include css/fontawesome/solid.min.css %}
     	{% include css/fontawesome/fontawesome.min.css %}
     	</style>
-    	<link rel="stylesheet" href="/assets/css/amp.css" rel="preload"/>
     	{% endif %}
     	{% feed_meta %}
     	{% seo %}
