@@ -1,7 +1,10 @@
 $spacer: 1rem;
 
 // Body
-$body-bg: #181a1b;
+$body-bg: #3aafa9;
+//$body-bg: #eee2dc;
+//$body-bg: #bab7c8;
+//$body-color: #123c69;
 $body-color: #fff;
 $body-font-size: 12pt;
 $body-line-height: 1.5;
@@ -15,7 +18,7 @@ $font: 400 15px/1.8 "Lato", sans-serif;
 $wrapper-max-width: 1140px;
 
 // Main color
-$main-color: #8d1597;
+$main-color: #f4976c;
 
 // Horizontal line
 $hr-background: linear-gradient(to right, $body-bg, $main-color);
