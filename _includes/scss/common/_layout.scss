@@ -53,6 +53,10 @@ input.search{
 	border-color: $main-color;
 }
 
+ul{
+	@extend .pl-4;	
+}
+
 ul li{
 	margin-bottom: $spacer * 1;	
 }
