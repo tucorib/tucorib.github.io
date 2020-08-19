@@ -57,6 +57,18 @@ ul li{
 	margin-bottom: $spacer * 1;	
 }
 
+@media screen and (max-width: map.get($grid-breakpoints, 'md')) {
+	amp-mega-menu{
+		text-align: center;
+	}
+}
+
+@media screen and (min-width: map.get($grid-breakpoints, 'md')) {
+	amp-mega-menu{
+		text-align: right;
+	}
+}
+
 amp-mega-menu a, amp-mega-menu span{
 	@extend .badge;
 	@extend .badge-pill;

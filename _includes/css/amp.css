@@ -16015,6 +16015,16 @@ ul li {
   margin-bottom: 1rem;
 }
 
+@media screen and (max-width: 768px) {
+  amp-mega-menu {
+    text-align: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  amp-mega-menu {
+    text-align: right;
+  }
+}
 amp-mega-menu a, amp-mega-menu span {
   display: inline-flex;
   align-items: center;
