@@ -1,9 +1,6 @@
-- name: Accueil
-  icon: "fas fa-home"
+- name: Présentation
   link: /
-- name: Actualités
-  icon: "fas fa-rss"
+- name: Ma chaine Youtube
   link: /news/
-- name: Me contacter
-  icon: "fas fa-address-card"
+- name: Contact / Tarifs
   link: /contact/

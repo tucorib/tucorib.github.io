@@ -1,11 +1,12 @@
-<amp-mega-menu height="40px" layout="fixed-height">
-  	<nav>
-    	<ul>
-    		{% for nav in site.data.navigation %}
-    		<li {% if page.url == nav.link %}class="active"{% endif %}>
-	        	<a href="{{ nav.link }}" title="{{ nav.name }}" ><i class="nav-icon {{ nav.icon }} fa-2x" aria-hidden="true"></i></a>
-	      	</li>
-    		{% endfor %}
-    	</ul>
-  	</nav>
+{% assign psize = site.posts | size %}
+<amp-mega-menu height="60px" layout="fixed-height" class="text-right">
+	{% for nav in site.data.navigation %}
+	{% if nav.link != '/news/' or psize > 0 %}
+	{% if page.url != nav.link %}
+	<a href="{{ nav.link }}">{{ nav.name }}</a>
+	{% else %}
+	<span>{{ nav.name }}</span>
+	{% endif %}
+	{% endif %}
+	{% endfor %}
 </amp-mega-menu>
