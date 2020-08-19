@@ -13,12 +13,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Soutien scolaire - Maths
+title: Soutien scolaire en ligne
 email: rbr.prof@gmail.com
-tagline: Les maths chez vous
 description: >- # this means to ignore newlines until "baseurl:"
-  Besoin de cours de maths en ligne?
-  Grâce aux nouvelles technologies, il n'est plus nécessaire d'avoir à sortir de chez-soi pour profiter de l'expertise d'un professeur.
+  Optez pour le cours de maths en ligne
 logo: /assets/img/logo-256.png
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://tucorib.github.io" # the base hostname & protocol for your site, e.g. http://example.com
@@ -34,7 +32,6 @@ github_username:  tucorib
 markdown: kramdown
 theme: minima
 plugins:
-  - jekyll-include_sass
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
@@ -53,9 +50,6 @@ plugins:
 
 language: "fr"
 future: false
-sass:
-    sass_dir: _includes/scss
-    style: compressed
 
 defaults:
   - scope:

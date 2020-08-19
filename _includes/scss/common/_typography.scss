@@ -1,3 +1,7 @@
+@font-face {
+	font-display: swap;
+}
+
 body {
   	// font-family: $font-family;
   	font: $font;
@@ -19,6 +23,12 @@ em{
 	font-style: normal;
 }
 
-@font-face {
-	font-display: swap;
+amp-mega-menu a, amp-mega-menu span{
+	@extend .font-weight-bolder;
+	color: $white;
+	font-size: 0.8*$body-font-size;
+}
+
+amp-mega-menu a:hover{
+	color: $white;	
 }

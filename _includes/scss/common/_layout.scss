@@ -9,6 +9,13 @@ div.wrapper{
 	margin-right: auto;
 }
 
+@media screen and (min-width: 1140px) {
+	div.wrapper{
+		border-left: 1px solid #fff;
+		border-right: 1px solid #fff;	
+	}
+}
+
 hr{
 	background: $hr-background;
 	height: 1px;
@@ -48,4 +55,20 @@ input.search{
 
 ul li{
 	margin-bottom: $spacer * 1;	
+}
+
+amp-mega-menu a, amp-mega-menu span{
+	@extend .badge;
+	@extend .badge-pill;
+	@extend .mr-4;
+	@extend .p-2;
+	@extend .mt-2;
+	display: inline-flex;
+  	align-items: center;
+	border: 1px solid $main-color;
+	background: none;
+}
+
+amp-mega-menu a:hover, amp-mega-menu span{
+	background: $main-color;
 }
