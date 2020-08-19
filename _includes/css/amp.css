@@ -7605,7 +7605,7 @@ button.bg-dark:focus {
   padding-left: 0.25rem;
 }
 
-.p-2 {
+.p-2, .banner .parallax {
   padding: 0.5rem;
 }
 
@@ -8495,7 +8495,7 @@ button.bg-dark:focus {
     padding-left: 0.5rem;
   }
 
-  .p-md-3 {
+  .p-md-3, .banner .parallax {
     padding: 1rem;
   }
 
@@ -9619,7 +9619,7 @@ button.bg-dark:focus {
   text-align: right;
 }
 
-.text-center {
+.text-center, .banner .parallax {
   text-align: center;
 }
 
@@ -9703,7 +9703,7 @@ button.bg-dark:focus {
   font-weight: 700;
 }
 
-.font-weight-bolder {
+.font-weight-bolder, .banner .parallax {
   font-weight: bolder;
 }
 
@@ -9918,7 +9918,7 @@ h3 {
   }
 }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font: 400 15px/1.8 "Lato", sans-serif;
   font-size: 12pt;
   line-height: 1.5;
 }
@@ -10033,6 +10033,43 @@ nav ul li a {
   line-height: 1.25;
 }
 
+.parallax-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax {
+  position: absolute;
+  z-index: 1;
+}
+
+.banner .parallax {
+  top: 35%;
+  border: 2px solid #fff;
+  left: 50px;
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+  .banner .parallax {
+    font-size: 1.25rem;
+    top: 50%;
+    left: 15%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .banner amp-img {
+    margin-left: 55%;
+    margin-top: 1.5rem;
+    margin-right: 1.5rem;
+    border: 2px solid;
+  }
+
+  .banner .parallax {
+    top: 25%;
+    left: 15%;
+    font-size: 1.25rem;
+  }
+}
 .flash {
   color: #181a1b;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #8d1597, 0 0 20px #8d1597, 0 0 25px #8d1597, 0 0 30px #8d1597, 0 0 35px #8d1597;
