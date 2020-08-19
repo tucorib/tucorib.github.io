@@ -1,5 +1,5 @@
 {% assign psize = site.posts | size %}
-<amp-mega-menu height="60px" layout="fixed-height" class="text-right">
+<amp-mega-menu height="60px" layout="fixed-height">
 	{% for nav in site.data.navigation %}
 	{% if nav.link != '/news/' or psize > 0 %}
 	{% if page.url != nav.link %}
