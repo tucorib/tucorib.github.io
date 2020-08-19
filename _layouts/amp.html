@@ -9,12 +9,12 @@
     	<meta name="description" content="{{ page.description }}">
     	{% endif %}
     	
-    	<link rel="stylesheet" href="/assets/css/fontawesome/solid.min.css">
-		<link rel="stylesheet" href="/assets/css/fontawesome/fontawesome.min.css">
-    	{% if page.scss != nil %} 
+    	{% if page.scss != nil %}
     	<style amp-custom>
-    	{% include css/amp.css %}
+    	{% include css/fontawesome/solid.min.css %}
+    	{% include css/fontawesome/fontawesome.min.css %}
     	</style>
+    	<link rel="stylesheet" href="/assets/css/amp.css" rel="preload"/>
     	{% endif %}
     	{% feed_meta %}
     	{% seo %}
