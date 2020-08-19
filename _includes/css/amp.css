@@ -7305,7 +7305,7 @@ button.bg-dark:focus {
 }
 
 @supports (position: sticky) {
-  .sticky-top {
+  .sticky-top, amp-mega-menu {
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -7676,7 +7676,7 @@ amp-mega-menu span {
   padding-bottom: 1.5rem;
 }
 
-.pl-4,
+.pl-4, ul,
 .px-4 {
   padding-left: 1.5rem;
 }
