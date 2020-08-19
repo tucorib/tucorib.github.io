@@ -7471,7 +7471,9 @@ button.bg-dark:focus {
 }
 
 .mr-2,
-.mx-2 {
+.mx-2,
+amp-mega-menu a,
+amp-mega-menu span {
   margin-right: 0.5rem;
 }
 
@@ -7481,7 +7483,9 @@ button.bg-dark:focus {
 }
 
 .ml-2,
-.mx-2 {
+.mx-2,
+amp-mega-menu a,
+amp-mega-menu span {
   margin-left: 0.5rem;
 }
 
@@ -7518,7 +7522,7 @@ button.bg-dark:focus {
   margin-top: 1.5rem;
 }
 
-.mr-4, amp-mega-menu a, amp-mega-menu span,
+.mr-4,
 .mx-4 {
   margin-right: 1.5rem;
 }

@@ -76,7 +76,7 @@ ul li{
 amp-mega-menu a, amp-mega-menu span{
 	@extend .badge;
 	@extend .badge-pill;
-	@extend .mr-4;
+	@extend .mx-2;
 	@extend .p-2;
 	@extend .mt-2;
 	display: inline-flex;
