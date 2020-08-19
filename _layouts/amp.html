@@ -8,11 +8,10 @@
     	<meta name="description" content="{{ page.description }}">
     	{% endif %}
     	
+    	<link rel="preload" href="{{ site.fontcache }}/webfonts/fa-solid-900.woff2" as="font" type="font/woff2">
     	{% if page.scss != nil %}
     	<style amp-custom>
     	{% include css/amp.css %}
-    	{% include css/fontawesome/solid.min.css %}
-    	{% include css/fontawesome/fontawesome.min.css %}
     	</style>
     	{% endif %}
     	{% feed_meta %}

@@ -65,6 +65,7 @@ defaults:
       layout: "empty"
 
 imgcache: "https://tucorib-github-io.cdn.ampproject.org/i/tucorib.github.io"
+fontcache: "https://tucorib-github-io.cdn.ampproject.org/r/tucorib.github.io"
 
 device:
   sm: "(max-width: 768px)"
