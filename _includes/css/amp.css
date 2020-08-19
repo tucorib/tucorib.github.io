@@ -7305,7 +7305,7 @@ button.bg-dark:focus {
 }
 
 @supports (position: sticky) {
-  .sticky-top, amp-mega-menu {
+  .sticky-top {
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -7609,7 +7609,7 @@ amp-mega-menu span {
   padding-left: 0.25rem;
 }
 
-.p-2, .banner .parallax, amp-mega-menu a, amp-mega-menu span {
+.p-2, amp-mega-menu a, amp-mega-menu span {
   padding: 0.5rem;
 }
 
@@ -8499,7 +8499,7 @@ amp-mega-menu span {
     padding-left: 0.5rem;
   }
 
-  .p-md-3, .banner .parallax {
+  .p-md-3 {
     padding: 1rem;
   }
 
@@ -9623,7 +9623,7 @@ amp-mega-menu span {
   text-align: right;
 }
 
-.text-center, .banner .parallax {
+.text-center {
   text-align: center;
 }
 
@@ -9707,7 +9707,7 @@ amp-mega-menu span {
   font-weight: 700;
 }
 
-.font-weight-bolder, .banner .parallax, amp-mega-menu a, amp-mega-menu span {
+.font-weight-bolder, amp-mega-menu a, amp-mega-menu span {
   font-weight: bolder;
 }
 
@@ -16040,6 +16040,10 @@ amp-mega-menu a:hover, amp-mega-menu span {
   background: #f4976c;
 }
 
+.picture {
+  border: 2px solid #fff;
+}
+
 @font-face {
   font-display: swap;
 }
@@ -16123,33 +16127,6 @@ nav ul li a {
   z-index: 1;
 }
 
-.banner .parallax {
-  top: 35%;
-  border: 2px solid #fff;
-  left: 50px;
-}
-
-@media screen and (min-width: 576px) and (max-width: 768px) {
-  .banner .parallax {
-    font-size: 1.25rem;
-    top: 50%;
-    left: 15%;
-  }
-}
-@media screen and (min-width: 768px) {
-  .banner amp-img {
-    margin-left: 55%;
-    margin-top: 1.5rem;
-    margin-right: 1.5rem;
-    border: 2px solid;
-  }
-
-  .banner .parallax {
-    top: 25%;
-    left: 15%;
-    font-size: 1.25rem;
-  }
-}
 .flash {
   color: #3aafa9;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f4976c, 0 0 20px #f4976c, 0 0 25px #f4976c, 0 0 30px #f4976c, 0 0 35px #f4976c;
