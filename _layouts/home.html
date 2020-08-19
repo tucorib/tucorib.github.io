@@ -1,6 +1,22 @@
 ---
 layout: amp
 ---
+<div class="banner parallax-section">
+	<div class="parallax bg-primary" amp-fx="parallax"
+    data-parallax-factor="1">
+    	<span>Soutien scolaire</span><br/>-<br/><span>Maths en ligne</span>
+    </div>
+	<amp-img alt="Wallpaper"
+		src="/assets/img/maths-wallpaper.webp"
+		srcset="/assets/img/maths-wallpaper.webp 1140w,
+				/assets/img/maths-wallpaper-768.webp 768w,
+				/assets/img/maths-wallpaper-375.webp 375w"
+		width="1140"
+		height="641"
+		layout="responsive">
+	</amp-img>
+</div>
+<br/>
 <h2 class="text-center text-lg-left px-4">Dernières actualités</h2>
 {% assign psize = site.posts | size %}
 {% if psize > 0 %}

@@ -1,0 +1,30 @@
+// Banner
+.banner .parallax{
+	@extend .p-2;
+	@extend .p-md-3;
+	@extend .font-weight-bolder;
+	@extend .text-center;
+	top: 35%;
+	border: 2px solid $white;
+	left: 50px;
+}
+@media screen and (min-width: map.get($grid-breakpoints, 'sm')) and (max-width: map.get($grid-breakpoints, 'md')) {
+	.banner .parallax{
+		font-size: $h5-font-size;
+		top: 50%;
+		left: 15%;
+	}
+}
+@media screen and (min-width: map.get($grid-breakpoints, 'md')) {
+	.banner amp-img{
+		margin-left: 55%;
+		margin-top: 1.5*$spacer;
+		margin-right: 1.5*$spacer;
+		border: 2px solid;
+	}
+	.banner .parallax{
+	    top: 25%;
+	    left: 15%;
+	    font-size: $h5-font-size;
+	}
+}

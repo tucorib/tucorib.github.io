@@ -22,9 +22,9 @@
     	
     	<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     	<script async src="https://cdn.ampproject.org/v0.js"></script>
-    	
 	  	<script async custom-element="amp-mega-menu" src="https://cdn.ampproject.org/v0/amp-mega-menu-0.1.js"></script>
 	  	<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+	  	<script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
 	  	<amp-analytics type="gtag" data-credentials="include">
 			<script type="application/json">
 			{
@@ -53,16 +53,6 @@
   	<body>
   		{% include navigation.html %}
   		<div class="wrapper">
-  			<amp-img alt="Wallpaper"
-				src="/assets/img/maths-wallpaper.webp"
-				srcset="/assets/img/maths-wallpaper.webp 1140w,
-						/assets/img/maths-wallpaper-768.webp 768w,
-						/assets/img/maths-wallpaper-375.webp 375w"
-				width="1140"
-				height="641"
-				layout="responsive">
-			</amp-img>
-			<br/>
     		{{ content }}
     	</div>
     	<style amp-keyframes>{% include css/amp/amp_keyframes.css %}</style>
