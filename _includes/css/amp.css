@@ -3917,7 +3917,7 @@ input[type=button].btn-block {
 }
 
 .nav-pills .nav-link {
-  border-radius: 0.25rem;
+  border-radius: 1.5rem;
 }
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
@@ -4632,7 +4632,7 @@ input[type=button].btn-block {
   border-bottom-right-radius: 0.2rem;
 }
 
-.badge, span.post-tag, amp-mega-menu a, amp-mega-menu span {
+.badge, span.post-tag {
   display: inline-block;
   padding: 0.25em 0.4em;
   font-size: 75%;
@@ -4645,24 +4645,24 @@ input[type=button].btn-block {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-  .badge, span.post-tag, amp-mega-menu a, amp-mega-menu span {
+  .badge, span.post-tag {
     transition: none;
   }
 }
-a.badge:hover, amp-mega-menu a:hover, a.badge:focus, amp-mega-menu a:focus {
+a.badge:hover, a.badge:focus {
   text-decoration: none;
 }
 
-.badge:empty, span.post-tag:empty, amp-mega-menu a:empty, amp-mega-menu span:empty {
+.badge:empty, span.post-tag:empty {
   display: none;
 }
 
-.btn .badge, .btn span.post-tag, .btn amp-mega-menu a, amp-mega-menu .btn a, .btn amp-mega-menu span, amp-mega-menu .btn span {
+.btn .badge, .btn span.post-tag {
   position: relative;
   top: -1px;
 }
 
-.badge-pill, span.post-tag, amp-mega-menu a, amp-mega-menu span {
+.badge-pill, span.post-tag {
   padding-right: 0.6em;
   padding-left: 0.6em;
   border-radius: 10rem;
@@ -7465,15 +7465,13 @@ button.bg-dark:focus {
   margin: 0.5rem;
 }
 
-.mt-2, amp-mega-menu a, amp-mega-menu span,
+.mt-2,
 .my-2 {
   margin-top: 0.5rem;
 }
 
 .mr-2,
-.mx-2,
-amp-mega-menu a,
-amp-mega-menu span {
+.mx-2 {
   margin-right: 0.5rem;
 }
 
@@ -7483,9 +7481,7 @@ amp-mega-menu span {
 }
 
 .ml-2,
-.mx-2,
-amp-mega-menu a,
-amp-mega-menu span {
+.mx-2 {
   margin-left: 0.5rem;
 }
 
@@ -7609,7 +7605,7 @@ amp-mega-menu span {
   padding-left: 0.25rem;
 }
 
-.p-2, amp-mega-menu a, amp-mega-menu span {
+.p-2 {
   padding: 0.5rem;
 }
 
@@ -8350,7 +8346,7 @@ amp-mega-menu span {
     margin-bottom: 0.5rem;
   }
 
-  .ml-md-2,
+  .ml-md-2, .nav-item,
 .mx-md-2 {
     margin-left: 0.5rem;
   }
@@ -9707,7 +9703,7 @@ amp-mega-menu span {
   font-weight: 700;
 }
 
-.font-weight-bolder, amp-mega-menu a, amp-mega-menu span {
+.font-weight-bolder, .nav-link {
   font-weight: bolder;
 }
 
@@ -9889,7 +9885,7 @@ h3 {
     display: none;
   }
 
-  .badge, span.post-tag, amp-mega-menu a, amp-mega-menu span {
+  .badge, span.post-tag {
     border: 1px solid #000;
   }
 
@@ -16024,25 +16020,32 @@ ul li {
   margin-bottom: 1rem;
 }
 
-@media screen and (max-width: 768px) {
-  amp-mega-menu {
-    text-align: center;
-  }
-}
-@media screen and (min-width: 768px) {
-  amp-mega-menu {
-    text-align: right;
-  }
-}
-amp-mega-menu a, amp-mega-menu span {
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid #f4976c;
-  background: none;
+nav {
+  border: none;
 }
 
-amp-mega-menu a:hover, amp-mega-menu span {
-  background: #f4976c;
+.nav-item {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  ul.nav {
+    justify-content: flex-end;
+  }
+
+  .nav-item {
+    flex: none;
+    text-align: none;
+  }
+}
+.nav-pills .nav-link {
+  border: 1px solid #f4976c;
+  background-color: none;
+}
+
+a.nav-link:hover, .nav-pills .nav-link.active {
+  background-color: #f4976c;
 }
 
 .picture {
@@ -16078,54 +16081,13 @@ em {
   font-style: normal;
 }
 
-amp-mega-menu a, amp-mega-menu span {
+.nav-link {
   color: #fff;
   font-size: 12pt;
 }
 
-amp-mega-menu a:hover {
+a.nav-link:hover {
   color: #fff;
-}
-
-nav {
-  max-width: 1140px;
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid #f4976c;
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  height: 100%;
-}
-
-nav ul {
-  display: flex;
-  height: 100%;
-  padding-left: 0;
-}
-
-nav ul li {
-  flex-grow: 1;
-  height: 100%;
-  text-align: center;
-  padding: 0;
-  font-weight: bold;
-  color: #fff;
-}
-
-nav ul li.active {
-  background-color: #f4976c;
-}
-
-nav ul li a {
-  width: 100%;
-  height: 100%;
-  display: block;
-  padding: 0;
-}
-
-.nav-icon {
-  line-height: 1.25;
 }
 
 .parallax-section {

@@ -65,32 +65,33 @@ ul li{
 	margin-bottom: $spacer * 1;	
 }
 
-@media screen and (max-width: map.get($grid-breakpoints, 'md')) {
-	amp-mega-menu{
-		text-align: center;
-	}
+nav{
+	border: none;	
+}
+
+.nav-item {
+	@extend .ml-md-2;
+  	flex: 1 1 auto;
+  	text-align: center;
 }
 
 @media screen and (min-width: map.get($grid-breakpoints, 'md')) {
-	amp-mega-menu{
-		text-align: right;
+	ul.nav{
+		justify-content: flex-end;
+	}
+	.nav-item {
+	  flex: none;
+	  text-align: none;
 	}
 }
 
-amp-mega-menu a, amp-mega-menu span{
-	@extend .badge;
-	@extend .badge-pill;
-	@extend .mx-2;
-	@extend .p-2;
-	@extend .mt-2;
-	display: inline-flex;
-  	align-items: center;
+.nav-pills .nav-link{
 	border: 1px solid $main-color;
-	background: none;
+	background-color: none;
 }
 
-amp-mega-menu a:hover, amp-mega-menu span{
-	background: $main-color;
+a.nav-link:hover, .nav-pills .nav-link.active{
+	background-color: $main-color;
 }
 
 .picture{
