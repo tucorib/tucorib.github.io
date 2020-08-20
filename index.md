@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Accueil
+title: Soutien scolaire en ligne
 permalink: /
 scss: scss/home.scss
 ---
