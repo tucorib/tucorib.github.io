@@ -1,13 +1,13 @@
 {% assign psize = site.posts | size %}
 <amp-mega-menu height="70px" layout="fixed-height" class="sticky-top">
 	<nav>
-		<ul class="nav nav-pills pt-3 px-4">
+		<ul class="nav nav-pills">
 			{% for nav in site.data.navigation %}
+			{% if nav.link != '/news/' or psize > 0 %}
 			<li class="nav-item">
-				{% if nav.link != '/news/' or psize > 0 %}
-				<a class="nav-link{% if page.url == nav.link %} active{% endif %}" href="{{ nav.link }}">{{ nav.name }}</a>
-				{% endif %}
+				<a class="nav-link btn btn-outline-primary{% if page.url == nav.link %} active{% endif %}" href="{{ nav.link }}">{{ nav.name }}</a>
 			</li>
+			{% endif %}
 			{% endfor %}
 		</ul>
 	</nav>

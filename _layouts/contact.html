@@ -1,9 +1,8 @@
 ---
 layout: amp
 ---
-<h1 class="h3 text-center text-md-left font-weight-bolder px-4">Me contacter</h1>
-<br/>
-<div class="container px-4">
+<div class="container">
+	<h1 class="h3 text-center text-md-left font-weight-bolder">Me contacter</h1>
 	<p class="ml-4 text-center font-weight-bolder">Nicolas Ribeiro</p>
 	<div class="row">
 		<div class="col-12 col-md-6">
@@ -11,7 +10,7 @@ layout: amp
 				<div class="input-group-prepend">
 			    	<span class="input-group-text"><i class="fas fa-envelope"></i></span>
 			  	</div>
-			  	<a class="btn btn-primary flex-grow-1 font-weight-bolder" href="mailto:rbr.prof@gmail.com">rbr.prof@gmail.com</a>
+			  	<a class="form-control btn btn-link btn-primary flex-grow-1 font-weight-bolder" href="mailto:rbr.prof@gmail.com">rbr.prof@gmail.com</a>
 		 	</div>
 		</div>
 		<div class="col-12 col-md-6">
@@ -19,20 +18,20 @@ layout: amp
 				<div class="input-group-prepend">
 			    	<span class="input-group-text"><i class="fas fa-phone"></i></span>
 			  	</div>
-			  	<a class="btn btn-primary flex-grow-1 font-weight-bolder"  href="tel:+33618748298">(+33) 6 18 74 82 98</a>
+			  	<a class="form-control btn btn-link btn-primary flex-grow-1 font-weight-bolder"  href="tel:+33618748298">(+33) 6 18 74 82 98</a>
 		 	</div>
 		</div>
 	</div>
 </div>
 <br/>
 <br/>
-<h1 class="h3 text-center text-md-left font-weight-bolder px-4">Les tarifs</h1>
-<br/>
-<div class="container px-4">
+<div class="container">
+	<h1 class="h3 text-center text-md-left font-weight-bolder">Les tarifs</h1>
+	<br/>
 	<div class="row">
 		<div class="col-12 col-md-6">
 			<div class="d-flex flex-column bg-dark m-0">
-	  			<div class="p-2 text-center h5 font-weight-bolder bg-classic">Séance en tête-à-tête<br/><small>1 élève</small></div>
+	  			<div class="p-2 text-center h5 font-weight-bolder bg-secondary">Séance en tête-à-tête<br/><small>1 élève</small></div>
 	  			<div class="row">
 	  				<div class="col-4 text-right">
 	  					<i class="fas fa-check text-success"></i>
@@ -65,7 +64,7 @@ layout: amp
 	  					Evaluations
 	  				</div>
 	  			</div>
-	  			<hr class="w-100 my-2 bg-classic"/>
+	  			<hr class="w-100 my-2 bg-secondary"/>
 	  			<div class="pb-2 text-center font-weight-bold">35 €</div>
 			</div>
 			<br/>
@@ -111,85 +110,86 @@ layout: amp
 			<br/>
 		</div>
 	</div>
+	<h2 class="h5 text-center text-md-left font-weight-bolder">Réduction pour les familles</h2>
+	<p class="pt-2">Bénéficiez de 10% de réduction à partir de 2 élèves inscrits.</p>
 </div>
-<h2 class="h5 text-center text-md-left font-weight-bolder px-4">Réduction pour les familles</h2>
-<p class="px-4 pt-2">Bénéficiez de 10% de réduction à partir de 2 élèves inscrits.</p>
 <br/>
 <br/>
-<h1 class="h3 text-center text-md-left font-weight-bolder px-4">En savoir plus</h1>
-<p class="px-4 pt-2">L'idée de suivre du soutien scolaire en ligne vous intéresse, mais vous désirez savoir si l'enseignant est compétent? Question tout à fait légitime ! Voici quelques éléments clés afin de vous apporter les éclaircissements nécessaires :</p>
-<br/>
-<div class="row px-4">
-	<div class="col-4 col-md-2">
-		<div class="timeline-image">
-    		<amp-img alt="Working online"
-				src="{{ site.imgcache }}/assets/img/republique-francaise.webp"
-				srcsrc="{{ site.imgcache }}/assets/img/republique-francaise.webp-375.webp 375w"
-				width="500"
-				height="500"
-				layout="responsive"
-				class="rounded-circle">
-			</amp-img>
-  		</div>
-  	</div>
-	<div class="col-8 col-md-10 pl-2">
-		<h4 class="mb-0">Enseignant remplaçant</h4>
-		<small>2019 - 2020</small>
-		<br/>
-  		<p>
-    		Remplacements en mathématiques effectués au sein de l'Education Nationale (Toulouse, FR).
-  			<br/>
-    		Classes : de la 6e à la terminale S.
-  		</p>
+<div class="container">
+	<h1 class="h3 text-center text-md-left font-weight-bolder">En savoir plus</h1>
+	<p class="pt-2">L'idée de suivre du soutien scolaire en ligne vous intéresse, mais vous désirez savoir si l'enseignant est compétent? Question tout à fait légitime ! Voici quelques éléments clés afin de vous apporter les éclaircissements nécessaires :</p>
+	<br/>
+	<div class="row">
+		<div class="col-4 col-md-2">
+			<div class="timeline-image">
+	    		<amp-img alt="Working online"
+					src="{{ site.imgcache }}/assets/img/republique-francaise.webp"
+					srcsrc="{{ site.imgcache }}/assets/img/republique-francaise.webp-375.webp 375w"
+					width="500"
+					height="500"
+					layout="responsive"
+					class="rounded-circle">
+				</amp-img>
+	  		</div>
+	  	</div>
+		<div class="col-8 col-md-10 pl-2">
+			<h4 class="mb-0">Enseignant remplaçant</h4>
+			<small>2019 - 2020</small>
+			<br/>
+	  		<p>
+	    		Remplacements en mathématiques effectués au sein de l'Education Nationale (Toulouse, FR).
+	  			<br/>
+	    		Classes : de la 6e à la terminale S.
+	  		</p>
+		</div>
+	</div>
+	<br/>
+	<div class="row">
+		<div class="col-4 col-md-2">
+			<div class="timeline-image">
+	    		<amp-img alt="Working online"
+					src="{{ site.imgcache }}/assets/img/soutien-scolaire.webp"
+					srcset="{{ site.imgcache }}/assets/img/soutien-scolaire-375.webp 375w"
+					width="500"
+					height="500"
+					layout="responsive"
+					class="rounded-circle">
+				</amp-img>
+	  		</div>
+	  	</div>
+		<div class="col-8 col-md-10 pl-2">
+			<h4 class="mb-0">Soutien scolaire</h4>
+			<small>2012 - 2020</small>
+			<p>
+				Soutien scolaire en mathématiques (Nantes et Toulouse, FR).
+				<br/>
+				Niveaux : collège et lycée.
+			</p>
+		</div>
+	</div>
+	<br/>
+	<div class="row">
+		<div class="col-4 col-md-2">
+			<div class="timeline-image">
+	    		<amp-img alt="Working online"
+					src="{{ site.imgcache }}/assets/img/enseeiht.webp"
+					width="500"
+					height="500"
+					layout="responsive"
+					class="rounded-circle">
+				</amp-img>
+	  		</div>
+	  	</div>
+		<div class="col-8 col-md-10 pl-2">
+			<h4 class="mb-0">Ingénieur en informatique</h4>
+			<small>2003 - 2008</small>
+			<p>
+				- Classe Préparatoire aux Grandes Ecoles (Lycée Jean Dautet, La Rochelle, FR).
+				<br/>
+				- Echange universitaire à l'Université de Montréal (UdeM, Montréal, QC).
+				<br/>
+				- Diplôme d'Ingénieur en Informatique (ENSEEIHT, Toulouse, FR).
+			</p>
+		</div>
 	</div>
 </div>
-<br/>
-<div class="row px-4">
-	<div class="col-4 col-md-2">
-		<div class="timeline-image">
-    		<amp-img alt="Working online"
-				src="{{ site.imgcache }}/assets/img/soutien-scolaire.webp"
-				srcset="{{ site.imgcache }}/assets/img/soutien-scolaire-375.webp 375w"
-				width="500"
-				height="500"
-				layout="responsive"
-				class="rounded-circle">
-			</amp-img>
-  		</div>
-  	</div>
-	<div class="col-8 col-md-10 pl-2">
-		<h4 class="mb-0">Soutien scolaire</h4>
-		<small>2012 - 2020</small>
-		<p>
-			Soutien scolaire en mathématiques (Nantes et Toulouse, FR).
-			<br/>
-			Niveaux : collège et lycée.
-		</p>
-	</div>
-</div>
-<br/>
-<div class="row px-4">
-	<div class="col-4 col-md-2">
-		<div class="timeline-image">
-    		<amp-img alt="Working online"
-				src="{{ site.imgcache }}/assets/img/enseeiht.webp"
-				width="500"
-				height="500"
-				layout="responsive"
-				class="rounded-circle">
-			</amp-img>
-  		</div>
-  	</div>
-	<div class="col-8 col-md-10 pl-2">
-		<h4 class="mb-0">Ingénieur en informatique</h4>
-		<small>2003 - 2008</small>
-		<p>
-			- Classe Préparatoire aux Grandes Ecoles (Lycée Jean Dautet, La Rochelle, FR).
-			<br/>
-			- Echange universitaire à l'Université de Montréal (UdeM, Montréal, QC).
-			<br/>
-			- Diplôme d'Ingénieur en Informatique (ENSEEIHT, Toulouse, FR).
-		</p>
-	</div>
-</div>
-<br/>

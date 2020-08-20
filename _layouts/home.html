@@ -3,7 +3,7 @@ layout: amp
 ---
 <div class="row align-items-center mb-md-4">
 	<div class="col-12 order-2 col-md-6 order-md-1">
-		<div class="container px-4">
+		<div class="container">
 			<h1 class="h3 text-center text-md-left font-weight-bolder mt-3 pb-2">Optez pour le cours de maths en ligne</h1>
 			<p>Des lacunes à combler? Un examen à préparer? Envie d'approfondir vos connaissances?</p>
 			<p>Quels que soient vos raisons et vos objectifs, je suis à votre disposition !</p>
@@ -37,7 +37,7 @@ layout: amp
 		</amp-img>
 	</div>
 	<div class="col-12 order-2 col-md-6 order-md-2 pt-2">
-		<div class="container px-4">
+		<div class="container">
 			<h2 class="h5 text-center text-md-left font-weight-bolder mb-4">Les avantages</h2>
 			<ul>
 				<li><em>Séance en visio-conférence :</em> L'élève bénéficie d'une pédagogie adaptée à son raisonnement, et d'un suivi personnalisé sur la durée.</li>
@@ -49,7 +49,7 @@ layout: amp
 </div>
 <div class="row align-items-center mb-md-4">
 	<div class="col-12 order-2 col-md-6 order-md-1 pt-2">
-		<div class="container px-4">
+		<div class="container">
 			<h2 class="h5 text-center text-md-left font-weight-bolder mb-4">Le travail de groupe</h2>
 			<p>La collaboration entre élèves assure le développement de qualités sociales qui seront primordiales pour leur avenir : expression et écoute, argumentation, répartition des tâches...</p>
 			<p>De plus, la motivation d'étudier à plusieurs augmente l'implication et l'investissement lors des séances, favorisant grandement l'apprentissage.</p>
@@ -69,37 +69,37 @@ layout: amp
 		</amp-img>
 	</div>
 </div>
-<div class="d-flex justify-content-center px-4 pt-2">
+<div class="container d-flex justify-content-center pt-2">
 	<a href="/contact/" class="btn btn-primary font-weight-bolder">Consultez les différents tarifs</a>
 </div>
 {% assign psize = site.posts | size %}
 {% if psize > 0 %}
 <br/>
-<h1 class="h3 text-center text-lg-left px-4">Dernières actualités</h1>
-<amp-carousel height="{{ site.home.carousel.height_sm }}"
-	media="{{ site.device.sm }}"
-  	layout="fixed-height"
-  	type="slides"
-  	autoplay
-  	loop
-  	delay="{{ site.home.carousel.delay }}">
-  	{% for post in site.posts limit:3 %}
-  		{% include post-item-include.html post=post %}
-  	{% endfor %}
-  	</template>
-</amp-carousel>
-<amp-carousel height="{{ site.home.carousel.height_xl }}"
-  	media="{{ site.device.xl }}"
-  	layout="fixed-height"
-  	type="slides"
-  	autoplay
-  	loop
-  	delay="{{ site.home.carousel.delay }}">
-  	{% for post in site.posts limit:3 %}
-  		{% include post-item-include.html post=post %}
-  	{% endfor %}
-  	</template>
-</amp-carousel>
-{% endif %}
-
-<br/>
+<div class="container">
+	<h1 class="h3 text-center text-lg-left">Dernières actualités</h1>
+	<amp-carousel height="{{ site.home.carousel.height_sm }}"
+		media="{{ site.device.sm }}"
+	  	layout="fixed-height"
+	  	type="slides"
+	  	autoplay
+	  	loop
+	  	delay="{{ site.home.carousel.delay }}">
+	  	{% for post in site.posts limit:3 %}
+	  		{% include post-item-include.html post=post %}
+	  	{% endfor %}
+	  	</template>
+	</amp-carousel>
+	<amp-carousel height="{{ site.home.carousel.height_xl }}"
+	  	media="{{ site.device.xl }}"
+	  	layout="fixed-height"
+	  	type="slides"
+	  	autoplay
+	  	loop
+	  	delay="{{ site.home.carousel.delay }}">
+	  	{% for post in site.posts limit:3 %}
+	  		{% include post-item-include.html post=post %}
+	  	{% endfor %}
+	  	</template>
+	</amp-carousel>
+	{% endif %}
+</div>
