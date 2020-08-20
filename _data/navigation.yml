@@ -1,6 +1,9 @@
 - name: Présentation
   link: /
+  icon: fas fa-home
 - name: Ma chaine Youtube
   link: /news/
+  icon: fab fa-youtube
 - name: Contact / Tarifs
   link: /contact/
+  icon: fas fa-id-card

@@ -1,6 +1,14 @@
 // Wrapper
-$wrapper-color: #3aafa9;
+$wrapper-color: #10927c;
 $wrapper-max-width: 1140px;
 
 // Theme
-$main-color: #f4976c;
+$body-color: #eeeeee;
+$primary: #ff8939;
+$secondary: #4b6fbb;
+$btn-background: $body-color;
+$border-width: 3px;
+$border-color: #fff;
+$enable-rounded: true;
+$body-bg-color: #46a898; // lighten($wrapper-color, 35%);
+$modal-content-bg: #212529;

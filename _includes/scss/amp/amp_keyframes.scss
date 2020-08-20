@@ -7,7 +7,7 @@
 	text-shadow: $flash-text-shadow-from;
   }
   to {
-	color: $flash-color;
-    text-shadow: $flash-text-shadow-to;
+	color: none;
+    text-shadow: none;
   }
 }

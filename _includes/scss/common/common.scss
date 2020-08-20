@@ -4,9 +4,12 @@
 
 @import "bootstrap/bootstrap";
 
-@import "common/layout";
-@import "common/typography";
-
+@import "common/utilities/background";
 @import "common/utilities/parallax";
+@import "common/utilities/picture";
 @import "common/utilities/progress-bar";
 @import "common/utilities/timeline";
+
+@import "common/layout";
+@import "common/navbar";
+@import "common/typography";

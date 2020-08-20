@@ -14,6 +14,7 @@
 			.box {
 				position: relative;
 				width: 50%;		/* desired width */
+				max-width: 100px;
 			}
 			.box:before {
 				content: "";
@@ -120,7 +121,7 @@
 				// Create buttons
 				for(var y=0; y<ymax; y++){
 					// Add row container
-					var row = $('<div>', { class: 'd-flex flex-row w-100' });
+					var row = $('<div>', { class: 'd-flex flex-row w-100 justify-content-center' });
 					
 					for(var x=0; x<xmax; x++){
 					// Create button
@@ -138,7 +139,7 @@
 									return c + ' btn-success'; // green
 								}
 								else{
-									return c + ' btn-secondary'; // gray
+									return c + ' btn-dark'; // gray
 								}
 							},
 							 // Empty content

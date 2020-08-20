@@ -1,4 +1,3 @@
 // Flash
-$flash-color: $body-bg;
-$flash-text-shadow-from: 0 0 5px $body-color, 0 0 10px $body-color, 0 0 15px $primary, 0 0 20px $primary, 0 0 25px $primary, 0 0 30px $primary, 0 0 35px $primary;
-$flash-text-shadow-to: 0 0 5px $primary, 0 0 10px $primary, 0 0 15px transparent, 0 0 20px transparent, 0 0 25px transparent, 0 0 30px transparent, 0 0 35px transparent;
+$flash-color: $body-bg-color;
+$flash-text-shadow-from: 0 0 5px $body-color, 0 0 10px $body-color, 0 0 15px $primary, 0 0 20px $primary;

@@ -70,7 +70,7 @@ home:
   carousel:
     delay: 8000
     height_sm: 377
-    height_xl: 250
+    height_xl: 187
   youtube:
       width: 560
       height: 315

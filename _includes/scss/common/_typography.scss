@@ -8,8 +8,9 @@ em{
 }
 
 .btn{
-	@extend .font-weight-bolder;
+	@extend .font-weight-bold;
 }
-//.nav-link:hover, .btn{
-//	color: $body-color;	
-//}
+
+.btn:hover, .btn.btn-primary, .btn-outline-primary:not(:disabled):not(.disabled).active{
+	color: $body-color;
+}

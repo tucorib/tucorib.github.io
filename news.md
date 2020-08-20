@@ -1,5 +1,5 @@
 ---
 layout: news
-title: Actualités
+title: Ma chaine Youtube
 permalink: /news/
 ---

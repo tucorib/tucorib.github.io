@@ -5,7 +5,7 @@ date:   YYYY-MM-DD HH:mm:ss +0200
 datetime:   "YYYY-MM-DDTHH:mm:ss+0200"
 category: category_name
 youtube:	youtube_id
-level: leval_name
+level: level_name
 tags: tag1 tag2
 description: "description"
 ---

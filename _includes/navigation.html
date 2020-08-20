@@ -1,14 +1,18 @@
 {% assign psize = site.posts | size %}
-<amp-mega-menu height="70px" layout="fixed-height" class="sticky-top">
-	<nav>
-		<ul class="nav nav-pills">
+<nav class="navbar navbar-expand-md navbar-light bg-wrapper pb-2 sticky-top mr-md-2">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav nav-pills flex-grow-1 justify-content-end mt-2 mt-md-0">
 			{% for nav in site.data.navigation %}
 			{% if nav.link != '/news/' or psize > 0 %}
 			<li class="nav-item">
-				<a class="nav-link btn btn-outline-primary{% if page.url == nav.link %} active{% endif %}" href="{{ nav.link }}">{{ nav.name }}</a>
+				<a class="nav-link btn btn-outline-primary{% if page.url == nav.link %} active{% endif %}" href="{{ nav.link }}"><i class="{{ nav.icon }} pr-2"></i>{{ nav.name }}</a>
 			</li>
 			{% endif %}
 			{% endfor %}
 		</ul>
-	</nav>
-</amp-mega-menu>
+	</div>
+</nav>
+<div class="pt-2"></div>

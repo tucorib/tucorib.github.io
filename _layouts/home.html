@@ -87,7 +87,6 @@ layout: amp
 	  	{% for post in site.posts limit:3 %}
 	  		{% include post-item-include.html post=post %}
 	  	{% endfor %}
-	  	</template>
 	</amp-carousel>
 	<amp-carousel height="{{ site.home.carousel.height_xl }}"
 	  	media="{{ site.device.xl }}"
@@ -99,7 +98,6 @@ layout: amp
 	  	{% for post in site.posts limit:3 %}
 	  		{% include post-item-include.html post=post %}
 	  	{% endfor %}
-	  	</template>
 	</amp-carousel>
 	{% endif %}
 </div>

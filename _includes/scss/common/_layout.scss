@@ -1,27 +1,30 @@
-body{
-	background-color: lighten($wrapper-color, 35%);
+.container{
+	@extend .px-4;	
 }
 	
+body{
+	background-color: $body-bg-color;
+}
+
 div.wrapper{
 	@extend .mx-auto;
+	@extend .bg-wrapper;
 	max-width: $wrapper-max-width;
-	background-color: $wrapper-color;
 }
 
 @media screen and (min-width: $wrapper-max-width) {
 	div.wrapper{
-		border-left: 1px solid #fff;
-		border-right: 1px solid #fff;	
+		border-left: $border-width solid;
+		border-right: $border-width solid;	
+		border-color: $border-color;
 	}
 }
 
-hr{
-	height: 1px;
-}
-
 input.search{
-	border-color: $primary;
-	background-color: transparent;	
+	@extend .form-control;
+	@extend .border;
+	@extend .border-primary;
+	@extend .mb-4;
 }
 
 .visible {
@@ -32,44 +35,10 @@ input.search{
   visibility: hidden;
 }
 
-ul:not(.nav){
+ul:not(.navbar-nav){
 	@extend .pl-4;	
 }
 
-ul li{
-	margin-bottom: $spacer * 1;	
-}
-
-nav{
-	border: none;
-}
-
-.container{
-	@extend .px-4;	
-}
-
-.nav-item {
-  	flex: 1 1 auto;
-  	text-align: center;
-}
-
-ul.nav li.nav-item:not(:first-child){
-	margin-left: $spacer;
-}
-ul.nav li.nav-item:not(:last-child){
-	margin-right: $spacer;
-}
-
-.nav-pills .nav-link{
-	background-color: transparent;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-a.nav-link:hover, .nav-pills .nav-link.active{
-	background-color: $primary;
-}
-
-.picture{
-	border: 2px solid $white;
+ul:not(.navbar-nav) li{
+	@extend .mb-4;
 }
