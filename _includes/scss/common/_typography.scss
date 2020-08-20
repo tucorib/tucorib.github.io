@@ -26,7 +26,7 @@ em{
 amp-mega-menu a, amp-mega-menu span{
 	@extend .font-weight-bolder;
 	color: $white;
-	font-size: 0.8*$body-font-size;
+	font-size: $body-font-size;
 }
 
 amp-mega-menu a:hover{
