@@ -16015,6 +16015,11 @@ input.search {
   border-color: #f4976c;
 }
 
+.btn-primary:hover {
+  background: #f4976c;
+  border-color: #f4976c;
+}
+
 ul li {
   margin-bottom: 1rem;
 }

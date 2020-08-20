@@ -52,6 +52,10 @@ input.search{
 	background: $main-color;
 	border-color: $main-color;
 }
+.btn-primary:hover{
+	background: $main-color;
+	border-color: $main-color;
+}
 
 ul{
 	@extend .pl-4;	
