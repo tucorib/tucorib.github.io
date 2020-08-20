@@ -23,12 +23,12 @@ em{
 	font-style: normal;
 }
 
-amp-mega-menu a, amp-mega-menu span{
+.nav-link{
 	@extend .font-weight-bolder;
 	color: $white;
-	font-size: 0.8*$body-font-size;
+	font-size: $body-font-size;
 }
 
-amp-mega-menu a:hover{
+a.nav-link:hover{
 	color: $white;	
 }
