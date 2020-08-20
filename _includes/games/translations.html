@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr" dir="ltr">
 	<head>
-		<meta charset="UTF-8">
-		
-		<!-- Page title -->
-		<title>Translations</title>
-		<!-- Smartphone screen dimension management -->
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<style>
-    	{% include_sass scss/game.scss %}
-    	</style>
+    	{% include games/common/head.html %}
     	
 		<!-- Libraries -->
 		{% include lib/jquery.html %}
@@ -200,13 +191,10 @@
 	</head>
 	
 	<body>
-		<div class="wrapper">
-			<!-- Rules -->
-			<div class="jumbotron">
-				<h5 class="text-center">Sélectionne l'image du bouton <span class="badge badge-success">vert</span> par la translation qui transforme le bouton <span class="badge badge-primary">bleu</span> en bouton <span class="badge badge-danger">rouge</span></h5>
-			</div>
+		<div class="wrapper container pt-3">
+			<h1 class="text-center">Translations</h1>
 			
-			<div class="jumbotron">
+			<div class="border rounded">
 				<!-- Score -->
 				<div class="container-fluid">
 					<h5><span>Score:</span> <span class="score">0</span> <span>points</span></h5>
@@ -220,6 +208,9 @@
 					<div id="lives" class="container-fluid flex-fill text-center"></div>
 				</div>
 			</div>
+			<br/>
+			<!-- Rules -->
+			<p class="text-center">Sélectionne l'image du bouton <button class="btn btn-success" disabled></button> par la translation qui transforme le bouton <button class="btn btn-primary" disabled></button> en bouton <button class="btn btn-danger" disabled></button></p>
 			
 			<!-- Button grid container -->
 			<div id="arena" class="container"></div>
