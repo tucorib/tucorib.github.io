@@ -15958,7 +15958,7 @@ readers do not read off random characters that represent icons */
 }
 
 body {
-  background-color: #3aafa9;
+  background-color: #b5e6e4;
   color: #fff;
 }
 
@@ -15966,6 +15966,7 @@ div.wrapper {
   max-width: 1140px;
   margin-left: auto;
   margin-right: auto;
+  background-color: #3aafa9;
 }
 
 @media screen and (min-width: 1140px) {
@@ -15975,22 +15976,7 @@ div.wrapper {
   }
 }
 hr {
-  background: linear-gradient(to right, #3aafa9, #f4976c);
   height: 1px;
-}
-
-hr.hr-offer {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  height: 1px;
-}
-
-hr.hr-secondary {
-  background: #6c757d;
-}
-
-hr.hr-success {
-  background: #28a745;
 }
 
 input.search {
@@ -16016,8 +16002,16 @@ input.search {
   border-color: #f4976c;
 }
 
+.bg-classic {
+  background-color: #277672;
+}
+
 ul li {
   margin-bottom: 1rem;
+}
+
+amp-mega-menu {
+  background-color: #3aafa9;
 }
 
 nav {
