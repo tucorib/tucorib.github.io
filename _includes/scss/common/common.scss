@@ -1,8 +1,12 @@
 @use "sass:map";
 
 @import "common/variables";
+
+@import "bootstrap/bootstrap";
+
 @import "common/layout";
 @import "common/typography";
 
 @import "common/utilities/parallax";
+@import "common/utilities/progress-bar";
 @import "common/utilities/timeline";

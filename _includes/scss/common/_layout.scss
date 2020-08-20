@@ -1,16 +1,14 @@
 body{
-	background-color: lighten($body-bg, 35%);
-	color: $body-color;
+	background-color: lighten($wrapper-color, 35%);
 }
 	
 div.wrapper{
+	@extend .mx-auto;
 	max-width: $wrapper-max-width;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: $body-bg;
+	background-color: $wrapper-color;
 }
 
-@media screen and (min-width: 1140px) {
+@media screen and (min-width: $wrapper-max-width) {
 	div.wrapper{
 		border-left: 1px solid #fff;
 		border-right: 1px solid #fff;	
@@ -22,8 +20,8 @@ hr{
 }
 
 input.search{
-	border-color: $main-color;
-	background: transparent;	
+	border-color: $primary;
+	background-color: transparent;	
 }
 
 .visible {
@@ -34,19 +32,7 @@ input.search{
   visibility: hidden;
 }
 
-.btn-primary,.bg-primary{
-	background: $main-color;
-	border-color: $main-color;
-}
-.btn-primary:hover{
-	background: $main-color;
-	border-color: $main-color;
-}
-.bg-classic{
-	background-color: darken($body-bg, 15%);
-}
-
-ul{
+ul:not(.nav){
 	@extend .pl-4;	
 }
 
@@ -54,46 +40,36 @@ ul li{
 	margin-bottom: $spacer * 1;	
 }
 
-amp-mega-menu{
-	background-color: $body-bg;	
+nav{
+	border: none;
 }
 
-nav{
-	border: none;	
+.container{
+	@extend .px-4;	
 }
 
 .nav-item {
-	@extend .ml-md-2;
   	flex: 1 1 auto;
   	text-align: center;
 }
 
-@media screen and (min-width: map.get($grid-breakpoints, 'md')) {
-	ul.nav{
-		justify-content: flex-end;
-	}
-	.nav-item {
-	  flex: none;
-	  text-align: none;
-	}
+ul.nav li.nav-item:not(:first-child){
+	margin-left: $spacer;
+}
+ul.nav li.nav-item:not(:last-child){
+	margin-right: $spacer;
 }
 
 .nav-pills .nav-link{
-	border: 1px solid $main-color;
-	background-color: none;
+	background-color: transparent;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 a.nav-link:hover, .nav-pills .nav-link.active{
-	background-color: $main-color;
+	background-color: $primary;
 }
 
 .picture{
 	border: 2px solid $white;
-}
-
-@media screen and (max-width: map.get($grid-breakpoints, 'md')) {
-	.picture{
-		border-left: 0px;
-		border-right: 0px;
-	}	
 }
