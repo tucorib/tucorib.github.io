@@ -16010,6 +16010,10 @@ ul li {
   margin-bottom: 1rem;
 }
 
+amp-mega-menu {
+  background-color: #3aafa9;
+}
+
 nav {
   border: none;
 }
