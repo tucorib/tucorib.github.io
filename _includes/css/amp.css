@@ -16044,6 +16044,12 @@ amp-mega-menu a:hover, amp-mega-menu span {
   border: 2px solid #fff;
 }
 
+@media screen and (max-width: 768px) {
+  .picture {
+    border-left: 0px;
+    border-right: 0px;
+  }
+}
 @font-face {
   font-display: swap;
 }
@@ -16127,6 +16133,12 @@ nav ul li a {
   z-index: 1;
 }
 
+.timeline-image {
+  border: 7px solid #f4976c;
+  border-radius: 100%;
+  background-color: #f4976c;
+}
+
 .flash {
   color: #3aafa9;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f4976c, 0 0 20px #f4976c, 0 0 25px #f4976c, 0 0 30px #f4976c, 0 0 35px #f4976c;
@@ -16171,22 +16183,6 @@ h2 {
 span.post-tag {
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
-}
-
-.timeline-image {
-  border: 7px solid #f4976c;
-  border-radius: 100%;
-  background-color: #f4976c;
-  width: 120px;
-  height: 120px;
-}
-
-@media only screen and (max-width: 767px) {
-  .timeline-image {
-    border-width: 4px;
-    width: 60px;
-    height: 60px;
-  }
 }
 
 /*# sourceMappingURL=amp.css.map */

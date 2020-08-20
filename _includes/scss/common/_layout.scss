@@ -92,3 +92,10 @@ amp-mega-menu a:hover, amp-mega-menu span{
 .picture{
 	border: 2px solid $white;
 }
+
+@media screen and (max-width: map.get($grid-breakpoints, 'md')) {
+	.picture{
+		border-left: 0px;
+		border-right: 0px;
+	}	
+}
