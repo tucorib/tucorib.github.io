@@ -1,5 +1,5 @@
 body{
-	background-color: $body-bg;
+	background-color: lighten($body-bg, 35%);
 	color: $body-color;
 }
 	
@@ -7,6 +7,7 @@ div.wrapper{
 	max-width: $wrapper-max-width;
 	margin-left: auto;
 	margin-right: auto;
+	background-color: $body-bg;
 }
 
 @media screen and (min-width: 1140px) {
@@ -17,22 +18,7 @@ div.wrapper{
 }
 
 hr{
-	background: $hr-background;
 	height: 1px;
-}
-
-hr.hr-offer{
-	margin-top: $spacer*0.5;
-	margin-bottom: $spacer*0.5;
-	height: 1px;
-}
-
-hr.hr-secondary{
-	background: #6c757d;	
-}
-
-hr.hr-success{
-	background: #28a745;	
 }
 
 input.search{
@@ -56,6 +42,9 @@ input.search{
 	background: $main-color;
 	border-color: $main-color;
 }
+.bg-classic{
+	background-color: darken($body-bg, 15%);
+}
 
 ul{
 	@extend .pl-4;	
@@ -63,6 +52,10 @@ ul{
 
 ul li{
 	margin-bottom: $spacer * 1;	
+}
+
+amp-mega-menu{
+	background-color: $body-bg;	
 }
 
 nav{

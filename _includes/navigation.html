@@ -1,7 +1,7 @@
 {% assign psize = site.posts | size %}
-<amp-mega-menu height="70px" layout="fixed-height">
+<amp-mega-menu height="70px" layout="fixed-height" class="sticky-top">
 	<nav>
-		<ul class="nav nav-pills pt-3 px-2">
+		<ul class="nav nav-pills pt-3 px-4">
 			{% for nav in site.data.navigation %}
 			<li class="nav-item">
 				{% if nav.link != '/news/' or psize > 0 %}
