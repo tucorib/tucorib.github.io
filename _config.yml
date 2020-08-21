@@ -13,8 +13,8 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Nicolas Ribeiro
-email: rbr.prof@gmail.com
+title: Matez les Maths
+email: matezlesmaths@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Optez pour le cours de maths en ligne
 logo: /assets/img/logo-256.png
@@ -22,9 +22,12 @@ image: /assets/img/maths-wallpaper-375.webp
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://tucorib.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 lang: fr_FR
+
 webmaster_verifications:
-  google: Da7MELhhJqTEsd2kgrrY5krNiZdyzx1LT24evhTmdmA
-  
+  google: lh74dtrWbiO39D0fXqpU0eTvpt39_ON8PE8tFn42zWM
+
+google_analytics: UA-176006434-1
+
 social:
   name: Nicolas Ribeiro
 github_username:  tucorib
@@ -33,6 +36,7 @@ github_username:  tucorib
 markdown: kramdown
 theme: minima
 plugins:
+  - jekyll-include_sass
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
@@ -51,19 +55,15 @@ plugins:
 
 language: "fr"
 future: false
-
+sass:
+    sass_dir: _includes/scss
+    style: compressed
+    
 defaults:
-  - scope:
-      path: ""
-    values:
-      layout: "empty"
   - scope:
       path: "game"
     values:
       layout: "game"
-
-imgcache: "https://tucorib-github-io.cdn.ampproject.org/i/tucorib.github.io"
-fontcache: "https://tucorib-github-io.cdn.ampproject.org/r/tucorib.github.io"
 
 device:
   sm: "(max-width: 768px)"
@@ -78,8 +78,4 @@ home:
       width: 560
       height: 315
       autoplay: false
-
-feed:
-  categories:
-    - game
     
