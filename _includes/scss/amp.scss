@@ -1,13 +1,6 @@
-@import "bootstrap/bootstrap";
-
-@import "fontawesome/fontawesome";
-@import "fontawesome/solid";
+// Font awesome
+$fa-font-path: "https://tucorib-github-io.cdn.ampproject.org/r/tucorib.github.io/assets/webfonts";
 
 @import "common/common";
 
-@import "amp/variables";
-@import "amp/typography";
-@import "amp/layout";
-
-@import "amp/utilities/navbar";
-@import "amp/utilities/post-item";
+@import "amp/amp";

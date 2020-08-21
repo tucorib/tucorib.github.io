@@ -1,14 +1,14 @@
 .flash{
-	margin-top: $spacer;
-	margin-right: $spacer;
+	@extend .mt-2;
+	@extend .mr-2;
 }
 
 amp-youtube{
-	padding-right: 0;	
+	@extend .pr-0;	
 }
 
 h2{
-	margin-bottom: 0;
+	@extend .mb-0;
 }
 
 .post-meta div{
@@ -16,14 +16,11 @@ h2{
 	vertical-align: top;
 }
 
-.i-amphtml-layout-flex-item, [layout="flex-item"]:not(.i-amphtml-layout-flex-item){
-	display: inline-block;	
-}
-
 span.post-tag{
 	@extend .badge;
 	@extend .badge-pill;
 	@extend .badge-dark;
-	margin-right: $spacer * 0.5;
-	margin-bottom: $spacer * 0.5;
+	@extend .mr-2;
+	@extend .mb-2;
+	@extend .rounded;
 }
