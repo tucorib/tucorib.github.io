@@ -9,7 +9,7 @@
 		{% include lib/fontawesome.html %}
 		
     	<style amp-custom type="text/css">
-    	{% include_sass scss/amp.scss %}
+    	{% include_relative assets/css/amp.css %}
     	</style>
     	{% feed_meta %}
     	{% seo %}
@@ -37,6 +37,6 @@
   			{% include navigation.html %}
     		{{ content }}
     	</div>
-    	<style amp-keyframes type="text/css">{% include_sass scss/amp/amp_keyframes.scss %}</style>
+    	<style amp-keyframes type="text/css">{% include_relative assets/css/amp_keyframes.css %}</style>
   	</body>
 </html>
