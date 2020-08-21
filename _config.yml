@@ -79,8 +79,4 @@ home:
       width: 560
       height: 315
       autoplay: false
-
-feed:
-  categories:
-    - game
     
