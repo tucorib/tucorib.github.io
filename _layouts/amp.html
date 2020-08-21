@@ -17,20 +17,8 @@
     	
     	<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     	<script defer src="https://cdn.ampproject.org/v0.js"></script>
-	  	<script defer custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 	  	<script defer custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
-	  	<amp-analytics type="gtag" data-credentials="include">
-			<script type="application/json">
-			{
-			  "vars" : {
-			    "gtag_id": "UA-175727938-1",
-			    "config" : {
-			      "UA-175727938-1": { "groups": "default" }
-			    }
-			  }
-			}
-			</script>
-		</amp-analytics>
+  		{% include amp-analytics.html %}
 				  	
 	  	{% assign psize = site.posts | size %}
 		{% if psize > 0 %}
