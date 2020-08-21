@@ -36,7 +36,6 @@ github_username:  tucorib
 markdown: kramdown
 theme: minima
 plugins:
-  - jekyll-include_sass
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
