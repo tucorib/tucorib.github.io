@@ -1,6 +1,3 @@
----
-permalink: {% post_url {{ page.post }} %}
----
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr" dir="ltr">
@@ -15,7 +12,7 @@ permalink: {% post_url {{ page.post }} %}
 		{% feed_meta %}
 		{% seo %}
 		<link rel="shortcut icon" href="/assets/img/logo-128.png">
-		<meta property="og:image" content="{{ site.image }}">
+		<meta property="og:image" content="{{site.image}}">
 
 		<!-- Libraries -->
 		{% for lib in page.libraries %}
