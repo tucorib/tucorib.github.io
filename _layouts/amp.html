@@ -2,45 +2,33 @@
 <html ⚡ lang="{{ site.language }}">
   	<head>
     	<meta charset="utf-8">
-    	<link rel="shortcut icon" href="{{ site.imgcache }}/assets/img/logo-128.png">
+    	<link rel="shortcut icon" href="/assets/img/logo-128.png">
     	
     	{% include lib/jquery.html %}
 		{% include lib/bootstrap.html %}
 		{% include lib/fontawesome.html %}
 		
-    	<style amp-custom>
-    	{% include css/amp.css %}
+    	<style amp-custom type="text/css">
+    	{% include_sass scss/amp.scss %}
     	</style>
     	{% feed_meta %}
     	{% seo %}
-    	<meta property="og:image" content="{{ site.imgcache }}{{ site.image }}">
+    	<meta property="og:image" content="{{site.image}}">
     	
     	<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    	<script async src="https://cdn.ampproject.org/v0.js"></script>
-	  	<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-	  	<script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
-	  	<amp-analytics type="gtag" data-credentials="include">
-			<script type="application/json">
-			{
-			  "vars" : {
-			    "gtag_id": "UA-175727938-1",
-			    "config" : {
-			      "UA-175727938-1": { "groups": "default" }
-			    }
-			  }
-			}
-			</script>
-		</amp-analytics>
+    	<script defer src="https://cdn.ampproject.org/v0.js"></script>
+	  	<script defer custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
+  		{% include amp-analytics.html %}
 				  	
 	  	{% assign psize = site.posts | size %}
 		{% if psize > 0 %}
-		<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
-		<script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
-		<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-		<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
-		<script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
-		<script async custom-element="amp-date-display" src="https://cdn.ampproject.org/v0/amp-date-display-0.1.js"></script>
-		<script async custom-element="amp-video-docking" src="https://cdn.ampproject.org/v0/amp-video-docking-0.1.js"></script>
+		<script defer custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
+		<script defer custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+		<script defer custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+		<script defer custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+		<script defer custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+		<script defer custom-element="amp-date-display" src="https://cdn.ampproject.org/v0/amp-date-display-0.1.js"></script>
+		<script defer custom-element="amp-video-docking" src="https://cdn.ampproject.org/v0/amp-video-docking-0.1.js"></script>
 		{% endif %}
 		<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
   	</head>
@@ -49,6 +37,6 @@
   			{% include navigation.html %}
     		{{ content }}
     	</div>
-    	<style amp-keyframes>{% include css/amp/amp_keyframes.css %}</style>
+    	<style amp-keyframes type="text/css">{% include_sass scss/amp/amp_keyframes.scss %}</style>
   	</body>
 </html>
