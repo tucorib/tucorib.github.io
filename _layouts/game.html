@@ -24,14 +24,14 @@
 		<link rel="preload" href="{{ img }}" as="image">
 		{% endfor %}
 
-		<!-- Scripts -->
-		{% for script in page.scripts %}
-		<script src="{{ script }}"></script>
-		{% endfor %}
-		
 		<!-- Styles -->
 		{% for style in page.styles %}
 		<link rel="stylesheet" href="{{ style }}"></script>
+		{% endfor %}
+		
+		<!-- Scripts -->
+		{% for script in page.scripts %}
+		<script defer src="{{ script }}"></script>
 		{% endfor %}
 	</head>
 	<body>
