@@ -13,8 +13,8 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Nicolas Ribeiro # Matez les Maths
-email: rbr.prof@gmail.com # matezlesmaths@gmail.com
+title: Matez les Maths
+email: matezlesmaths@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Optez pour le cours de maths en ligne
 logo: /assets/img/logo-256.png
@@ -24,7 +24,7 @@ url: "https://tucorib.github.io" # the base hostname & protocol for your site, e
 lang: fr_FR
 
 webmaster_verifications:
-  google: Da7MELhhJqTEsd2kgrrY5krNiZdyzx1LT24evhTmdmA
+  google: lh74dtrWbiO39D0fXqpU0eTvpt39_ON8PE8tFn42zWM
 
 google_analytics: UA-176006434-1
 
