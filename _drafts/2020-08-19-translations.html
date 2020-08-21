@@ -1,0 +1,78 @@
+---
+layout: game
+
+title:  Translations
+date:   2020-08-19 08:00:00 +0200
+datetime:   "2020-08-19T08:00:00+0200"
+categories: game
+youtube:	
+level: 4e
+tags: translations
+description: "description"
+
+libraries: ["lib/jquery.html", "lib/popper.html", "lib/bootstrap.html", "lib/jquery-ui.html"]
+scripts: ["/assets/games/js/translations.js"]
+styles: ["/assets/games/css/translations.css"]
+---
+<h1 class="text-center">Translations</h1>
+<div class="border rounded">
+	<!-- Score -->
+	<div class="container-fluid">
+		<h5><span>Score:</span> <span class="score">0</span> <span>points</span></h5>
+	</div>
+	<!-- Combos -->
+	<div class="container-fluid">
+		<h5><span>Combos:</span> <span class="combos">0</span></h5>
+	</div>
+	<!-- Lives -->
+	<div class="container-fluid">
+		<div id="lives" class="container-fluid flex-fill text-center"></div>
+	</div>
+</div>
+<br/>
+<!-- Rules -->
+<p class="text-center">Sélectionne l'image du bouton <button class="btn btn-success" disabled></button> par la translation qui transforme le bouton <button class="btn btn-primary" disabled></button> en bouton <button class="btn btn-danger" disabled></button></p>
+
+<!-- Button grid container -->
+<div id="arena" class="container"></div>
+
+<!-- Greetings modal -->
+<div id="modal-right" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<h1 class="modal-title text-center">Bravo!</h1>
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		  <span aria-hidden="true">&times;</span>
+		</button>
+	  </div>
+	  <div class="modal-body">
+		<h2 class="text-center">Bonne réponse!</h2>
+	  </div>
+	  <div class="modal-footer">
+		<button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal" onclick="newGame();">Recommencer</button>
+		<button type="button" class="btn btn-lg btn-primary" data-dismiss="modal" onclick="newRun();">Continuer</button>
+	  </div>
+	</div>
+  </div>
+</div>
+
+<!-- Game over modal -->
+<div id="modal-wrong" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<h1 class="modal-title text-center">Fin de la partie</h1>
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		  <span aria-hidden="true">&times;</span>
+		</button>
+	  </div>
+	  <div class="modal-body">
+		<h2 class="text-center">Tu as fais: <span class="score font-weight-bold"></span> points!</h2>
+	  </div>
+	  <div class="modal-footer">
+		<button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal" onclick="newGame();">Recommencer</button>
+	  </div>
+	</div>
+  </div>
+</div>

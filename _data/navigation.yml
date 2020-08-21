@@ -2,8 +2,11 @@
   link: /
   icon: fas fa-home
 - name: Ma chaine Youtube
-  link: /news/
+  link: /videos/
   icon: fab fa-youtube
+- name: Mes jeux
+  link: /games/
+  icon: fas fa-gamepad
 - name: Contact / Tarifs
   link: /contact/
   icon: fas fa-id-card

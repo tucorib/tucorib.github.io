@@ -1,3 +1,7 @@
+html, body{
+	@extend .vh-100;
+}
+	
 .container{
 	@extend .px-4;	
 }
@@ -6,14 +10,15 @@ body{
 	background-color: $body-bg-color;
 }
 
-div.wrapper{
+.wrapper{
 	@extend .mx-auto;
 	@extend .bg-wrapper;
 	max-width: $wrapper-max-width;
+	bottom: 0px;
 }
 
 @media screen and (min-width: $wrapper-max-width) {
-	div.wrapper{
+	.wrapper{
 		border-left: $border-width solid;
 		border-right: $border-width solid;	
 		border-color: $border-color;

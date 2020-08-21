@@ -1,9 +1,12 @@
 ---
 filename: "YYYY-MM-DD-name.markdown"
+
+published: true
+
 title:  "Title"
 date:   YYYY-MM-DD HH:mm:ss +0200
 datetime:   "YYYY-MM-DDTHH:mm:ss+0200"
-category: category_name
+category: game ...
 youtube:	youtube_id
 level: level_name
 tags: tag1 tag2

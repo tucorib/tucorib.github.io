@@ -1,4 +1,0 @@
----
-layout: game
-category: game
----
