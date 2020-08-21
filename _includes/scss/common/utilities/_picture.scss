@@ -2,7 +2,8 @@
 	@extend .border;
 	border-color: $border-color;
 }
-@media screen and (max-width: map.get($grid-breakpoints, 'md')) {
+
+@include media-breakpoint-down('md', $grid-breakpoints) {
 	.picture{
 		border-left: 0px;
 		border-right: 0px;

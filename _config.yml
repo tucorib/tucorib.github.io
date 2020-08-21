@@ -33,6 +33,7 @@ github_username:  tucorib
 markdown: kramdown
 theme: minima
 plugins:
+  - jekyll-include_sass
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
@@ -51,7 +52,10 @@ plugins:
 
 language: "fr"
 future: false
-
+sass:
+    sass_dir: _includes/scss
+    style: compressed
+    
 defaults:
   - scope:
       path: ""
@@ -61,9 +65,6 @@ defaults:
       path: "game"
     values:
       layout: "game"
-
-imgcache: "https://tucorib-github-io.cdn.ampproject.org/i/tucorib.github.io"
-fontcache: "https://tucorib-github-io.cdn.ampproject.org/r/tucorib.github.io"
 
 device:
   sm: "(max-width: 768px)"
