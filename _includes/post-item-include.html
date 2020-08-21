@@ -6,15 +6,15 @@
 			layout="responsive"
 			width="{{ site.home.youtube.width }}"
 			height="{{ site.home.youtube.height }}"
-			class="col-md-4 col-12"
+			class="col-12 col-md-4"
 			dock
 			{% if site.home.youtube.autoplay %}autoplay{% endif %}>
 		</amp-youtube>
-  		<div class="col-md-8 col-12 post-infos">
-	  		<span class="flash h3 {% if posttime > weekago %}visible{% else %}invisible{% endif %}" title="Moins d'une semaine"><i class="fa fa-bolt" aria-hidden="true"></i></span>
+  		<div class="col-12 col-md-8 post-infos mt-2 mt-md-0">
+	  		<span class="flash h5 {% if posttime > weekago %}visible{% else %}invisible{% endif %}" title="Paru il y a moins d'une semaine"><i class="fa fa-bolt" aria-hidden="true"></i></span>
 	  		<h2>{{ include.post.title }}</h2>
 	  		<span class="post-meta">
-				<amp-date-display datetime="{{ include.post.datetime }}" locale="{{ site.language }}" layout="flex-item">
+				<amp-date-display class="d-inline-block" datetime="{{ include.post.datetime }}" locale="{{ site.language }}" layout="flex-item">
 			  		<template type="amp-mustache">
 			  			<small class="post-date">
 			  				{% raw %}{{day}} {{monthName}} {{year}}{% endraw %}

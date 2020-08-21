@@ -55,9 +55,12 @@ future: false
 defaults:
   - scope:
       path: ""
-      type: "posts"
     values:
       layout: "empty"
+  - scope:
+      path: "game"
+    values:
+      layout: "game"
 
 imgcache: "https://tucorib-github-io.cdn.ampproject.org/i/tucorib.github.io"
 fontcache: "https://tucorib-github-io.cdn.ampproject.org/r/tucorib.github.io"
@@ -70,9 +73,13 @@ home:
   carousel:
     delay: 8000
     height_sm: 377
-    height_xl: 250
+    height_xl: 187
   youtube:
       width: 560
       height: 315
       autoplay: false
-      
+
+feed:
+  categories:
+    - game
+    

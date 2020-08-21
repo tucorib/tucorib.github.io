@@ -1,29 +1,35 @@
-body{
-	background-color: lighten($body-bg, 35%);
-	color: $body-color;
+html, body{
+	@extend .vh-100;
 }
 	
-div.wrapper{
-	max-width: $wrapper-max-width;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: $body-bg;
+.container{
+	@extend .px-4;	
+}
+	
+body{
+	background-color: $body-bg-color;
 }
 
-@media screen and (min-width: 1140px) {
-	div.wrapper{
-		border-left: 1px solid #fff;
-		border-right: 1px solid #fff;	
+.wrapper{
+	@extend .mx-auto;
+	@extend .bg-wrapper;
+	max-width: $wrapper-max-width;
+	bottom: 0px;
+}
+
+@media screen and (min-width: $wrapper-max-width) {
+	.wrapper{
+		border-left: $border-width solid;
+		border-right: $border-width solid;	
+		border-color: $border-color;
 	}
 }
 
-hr{
-	height: 1px;
-}
-
 input.search{
-	border-color: $main-color;
-	background: transparent;	
+	@extend .form-control;
+	@extend .border;
+	@extend .border-primary;
+	@extend .mb-4;
 }
 
 .visible {
@@ -34,66 +40,10 @@ input.search{
   visibility: hidden;
 }
 
-.btn-primary,.bg-primary{
-	background: $main-color;
-	border-color: $main-color;
-}
-.btn-primary:hover{
-	background: $main-color;
-	border-color: $main-color;
-}
-.bg-classic{
-	background-color: darken($body-bg, 15%);
-}
-
-ul{
+ul:not(.navbar-nav){
 	@extend .pl-4;	
 }
 
-ul li{
-	margin-bottom: $spacer * 1;	
-}
-
-amp-mega-menu{
-	background-color: $body-bg;	
-}
-
-nav{
-	border: none;	
-}
-
-.nav-item {
-	@extend .ml-md-2;
-  	flex: 1 1 auto;
-  	text-align: center;
-}
-
-@media screen and (min-width: map.get($grid-breakpoints, 'md')) {
-	ul.nav{
-		justify-content: flex-end;
-	}
-	.nav-item {
-	  flex: none;
-	  text-align: none;
-	}
-}
-
-.nav-pills .nav-link{
-	border: 1px solid $main-color;
-	background-color: none;
-}
-
-a.nav-link:hover, .nav-pills .nav-link.active{
-	background-color: $main-color;
-}
-
-.picture{
-	border: 2px solid $white;
-}
-
-@media screen and (max-width: map.get($grid-breakpoints, 'md')) {
-	.picture{
-		border-left: 0px;
-		border-right: 0px;
-	}	
+ul:not(.navbar-nav) li{
+	@extend .mb-4;
 }

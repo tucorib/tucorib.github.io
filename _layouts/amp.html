@@ -4,19 +4,19 @@
     	<meta charset="utf-8">
     	<link rel="shortcut icon" href="{{ site.imgcache }}/assets/img/logo-128.png">
     	
-    	<link rel="preload" href="{{ site.fontcache }}/webfonts/fa-solid-900.woff2" as="font" type="font/woff2">
-    	{% if page.scss != nil %}
+    	{% include lib/jquery.html %}
+		{% include lib/bootstrap.html %}
+		{% include lib/fontawesome.html %}
+		
     	<style amp-custom>
     	{% include css/amp.css %}
     	</style>
-    	{% endif %}
     	{% feed_meta %}
     	{% seo %}
     	<meta property="og:image" content="{{ site.imgcache }}{{ site.image }}">
     	
     	<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     	<script async src="https://cdn.ampproject.org/v0.js"></script>
-	  	<script async custom-element="amp-mega-menu" src="https://cdn.ampproject.org/v0/amp-mega-menu-0.1.js"></script>
 	  	<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 	  	<script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
 	  	<amp-analytics type="gtag" data-credentials="include">
@@ -45,7 +45,7 @@
 		<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
   	</head>
   	<body>
-  		<div class="wrapper">
+  		<div class="wrapper pb-3">
   			{% include navigation.html %}
     		{{ content }}
     	</div>

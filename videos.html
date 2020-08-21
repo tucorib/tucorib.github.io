@@ -1,12 +1,16 @@
 ---
 layout: amp
+title: Ma chaine Youtube
+permalink: /videos/
 ---
-{% assign psize = site.posts | size %}
+{% assign psize = site.posts.size %}
 {% if psize > 0 %}
 <amp-state id="allArticles"
          credentials="include"
          src="/api/feed.json"></amp-state>
-<input class="search" type="text" on="input-throttled:AMP.setState({filteredArticles: allArticles.filter(a => ((a.title.toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.description.toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.tags.join(' ').toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.categories.join(' ').toLowerCase().indexOf(event.value.toLowerCase()) != -1) ) ), inputValue: event.value }), top-blog-page.scrollTo(duration=200)" placeholder="🔍 Rechercher" [value]="inputValue">
+<div class="container">
+	<input class="search" type="text" on="input-throttled:AMP.setState({filteredArticles: allArticles.filter(a => ((a.title.toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.description.toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.tags.join(' ').toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.categories.join(' ').toLowerCase().indexOf(event.value.toLowerCase()) != -1) ) ), inputValue: event.value }), top-blog-page.scrollTo(duration=200)" placeholder="Filtrer" [value]="inputValue">
+</div>
 
 <amp-list
   load-more="auto"
@@ -18,6 +22,7 @@ layout: amp
   [height]="(1080) * filteredArticles.length"
   layout="fixed-height"
   binding="no"
+  class="px-md-4"
 >
   <div placeholder>Chargement ...</div>
   <div fallback><p class="text-center">Un problème est survenu!</p></div>

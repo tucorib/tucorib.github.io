@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../../_includes/scss/amp/amp_keyframes.scss","../../../_includes/scss/common/_variables.scss","../../../_includes/scss/amp/_variables.scss"],"names":[],"mappings":"AAGA;EACE;IACE,OCDS;IDEZ,aEJwB;;EFMvB;IACD,OCNS;IDON,aEPmB","file":"amp_keyframes.css"}
+{"version":3,"sourceRoot":"","sources":["../../scss/amp/amp_keyframes.scss","../../scss/amp/_variables.scss"],"names":[],"mappings":"AAGA;EACE;IACE;IACH,aCJwB;;EDMvB;IACD;IACG","file":"amp_keyframes.css"}

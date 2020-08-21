@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  	<div class="row">
+	  	<amp-youtube data-videoid="{{ include.youtube }}"
+			layout="responsive"
+			width="{{ site.home.youtube.width }}"
+			height="{{ site.home.youtube.height }}"
+			class="col-12 col-md-4"
+			dock
+			{% if site.home.youtube.autoplay %}autoplay{% endif %}>
+		</amp-youtube>
+		<a href="{{ include.url }}"  class="col-12 col-md-8">
+	  		<div class="post-infos mt-2 mt-md-0">
+		  		<span class="flash h5 {{ include.flash }}" title="Paru il y a moins d'une semaine"><i class="fa fa-bolt" aria-hidden="true"></i></span>
+		  		<h2>{{ include.title }}</h2>
+				<span class="post-meta">
+					<amp-date-display class="d-inline-block" datetime="{{ include.datetime }}" locale="{{ site.language }}" layout="flex-item">
+				  		<template type="amp-mustache">
+				  			<small class="post-date">
+				  				{% raw %}{{day}} {{monthName}} {{year}}{% endraw %}
+			  				</small>
+		  				</template>
+					</amp-date-display>
+					<div>/</div>
+  					<div><small>Niveau conseillé: <span class="post-level">{{ include.level }}</span></small></div>
+				</span>
+				<div>{{ #include.tags }}<span class="post-tag">{% raw %}{{.}}{% endraw %}</span>{{ /include.tags }}</div>
+				<p class="text-justify">{{ include.description }}</p>
+	  		</div>
+  		</a>
+  	</div>
+</div>

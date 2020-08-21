@@ -1,11 +1,11 @@
 @keyframes glow {
   from {
-    color: #fff;
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #8d1597, 0 0 20px #8d1597, 0 0 25px #8d1597, 0 0 30px #8d1597, 0 0 35px #8d1597;
+    color: #eeeeee;
+    text-shadow: 0 0 5px #eeeeee, 0 0 10px #eeeeee, 0 0 15px #ff8939, 0 0 20px #ff8939;
   }
   to {
-    color: #181a1b;
-    text-shadow: 0 0 5px #8d1597, 0 0 10px #8d1597, 0 0 15px transparent, 0 0 20px transparent, 0 0 25px transparent, 0 0 30px transparent, 0 0 35px transparent;
+    color: none;
+    text-shadow: none;
   }
 }
 
