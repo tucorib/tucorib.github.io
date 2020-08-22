@@ -1,0 +1,5 @@
+gametype:
+  activity:
+    label: Activité
+  training:
+    label: Exercice d'application

@@ -7,9 +7,16 @@ permalink: /games/
 {% if gsize > 0 %}
 <amp-state id="allArticles"
          credentials="include"
-         src="/api/games.json"></amp-state>
+         src="/api/games.json">
+</amp-state>
 <div class="container">
-	<input class="search" type="text" on="input-throttled:AMP.setState({filteredArticles: allArticles.filter(a => ((a.title.toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.description.toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.tags.join(' ').toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.categories.join(' ').toLowerCase().indexOf(event.value.toLowerCase()) != -1) ) ), inputValue: event.value }), top-blog-page.scrollTo(duration=200)" placeholder="Filtrer" [value]="inputValue">
+	<input class="search"
+		type="text"
+		placeholder="Filtrer"
+		[value]="inputValue"
+		on="input-throttled:AMP.setState({
+			filteredArticles: allArticles.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')+a.gametype).toLowerCase().indexOf(event.value.toLowerCase()) != -1))
+			})">
 </div>
 
 <amp-list
@@ -32,7 +39,7 @@ permalink: /games/
 	  		<div class="post-infos mt-2 mt-md-0">
 		  		<h2>{% raw %}{{title}}{% endraw %}</h2>
 				<span class="post-meta">
-  					<div><small>Niveau conseillé: <span class="post-level">{% raw %}{{level}}{% endraw %}</span></small></div>
+  					<div><small>Niveau conseillé : <span class="post-level">{% raw %}{{level}}{% endraw %}</span> / Type : {% raw %}{{gametype}}{% endraw %}</small></div>
 				</span>
 				<div>{% raw %}{{#tags}}{% endraw %}<span class="post-tag">{% raw %}{{.}}{% endraw %}</span>{% raw %}{{/tags}}{% endraw %}</div>
 				<p class="text-justify">{% raw %}{{description}}{% endraw %}</p>

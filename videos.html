@@ -9,7 +9,11 @@ permalink: /videos/
          credentials="include"
          src="/api/feed.json"></amp-state>
 <div class="container">
-	<input class="search" type="text" on="input-throttled:AMP.setState({filteredArticles: allArticles.filter(a => ((a.title.toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.description.toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.tags.join(' ').toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.categories.join(' ').toLowerCase().indexOf(event.value.toLowerCase()) != -1) ) ), inputValue: event.value }), top-blog-page.scrollTo(duration=200)" placeholder="Filtrer" [value]="inputValue">
+	<input class="search"
+		type="text"
+		on="input-throttled:AMP.setState({
+			filteredArticles: allArticles.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')).toLowerCase().indexOf(event.value.toLowerCase()) != -1))
+			})">
 </div>
 
 <amp-list
