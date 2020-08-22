@@ -3,12 +3,12 @@ navigation:
     label: Présentation
   videos:
     label: Ma chaine Youtube
-  games:
+  tools:
     label: Mes outils pédagogiques
   contact:
     label: Contact / Tarifs
 
-gametype:
+tooltype:
   activity:
     label: Activité
   training:

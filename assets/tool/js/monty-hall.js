@@ -121,9 +121,9 @@ function startRun(){
 		$('#btn-door-2').attr('disabled', false).removeClass('btn-info btn-danger btn-success').addClass('btn-secondary');
 		$('#btn-door-3').attr('disabled', false).removeClass('btn-info btn-danger btn-success').addClass('btn-secondary');
 		// Reset doors
-		$('#img-door-1').attr('src', '/assets/games/img/door-closed.png');
-		$('#img-door-2').attr('src', '/assets/games/img/door-closed.png');
-		$('#img-door-3').attr('src', '/assets/games/img/door-closed.png');
+		$('#img-door-1').attr('src', '/assets/tool/img/door-closed.png');
+		$('#img-door-2').attr('src', '/assets/tool/img/door-closed.png');
+		$('#img-door-3').attr('src', '/assets/tool/img/door-closed.png');
 	}
 	
 	if(autoRun){
@@ -161,7 +161,7 @@ function handleStep0Choice(doorIndex){
 		.addClass('btn-danger');
 		
 		// Open wrong door
-		$('#img-door-' + wrongDoor).attr('src', '/assets/img/door-opened-goat.png');
+		$('#img-door-' + wrongDoor).attr('src', '/assets/tool/img/door-opened-goat.png');
 		
 		// Get alternate door
 		var altDoor = [1,2,3].filter(door => door != selectedDoor && door != wrongDoor);
@@ -240,9 +240,9 @@ function handleStep1Choice(doorIndex){
 		$('#rules').carousel('next');
 		
 		// Show doors
-		$('#img-door-' + correctDoor).attr('src', '/assets/img/door-opened-car.png');
+		$('#img-door-' + correctDoor).attr('src', '/assets/tool/img/door-opened-car.png');
 		if(doorIndex != correctDoor)
-			$('#img-door-' + selectedDoor).attr('src', '/assets/img/door-opened-goat.png');
+			$('#img-door-' + selectedDoor).attr('src', '/assets/tool/img/door-opened-goat.png');
 	}
 	
 	simulationIndex += 1;

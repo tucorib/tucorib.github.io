@@ -60,9 +60,9 @@ sass:
     
 defaults:
   - scope:
-      path: "game"
+      path: "tool"
     values:
-      layout: "game"
+      layout: "tool"
 
 device:
   sm: "(max-width: 768px)"

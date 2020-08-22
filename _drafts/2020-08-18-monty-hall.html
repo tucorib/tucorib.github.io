@@ -1,20 +1,20 @@
 ---
-layout: game
+layout: tool
 
 title:  Monty Hall
 date:   2020-08-18 08:00:00 +0200
 datetime:   "2020-08-18T08:00:00+0200"
-categories: game
+categories: tool
 youtube:	ByDNEsBNf24
 level: 4e
 tags: probabilités
 description: "description"
 
-gametype: activity
+tooltype: activity
 
 libraries: ["lib/jquery.html", "lib/popper.html", "lib/bootstrap.html", "lib/highcharts.html"]
-images: ["/assets/games/img/door-closed.png", "/assets/games/img/door-opened-goat.png", "/assets/games/img/door-opened-car.png"]
-scripts: ["/assets/games/js/monty-hall.js"]
+images: ["/assets/tool/img/door-closed.png", "/assets/tool/img/door-opened-goat.png", "/assets/tool/img/door-opened-car.png"]
+scripts: ["/assets/tool/js/monty-hall.js"]
 ---
 <h1 class="text-center">Jeu de Monty Hall</h1>
 <ul id="tab-list" class="nav nav-pills nav-fill" role="tablist">
@@ -31,17 +31,17 @@ scripts: ["/assets/games/js/monty-hall.js"]
 		<div id="doors">
 			<div class="row">
 				<div class="col text-center">
-					<img id="img-door-1" src="/assets/games/img/door-closed.png" class="img-fluid"/>
+					<img id="img-door-1" src="/assets/tool/img/door-closed.png" class="img-fluid"/>
 					<br />
 					<button id="btn-door-1" type="button" class="btn" onclick="selectDoor(1);">Porte 1</button>
 				</div>
 				<div class="col text-center">
-					<img id="img-door-2" src="/assets/games/img/door-closed.png" class="img-fluid"/>
+					<img id="img-door-2" src="/assets/tool/img/door-closed.png" class="img-fluid"/>
 					<br />
 					<button id="btn-door-2" type="button" class="btn" onclick="selectDoor(2);">Porte 2</button>
 				</div>
 				<div class="col text-center">
-					<img id="img-door-3" src="/assets/games/img/door-closed.png" class="img-fluid" />
+					<img id="img-door-3" src="/assets/tool/img/door-closed.png" class="img-fluid" />
 					<br />
 					<button id="btn-door-3" type="button" class="btn" onclick="selectDoor(3);">Porte 3</button>
 				</div>

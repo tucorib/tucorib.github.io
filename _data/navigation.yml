@@ -4,8 +4,8 @@
 - name: videos
   link: /videos/
   icon: fab fa-youtube
-- name: games
-  link: /games/
+- name: tools
+  link: /tools/
   icon: fas fa-gamepad
 - name: contact
   link: /contact/
