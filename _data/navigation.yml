@@ -1,12 +1,12 @@
-- name: Présentation
+- name: home
   link: /
   icon: fas fa-home
-- name: Ma chaine Youtube
+- name: videos
   link: /videos/
   icon: fab fa-youtube
-- name: Mes jeux
+- name: games
   link: /games/
   icon: fas fa-gamepad
-- name: Contact / Tarifs
+- name: contact
   link: /contact/
   icon: fas fa-id-card

@@ -1,3 +1,13 @@
+navigation:
+  home:
+    label: Présentation
+  videos:
+    label: Ma chaine Youtube
+  games:
+    label: Mes outils pédagogiques
+  contact:
+    label: Contact / Tarifs
+
 gametype:
   activity:
     label: Activité
