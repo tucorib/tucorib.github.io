@@ -16,11 +16,17 @@ h2{
 	vertical-align: top;
 }
 
+div.post-tag-list span.post-tag{
+	@extend .mr-2;
+}
+
+div.post-tag-list span.post-tag:last-child{
+	@extend .mr-0;
+}
+
 span.post-tag{
 	@extend .badge;
 	@extend .badge-pill;
 	@extend .badge-dark;
-	@extend .mr-2;
-	@extend .mb-2;
 	@extend .rounded;
 }

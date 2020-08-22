@@ -17,38 +17,39 @@ permalink: /games/
 		on="input-throttled:AMP.setState({
 			filteredArticles: allArticles.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')+a.gametype).toLowerCase().indexOf(event.value.toLowerCase()) != -1))
 			})">
-</div>
-
-<amp-list
-  load-more="auto"
-  items="."
-  credentials="include"
-  src="/api/games.json"
-  [src]="filteredArticles"
-  height="2160"
-  [height]="(1080) * filteredArticles.length"
-  layout="fixed-height"
-  binding="no"
-  class="px-md-4"
->
-  <div placeholder>Chargement ...</div>
-  <div fallback><p class="text-center">Un problème est survenu!</p></div>
-  <template type="amp-mustache">
-  	<div class="container-fluid">
-		<a href="{% raw %}{{url}}{% endraw %}">
-	  		<div class="post-infos mt-2 mt-md-0">
-		  		<h2>{% raw %}{{title}}{% endraw %}</h2>
-				<span class="post-meta">
-  					<div><small>Niveau conseillé : <span class="post-level">{% raw %}{{level}}{% endraw %}</span> / Type : {% raw %}{{gametype}}{% endraw %}</small></div>
-				</span>
-				<div>{% raw %}{{#tags}}{% endraw %}<span class="post-tag">{% raw %}{{.}}{% endraw %}</span>{% raw %}{{/tags}}{% endraw %}</div>
-				<p class="text-justify">{% raw %}{{description}}{% endraw %}</p>
-	  		</div>
-  		</a>
+			
+	<div class="row mx-0 mb-2">
+		<div class="col px-0 text-center font-weight-bold">Nom</div>
+		<div class="col-2 px-0 text-center font-weight-bold">Niveau</div>
+		<div class="col-3 px-0 text-center font-weight-bold">Type</div>
+		<div class="col px-0 text-center font-weight-bold">Tags</div>
 	</div>
-  	<hr />
-  </template>
-</amp-list>
+	
+	<amp-list
+	  load-more="auto"
+	  items="."
+	  credentials="include"
+	  src="/api/games.json"
+	  [src]="filteredArticles"
+	  height="80"
+	  [height]="(40) * filteredArticles.length"
+	  layout="fixed-height"
+	  binding="no"
+	>
+	  	<div placeholder>Chargement ...</div>
+	  	<div fallback><p class="text-center">Un problème est survenu!</p></div>
+	  	<template type="amp-mustache">
+	  		<a href="{% raw %}{{url}}{% endraw %}" title="{% raw %}{{description}}{% endraw %}">
+	  			<div class="row mx-0 py-1">
+		  			<div class="col px-0 text-center">{% raw %}{{title}}{% endraw %}</div>
+		  			<div class="col-2 px-0 text-center">{% raw %}{{level}}{% endraw %}</div>
+		  			<div class="col-3 px-0 text-center">{% raw %}{{gametype}}{% endraw %}</div>
+		  			<div class="col px-0 text-center post-tag-list">{% raw %}{{#tags}}{% endraw %}<span class="post-tag">{% raw %}{{.}}{% endraw %}</span>{% raw %}{{/tags}}{% endraw %}</div>
+		  		</div>
+	  		</a>
+	  	</template>
+	</amp-list>
+</div>
 {% else %}
 <p class="text-center p-4">Des jeux mathématiques sont en préparation...</p>
 {% endif %}

@@ -24,7 +24,7 @@
 				<div>/</div>
   				<div><small>Niveau conseillé: <span class="post-level">{{ include.post.level }}</span></small></div>
 			</span>
-			<div>{% for tag in  include.post.tags %}<span class="post-tag">{{ tag }}</span>{% endfor %}</div>
+			<div class="post-tag-list">{% for tag in  include.post.tags %}<span class="post-tag">{{ tag }}</span>{% endfor %}</div>
 			<p class="text-justify">{{ include.post.description }}</p>
   		</div>
   	</div>

@@ -7422,7 +7422,7 @@ button.bg-dark:focus {
   margin-top: 0;
 }
 
-.mr-0,
+.mr-0, div.post-tag-list span.post-tag:last-child,
 .mx-0 {
   margin-right: 0;
 }
@@ -7470,12 +7470,12 @@ button.bg-dark:focus {
   margin-top: 0.5rem;
 }
 
-.mr-2, span.post-tag, .flash,
+.mr-2, div.post-tag-list span.post-tag, .flash,
 .mx-2 {
   margin-right: 0.5rem;
 }
 
-.mb-2, span.post-tag,
+.mb-2,
 .my-2 {
   margin-bottom: 0.5rem;
 }
