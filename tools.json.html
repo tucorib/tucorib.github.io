@@ -1,10 +1,9 @@
 ---
-limit: 5
 permalink: /api/tools.json
 ---
 {% capture weekago %}{{ "now" | date: "%s" | minus: 604800 }}{% endcapture %}
 [
-	{% for post in site.categories.tool limit: page.limit %}
+	{% for post in site.categories.tool %}
 	{% capture posttime %}{{ post.date | date: "%s" }}{% endcapture %}
 	{
 		"title": "{{ post.title }}",
@@ -40,7 +39,4 @@ permalink: /api/tools.json
 	}{% unless forloop.last %},{% endunless %}
 	{% endfor %}
 ]
-	
-	
-	
 	

@@ -1,10 +1,9 @@
 ---
-limit: 5
 permalink: /api/feed.json
 ---
 {% capture weekago %}{{ "now" | date: "%s" | minus: 604800 }}{% endcapture %}
 [
-	{% for post in site.posts limit: page.limit %}
+	{% for post in site.posts %}
 	{% capture posttime %}{{ post.date | date: "%s" }}{% endcapture %}
 	{
 		"title": "{{ post.title }}",
@@ -44,7 +43,4 @@ permalink: /api/feed.json
 	}{% unless forloop.last %},{% endunless %}
 	{% endfor %}
 ]
-	
-	
-	
 	

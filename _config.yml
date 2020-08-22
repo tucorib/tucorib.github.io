@@ -77,4 +77,11 @@ home:
       width: 560
       height: 315
       autoplay: false
+
+videos:
+  list:
+    row_height: 186.75
+tools:
+  list:
+    row_height: 32
     

@@ -1,3 +1,6 @@
+waiting: Chargement...
+error: Un problème est survenu !
+
 navigation:
   home:
     label: Présentation
@@ -12,4 +15,4 @@ tooltype:
   activity:
     label: Activité
   training:
-    label: Exercice d'application
+    label: Application

@@ -3,53 +3,48 @@ layout: amp
 title: Mes outils pédagogiques
 permalink: /tools/
 ---
-{% assign gsize = site.categories.tool.size %}
-{% if gsize > 0 %}
-<amp-state id="allArticles"
-         credentials="include"
-         src="/api/tools.json">
-</amp-state>
+{% assign tsize = site.categories.tool.size %}
+{% if tsize > 0 %}
+<amp-state id="data" credentials="include" src="/api/tools.json"></amp-state>
 <div class="container">
 	<input class="search"
 		type="text"
 		placeholder="Filtrer"
-		[value]="inputValue"
 		on="input-throttled:AMP.setState({
-			filteredArticles: allArticles.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')+a.gametype).toLowerCase().indexOf(event.value.toLowerCase()) != -1))
+				filteredPosts: data.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')+a.tooltype).toLowerCase().indexOf(event.value.toLowerCase()) != -1))
 			})">
-			
-	<div class="row mx-0 mb-2">
-		<div class="col px-0 text-center font-weight-bold">Nom</div>
-		<div class="col-2 px-0 text-center font-weight-bold">Niveau</div>
-		<div class="col-3 px-0 text-center font-weight-bold">Type</div>
-		<div class="col px-0 text-center font-weight-bold">Tags</div>
-	</div>
-	
-	<amp-list
-	  load-more="auto"
-	  items="."
-	  credentials="include"
-	  src="/api/tools.json"
-	  [src]="filteredArticles"
-	  height="80"
-	  [height]="(40) * filteredArticles.length"
-	  layout="fixed-height"
-	  binding="no"
-	>
-	  	<div placeholder>Chargement ...</div>
-	  	<div fallback><p class="text-center">Un problème est survenu!</p></div>
-	  	<template type="amp-mustache">
-	  		<a href="{% raw %}{{url}}{% endraw %}" title="{% raw %}{{description}}{% endraw %}">
-	  			<div class="row mx-0 py-1">
-		  			<div class="col px-0 text-center">{% raw %}{{title}}{% endraw %}</div>
-		  			<div class="col-2 px-0 text-center">{% raw %}{{level}}{% endraw %}</div>
-		  			<div class="col-3 px-0 text-center">{% raw %}{{tooltype}}{% endraw %}</div>
-		  			<div class="col px-0 text-center post-tag-list">{% raw %}{{#tags}}{% endraw %}<span class="post-tag">{% raw %}{{.}}{% endraw %}</span>{% raw %}{{/tags}}{% endraw %}</div>
-		  		</div>
-	  		</a>
-	  	</template>
-	</amp-list>
 </div>
+		
+<div class="row px-md-4 mx-0 mb-2">
+	<div class="col px-0 text-center font-weight-bold">Nom</div>
+	<div class="col-2 px-0 text-center font-weight-bold">Niveau</div>
+	<div class="col-3 px-0 text-center font-weight-bold">Type</div>
+	<div class="col px-0 text-center font-weight-bold">Tags</div>
+</div>
+	
+<amp-list
+  items="."
+  credentials="include"
+  src="/api/tools.json"
+  [src]="filteredPosts"
+  height="{{ site.tools.list.row_height| times: tsize }}"
+  [height]="{{ site.tools.list.row_height }} * filteredPosts.length"
+  layout="fixed-height"
+  binding="no"
+>
+  	<div placeholder><p class="p-4 text-center">{{ site.data.labels.waiting }}</p></div>
+  	<div fallback><p class="p-4 text-center">{{ site.data.labels.error }}</p></div>
+  	<template type="amp-mustache">
+  		<a href="{% raw %}{{url}}{% endraw %}" title="{% raw %}{{description}}{% endraw %}">
+  			<div class="row px-md-4 mx-0 py-1">
+	  			<div class="col px-0 text-center">{% raw %}{{title}}{% endraw %}</div>
+	  			<div class="col-2 px-0 text-center">{% raw %}{{level}}{% endraw %}</div>
+	  			<div class="col-3 px-0 text-center">{% raw %}{{tooltype}}{% endraw %}</div>
+	  			<div class="col px-0 text-center post-tag-list">{% raw %}{{#tags}}{% endraw %}<span class="post-tag">{% raw %}{{.}}{% endraw %}</span>{% raw %}{{/tags}}{% endraw %}</div>
+	  		</div>
+  		</a>
+  	</template>
+</amp-list>
 {% else %}
-<p class="text-center p-4">Des jeux mathématiques sont en préparation...</p>
+<p class="text-center p-4">Des outils pédagogiques sont en préparation...</p>
 {% endif %}
