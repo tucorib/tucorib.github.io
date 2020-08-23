@@ -6,6 +6,7 @@
 		<!-- Smartphone screen dimension management -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="robots" content="noindex" />
+		
 		<!-- Theme -->
 		{% if page.theme %}
 		<style>
@@ -45,6 +46,7 @@
 		{% endfor %}
 		
 		<!-- Scripts -->
+		<script defer src="/assets/js/tools/tool.js"></script>
 		{% for script in page.scripts %}
 		<script defer src="{{ script }}"></script>
 		{% endfor %}
@@ -58,10 +60,7 @@
 		</div>
 		<main class="wrapper pb-3">
 			<div class="container">
-				{% if page.hud %}
 				{% include tools/hud.html %}
-				<br/>
-				{% endif %}
 				{{ content }}
 			</div>
 		</main>

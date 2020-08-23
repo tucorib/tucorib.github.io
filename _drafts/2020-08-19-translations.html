@@ -10,56 +10,18 @@ description: "description"
 
 tooltype: training
 
+theme: retro
+
 libraries: ["lib/jquery.html", "lib/popper.html", "lib/bootstrap.html", "lib/jquery-ui.html"]
 scripts: ["/assets/tool/js/translations.js"]
 styles: ["/assets/tool/css/translations.css"]
 
-hud: ["score", "combos", "lives"]
+score: 0
+combos: 0
 lives: 3
 ---
 <!-- Rules -->
-<p class="text-center">Sélectionne l'image du bouton <button class="btn btn-success" disabled></button> par la translation qui transforme le bouton <button class="btn btn-primary" disabled></button> en bouton <button class="btn btn-danger" disabled></button></p>
+<p class="mt-4 text-center">Sélectionne l'image du bouton <button class="btn btn-success" disabled></button> par la translation qui transforme le bouton <button class="btn btn-primary" disabled></button> en bouton <button class="btn btn-danger" disabled></button></p>
 
 <!-- Button grid container -->
 <div id="arena" class="container"></div>
-
-<!-- Greetings modal -->
-<div id="modal-right" class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-	<div class="modal-content">
-	  <div class="modal-header">
-		<h1 class="modal-title text-center">Bravo!</h1>
-		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		  <span aria-hidden="true">&times;</span>
-		</button>
-	  </div>
-	  <div class="modal-body">
-		<h2 class="text-center">Bonne réponse!</h2>
-	  </div>
-	  <div class="modal-footer">
-		<button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal" onclick="newGame();">Recommencer</button>
-		<button type="button" class="btn btn-lg btn-primary" data-dismiss="modal" onclick="newRun();">Continuer</button>
-	  </div>
-	</div>
-  </div>
-</div>
-
-<!-- Game over modal -->
-<div id="modal-wrong" class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-	<div class="modal-content">
-	  <div class="modal-header">
-		<h1 class="modal-title text-center">Fin de la partie</h1>
-		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		  <span aria-hidden="true">&times;</span>
-		</button>
-	  </div>
-	  <div class="modal-body">
-		<h2 class="text-center">Tu as fais: <span class="score font-weight-bold"></span> points!</h2>
-	  </div>
-	  <div class="modal-footer">
-		<button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal" onclick="newGame();">Recommencer</button>
-	  </div>
-	</div>
-  </div>
-</div>

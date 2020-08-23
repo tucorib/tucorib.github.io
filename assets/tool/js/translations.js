@@ -3,29 +3,43 @@ var minxmax = 3; // Start x bounds
 var	minymax = 3; // Start y bounds
 var xmax = minxmax; // x bounds
 var	ymax = minymax; // y bounds
-var maxlives = 3; // Start max lives
-var score = 0; // Score
-var combos = 0; // Combos
-var lives = maxlives; // Lives
 
-// Launch new game
-var newGame = function(){
+Tool.register('game.hit', function(){
+	Tool.fire('hud.combos.reset');
+	$('#arena').effect("shake");
+});
+Tool.register('game.over', function(){
+	$('#modal-gameover .score').text(Tool.Hud.score);
+});
+
+Tool.register('game.new', function(){
 	// Reset values
-	score = 0;
-	combos = 0;
 	xmax = minxmax;
 	ymax = minymax;
-	lives = maxlives;
-	// Update UI
-	$('.score').text(score);
-	$('.combos').text(combos);
-	$('.life').show();
+	Tool.fire('hud.reset');
 	// New run
-	newRun();
+	Tool.fire('game.newrun');
+});
+
+//Button click action
+var clickHandler = function(win){
+	// If click on solution
+	if(win){
+		Tool.fire('hud.combos.inc');
+		Tool.fire('hud.score.add', Math.floor(Tool.Hud.combos*xmax*ymax*Tool.Hud.lives/Tool.Hud.defaults.lives));
+		xmax +=1; // Increase x bounds
+		ymax +=1; // Increase y bounds
+		// Open greetings popup
+		Tool.fire('run.success');
+	}
+	// Else
+	else{
+		Tool.fire('hud.lives.dec');
+		Tool.fire('hud.combos.reset');
+	}
 };
 
-// Launch new run
-var newRun = function(){
+Tool.register('game.newrun', function(){
 	// Remove old buttons
 	var arena = $('#arena');
 	arena.empty();
@@ -61,37 +75,6 @@ var newRun = function(){
 	var xd = xc + xb - xa;
 	var yd = yc + yb - ya;
 	
-	// Button click action
-	var clickHandler = function(x,y){
-		// If click on solution
-		if(x == xd && y == yd){
-			combos += 1; // Increase combos counter
-			score += Math.floor(combos*xmax*ymax*lives/maxlives); // Increase score
-			xmax +=1; // Increase x bounds
-			ymax +=1; // Increase y bounds
-			// Update UI
-			$('.score').text(score);
-			$('.combos').text(combos);
-			// Open greetings popup
-			$('#modal-right').modal('show');
-		}
-		// Else
-		else{
-			lives -= 1; // Remove life
-			combos = 0;// Reinitialize combos
-			// Update UI						
-			$('.life[data-life='+lives+']').toggle( "explode" );
-			$('.combos').text(combos);
-			// If no more life
-			if(lives == 0){
-				$('#modal-wrong').modal('show'); // Open game over popup
-			}
-			else{
-				$(arena).effect( "shake" ); // Shake buttons
-			}
-		}
-	};
-	
 	// Create buttons
 	for(var y=0; y<ymax; y++){
 		// Add row container
@@ -102,7 +85,7 @@ var newRun = function(){
 			var button = $('<div>', {
 				// UI style
 				class: function(){
-					var c = 'm-1 box rounded';
+					var c = 'btn box rounded m-1';
 					if(x == xa && y == ya){
 						return c + ' btn-primary'; // blue
 					}
@@ -124,7 +107,7 @@ var newRun = function(){
 			.css('width', 100/xmax + '%')
 			// Link click action to button
 			.click(function(){
-				clickHandler($(this).data('x'),$(this).data('y'));
+				clickHandler($(this).data('x') == xd && $(this).data('y') == yd);
 			});
 			// Add button to row
 			$(row).append(button);
@@ -132,22 +115,10 @@ var newRun = function(){
 		// Add row to grid
 		$(arena).append(row);
 	}
-};
+});
+
 // When page is ready
 $(document).ready(function(){
 	// Start new game
-	newGame();
+	Tool.fire('game.new');
 });
-
-// Easter egg :)
-console.log(
-`        .-"-.
-      .'=^=^='.
-     /=^=^=^=^=\\
-    :^= HAPPY =^;
-    |^ EASTER! ^|
-    :^=^=^=^=^=^:
-     \=^=^=^=^=/
-      \`.=^=^=.'
-\`~~~\`
-`);

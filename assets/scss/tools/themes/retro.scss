@@ -5,7 +5,7 @@ $wrapper-color: #a7ba4a;
 $body-color: #234331;
 $border-color: #537a3e;
 $primary: #d3e29a;
-$secondary: $primary;
+//$secondary: $primary;
 
 @import "tool";
 
@@ -49,7 +49,7 @@ nav.navbar ul.navbar-nav{
 }
 
 .navbar-nav .nav-link{
-	border-radius: 0;	
+	border-radius: 0;
 }
 
 h1, .hud{
@@ -60,4 +60,28 @@ h1, .hud{
 	@extend .nes-icon;
 	@extend .heart;
 	font-size: 12pt;
+}
+
+.btn{
+	@extend .nes-btn;		
+}
+
+div.modal-dialog{
+	@extend .nes-dialog;
+}
+
+div.modal-content{
+	@extend .bg-wrapper;
+	border-width: 20px;
+	border-style: double;
+	border-radius: 0;
+	border-color: $body-color;
+}
+
+.modal-header button.close{
+	@extend .d-none;	
+}
+
+div.modal-footer{
+	@extend .justify-content-between;
 }
