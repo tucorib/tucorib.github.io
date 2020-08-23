@@ -18543,6 +18543,10 @@ readers do not read off random characters that represent icons */
   background-color: #a7ba4a;
 }
 
+.bg-body {
+  background-color: #234331;
+}
+
 .parallax-section {
   position: relative;
   overflow: hidden;
@@ -18658,10 +18662,13 @@ main.wrapper {
 
 div.modal-content {
   border-width: 20px;
-  margin: 20px;
   border-style: double;
   border-radius: 0;
   border-color: #234331;
+}
+
+button.navbar-toggler {
+  font-size: 2.5rem;
 }
 
 /*# sourceMappingURL=retro.css.map */

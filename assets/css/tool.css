@@ -7501,7 +7501,7 @@ button.bg-dark:focus {
   margin-bottom: 0.5rem;
 }
 
-.ml-2, .life,
+.ml-2,
 .mx-2 {
   margin-left: 0.5rem;
 }
@@ -9782,11 +9782,11 @@ a.text-warning:hover, a.text-warning:focus {
   color: #ba8b00;
 }
 
-.text-danger, .life {
+.text-danger {
   color: #dc3545;
 }
 
-a.text-danger:hover, a.life:hover, a.text-danger:focus, a.life:focus {
+a.text-danger:hover, a.text-danger:focus {
   color: #a71d2a;
 }
 
@@ -9950,7 +9950,6 @@ h3 {
  */
 .fa,
 .fas,
-.life,
 .far,
 .fal,
 .fad,
@@ -9982,7 +9981,7 @@ h3 {
   font-size: 1em;
 }
 
-.fa-2x, .life {
+.fa-2x {
   font-size: 2em;
 }
 
@@ -10056,7 +10055,6 @@ h3 {
 
 .fa.fa-pull-left,
 .fas.fa-pull-left,
-.fa-pull-left.life,
 .far.fa-pull-left,
 .fal.fa-pull-left,
 .fab.fa-pull-left {
@@ -10064,7 +10062,6 @@ h3 {
 }
 .fa.fa-pull-right,
 .fas.fa-pull-right,
-.fa-pull-right.life,
 .far.fa-pull-right,
 .fal.fa-pull-right,
 .fab.fa-pull-right {
@@ -12765,7 +12762,7 @@ readers do not read off random characters that represent icons */
   content: "";
 }
 
-.fa-heart:before, .life:before {
+.fa-heart:before {
   content: "";
 }
 
@@ -15999,14 +15996,17 @@ readers do not read off random characters that represent icons */
   src: url("/assets/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("/assets/webfonts/fa-solid-900.woff2") format("woff2"), url("/assets/webfonts/fa-solid-900.woff") format("woff"), url("/assets/webfonts/fa-solid-900.ttf") format("truetype"), url("/assets/webfonts/fa-solid-900.svg#fontawesome") format("svg");
 }
 .fa,
-.fas,
-.life {
+.fas {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
 }
 
 .bg-wrapper, .wrapper {
   background-color: #10927c;
+}
+
+.bg-body {
+  background-color: #eeeeee;
 }
 
 .parallax-section {

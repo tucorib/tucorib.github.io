@@ -85,3 +85,7 @@ div.modal-content{
 div.modal-footer{
 	@extend .justify-content-between;
 }
+
+button.navbar-toggler{
+	font-size: 2.5rem;
+}

@@ -16005,6 +16005,10 @@ readers do not read off random characters that represent icons */
   background-color: #10927c;
 }
 
+.bg-body {
+  background-color: #eeeeee;
+}
+
 .parallax-section {
   position: relative;
   overflow: hidden;
