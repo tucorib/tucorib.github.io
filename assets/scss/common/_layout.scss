@@ -1,6 +1,7 @@
-html, body{
-	@extend .vh-100;
+html, body, html:not([amp4ads]), html:not([amp4ads]) body{
+	height: 100% !important;
 }
+
 	
 .container{
 	@extend .px-4;	
@@ -8,13 +9,16 @@ html, body{
 	
 body{
 	background-color: $body-bg-color;
+	@extend .d-flex;
+	@extend .flex-column;
 }
 
 .wrapper{
 	@extend .mx-auto;
+	@extend .mb-auto;
 	@extend .bg-wrapper;
 	max-width: $wrapper-max-width;
-	bottom: 0px;
+	flex: 1 1 auto;
 }
 
 @media screen and (min-width: $wrapper-max-width) {
