@@ -135,17 +135,6 @@ var newRun = function(){
 };
 // When page is ready
 $(document).ready(function(){
-	// Create lives images
-	for(var i=0; i<maxlives; i++){
-		$('<img>', {
-			src: '/assets/img/pixel-heart.png',
-			class: 'life',
-			width: '40px',
-			height: '40px'
-		})
-		.attr('data-life', maxlives-i)
-		.appendTo($('#lives'));
-	}
 	// Start new game
 	newGame();
 });

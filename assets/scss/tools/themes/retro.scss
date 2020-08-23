@@ -1,3 +1,5 @@
+@import "libs/nes/nes";
+
 $body-bg-color: #0f380f;
 $wrapper-color: #a7ba4a;
 $body-color: #234331;
@@ -10,8 +12,6 @@ $secondary: $primary;
 html, body, pre, code, kbd, samp {
   font-family: "Press Start 2P";
 }
-
-@import url("https://unpkg.com/nes.css/css/nes.css");
 
 html{
 	cursor: auto;
@@ -39,6 +39,7 @@ div.wrapper:nth-child(2){
 
 main.wrapper{
 	@extend .mb-auto;
+	@extend .py-4;
 	border-top: $border-width solid;
 	border-bottom: $border-width solid;
 	flex: none;
@@ -50,4 +51,10 @@ nav.navbar ul.navbar-nav{
 
 .navbar-nav .nav-link{
 	border-radius: 0;	
+}
+
+.life{
+	@extend .nes-icon;
+	@extend .heart;
+	font-size: 12pt;
 }

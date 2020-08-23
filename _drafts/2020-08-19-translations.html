@@ -17,22 +17,10 @@ theme: retro
 libraries: ["lib/jquery.html", "lib/popper.html", "lib/bootstrap.html", "lib/jquery-ui.html"]
 scripts: ["/assets/tool/js/translations.js"]
 styles: ["/assets/tool/css/translations.css"]
+
+hud: ["score", "combos", "lives"]
+lives: 3
 ---
-<div class="border rounded">
-	<!-- Score -->
-	<div class="container-fluid">
-		<h5><span>Score:</span> <span class="score">0</span> <span>points</span></h5>
-	</div>
-	<!-- Combos -->
-	<div class="container-fluid">
-		<h5><span>Combos:</span> <span class="combos">0</span></h5>
-	</div>
-	<!-- Lives -->
-	<div class="container-fluid">
-		<div id="lives" class="container-fluid flex-fill text-center"></div>
-	</div>
-</div>
-<br/>
 <!-- Rules -->
 <p class="text-center">Sélectionne l'image du bouton <button class="btn btn-success" disabled></button> par la translation qui transforme le bouton <button class="btn btn-primary" disabled></button> en bouton <button class="btn btn-danger" disabled></button></p>
 

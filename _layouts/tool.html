@@ -58,6 +58,10 @@
 		</div>
 		<main class="wrapper pb-3">
 			<div class="container">
+				{% if page.hud %}
+				{% include tools/hud.html %}
+				<br/>
+				{% endif %}
 				{{ content }}
 			</div>
 		</main>

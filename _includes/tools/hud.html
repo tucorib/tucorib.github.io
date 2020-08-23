@@ -1,0 +1,22 @@
+<div class="hud row">
+	<!-- Score -->
+	{% if page.hud contains "score" %}
+	<div class="col-4 col-md-2">
+		<h5><span>Score:</span> <span class="score ml-auto">0</span></h5>
+	</div>
+	{% endif %}
+	<!-- Combos -->
+	{% if page.hud contains "combos" %}
+	<div class="col-4 col-md-2">
+		<h5><span>Combos:</span> <span class="combos">0</span></h5>
+	</div>
+	{% endif %}
+	<!-- Lives -->
+	{% if page.hud contains "lives" %}
+	<div id="lives" class="col text-right">
+	{% for live in (1..page.lives) %}
+	<i class="life" data-life="{{ page.lives| minus: live }}"></i>
+	{% endfor %}
+	</div>
+	{% endif %}
+</div>
