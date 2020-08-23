@@ -54,13 +54,11 @@ plugins:
 
 language: "fr"
 future: false
-sass:
-    sass_dir: _includes/scss
-    style: compressed
     
 defaults:
   - scope:
-      path: "tool"
+      category: "tool"
+      type: "posts"
     values:
       layout: "tool"
       theme: "default"
