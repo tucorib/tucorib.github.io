@@ -12244,7 +12244,7 @@ main.wrapper {
   text-transform: lowercase;
 }
 
-.text-uppercase, div.wrapper:nth-child(2) {
+.text-uppercase, h1, .hud {
   text-transform: uppercase;
 }
 

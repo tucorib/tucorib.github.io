@@ -10,3 +10,11 @@ navigation:
 tooltype:
   activity: Activité
   training: Application
+
+themes:
+  default:
+    score: "Score :"
+    combos: "Combos :"
+  retro:
+    score: SCORE
+    combos: COMBOS

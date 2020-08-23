@@ -63,6 +63,7 @@ defaults:
       path: "tool"
     values:
       layout: "tool"
+      theme: "default"
 
 device:
   sm: "(max-width: 768px)"

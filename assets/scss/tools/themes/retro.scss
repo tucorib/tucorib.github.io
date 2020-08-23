@@ -33,7 +33,6 @@ div.wrapper:nth-child(2){
 	@extend .border-0;
 	@extend .my-4;
 	@extend .bg-transparent;
-	@extend .text-uppercase;
 	color: #a7ba4a;
 }
 
@@ -51,6 +50,10 @@ nav.navbar ul.navbar-nav{
 
 .navbar-nav .nav-link{
 	border-radius: 0;	
+}
+
+h1, .hud{
+	@extend .text-uppercase;	
 }
 
 .life{

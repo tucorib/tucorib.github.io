@@ -1,4 +1,7 @@
 themes:
+  default:
+    css:
+      - /assets/css/tools/themes/default.css
   retro:
     css: 
       - /assets/css/tools/themes/retro.css

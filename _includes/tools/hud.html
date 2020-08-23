@@ -1,19 +1,22 @@
-<div class="hud row">
+<div class="hud d-flex">
 	<!-- Score -->
 	{% if page.hud contains "score" %}
-	<div class="col-4 col-md-2">
-		<h5><span>Score:</span> <span class="score ml-auto">0</span></h5>
+	<div class="d-flex flex-column mr-4">
+		<span class="text-center">{{ site.data.labels.themes[page.theme].score }}</span>
+		<span class="score text-center">0</span>
 	</div>
 	{% endif %}
 	<!-- Combos -->
 	{% if page.hud contains "combos" %}
-	<div class="col-4 col-md-2">
-		<h5><span>Combos:</span> <span class="combos">0</span></h5>
+	<div class="d-flex flex-column mr-4">
+		<span class="text-center">{{ site.data.labels.themes[page.theme].combos }}</span>
+		<span class="score text-center">0</span>
 	</div>
 	{% endif %}
+	<div class="flex-grow-1"></div>
 	<!-- Lives -->
 	{% if page.hud contains "lives" %}
-	<div id="lives" class="col text-right">
+	<div id="lives" class="text-right">
 	{% for live in (1..page.lives) %}
 	<i class="life" data-life="{{ page.lives| minus: live }}"></i>
 	{% endfor %}
