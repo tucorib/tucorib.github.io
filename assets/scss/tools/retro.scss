@@ -1,0 +1,53 @@
+$body-bg-color: #0f380f;
+$wrapper-color: #a7ba4a;
+$body-color: #234331;
+$border-color: #537a3e;
+$primary: #d3e29a;
+$secondary: $primary;
+
+@import "tool";
+
+html, body, pre, code, kbd, samp {
+  font-family: "Press Start 2P";
+}
+
+@import url("https://unpkg.com/nes.css/css/nes.css");
+
+html{
+	cursor: auto;
+	font-size: 80%;
+}
+
+@include media-breakpoint-down('md', $grid-breakpoints) {
+	html{
+		font-size: 60%;
+	}
+}
+
+div.wrapper:first-child{
+	@extend .border-bottom;
+	@extend .mb-auto;
+}
+
+div.wrapper:nth-child(2){
+	@extend .border-0;
+	@extend .my-4;
+	@extend .bg-transparent;
+	@extend .text-uppercase;
+	color: #a7ba4a;
+}
+
+main.wrapper{
+	@extend .mb-auto;
+	border-top: $border-width solid;
+	border-bottom: $border-width solid;
+	flex: none;
+}
+	
+nav.navbar ul.navbar-nav{
+	@extend .justify-content-center;
+}
+
+.navbar-nav .nav-link{
+	border-radius: 0;	
+}

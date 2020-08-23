@@ -1,17 +1,17 @@
 // Wrapper
-$wrapper-color: #10927c;
-$wrapper-max-width: 1140px;
+$wrapper-color: #10927c !default;
+$wrapper-max-width: 1140px !default;
 
-// Theme
-$body-color: #eeeeee;
-$primary: #ff8939;
-$secondary: #4b6fbb;
-$btn-background: $body-color;
-$border-width: 3px;
-$border-color: #fff;
-$enable-rounded: true;
-$body-bg-color: #46a898; // lighten($wrapper-color, 35%);
-$modal-content-bg: #212529;
+$body-color: #eeeeee !default;
+$primary: #ff8939 !default;
+$secondary: #4b6fbb !default;
+$btn-background: $body-color !default;
+$border-width: 3px !default;
+$border-color: #fff !default;
+$enable-rounded: true !default;
+$body-bg-color: #46a898 !default; // lighten($wrapper-color, 35%) !default;
+$modal-content-bg: #212529 !default;
+$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", "Lato", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 
 // Font awesome
-$fa-font-path: "/assets/webfonts";
+$fa-font-path: "/assets/webfonts" !default;

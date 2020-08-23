@@ -6,7 +6,23 @@
 		<!-- Smartphone screen dimension management -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="robots" content="noindex" />
+		<!-- Theme -->
+		{% if page.theme %}
+		<style>
+		{% for font in site.data.tools.themes[page.theme].fonts %}
+			@font-face{
+				font-family: {{ font.name }};
+				src: url({{ font.path }});	
+			}
+		{% endfor %}
+		</style>
+		{% for css in site.data.tools.themes[page.theme].css %}
+		<link rel="stylesheet" href="{{ css }}" as="style" type="text/css">
+		{% endfor %}
+		{% else %}
 		<link rel="stylesheet" href="/assets/css/tool.css" as="style" type="text/css">
+		{% endif %}
+		
 		{% feed_meta %}
 		{% seo %}
 		<link rel="shortcut icon" href="/assets/img/logo-128.png">
@@ -34,9 +50,13 @@
 		{% endfor %}
 	</head>
 	<body>
-		<!-- Game -->
-		<main class="wrapper pb-3">
+		<div class="wrapper">
 			{% include navigation.html %}
+		</div>
+		<div class="wrapper">
+			<h1 class="text-center">{{ page.title }}</h1>
+		</div>
+		<main class="wrapper pb-3">
 			<div class="container">
 				{{ content }}
 			</div>

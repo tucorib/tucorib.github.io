@@ -15,9 +15,12 @@ body{
 
 .wrapper{
 	@extend .mx-auto;
-	@extend .mb-auto;
 	@extend .bg-wrapper;
+	@extend .w-100;
 	max-width: $wrapper-max-width;
+}
+
+main.wrapper{
 	flex: 1 1 auto;
 }
 
