@@ -1,0 +1,11 @@
+themes:
+  default:
+    css:
+      - /assets/css/tools/themes/default.css
+  retro:
+    css: 
+      - /assets/css/tools/themes/retro.css
+      - https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap
+    fonts:
+      - name: Arcade Classic
+        path: /assets/webfonts/themes/fonts/ARCADECLASSIC.TTF

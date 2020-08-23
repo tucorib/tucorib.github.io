@@ -2,30 +2,25 @@
 layout: amp
 title: Ma chaine Youtube
 permalink: /videos/
+filter: "input-throttled:AMP.setState({filteredPosts: data.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')).toLowerCase().indexOf(event.value.toLowerCase()) != -1))})"
 ---
+<h1 class="h3 text-center text-md-left font-weight-bolder mx-4">{{ site.data.labels.navigation.videos }}</h1>
 {% assign psize = site.posts.size %}
 {% if psize > 0 %}
-<amp-state id="allArticles"
-         credentials="include"
-         src="/api/feed.json"></amp-state>
-<div class="container">
-	<input class="search" type="text" on="input-throttled:AMP.setState({filteredArticles: allArticles.filter(a => ((a.title.toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.description.toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.tags.join(' ').toLowerCase().indexOf(event.value.toLowerCase()) != -1) || (a.categories.join(' ').toLowerCase().indexOf(event.value.toLowerCase()) != -1) ) ), inputValue: event.value }), top-blog-page.scrollTo(duration=200)" placeholder="Filtrer" [value]="inputValue">
-</div>
-
+<amp-state id="data" credentials="include" src="/api/feed.json"></amp-state>
 <amp-list
-  load-more="auto"
   items="."
   credentials="include"
   src="/api/feed.json"
-  [src]="filteredArticles"
-  height="2160"
-  [height]="(1080) * filteredArticles.length"
+  [src]="filteredPosts"
+  height="{{ site.videos.list.row_height| plus: 16 | times: psize | minus: 16 }}"
+  [height]="({{ site.videos.list.row_height }} + 16) * filteredPosts.length - 16"
   layout="fixed-height"
   binding="no"
-  class="px-md-4"
+  class="mx-md-4"
 >
-  <div placeholder>Chargement ...</div>
-  <div fallback><p class="text-center">Un problème est survenu!</p></div>
+  <div placeholder><p class="p-4 text-center">{{ site.data.labels.waiting }}</p></div>
+  <div fallback><p class="p-4 text-center">{{ site.data.labels.error }}</p></div>
   <template type="amp-mustache">
   	{% include post-item-raw.html %}
   	<hr />
