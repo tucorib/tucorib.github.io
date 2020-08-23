@@ -1,0 +1,91 @@
+@import "libs/nes/nes";
+
+$body-bg-color: #0f380f;
+$wrapper-color: #a7ba4a;
+$body-color: #234331;
+$border-color: #537a3e;
+$primary: #d3e29a;
+//$secondary: $primary;
+
+@import "tool";
+
+html, body, pre, code, kbd, samp {
+  font-family: "Press Start 2P";
+}
+
+html{
+	cursor: auto;
+	font-size: 80%;
+}
+
+@include media-breakpoint-down('md', $grid-breakpoints) {
+	html{
+		font-size: 60%;
+	}
+}
+
+div.wrapper:first-child{
+	@extend .border-bottom;
+	@extend .mb-auto;
+}
+
+div.wrapper:nth-child(2){
+	@extend .border-0;
+	@extend .my-4;
+	@extend .bg-transparent;
+	color: #a7ba4a;
+}
+
+main.wrapper{
+	@extend .mb-auto;
+	@extend .py-4;
+	border-top: $border-width solid;
+	border-bottom: $border-width solid;
+	flex: none;
+}
+	
+nav.navbar ul.navbar-nav{
+	@extend .justify-content-center;
+}
+
+.navbar-nav .nav-link{
+	border-radius: 0;
+}
+
+h1, .hud{
+	@extend .text-uppercase;	
+}
+
+.life{
+	@extend .nes-icon;
+	@extend .heart;
+	font-size: 12pt;
+}
+
+.btn{
+	@extend .nes-btn;		
+}
+
+div.modal-dialog{
+	@extend .nes-dialog;
+}
+
+div.modal-content{
+	@extend .bg-wrapper;
+	border-width: 20px;
+	border-style: double;
+	border-radius: 0;
+	border-color: $body-color;
+}
+
+.modal-header button.close{
+	@extend .d-none;	
+}
+
+div.modal-footer{
+	@extend .justify-content-between;
+}
+
+button.navbar-toggler{
+	font-size: 2.5rem;
+}

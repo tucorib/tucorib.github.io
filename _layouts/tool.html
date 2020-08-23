@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr" dir="ltr">
+	<head>
+		<meta charset="UTF-8">
+		<!-- Smartphone screen dimension management -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="robots" content="noindex" />
+		
+		<!-- Theme -->
+		{% if page.theme %}
+		<style>
+		{% for font in site.data.tools.themes[page.theme].fonts %}
+			@font-face{
+				font-family: {{ font.name }};
+				src: url({{ font.path }});	
+			}
+		{% endfor %}
+		</style>
+		{% for css in site.data.tools.themes[page.theme].css %}
+		<link rel="stylesheet" href="{{ css }}" as="style" type="text/css">
+		{% endfor %}
+		{% else %}
+		<link rel="stylesheet" href="/assets/css/tool.css" as="style" type="text/css">
+		{% endif %}
+		
+		{% feed_meta %}
+		{% seo %}
+		<link rel="shortcut icon" href="/assets/img/logo-128.png">
+		<meta property="og:image" content="{{site.image}}">
+		{% include noamp-analytics.html %}
+
+		<!-- Libraries -->
+		{% for lib in page.libraries %}
+		{% include {{ lib }} %}
+		{% endfor %}
+    	
+		<!-- Images -->
+		{% for img in page.images %}
+		<link rel="preload" href="{{ img }}" as="image">
+		{% endfor %}
+
+		<!-- Styles -->
+		{% for style in page.styles %}
+		<link rel="stylesheet" href="{{ style }}"></script>
+		{% endfor %}
+		
+		<!-- Scripts -->
+		<script defer src="/assets/js/tools/tool.js"></script>
+		{% for script in page.scripts %}
+		<script defer src="{{ script }}"></script>
+		{% endfor %}
+	</head>
+	<body>
+		<div class="wrapper">
+			{% include navigation.html %}
+		</div>
+		<div class="wrapper">
+			<h1 class="text-center">{{ page.title }}</h1>
+		</div>
+		<main class="wrapper pb-3">
+			<div class="container">
+				{% include tools/hud.html %}
+				{{ content }}
+			</div>
+		</main>
+	</body>
+</html>

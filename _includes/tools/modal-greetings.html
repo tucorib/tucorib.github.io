@@ -1,0 +1,20 @@
+<!-- Greetings modal -->
+<div id="modal-greetings" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<h1 class="modal-title text-center flex-grow-1">Bravo!</h1>
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		  <span aria-hidden="true">&times;</span>
+		</button>
+	  </div>
+	  <div class="modal-body">
+		<h2 class="text-center">Bonne réponse!</h2>
+	  </div>
+	  <div class="modal-footer">
+		<button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal" onclick="Tool.fire('game.over');">Quitter</button>
+		<button type="button" class="btn btn-lg btn-primary" data-dismiss="modal" onclick="Tool.fire('game.newrun');">Continuer</button>
+	  </div>
+	</div>
+  </div>
+</div>

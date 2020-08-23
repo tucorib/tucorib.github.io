@@ -1,0 +1,20 @@
+waiting: Chargement...
+error: Un problème est survenu !
+
+navigation:
+  home: Présentation
+  videos: Ma chaine Youtube
+  tools: Mes outils pédagogiques
+  contact: Contact / Tarifs
+
+tooltype:
+  activity: Activité
+  training: Application
+
+themes:
+  default:
+    score: "Score :"
+    combos: "Combos :"
+  retro:
+    score: SCORE
+    combos: COMBOS

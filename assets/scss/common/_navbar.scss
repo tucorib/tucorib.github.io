@@ -1,16 +1,21 @@
 .nav-item{
 	@extend .mb-3;
 	@extend .mb-md-0;
-	@extend .ml-md-3;	
+	@extend .ml-md-3;
 }
 
 .nav-link{
+	@extend .py-1;
+	@extend .btn;
+	@extend .btn-sm;
+}
+	
+.navbar-nav .nav-link{
 	border-radius: 2em;	
+	@extend .text-primary;
+	@extend .btn-outline-primary;
 }
 
-.navbar-light .navbar-nav .nav-link{
-	color: $primary;
-}
-.navbar-light .navbar-nav .nav-link:hover{
-	color: $body-color;
+.navbar-nav a.nav-link:hover{
+	@extend .text-body;
 }
