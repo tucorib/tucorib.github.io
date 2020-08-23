@@ -1,11 +1,12 @@
 .nav-item{
 	@extend .mb-3;
 	@extend .mb-md-0;
-	@extend .ml-md-3;	
+	@extend .ml-md-3;
 }
 
 .nav-link{
 	border-radius: 2em;	
+	@extend .py-1;	
 }
 
 .navbar-light .navbar-nav .nav-link{

@@ -2,19 +2,11 @@
 layout: amp
 title: Mes outils pédagogiques
 permalink: /tools/
+filter: "input-throttled:AMP.setState({filteredPosts: data.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')+a.tooltype).toLowerCase().indexOf(event.value.toLowerCase()) != -1))})"
 ---
 {% assign tsize = site.categories.tool.size %}
 {% if tsize > 0 %}
 <amp-state id="data" credentials="include" src="/api/tools.json"></amp-state>
-<div class="container">
-	<input class="search"
-		type="text"
-		placeholder="Filtrer"
-		on="input-throttled:AMP.setState({
-				filteredPosts: data.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')+a.tooltype).toLowerCase().indexOf(event.value.toLowerCase()) != -1))
-			})">
-</div>
-		
 <div class="row px-md-4 mx-0 mb-2">
 	<div class="col px-0 text-center font-weight-bold">Nom</div>
 	<div class="col-2 px-0 text-center font-weight-bold">Niveau</div>

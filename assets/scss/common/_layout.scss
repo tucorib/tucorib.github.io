@@ -25,20 +25,8 @@ body{
 	}
 }
 
-input.search{
-	@extend .form-control;
-	@extend .border;
-	@extend .border-primary;
-	@extend .mb-4;
+input[type=text].rounded{
 	border-radius: 2em;
-}
-
-.visible {
-  visibility: visible;
-}
-
-.invisible {
-  visibility: hidden;
 }
 
 ul:not(.navbar-nav){
