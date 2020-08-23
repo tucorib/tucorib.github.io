@@ -4,6 +4,7 @@ title: Ma chaine Youtube
 permalink: /videos/
 filter: "input-throttled:AMP.setState({filteredPosts: data.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')).toLowerCase().indexOf(event.value.toLowerCase()) != -1))})"
 ---
+<h1 class="h3 text-center text-md-left font-weight-bolder mx-4">{{ site.data.labels.navigation.videos }}</h1>
 {% assign psize = site.posts.size %}
 {% if psize > 0 %}
 <amp-state id="data" credentials="include" src="/api/feed.json"></amp-state>

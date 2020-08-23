@@ -4,6 +4,7 @@ title: Mes outils pédagogiques
 permalink: /tools/
 filter: "input-throttled:AMP.setState({filteredPosts: data.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')+a.tooltype).toLowerCase().indexOf(event.value.toLowerCase()) != -1))})"
 ---
+<h1 class="h3 text-center text-md-left font-weight-bolder mx-4">{{ site.data.labels.navigation.tools }}</h1>
 {% assign tsize = site.categories.tool.size %}
 {% if tsize > 0 %}
 <amp-state id="data" credentials="include" src="/api/tools.json"></amp-state>

@@ -16026,6 +16026,11 @@ body {
     border-color: #fff;
   }
 }
+.input-group-sm > .input-group-prepend > .input-group-text.rounded, .input-group-sm > .input-group-prepend > span.input-group-text.post-tag {
+  border-top-left-radius: 2em;
+  border-bottom-left-radius: 2em;
+}
+
 input[type=text].rounded {
   border-radius: 2em;
 }
