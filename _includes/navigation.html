@@ -18,7 +18,7 @@
 			{% if nav.link != '/videos/' or site.posts.size > 0 %}
 			{% if nav.link != '/games/' or gsize > 0 %}
 			<li class="nav-item">
-				<a class="nav-link btn btn-sm btn-outline-primary{% if page.url == nav.link %} active{% endif %}" href="{{ nav.link }}"><i class="{{ nav.icon }} pr-2"></i>{{ site.data.labels.navigation[nav.name].label }}</a>
+				<a class="nav-link btn btn-sm btn-outline-primary{% if page.url == nav.link %} active{% endif %}" href="{{ nav.link }}"><i class="{{ nav.icon }} pr-2"></i>{{ site.data.labels.navigation[nav.name] }}</a>
 			</li>
 			{% endif %}
 			{% endif %}

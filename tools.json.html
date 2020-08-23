@@ -35,7 +35,7 @@ permalink: /api/tools.json
 		{% if post.tags == nil %}
 		"tags": [],
 		{% endif %}
-		"tooltype": "{{ site.data.labels.tooltype[post.tooltype].label }}"
+		"tooltype": "{{ site.data.labels.tooltype[post.tooltype] }}"
 	}{% unless forloop.last %},{% endunless %}
 	{% endfor %}
 ]

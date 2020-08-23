@@ -2,17 +2,11 @@ waiting: Chargement...
 error: Un problème est survenu !
 
 navigation:
-  home:
-    label: Présentation
-  videos:
-    label: Ma chaine Youtube
-  tools:
-    label: Mes outils pédagogiques
-  contact:
-    label: Contact / Tarifs
+  home: Présentation
+  videos: Ma chaine Youtube
+  tools: Mes outils pédagogiques
+  contact: Contact / Tarifs
 
 tooltype:
-  activity:
-    label: Activité
-  training:
-    label: Application
+  activity: Activité
+  training: Application
