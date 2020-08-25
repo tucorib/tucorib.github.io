@@ -3,11 +3,9 @@
 
 @keyframes glow {
   from {
-    color: $body-color;
-	text-shadow: $flash-text-shadow-from;
+    opacity: 100%;
   }
   to {
-	color: none;
-    text-shadow: none;
+	opacity: 0%;
   }
 }

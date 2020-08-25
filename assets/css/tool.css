@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -16041,10 +16040,6 @@ readers do not read off random characters that represent icons */
   border: 7px solid #ff8939;
   border-radius: 100%;
   background-color: #ff8939;
-}
-
-html, body, html:not([amp4ads]), html:not([amp4ads]) body {
-  height: 100% !important;
 }
 
 body {
