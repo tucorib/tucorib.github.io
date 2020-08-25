@@ -6,7 +6,6 @@
     	
     	{% include lib/jquery.html %}
 		{% include lib/bootstrap.html %}
-		{% include lib/fontawesome.html %}
 		
     	<style amp-custom type="text/css">
     	{% include_relative assets/css/amp.css %}
@@ -16,27 +15,85 @@
     	<meta property="og:image" content="{{site.image}}">
     	
     	<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    	<script defer src="https://cdn.ampproject.org/v0.js"></script>
-	  	<script defer custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
-  		{% include amp-analytics.html %}
+    	<script src="https://cdn.ampproject.org/v0.js"></script>
+	  	<script custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
+  		{% include amp-analytics-head.html %}
 				  	
 	  	{% assign psize = site.posts | size %}
 		{% if psize > 0 %}
-		<script defer custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
-		<script defer custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
-		<script defer custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-		<script defer custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-latest.js"></script>
-		<script defer custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
-		<script defer custom-element="amp-date-display" src="https://cdn.ampproject.org/v0/amp-date-display-0.1.js"></script>
-		<script defer custom-element="amp-video-docking" src="https://cdn.ampproject.org/v0/amp-video-docking-0.1.js"></script>
+		<script custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
+		<script custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+		<script custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+		<script custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-latest.js"></script>
+		<script custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+		<script custom-element="amp-date-display" src="https://cdn.ampproject.org/v0/amp-date-display-0.1.js"></script>
+		<script custom-element="amp-video-docking" src="https://cdn.ampproject.org/v0/amp-video-docking-0.1.js"></script>
 		{% endif %}
-		<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+		<style amp-boilerplate>
+			body {
+		        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+		        -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+		        -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+		        animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+		      }
+		      @-webkit-keyframes -amp-start {
+		        from {
+		          visibility: hidden;
+		        }
+		        to {
+		          visibility: visible;
+		        }
+		      }
+		      @-moz-keyframes -amp-start {
+		        from {
+		          visibility: hidden;
+		        }
+		        to {
+		          visibility: visible;
+		        }
+		      }
+		      @-ms-keyframes -amp-start {
+		        from {
+		          visibility: hidden;
+		        }
+		        to {
+		          visibility: visible;
+		        }
+		      }
+		      @-o-keyframes -amp-start {
+		        from {
+		          visibility: hidden;
+		        }
+		        to {
+		          visibility: visible;
+		        }
+		      }
+		      @keyframes -amp-start {
+		        from {
+		          visibility: hidden;
+		        }
+		        to {
+		          visibility: visible;
+		        }
+		      }
+		</style>
+		<noscript>
+			<style amp-boilerplate>
+				body {
+		          -webkit-animation: none;
+		          -moz-animation: none;
+		          -ms-animation: none;
+		          animation: none;
+		        }
+			</style>
+		</noscript>
   	</head>
-  	<body>
-  		<main class="wrapper pb-3">
+  	<body>	
+  		{% include amp-analytics-body.html %}
+  		<main class="wrapper vh-100 pb-3">
   			{% include navigation.html %}
     		{{ content }}
     	</main>
-    	<style amp-keyframes type="text/css">{% include_relative assets/css/amp_keyframes.css %}</style>
+    	<style amp-keyframes>{% include_relative assets/css/amp_keyframes.css %}</style>
   	</body>
 </html>
