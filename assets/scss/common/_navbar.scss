@@ -5,17 +5,17 @@
 }
 
 .nav-link{
-	@extend .py-1;
 	@extend .btn;
 	@extend .btn-sm;
-}
-	
-.navbar-nav .nav-link{
 	border-radius: 2em;	
 	@extend .text-primary;
 	@extend .btn-outline-primary;
 }
 
-.navbar-nav a.nav-link:hover{
+.navbar-nav .nav-link{
+	@extend .p-1;
+}
+
+a.nav-link:hover{
 	@extend .text-body;
 }
