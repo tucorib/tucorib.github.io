@@ -4,12 +4,10 @@
     	<meta charset="utf-8">
     	<link rel="shortcut icon" href="/assets/img/logo-128.png">
     	
-    	{% include lib/jquery.html %}
-		{% include lib/bootstrap.html %}
-		
     	<style amp-custom type="text/css">
     	{% include_relative assets/css/amp.css %}
     	</style>
+    	<link rel="stylesheet" href="/assets/css/fontawesome.css">
     	{% feed_meta %}
     	{% seo %}
     	<meta property="og:image" content="{{site.image}}">
@@ -17,6 +15,9 @@
     	<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     	<script async src="https://cdn.ampproject.org/v0.js"></script>
 	  	<script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
+	  	<script async custom-element="amp-mega-menu" src="https://cdn.ampproject.org/v0/amp-mega-menu-0.1.js"></script>
+	  	<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+	  	<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
   		{% include amp-analytics-head.html %}
 				  	
 	  	{% assign psize = site.posts | size %}
@@ -91,7 +92,7 @@
   	<body>	
   		{% include amp-analytics-body.html %}
   		<main class="wrapper vh-100 pb-3">
-  			{% include navigation.html %}
+  			{% include amp-navigation.html %}
     		{{ content }}
     	</main>
     	<style amp-keyframes>{% include_relative assets/css/amp_keyframes.css %}</style>
