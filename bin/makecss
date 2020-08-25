@@ -1,0 +1,5 @@
+sass -I assets/scss/ --no-charset -s compressed assets/scss/amp.scss assets/css/amp.css 
+sass -I assets/scss/ --no-charset -s compressed assets/scss/tool.scss assets/css/tool.css
+sass -I assets/scss/ --no-charset -s compressed assets/scss/amp_keyframes.scss assets/css/amp_keyframes.css
+
+sass -I assets/scss/ --no-charset -s compressed assets/scss/tools/themes/retro.scss assets/css/tools/themes/retro.css
