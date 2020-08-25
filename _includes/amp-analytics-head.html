@@ -1,0 +1,4 @@
+<!-- Environment: {{ jekyll.environment }} -->
+{% if jekyll.environment == 'production' and site.google_analytics %}
+<script custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+{% endif %}
