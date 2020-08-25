@@ -1,0 +1,18 @@
+#sidebar{
+	@extend .bg-wrapper;	
+}
+.sidebar-header{
+	@extend .d-none;
+	@extend .p-2;
+}
+.sidebar-open-btn {
+  	font-size: 2em;
+}
+@include media-breakpoint-down('md', $grid-breakpoints) {
+	#menu {
+    	display: none;
+  	}
+  	.sidebar-header{
+    	display: flex;
+  	}
+}
