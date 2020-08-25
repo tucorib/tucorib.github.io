@@ -1,10 +1,1 @@
-@keyframes glow {
-  from {
-    opacity: 100%;
-  }
-  to {
-    opacity: 0%;
-  }
-}
-
-/*# sourceMappingURL=amp_keyframes.css.map */
+@keyframes glow{from{opacity:100%}to{opacity:0%}}
