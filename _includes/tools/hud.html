@@ -23,7 +23,7 @@
 	{% if page.lives != nil %}
 	<div class="text-right lives">
 	{% for live in (1..page.lives) %}
-	<i class="life" data-life="{{ page.lives| minus: live }}"></i>
+	<i class="life fas fa-2x fa-heart text-danger ml-2" data-life="{{ page.lives| minus: live }}"></i>
 	{% endfor %}
 	</div>
 	{% endif %}
