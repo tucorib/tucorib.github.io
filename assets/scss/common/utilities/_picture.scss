@@ -1,6 +1,5 @@
 .picture{
 	@extend .border;
-	border-color: $border-color;
 }
 
 @include media-breakpoint-down('md', $grid-breakpoints) {
