@@ -4,14 +4,14 @@
 			layout="responsive"
 			width="{{ site.home.youtube.width }}"
 			height="{{ site.home.youtube.height }}"
-			class="col-12 col-md-4"
+			class="col-12 col-md-4 pr-0"
 			dock
 			{% if site.home.youtube.autoplay %}autoplay{% endif %}>
 		</amp-youtube>
 		<a href="{% raw %}{{url}}{% endraw %}"  class="col-12 col-md-8">
 	  		<div class="post-infos mt-2 mt-md-0">
-		  		<span class="flash h5 {% raw %}{{flash}}{% endraw %}" title="Paru il y a moins d'une semaine"><i class="fa fa-bolt" aria-hidden="true"></i></span>
-		  		<h2>{% raw %}{{title}}{% endraw %}</h2>
+		  		<span class="flash text-body float-right mt-2 mr-2 h5 {% raw %}{{flash}}{% endraw %}" title="Paru il y a moins d'une semaine"><i class="fa fa-bolt" aria-hidden="true"></i></span>
+		  		<h2 class="mb-0">{% raw %}{{title}}{% endraw %}</h2>
 				<span class="post-meta">
 					<amp-date-display class="d-inline-block" datetime="{% raw %}{{datetime}}{% endraw %}" locale="{{ site.language }}" layout="flex-item">
 				  		<template type="amp-mustache">
@@ -20,10 +20,10 @@
 			  				</small>
 		  				</template>
 					</amp-date-display>
-					<div>/</div>
-  					<div><small>Niveau conseillé: <span class="post-level">{% raw %}{{level}}{% endraw %}</span></small></div>
+					<div class="d-inline-block align-top">/</div>
+  					<div class="d-inline-block align-top"><small>Niveau conseillé: <span class="post-level">{% raw %}{{level}}{% endraw %}</span></small></div>
 				</span>
-				<div class="post-tag-list">{% raw %}{{#tags}}{% endraw %}<span class="post-tag">{% raw %}{{.}}{% endraw %}</span>{% raw %}{{/tags}}{% endraw %}</div>
+				<div class="post-tag-list">{% raw %}{{#tags}}{% endraw %}<span class="rounded badge badge-pill badge-dark mr-2">{% raw %}{{.}}{% endraw %}</span>{% raw %}{{/tags}}{% endraw %}</div>
 				<p class="text-justify">{% raw %}{{description}}{% endraw %}</p>
 	  		</div>
   		</a>
