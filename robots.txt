@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /$
+Allow /videos/$
+Allow /tools/$
 Allow /contact/$
 Sitemap: https://tucorib.github.io/sitemap.xml
