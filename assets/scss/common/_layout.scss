@@ -1,3 +1,7 @@
+html, body{
+	@extend .h-100;
+}
+
 .container{
 	@extend .px-4;	
 }
