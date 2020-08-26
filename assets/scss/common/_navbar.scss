@@ -1,19 +1,5 @@
-.nav-item{
-	@extend .mb-3;
-	@extend .mb-md-0;
-	@extend .ml-md-3;
-}
-
 .nav-link{
-	@extend .btn;
-	@extend .btn-sm;
 	border-radius: 2em;	
-	@extend .text-primary;
-	@extend .btn-outline-primary;
-}
-
-.navbar-nav .nav-link{
-	@extend .p-1;
 }
 
 a.nav-link:hover{

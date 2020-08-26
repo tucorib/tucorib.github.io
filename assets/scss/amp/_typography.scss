@@ -1,6 +1,4 @@
 .flash{
-	color: $body-color;
 	text-shadow: $flash-text-shadow-from; 
 	animation: glow 1s ease-in-out infinite alternate;
-	float: right;
 }

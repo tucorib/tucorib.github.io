@@ -1,7 +1,7 @@
 {% assign psize = site.posts.size %}
 {% assign gsize = site.categories.tool.size %}
 <header>
-	<amp-mega-menu id="menu" height="51" layout="fixed-height">
+	<amp-mega-menu id="menu" height="51" layout="fixed-height" class="d-none d-md-block">
 		<nav class="navbar navbar-expand-md nav-pills bg-wrapper pb-2 sticky-top pr-md-4">
 			{% if page.filter %}
 			<form class="form-inline mx-2">
@@ -20,8 +20,8 @@
 				{% for nav in site.data.navigation %}
 				{% if nav.link != '/videos/' or psize > 0 %}
 				{% if nav.link != '/tools/' or gsize > 0 %}
-				<li class="nav-item">
-					<a class="nav-link{% if page.url == nav.link %} active{% endif %}" href="{{ nav.link }}"><i class="{{ nav.icon }} pr-2"></i>{{ site.data.labels.navigation[nav.name] }}</a>
+				<li class="nav-item mb-3 mb-md-0 ml-md-3">
+					<a class="nav-link btn btn-sm text-primary btn-outline-primary p-1{% if page.url == nav.link %} active{% endif %}" href="{{ nav.link }}"><i class="{{ nav.icon }} pr-2"></i>{{ site.data.labels.navigation[nav.name] }}</a>
 				</li>
 				{% endif %}
 				{% endif %}
@@ -29,7 +29,7 @@
 			</ul>
 		</nav>
 	</amp-mega-menu>
-	<div class="sidebar-header">
+	<div class="sidebar-header p-2 d-flex d-md-none">
 		<button class="sidebar-open-btn navbar-toggler border border-primary bg-body text-primary" type="button" on="tap:sidebar">
 			<i class="fas fa-bars"></i>
 		</button>
@@ -48,14 +48,14 @@
 		{% endif %}
 	</div>
 </header>
-<amp-sidebar id="sidebar" layout="nodisplay">
+<amp-sidebar id="sidebar" layout="nodisplay" class="bg-wrapper">
   	<!-- list of menu items here -->
     <ul class="navbar-nav flex-grow-1 p-2">
 		{% for nav in site.data.navigation %}
 		{% if nav.link != '/videos/' or psize > 0 %}
 		{% if nav.link != '/tools/' or gsize > 0 %}
-		<li class="nav-item">
-			<a class="nav-link{% if page.url == nav.link %} active{% endif %}" href="{{ nav.link }}"><i class="{{ nav.icon }} pr-2"></i>{{ site.data.labels.navigation[nav.name] }}</a>
+		<li class="nav-item mb-3 mb-md-0 ml-md-3">
+			<a class="nav-link btn btn-sm text-primary btn-outline-primary p-1{% if page.url == nav.link %} active{% endif %}" href="{{ nav.link }}"><i class="{{ nav.icon }} pr-2"></i>{{ site.data.labels.navigation[nav.name] }}</a>
 		</li>
 		{% endif %}
 		{% endif %}
