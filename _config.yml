@@ -84,3 +84,6 @@ tools:
   list:
     row_height: 32
     
+cache:
+  img: "https://tucorib-github-io.cdn.ampproject.org/i/tucorib.github.io"
+  
