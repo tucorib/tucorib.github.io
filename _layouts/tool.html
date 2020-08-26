@@ -7,6 +7,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="robots" content="noindex" />
 		
+		{% include lib/fontawesome.html %}
+		
 		<!-- Theme -->
 		{% if page.theme %}
 		<style>
@@ -23,7 +25,6 @@
 		{% else %}
 		<link rel="stylesheet" href="/assets/css/tool.css" as="style" type="text/css">
 		{% endif %}
-		{% include lib/fontawesome.html %}
 		
 		{% feed_meta %}
 		{% seo %}

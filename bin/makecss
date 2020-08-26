@@ -10,6 +10,10 @@ echo "Building assets/css/amp_keyframes.css"
 sass -I assets/scss/ --no-charset --no-source-map --style=compressed assets/scss/amp_keyframes.scss assets/css/amp_keyframes.css
 perl -pi -e'BEGIN{$/=undef}s#/\*.*?\*/##gs' assets/css/amp_keyframes.css
 
+echo "Building assets/css/tools/themes/default.css"
+sass -I assets/scss/ --no-charset --no-source-map --style=compressed assets/scss/tools/themes/default.scss assets/css/tools/themes/default.css
+perl -pi -e'BEGIN{$/=undef}s#/\*.*?\*/##gs' assets/css/tools/themes/default.css
+
 echo "Building assets/css/tools/themes/retro.css"
 sass -I assets/scss/ --no-charset --no-source-map --style=compressed assets/scss/tools/themes/retro.scss assets/css/tools/themes/retro.css
 perl -pi -e'BEGIN{$/=undef}s#/\*.*?\*/##gs' assets/css/tools/themes/retro.css
