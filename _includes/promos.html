@@ -3,7 +3,7 @@
 {% for promo in sorted_promos %}
 {% assign start = promo.start | date: '%s' %}
 {% assign end = promo.end | date: '%s' %}
-{% if start <= today_date and end >= today_date %}
+{% if promo.published and start <= today_date and end >= today_date %}
 <h2 class="h5 text-center text-md-left font-weight-bolder">{{ promo.title }}</h2>
 <p class="pt-2">{{ promo.content }}</p>
 {% endif %}
