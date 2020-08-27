@@ -1,5 +1,6 @@
 {% assign today_date = 'now' | date: '%s' %}
-{% for promo in site.promos %}
+{% assign sorted_promos = site.promos | sort: "end" %}
+{% for promo in sorted_promos %}
 {% assign start = promo.start | date: '%s' %}
 {% assign end = promo.end | date: '%s' %}
 {% if start <= today_date and end >= today_date %}
