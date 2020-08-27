@@ -1,6 +1,6 @@
 <!-- Game over modal -->
 <div id="modal-gameover" class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-centered" role="document">
 	<div class="modal-content">
 	  <div class="modal-header">
 		<h1 class="modal-title text-center flex-grow-1">Fin de la partie</h1>
@@ -10,12 +10,12 @@
 	  </div>
 	  <div class="modal-body">
 	  	{% if page.score != nil %}
-		<h2 class="text-center">Tu as fais: <span class="score font-weight-bold"></span> points !</h2>
+		<h2 class="text-center">Score : <span class="score font-weight-bold"></span> points</h2>
 		{% endif %}
 	  </div>
 	  <div class="modal-footer">
-		<button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal">Quitter</button>
-		<button type="button" class="btn btn-lg btn-primary" data-dismiss="modal" onclick="Tool.fire('game.new');">Recommencer</button>
+		<button type="button" class="btn btn-secondary" data-dismiss="modal">Quitter</button>
+		<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="Tool.fire('game.new');">Recommencer</button>
 	  </div>
 	</div>
   </div>
