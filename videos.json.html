@@ -1,10 +1,10 @@
 ---
-permalink: /api/tools.json
+permalink: /api/videos.json
 ---
 {% capture weekago %}{{ "now" | date: "%s" | minus: 604800 }}{% endcapture %}
 {
 	"items": [
-		{% for post in site.categories.tool %}
+		{% for post in site.categories.video %}
 		{% capture posttime %}{{ post.date | date: "%s" }}{% endcapture %}
 		{
 			"title": "{{ post.title }}",
@@ -34,9 +34,13 @@ permalink: /api/tools.json
 			],
 			{% endif %}
 			{% if post.tags == nil %}
-			"tags": [],
+			"tags": [],{% endif %}
+			{% if post.youtube %}
+			"youtube": "{{ post.youtube }}"
 			{% endif %}
-			"tooltype": "{{ site.data.labels.tooltype[post.tooltype] }}"
+			{% if post.youtube == nil %}
+			"youtube"  : ""
+			{% endif %}
 		}{% unless forloop.last %},{% endunless %}
 		{% endfor %}
 	]

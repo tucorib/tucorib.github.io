@@ -86,4 +86,7 @@ tools:
     
 cache:
   img: "https://tucorib-github-io.cdn.ampproject.org/i/tucorib.github.io"
+ 
+collections:
+  - promos
   
