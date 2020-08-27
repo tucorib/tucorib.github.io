@@ -8,3 +8,8 @@
 	float: left;
 	padding-top: 100%; 	/* initial ratio of 1:1*/
 }
+.minibox {
+	position: relative;
+	width: 20px;
+	height: 20px;
+}
