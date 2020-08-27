@@ -6,7 +6,7 @@ var	ymax = minymax; // y bounds
 
 Tool.register('game.hit', function(){
 	Tool.fire('hud.combos.reset');
-	$('#arena').effect("shake");
+	$('body').effect("shake");
 });
 Tool.register('game.over', function(){
 	$('#modal-gameover .score').text(Tool.Hud.score);
