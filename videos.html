@@ -2,23 +2,18 @@
 layout: amp
 title: Ma chaine Youtube
 permalink: /videos/
-filter: "input-throttled:AMP.setState({filteredPosts: data.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')).toLowerCase().indexOf(event.value.toLowerCase()) != -1))})"
+filter: list
 ---
 <h1 class="h3 text-center text-md-left font-weight-bolder mx-4">{{ site.data.labels.navigation.videos }}</h1>
 {% assign psize = site.categories.video.size %}
 {% if psize > 0 %}
-<amp-state id="data" credentials="include" src="/api/videos.json"></amp-state>
+<amp-state id="data" src="/api/videos.json"></amp-state>
 <amp-list
-  items="."
-  credentials="include"
-  src="/api/videos.json"
-  [src]="filteredPosts"
-  height="{{ site.videos.list.row_height| plus: 16 | times: psize | minus: 16 }}"
-  [height]="({{ site.videos.list.row_height }} + 16) * filteredPosts.length - 16"
-  layout="fixed-height"
-  binding="no"
-  class="mx-md-4"
->
+	id="list"
+	layout="flex-item"
+	class="mx-md-4"
+	src="amp-state:data"
+	[src]="data.items.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')).toLowerCase().indexOf(filter) != -1))">
   	<div placeholder><p class="p-4 text-center">{{ site.data.labels.waiting }}</p></div>
   	<div fallback><p class="p-4 text-center">{{ site.data.labels.error }}</p></div>
   	<template type="amp-mustache">
@@ -55,9 +50,6 @@ filter: "input-throttled:AMP.setState({filteredPosts: data.filter(a => ((a.title
 		</div>
   		<hr />
   	</template>
-	<button overflow class="list-overflow btn btn-primary w-100 mx-auto">
-    	Voir plus de vidéos
-  	</button>
 </amp-list>
 {% else %}
 <p class="text-center p-4">Des vidéos mathématiques et ludiques sont en préparation sur la chaîne Youtube...</p>

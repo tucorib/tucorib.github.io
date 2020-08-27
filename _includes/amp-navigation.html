@@ -12,7 +12,7 @@
 		  			<input class="form-control rounded flex-grow-1"
 						type="text"
 						placeholder="Filtrer"
-						on="{{ page.filter }}">
+						on="input-throttled:AMP.setState({filter: event.value.toLowerCase()}),{{ page.filter }}.changeToLayoutContainer()">
 				</div>
 			</form>
 			{% endif %}
@@ -42,7 +42,7 @@
 	  			<input class="form-control rounded flex-grow-1"
 					type="text"
 					placeholder="Filtrer"
-					on="{{ page.filter }}">
+					on="input-throttled:AMP.setState({filter: event.value.toLowerCase()}),{{ page.filter }}.changeToLayoutContainer()">
 			</div>
 		</form>
 		{% endif %}
