@@ -74,7 +74,7 @@ permalink: /
 <div class="container d-flex justify-content-center pt-2">
 	<a href="/contact/" class="btn btn-primary font-weight-bolder">Consultez les différents tarifs</a>
 </div>
-{% assign psize = site.posts | size %}
+{% assign psize = site.categories.video.size %}
 {% if psize > 0 %}
 <br/>
 <div class="container">
@@ -86,7 +86,7 @@ permalink: /
 	  	autoplay
 	  	loop
 	  	delay="{{ site.home.carousel.delay }}">
-	  	{% for post in site.posts limit:3 %}
+	  	{% for post in site.categories.video limit:3 %}
 	  		{% include post-item-include.html post=post %}
 	  	{% endfor %}
 	</amp-carousel>
@@ -97,7 +97,7 @@ permalink: /
 	  	autoplay
 	  	loop
 	  	delay="{{ site.home.carousel.delay }}">
-	  	{% for post in site.posts limit:3 %}
+	  	{% for post in site.categories.video limit:3 %}
 	  		{% include post-item-include.html post=post %}
 	  	{% endfor %}
 	</amp-carousel>
