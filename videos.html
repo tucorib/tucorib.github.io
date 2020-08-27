@@ -5,13 +5,13 @@ permalink: /videos/
 filter: "input-throttled:AMP.setState({filteredPosts: data.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')).toLowerCase().indexOf(event.value.toLowerCase()) != -1))})"
 ---
 <h1 class="h3 text-center text-md-left font-weight-bolder mx-4">{{ site.data.labels.navigation.videos }}</h1>
-{% assign psize = site.posts.size %}
+{% assign psize = site.categories.video.size %}
 {% if psize > 0 %}
-<amp-state id="data" credentials="include" src="/api/feed.json"></amp-state>
+<amp-state id="data" credentials="include" src="/api/videos.json"></amp-state>
 <amp-list
   items="."
   credentials="include"
-  src="/api/feed.json"
+  src="/api/videos.json"
   [src]="filteredPosts"
   height="{{ site.videos.list.row_height| plus: 16 | times: psize | minus: 16 }}"
   [height]="({{ site.videos.list.row_height }} + 16) * filteredPosts.length - 16"

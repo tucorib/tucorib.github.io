@@ -1,9 +1,9 @@
 ---
-permalink: /api/feed.json
+permalink: /api/videos.json
 ---
 {% capture weekago %}{{ "now" | date: "%s" | minus: 604800 }}{% endcapture %}
 [
-	{% for post in site.posts %}
+	{% for post in site.categories.video %}
 	{% capture posttime %}{{ post.date | date: "%s" }}{% endcapture %}
 	{
 		"title": "{{ post.title }}",
