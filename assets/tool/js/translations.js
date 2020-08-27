@@ -87,16 +87,16 @@ Tool.register('game.newrun', function(){
 				class: function(){
 					var c = 'btn box rounded m-1';
 					if(x == xa && y == ya){
-						return c + ' btn-primary'; // blue
+						return c + ' btn-secondary border border-dark';
 					}
 					else if(x == xb && y == yb){
-						return c + ' btn-danger'; // red
+						return c + ' btn-success border border-dark';
 					}
 					else if(x == xc && y == yc){
-						return c + ' btn-success'; // green
+						return c + ' btn-primary border border-dark';
 					}
 					else{
-						return c + ' btn-dark'; // gray
+						return c + ' btn-dark border border-dark';
 					}
 				},
 				 // Empty content

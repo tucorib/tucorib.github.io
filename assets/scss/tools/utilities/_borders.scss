@@ -1,0 +1,5 @@
+@each $color, $value in $theme-colors {
+	.border-#{$color}:disabled{
+		border-color: $value;
+	}
+}

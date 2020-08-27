@@ -2,7 +2,7 @@
 title:  Monty Hall
 date:   2020-08-18 08:00:00 +0200
 datetime:   "2020-08-18T08:00:00+0200"
-categories: video tool
+categories: tool
 youtube:	ByDNEsBNf24
 level: 4e
 tags: probabilités
@@ -13,6 +13,7 @@ tooltype: activity
 libraries: ["lib/jquery.html", "lib/popper.html", "lib/bootstrap.html", "lib/highcharts.html"]
 images: ["/assets/tool/img/door-closed.png", "/assets/tool/img/door-opened-goat.png", "/assets/tool/img/door-opened-car.png"]
 scripts: ["/assets/tool/js/monty-hall.js"]
+styles: ["/assets/tool/css/monty-hall.css"]
 ---
 <ul id="tab-list" class="nav nav-pills nav-fill" role="tablist">
   	<li class="nav-item">
@@ -27,20 +28,23 @@ scripts: ["/assets/tool/js/monty-hall.js"]
   		<!-- Doors -->
 		<div id="doors">
 			<div class="row">
-				<div class="col text-center">
-					<img id="img-door-1" src="/assets/tool/img/door-closed.png" class="img-fluid"/>
-					<br />
-					<button id="btn-door-1" type="button" class="btn" onclick="selectDoor(1);">Porte 1</button>
+				<div class="col font-weight-bold d-flex flex-column align-items-center">
+					<button class="btn bg-transparent p-0" id="btn-door-1" onclick="selectDoor(1);">
+						<img id="img-door-1" src="/assets/tool/img/door-closed.png" class="img-fluid"/>
+					</button>
+					<span id="label-door-1" class="rounded mt-2 p-2">Porte 1</span>
 				</div>
-				<div class="col text-center">
-					<img id="img-door-2" src="/assets/tool/img/door-closed.png" class="img-fluid"/>
-					<br />
-					<button id="btn-door-2" type="button" class="btn" onclick="selectDoor(2);">Porte 2</button>
+				<div class="col font-weight-bold d-flex flex-column align-items-center">
+					<button class="btn bg-transparent p-0" id="btn-door-2" onclick="selectDoor(2);">
+						<img id="img-door-2" src="/assets/tool/img/door-closed.png" class="img-fluid"/>
+					</button>
+					<span id="label-door-2" class="rounded mt-2 p-2">Porte 2</span>
 				</div>
-				<div class="col text-center">
-					<img id="img-door-3" src="/assets/tool/img/door-closed.png" class="img-fluid" />
-					<br />
-					<button id="btn-door-3" type="button" class="btn" onclick="selectDoor(3);">Porte 3</button>
+				<div class="col font-weight-bold d-flex flex-column align-items-center">
+					<button class="btn bg-transparent p-0" id="btn-door-3" onclick="selectDoor(3);">
+						<img id="img-door-3" src="/assets/tool/img/door-closed.png" class="img-fluid" />
+					</button>
+					<span id="label-door-3" class="rounded mt-2 p-2">Porte 3</span>
 				</div>
 			</div>
 			<br/>
@@ -49,19 +53,19 @@ scripts: ["/assets/tool/js/monty-hall.js"]
 				<div class="carousel-inner text-center">
 					<div id="step-0" class="carousel-item active">
 						<p>Trois portes sont devant vous. Derrière la porte gagnante se cache une voiture, et derrière les deux autres se cache une chèvre.</p>
-						<p class="text-primary"><em>Choisissez la porte que vous pensez être gagnante en cliquant sur le bouton en dessous de celle-ci.</em></p>
+						<p><em>Sélectionnez la porte que vous pensez être gagnante.</em></p>
 					</div>
 					<div id="step-1" class="carousel-item">
-						<p>Vous venez de sélectionner la porte <span class="badge badge-info step-1-selected-door">0</span></p>
+						<p>Vous venez de sélectionner la porte <span class="badge badge-primary step-1-selected-door">0</span></p>
 						<p>On vous informe maintenant que la voiture ne se trouve pas derrière la porte <span class="badge badge-danger step-1-wrong-door">0</span></p>
 						<div class="alert alert-success">
-							<h4 class="alert-heading">Questions:</h4>
+							<h4 class="alert-heading">Questions :</h4>
 							<ol>
 								<li>
-									<p>Connaissant cette nouvelle information, pensez-vous avec-vous plus de chances de gagner en:</p>
+									<p>Connaissant cette nouvelle information, pensez-vous avec-vous plus de chances de gagner :</p>
 									<ul>
-										<li>conservant votre choix, et vous décidez d'ouvrir la porte <span class="badge badge-info step-1-selected-door">0</span></li>
-										<li>changeant votre choix, et vous décidez d'ouvrir la porte <span class="badge badge-secondary step-1-alt-door">0</span></li>
+										<li>en conservant votre choix, et vous décidez d'ouvrir la porte <span class="badge badge-primary step-1-selected-door">0</span></li>
+										<li>en changeant votre choix, et vous décidez d'ouvrir la porte <span class="badge badge-secondary step-1-alt-door">0</span></li>
 									</ul>
 								</li>
 								<li>
@@ -69,13 +73,13 @@ scripts: ["/assets/tool/js/monty-hall.js"]
 								</li>
 							</ol>
 						</div>
-						<p class="text-primary"><em>Ouvrez la porte que vous pensez être gagnante en cliquant sur le bouton en dessous de celle-ci.</em></p>
+						<p><em>Sélectionnez la porte que vous pensez être gagnante.</em></p>
 					</div>
 					<div id="step-2" class="carousel-item">
 						<h2 id="step-2-label" ></h2>
 						<div class="alert alert-info">
-							<p>Les tableaux et graphiques ci-dessous représentent les résultats de vos parties. En faisant un très grand nombre de parties, vous pourrez découvrir les probabilités réelles de gagner dans chacun des deux cas: les fréquences de parties gagnées s'approcheront des valeurs réelles.</p>
-							<p>Afin de gagner du temps, pensez à utiliser la simulation automatique!</p>
+							<p>Les tableaux et graphiques ci-dessous représentent les résultats de vos parties. En faisant un très grand nombre de parties, vous pourrez découvrir les probabilités réelles de gagner dans chacun des deux cas : les fréquences de parties gagnées s'approcheront des valeurs réelles.</p>
+							<p>Afin de gagner du temps, pensez à utiliser la simulation automatique !</p>
 						</div>
 						<button id="new-run" type="button" class="btn btn-primary font-weight-bolder" onclick="startRun();">Faire une nouvelle partie</button>
 					</div>
@@ -87,7 +91,7 @@ scripts: ["/assets/tool/js/monty-hall.js"]
 		<form>
  			<!-- Auto configuration -->
 	 		<div class="form-group text-center">
-				<span id="auto-count-label">Nombre de simulations: <span id="auto-count-value">1</span></span>
+				<span id="auto-count-label">Nombre de simulations : <span id="auto-count-value">1</span></span>
 				<input id="auto-count" class="form-control-range custom-range" type="range" min="1" max="2000" step="1" />					
 			</div>
 			<br/>
@@ -117,7 +121,7 @@ scripts: ["/assets/tool/js/monty-hall.js"]
 <!-- Results -->
 <h2 id="results" class="h3 text-center">Résultats</h2>
 <div class="row">
-	<div class="col text-center">
+	<div class="col-12 col-md-6 text-center">
 		<h3 class="h4">Conserver le choix</h3>
 		<table class="w-100 text-center">
 			<thead>
@@ -141,7 +145,7 @@ scripts: ["/assets/tool/js/monty-hall.js"]
 		<br/>
 	</div>
 
-	<div class="col-12 col-sm-6 text-center">
+	<div class="col-12 col-md-6 text-center">
 		<h3 class="h4">Changer de choix</h3>
 		<table class="w-100 text-center">
 			<thead>

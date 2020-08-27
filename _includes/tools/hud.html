@@ -1,5 +1,5 @@
 {% if page.score != nil or page.combos != nil or page.lives != nil %}
-<div class="hud d-flex"
+<div class="hud d-flex align-items-center"
 	{% if page.score != nil %}data-score="{{ page.score }}"{% endif %}
 	{% if page.combos != nil %}data-combos="{{ page.combos }}"{% endif %}
 	{% if page.lives != nil %}data-lives="{{ page.lives }}"{% endif %}
@@ -23,7 +23,7 @@
 	{% if page.lives != nil %}
 	<div class="text-right lives">
 	{% for live in (1..page.lives) %}
-	<i class="life fas fa-2x fa-heart text-danger ml-2" data-life="{{ page.lives| minus: live }}"></i>
+	<i class="life ml-2" data-life="{{ page.lives| minus: live }}"></i>
 	{% endfor %}
 	</div>
 	{% endif %}
