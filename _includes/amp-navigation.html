@@ -48,17 +48,3 @@
 		{% endif %}
 	</div>
 </header>
-<amp-sidebar id="sidebar" layout="nodisplay" class="bg-wrapper">
-  	<!-- list of menu items here -->
-    <ul class="navbar-nav flex-grow-1 p-2">
-		{% for nav in site.data.navigation %}
-		{% if nav.link != '/videos/' or psize > 0 %}
-		{% if nav.link != '/tools/' or gsize > 0 %}
-		<li class="nav-item mb-3 mb-md-0 ml-md-3">
-			<a class="nav-link btn btn-sm text-primary btn-outline-primary p-1{% if page.url == nav.link %} active{% endif %}" href="{{ nav.link }}"><i class="{{ nav.icon }} pr-2"></i>{{ site.data.labels.navigation[nav.name] }}</a>
-		</li>
-		{% endif %}
-		{% endif %}
-		{% endfor %}
-	</ul>
-</amp-sidebar>	
