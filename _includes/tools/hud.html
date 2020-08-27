@@ -1,5 +1,5 @@
 {% if page.score != nil or page.combos != nil or page.lives != nil %}
-<div class="hud d-flex"
+<div class="hud d-flex align-items-center"
 	{% if page.score != nil %}data-score="{{ page.score }}"{% endif %}
 	{% if page.combos != nil %}data-combos="{{ page.combos }}"{% endif %}
 	{% if page.lives != nil %}data-lives="{{ page.lives }}"{% endif %}
