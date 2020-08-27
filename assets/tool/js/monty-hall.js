@@ -31,10 +31,10 @@ function displayResults(callback){
 		if(!autoRun || autoDisplay || simulationIndex == 0 || simulationIndex == 2*autoSimulationNb){
 		    $('#keep-won').text(session.keep.won);
 			$('#keep-nb').text(session.keep.nb);
-			$('#keep-freq').text(session.keep.freq ? session.keep.freq.toPrecision(decimalPlaces) : '-');				
+			$('#keep-freq').text(session.keep.freq != null ? session.keep.freq.toPrecision(decimalPlaces) : '-');				
 			$('#change-won').text(session.change.won);
 			$('#change-nb').text(session.change.nb);
-			$('#change-freq').text(session.change.freq ? session.change.freq.toPrecision(decimalPlaces) : '-');
+			$('#change-freq').text(session.change.freq != null ? session.change.freq.toPrecision(decimalPlaces) : '-');
 		}
 		
 	   callback();
@@ -117,9 +117,13 @@ function startRun(){
 		// Update rules
 		$('#rules').carousel(0);
 		// Activate buttons
-		$('#btn-door-1').attr('disabled', false).removeClass('btn-primary btn-danger btn-success').addClass('btn-secondary');
-		$('#btn-door-2').attr('disabled', false).removeClass('btn-primary btn-danger btn-success').addClass('btn-secondary');
-		$('#btn-door-3').attr('disabled', false).removeClass('btn-primary btn-danger btn-success').addClass('btn-secondary');
+		$('#btn-door-1').attr('disabled', false);
+		$('#btn-door-2').attr('disabled', false);
+		$('#btn-door-3').attr('disabled', false);
+		// Reset labels
+		$('#label-door-1').removeClass('bg-primary bg-secondary bg-danger bg-success');
+		$('#label-door-2').removeClass('bg-primary bg-secondary bg-danger bg-success');
+		$('#label-door-3').removeClass('bg-primary bg-secondary bg-danger bg-success');
 		// Reset doors
 		$('#img-door-1').attr('src', '/assets/tool/img/door-closed.png');
 		$('#img-door-2').attr('src', '/assets/tool/img/door-closed.png');
@@ -151,14 +155,13 @@ function handleStep0Choice(doorIndex){
 	
 	// Update UI
 	if(!autoRun){
-		$('#btn-door-' + selectedDoor)
-		.removeClass('btn-secondary')
-		.addClass('btn-primary');
+		$('#label-door-' + selectedDoor)
+		.addClass('bg-primary');
 		
 		$('#btn-door-' + wrongDoor)
-		.attr('disabled', true)
-		.removeClass('btn-secondary')
-		.addClass('btn-danger');
+		.attr('disabled', true);
+		$('#label-door-' + wrongDoor)
+		.addClass('bg-danger');
 		
 		// Open wrong door
 		$('#img-door-' + wrongDoor).attr('src', '/assets/tool/img/door-opened-goat.png');
@@ -166,6 +169,10 @@ function handleStep0Choice(doorIndex){
 		// Get alternate door
 		var altDoor = [1,2,3].filter(door => door != selectedDoor && door != wrongDoor);
 	
+		// Update alt door
+		$('#label-door-' + altDoor)
+		.addClass('bg-secondary');
+		
 		// Update rules
 		$('.step-1-selected-door').text(selectedDoor);
 		$('.step-1-wrong-door').text(wrongDoor);
@@ -211,20 +218,17 @@ function handleStep1Choice(doorIndex){
 	
 	// Update UI
 	if(!autoRun){
-		$('#btn-door-' + selectedDoor)
-		.removeClass('btn-primary');
+		$('#label-door-' + selectedDoor)
+		.removeClass('bg-primary');
 		
 		if(doorIndex == correctDoor)
-			$('#btn-door-' + doorIndex)
-			.removeClass('btn-secondary')
-			.addClass('btn-success');
+			$('#label-door-' + doorIndex)
+			.addClass('bg-success');
 		else{
-			$('#btn-door-' + doorIndex)
-			.removeClass('btn-secondary')
-			.addClass('btn-primary');
-			$('#btn-door-' + correctDoor)
-			.removeClass('btn-secondary')
-			.addClass('btn-success');
+			$('#label-door-' + doorIndex)
+			.addClass('bg-primary');
+			$('#label-door-' + correctDoor)
+			.addClass('bg-success');
 		}
 		$('#btn-door-1').attr('disabled', true);
 		$('#btn-door-2').attr('disabled', true);
