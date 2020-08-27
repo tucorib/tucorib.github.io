@@ -6,20 +6,11 @@
 @import 'mixins';
 @import 'core';
 @import 'larger';
-//@import 'fixed-width';
-//@import 'list';
-//@import 'bordered-pulled';
-//@import 'animated';
-//@import 'rotated-flipped';
-//@import 'stacked';
-//@import 'icons';
-//@import 'screen-reader';
-
-.#{$fa-css-prefix}-home:before { content: fa-content($fa-var-home); }
-.#{$fa-css-prefix}-youtube:before { content: fa-content($fa-var-youtube); }
-.#{$fa-css-prefix}-gamepad:before { content: fa-content($fa-var-gamepad); }
-.#{$fa-css-prefix}-id-card:before { content: fa-content($fa-var-id-card); }
-.#{$fa-css-prefix}-envelope:before { content: fa-content($fa-var-envelope); }
-.#{$fa-css-prefix}-phone:before { content: fa-content($fa-var-phone); }
-.#{$fa-css-prefix}-check:before { content: fa-content($fa-var-check); }
-.#{$fa-css-prefix}-bars:before { content: fa-content($fa-var-bars); }
+@import 'fixed-width';
+@import 'list';
+@import 'bordered-pulled';
+@import 'animated';
+@import 'rotated-flipped';
+@import 'stacked';
+@import 'icons';
+@import 'screen-reader';
