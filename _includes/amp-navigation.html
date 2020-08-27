@@ -3,20 +3,20 @@
 <header class="sticky-top bg-wrapper">
 	<amp-mega-menu id="menu" height="51" layout="fixed-height" class="d-none d-md-block">
 		<nav class="navbar navbar-expand-md nav-pills bg-transparent pb-2 pr-md-4">
-			{% if page.filter %}
-			<form class="form-inline mx-2">
-				<div class="input-group input-group-sm">
-		  			<div class="input-group-prepend">
-		    			<span class="input-group-text rounded bg-white"><i class="fas fa-search"></i></span>
-		  			</div>
-		  			<input class="form-control rounded flex-grow-1"
-						type="text"
-						placeholder="Filtrer"
-						on="input-throttled:AMP.setState({filter: event.value.toLowerCase()}),{{ page.filter }}.changeToLayoutContainer()">
-				</div>
-			</form>
-			{% endif %}
 			<ul class="navbar-nav flex-grow-1 justify-content-end mt-2 mt-md-0">
+				{% if page.filter %}
+				<li>
+					<div class="input-group input-group-sm">
+			  			<div class="input-group-prepend">
+			    			<span class="input-group-text rounded bg-white"><i class="fas fa-search"></i></span>
+			  			</div>
+			  			<input class="form-control rounded flex-grow-1"
+							type="text"
+							placeholder="Filtrer"
+							on="input-throttled:AMP.setState({filter: event.value.toLowerCase()}),{{ page.filter }}.changeToLayoutContainer()">
+					</div>
+				</li>
+				{% endif %}
 				{% for nav in site.data.navigation %}
 				{% if nav.link != '/videos/' or psize > 0 %}
 				{% if nav.link != '/tools/' or gsize > 0 %}
@@ -34,17 +34,15 @@
 			<i class="fas fa-bars"></i>
 		</button>
 		{% if page.filter %}
-		<form class="flex-grow-1 form-inline mx-2">
-			<div class="input-group input-group-sm">
-	  			<div class="input-group-prepend">
-	    			<span class="input-group-text rounded bg-white"><i class="fas fa-search"></i></span>
-	  			</div>
-	  			<input class="form-control rounded flex-grow-1"
-					type="text"
-					placeholder="Filtrer"
-					on="input-throttled:AMP.setState({filter: event.value.toLowerCase()}),{{ page.filter }}.changeToLayoutContainer()">
-			</div>
-		</form>
+		<div class="input-group input-group-sm">
+  			<div class="input-group-prepend">
+    			<span class="input-group-text rounded bg-white"><i class="fas fa-search"></i></span>
+  			</div>
+  			<input class="form-control rounded flex-grow-1"
+				type="text"
+				placeholder="Filtrer"
+				on="input-throttled:AMP.setState({filter: event.value.toLowerCase()}),{{ page.filter }}.changeToLayoutContainer()">
+		</div>
 		{% endif %}
 	</div>
 </header>
