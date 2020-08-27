@@ -2,32 +2,54 @@
 layout: amp
 title: Ma chaine Youtube
 permalink: /videos/
-filter: "input-throttled:AMP.setState({filteredPosts: data.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')).toLowerCase().indexOf(event.value.toLowerCase()) != -1))})"
+filter: list
 ---
 <h1 class="h3 text-center text-md-left font-weight-bolder mx-4">{{ site.data.labels.navigation.videos }}</h1>
 {% assign psize = site.categories.video.size %}
 {% if psize > 0 %}
-<amp-state id="data" credentials="include" src="/api/videos.json"></amp-state>
+<amp-state id="data" src="/api/videos.json"></amp-state>
 <amp-list
-  items="."
-  credentials="include"
-  src="/api/videos.json"
-  [src]="filteredPosts"
-  height="{{ site.videos.list.row_height| plus: 16 | times: psize | minus: 16 }}"
-  [height]="({{ site.videos.list.row_height }} + 16) * filteredPosts.length - 16"
-  layout="fixed-height"
-  binding="no"
-  class="mx-md-4"
->
+	id="list"
+	layout="flex-item"
+	class="mx-md-4"
+	src="amp-state:data"
+	[src]="data.items.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')).toLowerCase().indexOf(filter) != -1))">
   	<div placeholder><p class="p-4 text-center">{{ site.data.labels.waiting }}</p></div>
   	<div fallback><p class="p-4 text-center">{{ site.data.labels.error }}</p></div>
   	<template type="amp-mustache">
-  		{% include post-item-raw.html %}
+  		<div class="container-fluid">
+		  	<div class="row">
+			  	<amp-youtube data-videoid="{% raw %}{{youtube}}{% endraw %}"
+					layout="responsive"
+					width="{{ site.home.youtube.width }}"
+					height="{{ site.home.youtube.height }}"
+					class="col-12 col-md-4 pr-0"
+					dock
+					{% if site.home.youtube.autoplay %}autoplay{% endif %}>
+				</amp-youtube>
+				<a href="{% raw %}{{url}}{% endraw %}"  class="col-12 col-md-8">
+			  		<div class="post-infos mt-2 mt-md-0">
+				  		<span class="flash text-body float-right mt-2 mr-2 h5 {% raw %}{{flash}}{% endraw %}" title="Paru il y a moins d'une semaine"><i class="fa fa-bolt" aria-hidden="true"></i></span>
+				  		<h2 class="mb-0">{% raw %}{{title}}{% endraw %}</h2>
+						<span class="post-meta">
+							<amp-date-display class="d-inline-block" datetime="{% raw %}{{datetime}}{% endraw %}" locale="{{ site.language }}" layout="flex-item">
+						  		<template type="amp-mustache">
+						  			<small class="post-date">
+						  				{% raw %}{{day}} {{monthName}} {{year}}{% endraw %}
+					  				</small>
+				  				</template>
+							</amp-date-display>
+							<div class="d-inline-block align-top">/</div>
+		  					<div class="d-inline-block align-top"><small>Niveau conseillé: <span class="post-level">{% raw %}{{level}}{% endraw %}</span></small></div>
+						</span>
+						<div class="post-tag-list">{% raw %}{{#tags}}{% endraw %}<span class="rounded badge badge-pill badge-dark mr-2">{% raw %}{{.}}{% endraw %}</span>{% raw %}{{/tags}}{% endraw %}</div>
+						<p class="text-justify">{% raw %}{{description}}{% endraw %}</p>
+			  		</div>
+		  		</a>
+		  	</div>
+		</div>
   		<hr />
   	</template>
-	<button overflow class="list-overflow btn btn-primary w-100 mx-auto">
-    	Voir plus de vidéos
-  	</button>
 </amp-list>
 {% else %}
 <p class="text-center p-4">Des vidéos mathématiques et ludiques sont en préparation sur la chaîne Youtube...</p>

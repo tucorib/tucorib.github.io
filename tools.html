@@ -2,12 +2,12 @@
 layout: amp
 title: Mes outils pédagogiques
 permalink: /tools/
-filter: "input-throttled:AMP.setState({filteredPosts: data.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')+a.tooltype).toLowerCase().indexOf(event.value.toLowerCase()) != -1))})"
+filter: list
 ---
 <h1 class="h3 text-center text-md-left font-weight-bolder mx-4">{{ site.data.labels.navigation.tools }}</h1>
 {% assign tsize = site.categories.tool.size %}
 {% if tsize > 0 %}
-<amp-state id="data" credentials="include" src="/api/tools.json"></amp-state>
+<amp-state id="data"src="/api/tools.json"></amp-state>
 <div class="row px-md-4 mx-0 mb-2">
 	<div class="col px-0 text-center font-weight-bold">Nom</div>
 	<div class="col-2 px-0 text-center font-weight-bold">Niveau</div>
@@ -16,15 +16,10 @@ filter: "input-throttled:AMP.setState({filteredPosts: data.filter(a => ((a.title
 </div>
 	
 <amp-list
-  items="."
-  credentials="include"
-  src="/api/tools.json"
-  [src]="filteredPosts"
-  height="{{ site.tools.list.row_height| times: tsize }}"
-  [height]="{{ site.tools.list.row_height }} * filteredPosts.length"
-  layout="fixed-height"
-  binding="no"
->
+  id="list"
+  layout="flex-item"
+  src="amp-state:data"
+  [src]="data.items.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')+a.tooltype).toLowerCase().indexOf(filter) != -1))">
   	<div placeholder><p class="p-4 text-center">{{ site.data.labels.waiting }}</p></div>
   	<div fallback><p class="p-4 text-center">{{ site.data.labels.error }}</p></div>
   	<template type="amp-mustache">
@@ -37,9 +32,6 @@ filter: "input-throttled:AMP.setState({filteredPosts: data.filter(a => ((a.title
 	  		</div>
   		</a>
   	</template>
-  	<button overflow class="list-overflow btn btn-primary w-100 mx-auto">
-    	Voir plus d'outils
-  	</button>
 </amp-list>
 {% else %}
 <p class="text-center p-4">Des outils pédagogiques sont en préparation...</p>
