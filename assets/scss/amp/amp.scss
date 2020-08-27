@@ -9,8 +9,3 @@
 html:not([amp4ads]), html:not([amp4ads]) body{
 	@extend .min-vh-100;
 }
-
-.list-overflow[overflow] {
-  @extend .position-absolute;
-  bottom: 0;
-}
