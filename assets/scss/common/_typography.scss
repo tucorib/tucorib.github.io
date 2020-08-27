@@ -11,6 +11,6 @@ em{
 	@extend .font-weight-bold;
 }
 
-.btn:hover, .btn.btn-primary, .btn-outline-primary:not(:disabled):not(.disabled).active{
+.btn:hover, .btn.btn-primary, .badge.badge-primary, .btn-outline-primary:not(:disabled):not(.disabled).active{
 	color: $body-color;
 }

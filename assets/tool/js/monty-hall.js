@@ -117,9 +117,9 @@ function startRun(){
 		// Update rules
 		$('#rules').carousel(0);
 		// Activate buttons
-		$('#btn-door-1').attr('disabled', false).removeClass('btn-info btn-danger btn-success').addClass('btn-secondary');
-		$('#btn-door-2').attr('disabled', false).removeClass('btn-info btn-danger btn-success').addClass('btn-secondary');
-		$('#btn-door-3').attr('disabled', false).removeClass('btn-info btn-danger btn-success').addClass('btn-secondary');
+		$('#btn-door-1').attr('disabled', false).removeClass('btn-primary btn-danger btn-success').addClass('btn-secondary');
+		$('#btn-door-2').attr('disabled', false).removeClass('btn-primary btn-danger btn-success').addClass('btn-secondary');
+		$('#btn-door-3').attr('disabled', false).removeClass('btn-primary btn-danger btn-success').addClass('btn-secondary');
 		// Reset doors
 		$('#img-door-1').attr('src', '/assets/tool/img/door-closed.png');
 		$('#img-door-2').attr('src', '/assets/tool/img/door-closed.png');
@@ -153,7 +153,7 @@ function handleStep0Choice(doorIndex){
 	if(!autoRun){
 		$('#btn-door-' + selectedDoor)
 		.removeClass('btn-secondary')
-		.addClass('btn-info');
+		.addClass('btn-primary');
 		
 		$('#btn-door-' + wrongDoor)
 		.attr('disabled', true)
@@ -212,7 +212,7 @@ function handleStep1Choice(doorIndex){
 	// Update UI
 	if(!autoRun){
 		$('#btn-door-' + selectedDoor)
-		.removeClass('btn-info');
+		.removeClass('btn-primary');
 		
 		if(doorIndex == correctDoor)
 			$('#btn-door-' + doorIndex)
@@ -221,7 +221,7 @@ function handleStep1Choice(doorIndex){
 		else{
 			$('#btn-door-' + doorIndex)
 			.removeClass('btn-secondary')
-			.addClass('btn-info');
+			.addClass('btn-primary');
 			$('#btn-door-' + correctDoor)
 			.removeClass('btn-secondary')
 			.addClass('btn-success');
