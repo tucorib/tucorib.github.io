@@ -30,6 +30,38 @@
 		<script async custom-element="amp-date-display" src="https://cdn.ampproject.org/v0/amp-date-display-0.1.js"></script>
 		<script async custom-element="amp-video-docking" src="https://cdn.ampproject.org/v0/amp-video-docking-0.1.js"></script>
 		{% endif %}
+		
+		{% if page.url == '/' %}
+		<script type="application/ld+json">
+		    {
+		      	"@context": "https://schema.org",
+		      	"@type": "Product",
+		      	"name": "{{ site.title }}",
+		      	"image": [
+		        	"{{ site.url }}/assets/img/stream.png"
+		       	],
+		       	"description": "{{ site.description }}",
+		       	"brand": {
+	          		"@type": "Organization",
+	          		"name": "{{ site.title }}",
+	          		"logo": "{{ site.url }}/assets/img/logo-128.png"
+	        	},
+			 	"offers": {
+		        	"@type": "Offer",
+		        	"url": "{{ site.url }}/contact/",
+		        	"priceCurrency": "EUR",
+		        	"price": "35",
+		        	"availability": "https://schema.org/OnlineOnly",
+		        	"seller": {
+		          		"@type": "Organization",
+		          		"name": "{{ site.title }}",
+		          		"logo": "{{ site.url }}/assets/img/logo-128.png"
+		        	}
+		      	}
+	     	}
+	    </script>
+		{% endif %}
+		
 		<style amp-boilerplate>
 			body {
 		        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
