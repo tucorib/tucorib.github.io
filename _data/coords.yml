@@ -1,0 +1,19 @@
+owner:
+  name: Nicolas Ribeiro
+  address_1: 136 Rue des Fontaines
+  address_2: 31300 Toulouse (France)
+  email: rbr.prof@gmail.com
+  phone:
+    num: +33618748298
+    display: (+33) 6 18 74 82 98
+  siret: XXX
+
+host:
+  name: Github, Inc.
+  address_1: 88 Colin P Kelly Jr Street
+  address_2: San Francisco, CA 94107 (Etats Unis)
+  url: https://www.github.com 
+  phone:
+    num: +18779588742
+    display: +1 (877) 958-8742
+  

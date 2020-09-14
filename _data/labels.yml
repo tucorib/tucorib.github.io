@@ -7,6 +7,14 @@ navigation:
   tools: Mes outils pédagogiques
   contact: Contact / Tarifs
 
+footer:
+  navigation: Navigation
+  contact: Contact
+  legal: Informations légales
+  
+legal:
+  notice: Mentions légales
+
 tooltype:
   activity: Activité
   training: Application
