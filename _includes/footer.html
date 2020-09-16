@@ -1,6 +1,6 @@
 <footer class="wrapper small py-4">
-	<div class="container-fluid text-center text-md-left">
-		<div class="d-flex justify-content-between">
+	<div class="container-fluid">
+		<div class="d-flex flex-column flex-md-row justify-content-between">
 		  	<div class="mx-4">
 		    	<h5 class="font-weight-bold">{{ site.data.labels.footer.navigation }}</h5>
 	    		{% for nav in site.data.navigation %}
@@ -11,7 +11,7 @@
 				{% endif %}
 				{% endfor %}
 		  </div>
-		  <div class="mx-4">
+		  <div class="mx-4 mt-2 mt-md-0">
 		  		<h5 class="font-weight-bold">{{ site.data.labels.footer.legal }}</h5>
 		  		<div><a href="/mentions-legales/">{{ site.data.labels.legal.notice }}</a></div>
 		  		<div><a href="/info-cookies/">{{ site.data.labels.legal.cookies }}</a></div>
