@@ -44,6 +44,10 @@ ul:not(.navbar-nav){
 	@extend .pl-4;	
 }
 
-ul:not(.navbar-nav) li{
+ul:not(.navbar-nav) > li{
 	@extend .mb-4;
+}
+
+ol:not(.navbar-nav) > li{
+	@extend .mb-1;
 }

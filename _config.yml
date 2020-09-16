@@ -14,7 +14,6 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Matez les Maths
-email: rbr.prof@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Optez pour le cours de maths en ligne
 logo: /assets/img/logo-256.png
