@@ -1,0 +1,35 @@
+---
+layout: amp
+title: Mentions légales
+permalink: /mentions-legales/
+---
+<div class="container">
+	<h1 class="h3 text-center text-md-left font-weight-bolder mb-5">{{ site.data.labels.legal.notice }}</h1>
+
+	<div class="d-flex justify-content-around flex-column flex-md-row">
+		<div>
+			<h5 class="font-weight-bold">Ce site est édité par&nbsp;:</h5>
+	
+			<div><span class="font-weight-bold">{{ site.data.legal.owner.name }}</span></div>
+			<div>{{ site.data.legal.owner.address_1 }}</div>
+			<div>{{ site.data.legal.owner.address_2 }}</div>
+			<br/>
+			<div><span class="font-weight-bold">Email&nbsp;:</span> <a href="mailto:{{ site.data.legal.owner.email }}">{{ site.data.legal.owner.email }}</a></div>
+			<div><span class="font-weight-bold">Téléphone&nbsp;:</span> <a href="tel:{{ site.data.legal.owner.phone.num }}">{{ site.data.legal.owner.phone.display }}</a></div>
+			<br/>
+			<div><span class="font-weight-bold">Statut&nbsp;:</span> {{ site.data.legal.owner.status }}</div>
+			<div><span class="font-weight-bold">Siret&nbsp;:</span> {{ site.data.legal.owner.siret }}</div>
+			<div><span class="font-weight-bold">Immatriculation RCS&nbsp;:</span> {{ site.data.legal.owner.rcs }}</div>
+		</div>
+		<div class="mt-4 mt-md-0">
+			<h5 class="font-weight-bold">Ce site est hébergé par&nbsp;:</h5>
+			
+			<div class="font-weight-bold">{{ site.data.legal.host.name }}</div>
+			<div>{{ site.data.legal.host.address_1 }}</div>
+			<div>{{ site.data.legal.host.address_2 }}</div>
+			<br/>
+			<div><span class="font-weight-bold">Site&nbsp;:</span> <a href="{{ site.data.legal.host.url }}">{{ site.data.legal.host.url }}</a></div>
+			<div><span class="font-weight-bold">Téléphone&nbsp;:</span> <a href="tel:{{ site.data.legal.host.phone.num }}">{{ site.data.legal.host.phone.display }}</a></div>
+		</div>
+	</div>
+</div>
