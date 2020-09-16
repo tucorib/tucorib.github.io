@@ -1,6 +1,6 @@
 <footer class="wrapper small py-4">
 	<div class="container-fluid text-center text-md-left">
-		<div class="d-flex justify-content-around">
+		<div class="d-flex justify-content-between">
 		  	<div class="mx-4">
 		    	<h5 class="font-weight-bold">{{ site.data.labels.footer.navigation }}</h5>
 	    		{% for nav in site.data.navigation %}
@@ -12,22 +12,9 @@
 				{% endfor %}
 		  </div>
 		  <div class="mx-4">
-			  	<h5 class="font-weight-bold">{{ site.data.labels.footer.contact }}</h5>
-			  	<div class="d-flex">
-				  	<div>
-				  		<div class="font-weight-bold">{{ site.data.coords.owner.name }}</div>
-					  	<div>{{ site.data.coords.owner.address_1 }}</div>
-					  	<div>{{ site.data.coords.owner.address_2 }}</div>
-				  	</div>
-				  	<div class="ml-4">
-				  		<div><span class="font-weight-bold">Email :</span> <a href="mailto:{{ site.data.coords.owner.email }}">{{ site.data.coords.owner.email }}</a></div>
-			  			<div><span class="font-weight-bold">Téléphone :</span> <a href="tel:{{ site.data.coords.owner.phone.num }}">{{ site.data.coords.owner.phone.display }}</a></div>
-				  	</div>
-			  	</div>
-		  	</div>
-		  <div class="mx-4">
 		  		<h5 class="font-weight-bold">{{ site.data.labels.footer.legal }}</h5>
-		  		<a href="/mentions-legales/">{{ site.data.labels.legal.notice }}</a>
+		  		<div><a href="/mentions-legales/">{{ site.data.labels.legal.notice }}</a></div>
+		  		<div><a href="/info-cookies/">{{ site.data.labels.legal.cookies }}</a></div>
 		  	</div>
 		</div>
 	</div>

@@ -18,6 +18,7 @@
 	  	<script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
 	  	<script async custom-element="amp-mega-menu" src="https://cdn.ampproject.org/v0/amp-mega-menu-0.1.js"></script>
 	  	<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+  		{% include amp-cookies-head.html %}
   		{% include amp-analytics-head.html %}
 				  	
 	  	{% assign vsize = site.categories.video | size %}
@@ -124,6 +125,7 @@
 		</noscript>
   	</head>
   	<body>	
+  		{% include amp-cookies-body.html %}
   		{% include amp-analytics-body.html %}
   		{% include amp-sidebar.html %}
   		<main class="wrapper pb-3 d-flex flex-column">

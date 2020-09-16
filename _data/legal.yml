@@ -6,7 +6,9 @@ owner:
   phone:
     num: +33618748298
     display: (+33) 6 18 74 82 98
-  siret: XXX
+  status: Auto-entreprise
+  siret: En cours d'immatriculation
+  rcs: En cours d'immatriculation
 
 host:
   name: Github, Inc.
