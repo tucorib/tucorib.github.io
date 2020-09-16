@@ -5,7 +5,7 @@
     	"consentInstanceId": "consent-id",
     	"consentRequired": true,
     	"promptUI": "consentDialog",
-    	"postPromptUI": "post-consent-ui"
+    	"postPromptUI": {% if page.url == "/info-cookies/" %}"post-consent-ui"{% else %}null{% endif %}
   	}
   	</script>
   	<div id="consentDialog" class="d-flex flex-row bg-secondary p-2 mb-0 align-items-md-center">
