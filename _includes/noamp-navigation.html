@@ -1,33 +1,36 @@
 {% assign psize = site.categories.video.size %}
 {% assign gsize = site.categories.tool.size %}
-<nav class="navbar navbar-expand-md nav-pills bg-wrapper pb-2 sticky-top pr-md-4">
-	<button class="d-flex navbar-toggler border border-primary bg-body text-primary" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<i class="fas fa-bars"></i>
-	</button>
-	{% if page.filter %}
-	<form class="form-inline mx-2">
-		<div class="input-group input-group-sm">
-  			<div class="input-group-prepend">
-    			<span class="input-group-text rounded bg-white"><i class="fas fa-search"></i></span>
-  			</div>
-  			<input class="form-control rounded flex-grow-1"
-				type="text"
-				placeholder="Filtrer"
-				on="{{ page.filter }}">
+<header class="container sticky-top">
+	<nav class="navbar navbar-expand-md nav-pills pb-2">
+		<button class="d-flex navbar-toggler border border-primary bg-body text-primary" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<i class="fas fa-bars"></i>
+		</button>
+		{% if page.filter %}
+		<form class="form-inline mx-2">
+			<div class="input-group input-group-sm">
+	  			<div class="input-group-prepend">
+	    			<span class="input-group-text rounded bg-white"><i class="fas fa-search"></i></span>
+	  			</div>
+	  			<input class="form-control rounded flex-grow-1"
+					type="text"
+					placeholder="Filtrer"
+					on="{{ page.filter }}">
+			</div>
+		</form>
+		{% endif %}
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav flex-grow-1 justify-content-end mt-2 mt-md-0">
+				{% for nav in site.data.navigation %}
+				{% if nav.link != '/videos/' or psize > 0 %}
+				{% if nav.link != '/tools/' or gsize > 0 %}
+				<li class="nav-item mb-3 mb-md-0 ml-md-3">
+					<a class="nav-link btn btn-sm text-primary btn-outline-primary p-1{% if page.url == nav.link %} active{% endif %}" href="{{ nav.link }}"><i class="{{ nav.icon }} pr-2"></i>{{ site.data.labels.navigation[nav.name] }}</a>
+				</li>
+				{% endif %}
+				{% endif %}
+				{% endfor %}
+			</ul>
 		</div>
-	</form>
-	{% endif %}
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav flex-grow-1 justify-content-end mt-2 mt-md-0">
-			{% for nav in site.data.navigation %}
-			{% if nav.link != '/videos/' or psize > 0 %}
-			{% if nav.link != '/tools/' or gsize > 0 %}
-			<li class="nav-item mb-3 mb-md-0 ml-md-3">
-				<a class="nav-link btn btn-sm text-primary btn-outline-primary p-1{% if page.url == nav.link %} active{% endif %}" href="{{ nav.link }}"><i class="{{ nav.icon }} pr-2"></i>{{ site.data.labels.navigation[nav.name] }}</a>
-			</li>
-			{% endif %}
-			{% endif %}
-			{% endfor %}
-		</ul>
-	</div>
-</nav>
+	</nav>
+</header>
+
