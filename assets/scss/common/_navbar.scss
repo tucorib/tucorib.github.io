@@ -1,9 +1,17 @@
 header{
-	background-color: $body-bg-color;
+	@extend .mb-2;
 }
 
-.nav-link{
-	border-radius: 2em;	
+.bg-navbar{
+	background-color: $navbar-bg-color;
+}
+
+ul.navbar-nav{
+	height: 64px;
+}
+
+.nav-pills .nav-link{
+	border-radius: 0;	
 }
 
 a.nav-link:hover{

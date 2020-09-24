@@ -1,27 +1,44 @@
 {% assign psize = site.categories.video.size %}
 {% assign gsize = site.categories.tool.size %}
-<header class="container sticky-top">
-	<amp-mega-menu id="menu" height="51" layout="fixed-height" class="d-none d-md-block">
-		<nav class="navbar navbar-expand-md nav-pills bg-transparent pb-2 pr-md-4">
-			<ul class="navbar-nav flex-grow-1 justify-content-end mt-2 mt-md-0">
-				{% if page.filter %}
-				<li>
-					<div class="input-group input-group-sm">
-			  			<div class="input-group-prepend">
-			    			<span class="input-group-text rounded bg-white"><i class="fas fa-search"></i></span>
-			  			</div>
-			  			<input class="form-control rounded flex-grow-1"
-							type="text"
-							placeholder="Filtrer"
-							on="input-throttled:AMP.setState({filter: event.value.toLowerCase()}),{{ page.filter }}.changeToLayoutContainer()">
-					</div>
-				</li>
-				{% endif %}
+<header>
+	<div class="container py-2 d-flex align-items-center">
+		<a class="d-flex align-items-center" href="/">
+			<amp-img alt="Logo"
+				src="{{ site.cache.img }}/assets/img/logo-128.png"
+				width="54"
+				height="54"
+				layout="fixed">
+		</a>
+		<div class="flex-grow-1"></div>
+		{% if page.filter %}
+		<div class="d-block mx-2 mr-md-0">
+			<div class="input-group input-group-sm">
+				<div class="input-group-prepend">
+					<span class="input-group-text rounded bg-white"><i class="fas fa-search"></i></span>
+				</div>
+				<input class="form-control rounded"
+					type="text"
+					placeholder="Filtrer"
+					on="input-throttled:AMP.setState({filter: event.value.toLowerCase()}),{{ page.filter }}.changeToLayoutContainer()">
+			</div>
+		</div>
+		{% endif %}
+		<button class="d-md-none sidebar-open-btn navbar-toggler border border-primary bg-body text-primary" type="button" on="tap:sidebar">
+			<i class="fas fa-bars"></i>
+		</button>
+	</div>
+	<amp-mega-menu id="menu" height="64" layout="fixed-height" class="d-none d-md-block container bg-navbar mb-2">
+		<nav class="navbar navbar-expand-md nav-pills bg-transparent p-0 h-100">
+			<ul class="navbar-nav flex-grow-1 h-100 d-flex align-items-center justify-content-center">
 				{% for nav in site.data.navigation %}
 				{% if nav.link != '/videos/' or psize > 0 %}
 				{% if nav.link != '/tools/' or gsize > 0 %}
-				<li class="nav-item mb-3 mb-md-0 ml-md-3">
-					<a class="nav-link btn btn-sm text-primary btn-outline-primary p-1{% if page.url == nav.link %} active{% endif %}" href="{{ nav.link }}"><i class="{{ nav.icon }} pr-2"></i>{{ site.data.labels.navigation[nav.name] }}</a>
+				<li class="nav-item flex-grow-1 h-100">
+					<a class="nav-link text-primary h-100 d-flex align-items-center justify-content-center{% if page.url == nav.link %} active{% endif %}" href="{{ nav.link }}">
+						<span>
+							<i class="{{ nav.icon }} pr-2"></i>{{ site.data.labels.navigation[nav.name] }}
+						</span>
+					</a>
 				</li>
 				{% endif %}
 				{% endif %}
@@ -29,20 +46,4 @@
 			</ul>
 		</nav>
 	</amp-mega-menu>
-	<div class="sidebar-header p-2 d-flex d-md-none">
-		<button class="sidebar-open-btn navbar-toggler border border-primary bg-body text-primary" type="button" on="tap:sidebar">
-			<i class="fas fa-bars"></i>
-		</button>
-		{% if page.filter %}
-		<div class="input-group input-group-sm">
-  			<div class="input-group-prepend">
-    			<span class="input-group-text rounded bg-white"><i class="fas fa-search"></i></span>
-  			</div>
-  			<input class="form-control rounded flex-grow-1"
-				type="text"
-				placeholder="Filtrer"
-				on="input-throttled:AMP.setState({filter: event.value.toLowerCase()}),{{ page.filter }}.changeToLayoutContainer()">
-		</div>
-		{% endif %}
-	</div>
 </header>

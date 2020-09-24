@@ -1,8 +1,7 @@
 {% assign psize = site.posts.size %}
 {% assign gsize = site.categories.tool.size %}
-<amp-sidebar id="sidebar" layout="nodisplay" class="bg-navbar">
-  	<!-- list of menu items here -->
-    <ul class="navbar-nav flex-grow-1 p-2">
+<div id="sidebar" class="collapse navbar-collapse h-100 position-absolute float-left">
+    <ul class="bg-navbar navbar-nav p-2">
 		{% for nav in site.data.navigation %}
 		{% if nav.link != '/videos/' or psize > 0 %}
 		{% if nav.link != '/tools/' or gsize > 0 %}
@@ -13,4 +12,4 @@
 		{% endif %}
 		{% endfor %}
 	</ul>
-</amp-sidebar>	
+</div>	

@@ -7,6 +7,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="robots" content="noindex" />
 		
+		{% include lib/jquery.html %}
+		{% include lib/bootstrap.html %}
 		{% include lib/fontawesome.html %}
 		
 		<!-- Theme -->
@@ -54,10 +56,8 @@
 	</head>
 	<body>
 		{% include noamp-navigation.html %}
-		<div class="container">
-			<h1 class="text-center">{{ page.title }}</h1>
-		</div>
 		<main class="container pb-3">
+			<h1 class="text-center">{{ page.title }}</h1>
 			{% include tools/hud.html %}
 			{{ content }}
 		</main>
