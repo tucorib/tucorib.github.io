@@ -26,7 +26,7 @@
 		<button class="d-md-none sidebar-open-btn navbar-toggler border border-primary bg-body text-primary" type="button">
 			<i class="fas fa-bars"></i>
 		</button>
-		<nav class="mobile-offcanvas navbar nav-pills nav-fill p-0 h-100 bg-navbar flex-column">
+		<nav class="mobile-offcanvas navbar nav-pills nav-fill p-0 h-100 bg-navbar flex-column d-none">
 			<ul class="navbar-nav flex-grow-1 p-2">
 				{% for nav in site.data.navigation %}
 				{% if nav.link != '/videos/' or psize > 0 %}
@@ -40,17 +40,19 @@
 			</ul>
 		</nav>
 	</div>
-	<nav class="navbar navbar-expand-md nav-pills nav-fill p-0 h-100 container bg-navbar mb-2 d-none d-md-block">
-		<ul class="navbar-nav flex-grow-1 h-100 d-flex align-items-center justify-content-center">
-			{% for nav in site.data.navigation %}
-			{% if nav.link != '/videos/' or psize > 0 %}
-			{% if nav.link != '/tools/' or gsize > 0 %}
-			<li class="nav-item h-100">
-				<a class="nav-link text-primary h-100 d-flex align-items-center justify-content-center{% if page.url == nav.link %} active{% endif %}" href="{{ nav.link }}"><i class="{{ nav.icon }} pr-2"></i>{{ site.data.labels.navigation[nav.name] }}</a>
-			</li>
-			{% endif %}
-			{% endif %}
-			{% endfor %}
-		</ul>
-	</nav>
+	<div class="bg-navbar">
+		<nav class="navbar navbar-expand-md nav-pills nav-fill p-0 h-100 container mb-2 d-none d-md-block">
+			<ul class="navbar-nav flex-grow-1 h-100 d-flex align-items-center justify-content-center">
+				{% for nav in site.data.navigation %}
+				{% if nav.link != '/videos/' or psize > 0 %}
+				{% if nav.link != '/tools/' or gsize > 0 %}
+				<li class="nav-item h-100">
+					<a class="nav-link text-primary h-100 d-flex align-items-center justify-content-center{% if page.url == nav.link %} active{% endif %}" href="{{ nav.link }}"><i class="{{ nav.icon }} pr-2"></i>{{ site.data.labels.navigation[nav.name] }}</a>
+				</li>
+				{% endif %}
+				{% endif %}
+				{% endfor %}
+			</ul>
+		</nav>
+	</div>
 </header>
