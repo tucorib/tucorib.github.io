@@ -1,0 +1,23 @@
+@mixin overlay-variant($name, $color, $opacity) {
+ 	.#{$name} {
+ 		background: $color;
+	}
+	.#{$name} img, .#{$name} amp-img{
+		object-fit: cover;
+		opacity: $opacity;
+	}
+}
+
+@mixin overlay-gradient-variant($name, $color-from, $color-to, $opacity, $color-fallback) {
+ 	.#{$name} {
+ 		background: $color-fallback;  /* fallback colour. Make sure this is just one solid colour. */
+	    background: -webkit-linear-gradient($color-from, $color-to);
+	    background: linear-gradient($color-from, $color-to); /* The least supported option. */
+	}
+	.#{$name} img, .#{$name} amp-img{
+		object-fit: cover;
+		opacity: $opacity;
+	}
+}
+    
+    

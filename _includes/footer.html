@@ -1,8 +1,8 @@
-<footer class="container small py-4">
-	<div class="container-fluid">
-		<div class="d-flex flex-column flex-md-row justify-content-between">
-		  	<div class="mx-4">
-		    	<h5 class="font-weight-bold">{{ site.data.labels.footer.navigation }}</h5>
+<footer class="bg-footer small py-4">
+	<div class="container">
+		<div class="d-flex flex-column flex-md-row justify-content-around">
+		  	<div>
+		    	<h5>{{ site.data.labels.footer.navigation }}</h5>
 	    		{% for nav in site.data.navigation %}
 				{% if nav.link != '/videos/' or psize > 0 %}
 				{% if nav.link != '/tools/' or gsize > 0 %}
@@ -11,10 +11,10 @@
 				{% endif %}
 				{% endfor %}
 		  </div>
-		  <div class="mx-4 mt-2 mt-md-0">
-		  		<h5 class="font-weight-bold">{{ site.data.labels.footer.legal }}</h5>
-		  		<div><a href="/mentions-legales/">{{ site.data.labels.legal.notice }}</a></div>
-		  		<div><a href="/info-cookies/">{{ site.data.labels.legal.cookies }}</a></div>
+		  <div>
+		  		<h5>{{ site.data.labels.footer.legal }}</h5>
+		  		<div><a href="/mentions-legales/">> {{ site.data.labels.legal.notice }}</a></div>
+		  		<div><a href="/info-cookies/">> {{ site.data.labels.legal.cookies }}</a></div>
 		  	</div>
 		</div>
 	</div>

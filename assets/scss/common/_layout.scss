@@ -3,19 +3,18 @@ html, body{
 }
 
 body{
-	background-color: $body-bg-color;
 	@extend .d-flex;
 	@extend .flex-column;
 }
 
 main{
-	flex: 1 1 auto;
+	@extend .flex-fill;
 }
 
 .container{
 	@extend .mx-auto;
 	@extend .w-100;
-	max-width: $wrapper-max-width;
+	max-width: $container-max-width;
 }
 
 ul:not(.navbar-nav){
@@ -28,4 +27,12 @@ ul:not(.navbar-nav) > li{
 
 ol:not(.navbar-nav) > li{
 	@extend .mb-1;
+}
+
+.form-control:hover, .form-control:active, .form-control:focus{
+	border: none;
+	background: none;
+	outline: none;
+    -webkit-appearance:none;
+    box-shadow: none;
 }

@@ -1,0 +1,40 @@
+entries:
+  - name: "Enseignant<br/>contractuel"
+    start: 2019
+    end: 2020
+    img:
+      src: /assets/img/republique-francaise.webp
+      srcset: /assets/img/republique-francaise-375.webp 375w
+    content:
+      - label: Remplacements en mathématiques effectués au sein de l'Education Nationale
+        misc:
+        - Toulouse, FR
+        - "Classes&nbsp;: de la 6<sup>e</sup> à la Terminale"
+  - name: Soutien scolaire à domicile
+    start: 2012
+    end: 2020
+    img:
+      src: /assets/img/soutien-scolaire.webp
+      srcset: /assets/img/soutien-scolaire-375.webp 375w
+    content:
+      - label: Soutien scolaire à domicile en mathématiques
+        misc:
+        - Nantes et Toulouse, FR
+        - "Niveaux&nbsp;: Collège et Lycée"
+  - name: Ingénieur en informatique
+    start: 2003
+    end: 2008
+    img:
+      src: /assets/img/enseeiht.webp
+      srcset: /assets/img/enseeiht.webp 375w
+    content:
+      - label: Diplôme d'Ingénieur en Informatique
+        misc:
+          - ENSEEIHT, Toulouse, FR
+      - label: Echange universitaire à l'Université de Montréal
+        misc:
+          - UdeM, Montréal, QC
+      - label: Classe Préparatoire aux Grandes Ecoles
+        misc: 
+          - Lycée Jean Dautet, La Rochelle, FR
+    

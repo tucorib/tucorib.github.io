@@ -1,0 +1,35 @@
+<template type="amp-mustache" id="{{ include.id }}">
+	<a class="my-3 card-post" href="{% raw %}{{url}}{% endraw %}">
+		<div class="card h-100 mb-3">
+			<amp-img alt="Youtube"
+				class="card-img"
+				src="https://img.youtube.com/vi/{% raw %}{{#youtube}}{{youtube}}{{/youtube}}{{^youtube}}0{{/youtube}}{% endraw %}/sddefault.jpg"
+				width="{{ site.home.youtube.width }}"
+				height="{{ site.home.youtube.height }}"
+				layout="responsive">
+			</amp-img>
+			<div class="card-body d-flex flex-column text-center">
+				<p class="h2 card-title mb-0">{% raw %}{{title}}{% endraw %}</p>
+				<p class="card-text small text-muted mb-0">
+					{% raw %}{{#tool}}{% endraw %}
+					<span>Type&nbsp;:&nbsp;{% raw %}{{tool.type}}{% endraw %}</span>
+					<br/>
+					{% raw %}{{/tool}}{% endraw %}
+					{% raw %}{{#level}}{% endraw %}
+					<span>Niveau&nbsp;:&nbsp;{% raw %}{{{level}}}{% endraw %}</span>
+					{% raw %}{{/level}}{% endraw %}
+				</p>
+				<p class="card-text h6 text-center my-1">
+					{% raw %}{{#tags}}{% endraw %}<span class="badge badge-pill bg-tag rounded mx-1">{% raw %}{{.}}{% endraw %}</span>{% raw %}{{/tags}}{% endraw %}
+				</p>
+				<p class="card-text mt-2 px-4">
+					{% raw %}{{{description}}}{% endraw %}
+				</p>
+			</div>
+			<div class="card-footer d-flex flex-row">
+				<amp-date-display datetime="{% raw %}{{datetime}}{% endraw %}" locale="{{ site.language }}" layout="flex-item" class="text-right" template="{{ include.date_template_id }}">
+				</amp-date-display>
+			</div>
+		</div>
+	</a>
+</template>

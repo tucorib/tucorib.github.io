@@ -1,21 +1,56 @@
-// Wrapper
-$wrapper-max-width: 1280px !default;
-$navbar-bg-color: #ff8939 !default;
+// Bootstrap
+$enable-rounded: false !default;
+$enable-responsive-font-sizes: true !default;
 
-$body-color: #eeeeee !default;
 $primary: #ff8939 !default;
 $secondary: #4b6fbb !default;
-$btn-background: $body-color !default;
+$info: #A38917 !default;
+
+$link-color: #212529 !default;
+
 $border-width: 3px !default;
 $border-color: #fff !default;
-$enable-rounded: true !default;
-$body-bg-color: #46a898 !default; // lighten($wrapper-color, 35%) !default;
+
 $modal-content-bg: #212529 !default;
-$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", "Lato", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+// Font
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Lato", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+// Active
+$navbar-active-color: #416184 !default;
+
+// Backgrounds
+$body-bg-color: #e7e7e7 !default;
+$brand-bg-color: $body-bg-color !default;
+$navbar-bg-color: #143f6c !default;
+$footer-bg-color: #343a40 !default;
+$filter-bg-color: $body-bg-color !default;
+$cookies-bg-color: $secondary !default;
+$tag-bg-color: $navbar-bg-color !default;
+
+$contact-prices-bg-color: $navbar-bg-color !default;
+$contact-more-info-bg-color: $body-bg-color !default;
+$contact-cv-entry-bg-color: $body-bg-color !default;
+
+// Overlays
+$contact-id-overlay-color-from: $contact-prices-bg-color !default;
+$contact-id-overlay-color-to: $body-bg-color !default;
+$contact-id-overlay-color-fallback: #C33764 !default;
+$contact-id-overlay-opacity: 0.4 !default;
+
+// Borders
+$filter-border-size: 1px !default;
+$filter-border-color: $navbar-bg-color !default;
 
 // Font awesome
 $fa-font-path: "https://use.fontawesome.com/releases/v5.14.0/webfonts" !default;
 $fa-font-display: swap !default;
+
+// Containers
+$container-max-width: 1280px !default;
+$reductions-nb-per-row: 3;
+$cv-entry-nb-per-row: 4;
+$post-nb-per-row: 3;
 
 // Bootstrap clean
 $spacer: 1rem !default;

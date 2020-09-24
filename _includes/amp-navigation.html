@@ -1,41 +1,41 @@
-{% assign psize = site.categories.video.size %}
+{% assign psize = site.posts.size %}
 {% assign gsize = site.categories.tool.size %}
-<header class="mb-0">
-	<div class="container py-2 d-flex align-items-center">
-		<a class="d-flex align-items-center" href="/">
-			<amp-img alt="Logo"
-				src="{{ site.cache.img }}/assets/img/logo-128.png"
-				width="54"
-				height="54"
-				layout="fixed">
-		</a>
-		<div class="flex-grow-1"></div>
-		{% if page.filter %}
-		<div class="d-block d-md-none mx-2 mr-md-0">
-			{% include filter.html %}
+<header>
+	<div class="bg-header-brand">
+		<div class="container d-flex align-items-center">
+			<a class="d-flex align-items-center" href="/">
+				<amp-img alt="Logo"
+					src="{{ site.cache.img }}/assets/img/logo-128.png"
+					width="54"
+					height="54"
+					layout="fixed"
+					class="my-2">
+			</a>
+			<div class="flex-grow-1"></div>
+			<button class="d-md-none sidebar-open-btn navbar-toggler border border-primary bg-body text-primary" type="button" on="tap:sidebar">
+				<i class="fas fa-bars"></i>
+			</button>
 		</div>
-		{% endif %}
-		<button class="d-md-none sidebar-open-btn navbar-toggler border border-primary bg-body text-primary" type="button" on="tap:sidebar">
-			<i class="fas fa-bars"></i>
-		</button>
 	</div>
-	<amp-mega-menu id="menu" height="64" layout="fixed-height" class="d-none d-md-block bg-navbar">
-		<nav class="navbar navbar-expand-md nav-pills bg-transparent p-0 h-100 container">
-			<ul class="navbar-nav flex-grow-1 h-100 d-flex align-items-center justify-content-center">
-				{% for nav in site.data.navigation %}
-				{% if nav.link != '/videos/' or psize > 0 %}
-				{% if nav.link != '/tools/' or gsize > 0 %}
-				<li class="nav-item flex-grow-1 h-100">
-					<a class="nav-link text-primary h-100 d-flex align-items-center justify-content-center{% if page.url == nav.link %} active{% endif %}" href="{{ nav.link }}">
-						<span>
-							<i class="{{ nav.icon }} pr-2"></i>{{ site.data.labels.navigation[nav.name] }}
-						</span>
-					</a>
-				</li>
-				{% endif %}
-				{% endif %}
-				{% endfor %}
-			</ul>
-		</nav>
-	</amp-mega-menu>
+	<div class="bg-header-nav">
+		<amp-mega-menu id="menu" height="64" layout="fixed-height" class="d-none d-md-block bg-navbar">
+			<nav class="navbar navbar-expand-md nav-pills bg-transparent p-0 h-100 container">
+				<ul class="navbar-nav flex-grow-1 h-100 d-flex align-items-center justify-content-center">
+					{% for nav in site.data.navigation %}
+					{% if nav.link != '/videos/' or psize > 0 %}
+					{% if nav.link != '/tools/' or gsize > 0 %}
+					<li class="nav-item flex-grow-1">
+						<a class="nav-link{% if page.url == nav.link %} active{% endif %}" href="{{ nav.link }}">
+							<span>
+								<i class="{{ nav.icon }} pr-2"></i>{{ site.data.labels.navigation[nav.name] }}
+							</span>
+						</a>
+					</li>
+					{% endif %}
+					{% endif %}
+					{% endfor %}
+				</ul>
+			</nav>
+		</amp-mega-menu>
+	</div>
 </header>

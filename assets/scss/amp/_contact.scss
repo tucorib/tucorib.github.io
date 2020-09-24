@@ -1,0 +1,30 @@
+@include background-variant("bg-contact-prices", 	$contact-prices-bg-color);
+@include background-variant("bg-contact-more-info", $contact-more-info-bg-color);
+@include background-variant("bg-contact-cv-entry", $contact-cv-entry-bg-color);
+
+//@include overlay-variant("overlay-contact-id", $contact-id-overlay-color, $contact-id-overlay-opacity);
+@include overlay-gradient-variant("overlay-contact-id", $contact-id-overlay-color-from, $contact-id-overlay-color-to, $contact-id-overlay-opacity, $contact-id-overlay-color-fallback);
+
+.card-reduction{
+	@extend .m-2;
+	width: calc(100% / #{$reductions-nb-per-row} - #{$reductions-nb-per-row}*#{$spacer});
+	max-width: calc(100% - #{$spacer});
+}
+
+@include media-breakpoint-down('md', $grid-breakpoints) {
+	.card-reduction{
+		width: calc(100% - #{$spacer});
+	}
+}
+
+.cv-entry{
+	@extend .m-2;
+	width: calc(100% / #{$cv-entry-nb-per-row} - #{$cv-entry-nb-per-row}*#{$spacer});
+	max-width: calc(100% - #{$spacer});
+}
+
+@include media-breakpoint-down('md', $grid-breakpoints) {
+	.cv-entry{
+		width: calc(100% - #{$spacer});
+	}
+}

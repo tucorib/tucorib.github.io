@@ -1,19 +1,21 @@
-header{
-	@extend .mb-2;
-}
-
-.bg-navbar{
-	background-color: $navbar-bg-color;
-}
-
 ul.navbar-nav{
 	height: 64px;
 }
 
-.nav-pills .nav-link{
+.nav-item{
+	@extend .h-100;
+}
+
+.nav-link{
+	@extend .h5;
+	@extend .font-weight-normal;
+	@extend .h-100;
+	@extend .d-flex;
+	@extend .align-items-center;
+	@extend .justify-content-center;
 	border-radius: 0;	
 }
 
-a.nav-link:hover{
-	@extend .text-body;
+.nav-pills .nav-link.active{
+	background-color: $navbar-active-color;
 }

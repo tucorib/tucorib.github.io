@@ -8,7 +8,7 @@
     	"postPromptUI": {% if page.url == "/info-cookies/" %}"post-consent-ui"{% else %}null{% endif %}
   	}
   	</script>
-  	<div id="consentDialog" class="d-flex flex-row bg-secondary p-2 mb-0 align-items-md-center">
+  	<div id="consentDialog" class="d-flex flex-row bg-cookies p-2 mb-0 align-items-md-center">
   		<i class="fas fa-info-circle fa-2x mr-4"></i>
   		<div class="d-flex flex-column flex-md-row flex-grow-1">
   			<div>
@@ -18,8 +18,8 @@
 				<small>Vous pourrez modifier votre choix à tout moment en cliquant sur ce lien: <a href="/info-cookies/">{{ site.data.labels.legal.cookies }}</a></small>
   			</div>
   			<div class="d-flex flex-grow-1 justify-content-between justify-content-md-end">
-		  		<button class="btn btn-primary" on="tap:myUserConsent.accept">Accepter</button>
-				<button class="btn btn-secondary" on="tap:myUserConsent.reject">Décliner</button>
+		  		<button class="btn btn-primary btn-link" on="tap:myUserConsent.accept">Accepter</button>
+				<button class="btn btn-secondary btn-link" on="tap:myUserConsent.reject">Décliner</button>
 			</div>
   		</div>
 	</div>

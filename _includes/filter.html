@@ -1,9 +1,9 @@
-<div class="input-group">
+<div class="input-group filter-border bg-filter sticky-top">
 	<div class="input-group-prepend">
-		<span class="input-group-text rounded bg-white"><i class="fas fa-search"></i></span>
+		<span class="input-group-text bg-transparent"><i class="fas fa-search"></i></span>
 	</div>
-	<input class="form-control"
+	<input class="form-control bg-transparent"
 		type="text"
-		placeholder="Filtrer"
+		placeholder="Filtrer les résultats"
 		on="input-throttled:AMP.setState({filter: event.value.toLowerCase()}),{{ page.filter }}.changeToLayoutContainer()">
 </div>

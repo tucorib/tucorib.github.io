@@ -27,9 +27,9 @@
 		<script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
 		<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
 		<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-latest.js"></script>
+		<script async custom-element="amp-date-display" src="https://cdn.ampproject.org/v0/amp-date-display-0.1.js"></script>
 		{% if vsize > 0 %}
 		<script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
-		<script async custom-element="amp-date-display" src="https://cdn.ampproject.org/v0/amp-date-display-0.1.js"></script>
 		<script async custom-element="amp-video-docking" src="https://cdn.ampproject.org/v0/amp-video-docking-0.1.js"></script>
 		{% endif %}
 		{% endif %}
@@ -129,7 +129,7 @@
   		{% include amp-analytics-body.html %}
   		{% include amp-sidebar.html %}
   		{% include amp-navigation.html %}
-  		<main class="pb-3 d-flex flex-column">
+  		<main class="bg-body d-flex flex-column">
     		{{ content }}
     	</main>
     	{% include footer.html %}

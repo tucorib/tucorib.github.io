@@ -1,0 +1,9 @@
+@mixin background-variant($name, $background-color) {
+ 	.#{$name} {
+ 		background-color: $background-color;
+		color: color-yiq($background-color);
+	}
+	.#{$name} a{
+		color: color-yiq($background-color);
+	}
+}

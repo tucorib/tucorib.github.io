@@ -4,59 +4,27 @@ title: Ma chaine Youtube
 permalink: /videos/
 filter: list
 ---
-<div class="container flex-fill d-flex flex-column">
-	<h1 class="h3 text-center font-weight-bolder">{{ site.data.labels.navigation.videos }}</h1>
-	<div class="d-none d-md-block mx-4">
+<div class="section bg-body flex-fill d-flex">
+	<div class="container flex-fill d-flex flex-column">
+		<h1>{{ site.data.labels.navigation.videos }}</h1>
 		{% include filter.html %}
+		<b class="mb-3 mb-md-5"></b>
+		{% assign psize = site.categories.video.size %}
+		{% if psize > 0 %}
+		<amp-state id="data" src="/api/videos.json"></amp-state>
+		{% include amp-date.html id="date-template" %}
+		{% include amp-post-item.html id="post-template" date_template_id="date-template" %}
+		<amp-list
+			id="list"
+			layout="flex-item"
+			template="post-template"
+			src="amp-state:data"
+			[src]="data.items.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')).toLowerCase().indexOf(filter) != -1))">
+		  	<div placeholder><p class="p-4 my-auto text-center">{{ site.data.labels.waiting }}</p></div>
+		  	<div fallback><p class="p-4 my-auto text-center">{{ site.data.labels.error }}</p></div>
+		</amp-list>
+		{% else %}
+		<p class="p-4 my-auto text-center">Des vidéos mathématiques et ludiques sont en préparation sur la chaîne Youtube...</p>
+		{% endif %}
 	</div>
-	<b class="mb-3 mb-md-5"></b>
-	{% assign psize = site.categories.video.size %}
-	{% if psize > 0 %}
-	<amp-state id="data" src="/api/videos.json"></amp-state>
-	<amp-list
-		id="list"
-		layout="flex-item"
-		src="amp-state:data"
-		[src]="data.items.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')).toLowerCase().indexOf(filter) != -1))">
-	  	<div placeholder><p class="p-4 text-center">{{ site.data.labels.waiting }}</p></div>
-	  	<div fallback><p class="p-4 text-center">{{ site.data.labels.error }}</p></div>
-	  	<template type="amp-mustache">
-	  		<div class="container-fluid">
-			  	<div class="row">
-				  	<amp-youtube data-videoid="{% raw %}{{youtube}}{% endraw %}"
-						layout="responsive"
-						width="{{ site.home.youtube.width }}"
-						height="{{ site.home.youtube.height }}"
-						class="col-12 col-md-4 pr-0"
-						dock
-						{% if site.home.youtube.autoplay %}autoplay{% endif %}>
-					</amp-youtube>
-					<a href="{% raw %}{{url}}{% endraw %}"  class="col-12 col-md-8">
-				  		<div class="post-infos mt-2 mt-md-0">
-					  		<span class="flash text-body float-right mt-2 mr-2 h5 {% raw %}{{flash}}{% endraw %}" title="Paru il y a moins d'une semaine"><i class="fa fa-bolt" aria-hidden="true"></i></span>
-					  		<h2 class="mb-0">{% raw %}{{title}}{% endraw %}</h2>
-							<span class="post-meta">
-								<amp-date-display class="d-inline-block" datetime="{% raw %}{{datetime}}{% endraw %}" locale="{{ site.language }}" layout="flex-item">
-							  		<template type="amp-mustache">
-							  			<small class="post-date">
-							  				{% raw %}{{day}} {{monthName}} {{year}}{% endraw %}
-						  				</small>
-					  				</template>
-								</amp-date-display>
-								<div class="d-inline-block align-top">/</div>
-			  					<div class="d-inline-block align-top"><small>Niveau conseillé: <span class="post-level">{% raw %}{{level}}{% endraw %}</span></small></div>
-							</span>
-							<div class="post-tag-list">{% raw %}{{#tags}}{% endraw %}<span class="rounded badge badge-pill badge-dark mr-2">{% raw %}{{.}}{% endraw %}</span>{% raw %}{{/tags}}{% endraw %}</div>
-							<p class="text-justify">{% raw %}{{description}}{% endraw %}</p>
-				  		</div>
-			  		</a>
-			  	</div>
-			</div>
-	  		<hr />
-	  	</template>
-	</amp-list>
-	{% else %}
-	<p class="text-center p-4">Des vidéos mathématiques et ludiques sont en préparation sur la chaîne Youtube...</p>
-	{% endif %}
 </div>
-

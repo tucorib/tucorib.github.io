@@ -1,10 +1,9 @@
 {% assign j = include.date | date: "%-d" %}
 {% assign m = include.date | date: "%-m" %}
-
 {% if j == '1' %}
 1<sup>er</sup>
 {% else %}
-{{j}}
+{{ j }}
 {% endif %}
 {% case m %}
   {% when '1' %}janvier

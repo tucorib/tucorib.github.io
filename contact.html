@@ -4,194 +4,180 @@ title: Me contacter
 permalink: /contact/
 ---
 <div class="card border-0 w-100">
-	<amp-img alt="ID"
-		src="{{ site.cache.img }}/assets/img/maths-wallpaper.webp"
-		srcset="{{ site.cache.img }}/assets/img/maths-wallpaper.webp 1140w,
-				{{ site.cache.img }}/assets/img/maths-wallpaper-768.webp 768w,
-				{{ site.cache.img }}/assets/img/maths-wallpaper-375.webp 375w"
-		width="570"
-		height="320"
-		layout="responsive"
-		class="card-img">
-	</amp-img>
-	<div class="card-img-overlay w-50">
-		<div class="h-100 d-flex flex-column justify-content-center text-center">
-			<h1 class="h3 font-weight-bolder">Me contacter</h1>
-			<b class="mb-4"></b>
-			<p class="card-title h4 mb-4">{{ site.data.legal.owner.name }}</p>
-		  	<p><a class="btn btn-link btn-primary font-weight-bolder" href="mailto:{{ site.data.legal.owner.email }}"><i class="fas fa-envelope mr-2"></i>{{ site.data.legal.owner.email }}</a></p>
-		  	<p><a class="btn btn-link btn-primary font-weight-bolder"  href="tel:{{ site.data.legal.owner.phone.num }}"><i class="fas fa-phone mr-2"></i>{{ site.data.legal.owner.phone.display }}</a></p>
-		</div>
+	<div class="card-img overlay-contact-id">
+		<amp-img alt="ID"
+			src="{{ site.cache.img }}/assets/img/maths-wallpaper.webp"
+			srcset="{{ site.cache.img }}/assets/img/maths-wallpaper.webp 1140w,
+					{{ site.cache.img }}/assets/img/maths-wallpaper-768.webp 768w,
+					{{ site.cache.img }}/assets/img/maths-wallpaper-375.webp 375w"
+			width="570"
+			height="320"
+			layout="responsive">
+		</amp-img>
 	</div>
-</div>
-<div class="container">
-	<h1 class="text-center font-weight-bolder p-5">Les tarifs</h1>
-	<div class="row">
-		<div class="col-12 col-md-6">
-			<div class="d-flex flex-column bg-dark m-0">
-	  			<div class="p-2 text-center h5 font-weight-bolder bg-secondary">Séance individuelle (1 h)<br/><small>1 élève</small></div>
-	  			<div class="row">
-	  				<div class="col-4 text-right">
-	  					<i class="fas fa-check text-success"></i>
-	  				</div>
-	  				<div class="col-8">
-	  					Suivi de l'élève
-	  				</div>
-	  			</div>
-	  			<div class="row">
-	  				<div class="col-4 text-right">
-	  					<i class="fas fa-check text-success"></i>
-	  				</div>
-	  				<div class="col-8">
-	  					Travaux dirigés
-	  				</div>
-	  			</div>
-	  			<div class="row">
-	  				<div class="col-4 text-right">
-	  					<i class="fas fa-check text-success"></i>
-	  				</div>
-	  				<div class="col-8">
-	  					Exercices de révision
-	  				</div>
-	  			</div>
-	  			<div class="row">
-	  				<div class="col-4 text-right">
-	  					<i class="fas fa-check text-success"></i>
-	  				</div>
-	  				<div class="col-8">
-	  					Evaluations
-	  				</div>
-	  			</div>
-	  			<hr class="w-100 my-2 bg-secondary"/>
-	  			<div class="pb-2 text-center font-weight-bold">35 € TTC</div>
+	<div class="d-none d-md-block card-img-overlay">
+		<div class="d-flex h-100 ml-5">
+			<div class="h-100 d-flex flex-column justify-content-center text-bg-body text-center">
+				<h1>Me contacter</h1>
+				<b class="mb-4"></b>
+				<h3 class="card-title text-bg-body font-weight-bolder mb-4">{{ site.data.legal.owner.name }}</h3>
+			  	<p><a class="btn btn-link btn-primary font-weight-bolder" href="mailto:{{ site.data.legal.owner.email }}"><i class="fas fa-envelope mr-2"></i>{{ site.data.legal.owner.email }}</a></p>
+			  	<p><a class="btn btn-link btn-primary font-weight-bolder"  href="tel:{{ site.data.legal.owner.phone.num }}"><i class="fas fa-phone mr-2"></i>{{ site.data.legal.owner.phone.display }}</a></p>
 			</div>
-			<br/>
 		</div>
-		<div class="col-12 col-md-6">
-			<div class="d-flex flex-column bg-dark m-0">
-	  			<div class="p-2 text-center h5 font-weight-bolder bg-success">Séance de groupe (1 h)<br/><small>3 élèves maximum</small></div>
-	  			<div class="row">
-	  				<div class="col-4 text-right">
-	  					<i class="fas fa-check text-success"></i>
-	  				</div>
-	  				<div class="col-8">
-	  					Suivi de l'élève
-	  				</div>
-	  			</div>
-	  			<div class="row">
-	  				<div class="col-4 text-right">
-	  					<i class="fas fa-check text-success"></i>
-	  				</div>
-	  				<div class="col-8">
-	  					Travaux dirigés
-	  				</div>
-	  			</div>
-	  			<div class="row">
-	  				<div class="col-4 text-right">
-	  					<i class="fas fa-check text-success"></i>
-	  				</div>
-	  				<div class="col-8">
-	  					Exercices de révision
-	  				</div>
-	  			</div>
-	  			<div class="row">
-	  				<div class="col-4 text-right">
-	  					<i class="fas fa-check text-success"></i>
-	  				</div>
-	  				<div class="col-8">
-	  					Evaluations
-	  				</div>
-	  			</div>
-	  			<hr class="w-100 my-2 bg-success"/>
-	  			<div class="pb-2 text-center font-weight-bold">25 € TTC / élève</div>
+		<div class="flex-grow-1"></div>
+	</div>
+	<div class="d-block d-md-none card-img-overlay">
+		<div class="d-flex h-100">
+			<div class="h-100 d-flex flex-column justify-content-center text-bg-body text-center">
+				<h3>Me contacter</h3>
+				<b class="mb-1"></b>
+				<h5 class="card-title text-bg-body font-weight-bolder mb-4">{{ site.data.legal.owner.name }}</h5>
+			  	<p><a class="btn btn-sm btn-link btn-primary font-weight-bolder" href="mailto:{{ site.data.legal.owner.email }}"><i class="fas fa-envelope mr-2"></i>{{ site.data.legal.owner.email }}</a></p>
+			  	<p><a class="btn btn-sm btn-link btn-primary font-weight-bolder"  href="tel:{{ site.data.legal.owner.phone.num }}"><i class="fas fa-phone mr-2"></i>{{ site.data.legal.owner.phone.display }}</a></p>
 			</div>
-			<br/>
 		</div>
+		<div class="flex-grow-1"></div>
 	</div>
 </div>
-{% if site.promos %}
-<div class="container">
-	<h3 class="text-center font-weight-bolder p-3">Réductions</h3>
-	<div class="d-flex justify-content-around">
-		{% include promos.html %}
+<div class="section bg-contact-prices">
+	<div class="container">
+		<h1>Les tarifs</h1>
+		<div class="d-flex flex-column flex-md-row flex-nowrap justify-content-around">
+			<div class="card bg-transparent border-secondary flex-grow-1 m-2">
+  				<div class="card-header bg-secondary border-secondary text-center">
+					<span class="h5 text-center font-weight-bolder">Séance individuelle (1 h)<br/><small>1 élève</small></span>
+				</div>
+  				<div class="card-body">
+    				<div class="row">
+		  				<div class="col-4 text-right">
+		  					<i class="fas fa-check text-success"></i>
+		  				</div>
+		  				<div class="col-8">
+		  					Suivi de l'élève
+		  				</div>
+		  			</div>
+		  			<div class="row">
+		  				<div class="col-4 text-right">
+		  					<i class="fas fa-check text-success"></i>
+		  				</div>
+		  				<div class="col-8">
+		  					Travaux dirigés
+		  				</div>
+		  			</div>
+		  			<div class="row">
+		  				<div class="col-4 text-right">
+		  					<i class="fas fa-check text-success"></i>
+		  				</div>
+		  				<div class="col-8">
+		  					Exercices de révision
+		  				</div>
+		  			</div>
+		  			<div class="row">
+		  				<div class="col-4 text-right">
+		  					<i class="fas fa-check text-success"></i>
+		  				</div>
+		  				<div class="col-8">
+		  					Evaluations
+		  				</div>
+		  			</div>
+				</div>
+	  			<div class="card-footer bg-transparent border-secondary text-center font-weight-bold">
+					35 € TTC
+				</div>
+			</div>
+			<div class="card bg-transparent border-success flex-grow-1 m-2">
+  				<div class="card-header bg-success border-success text-center">
+					<span class="h5 text-center font-weight-bolder">Séance de groupe (1 h)<br/><small>3 élèves maximum</small></span>
+				</div>
+  				<div class="card-body">
+    				<div class="row">
+		  				<div class="col-4 text-right">
+		  					<i class="fas fa-check text-success"></i>
+		  				</div>
+		  				<div class="col-8">
+		  					Suivi de l'élève
+		  				</div>
+		  			</div>
+		  			<div class="row">
+		  				<div class="col-4 text-right">
+		  					<i class="fas fa-check text-success"></i>
+		  				</div>
+		  				<div class="col-8">
+		  					Travaux dirigés
+		  				</div>
+		  			</div>
+		  			<div class="row">
+		  				<div class="col-4 text-right">
+		  					<i class="fas fa-check text-success"></i>
+		  				</div>
+		  				<div class="col-8">
+		  					Exercices de révision
+		  				</div>
+		  			</div>
+		  			<div class="row">
+		  				<div class="col-4 text-right">
+		  					<i class="fas fa-check text-success"></i>
+		  				</div>
+		  				<div class="col-8">
+		  					Evaluations
+		  				</div>
+		  			</div>
+				</div>
+	  			<div class="card-footer bg-transparent border-success text-center font-weight-bold">
+					25 € TTC / élève
+				</div>
+			</div>
+		</div>
+		{% if site.promos %}
+		<br/>
+		<h2>Réductions</h2>
+		<div class="d-flex flex-wrap justify-content-around flex-column flex-md-row">
+			{% include promos.html %}
+		</div>
+		{% endif %}
 	</div>
 </div>
-{% endif %}
 
-<div class="container">
-	<h1 class="text-center font-weight-bolder p-5">En savoir plus</h1>
-	<p class="pt-2">L'idée de suivre du soutien scolaire en ligne vous intéresse, mais vous désirez savoir si l'enseignant est compétent&nbsp;? Question tout à fait légitime&nbsp;! Voici quelques éléments clés afin de vous apporter les éclaircissements nécessaires&nbsp;:</p>
-	<div class="row">
-		<div class="col-4 col-md-2">
-			<div class="timeline-image">
-	    		<amp-img alt="Working online"
-					src="{{ site.cache.img }}/assets/img/republique-francaise.webp"
-					srcset="{{ site.cache.img }}/assets/img/republique-francaise-375.webp 375w"
-					width="500"
-					height="500"
-					layout="responsive"
-					class="timeline-image">
-				</amp-img>
-	  		</div>
-	  	</div>
-		<div class="col-8 col-md-10 pl-2">
-			<h4 class="mb-0">Enseignant contractuel</h4>
-			<small>2019 - 2020</small>
-			<br/>
-	  		<p>
-	    		Remplacements en mathématiques effectués au sein de l'Education Nationale (Toulouse, FR).
-	  			<br/>
-	    		Classes&nbsp;: de la 6e à la terminale S.
-	  		</p>
-		</div>
-	</div>
-	<br/>
-	<div class="row">
-		<div class="col-4 col-md-2">
-			<div class="timeline-image">
-	    		<amp-img alt="Working online"
-					src="{{ site.cache.img }}/assets/img/soutien-scolaire.webp"
-					srcset="{{ site.cache.img }}/assets/img/soutien-scolaire-375.webp 375w"
-					width="500"
-					height="500"
-					layout="responsive"
-					class="timeline-image">
-				</amp-img>
-	  		</div>
-	  	</div>
-		<div class="col-8 col-md-10 pl-2">
-			<h4 class="mb-0">Soutien scolaire</h4>
-			<small>2012 - 2020</small>
-			<p>
-				Soutien scolaire en mathématiques (Nantes et Toulouse, FR).
-				<br/>
-				Niveaux&nbsp;: collège et lycée.
-			</p>
-		</div>
-	</div>
-	<br/>
-	<div class="row">
-		<div class="col-4 col-md-2">
-			<div class="timeline-image">
-	    		<amp-img alt="Working online"
-					src="{{ site.cache.img }}/assets/img/enseeiht.webp"
-					width="500"
-					height="500"
-					layout="responsive"
-					class="timeline-image">
-				</amp-img>
-	  		</div>
-	  	</div>
-		<div class="col-8 col-md-10 pl-2">
-			<h4 class="mb-0">Ingénieur en informatique</h4>
-			<small>2003 - 2008</small>
-			<p>
-				- Classe Préparatoire aux Grandes Ecoles (Lycée Jean Dautet, La Rochelle, FR).
-				<br/>
-				- Echange universitaire à l'Université de Montréal (UdeM, Montréal, QC).
-				<br/>
-				- Diplôme d'Ingénieur en Informatique (ENSEEIHT, Toulouse, FR).
-			</p>
+<div class="section bg-contact-more-info">
+	<div class="container">
+		<h1>En savoir plus</h1>
+		<p class="text-center">L'idée de suivre du soutien scolaire en ligne vous intéresse, mais vous désirez savoir si l'enseignant est compétent&nbsp;?</p>
+		<p class="text-center">Question tout à fait légitime&nbsp;! Voici quelques éléments clés afin de vous apporter les éclaircissements nécessaires&nbsp;:</p>
+		
+		<div class="d-flex flex-column flex-md-row justify-content-around mt-5">
+			{% assign sorted_entries = site.data.cv.entries | sort: "start" %}
+			{% for entry in sorted_entries %}
+			<div class="d-flex flex-column justify-content-center cv-entry">
+				<div class="card-img-center mb-2">
+		    		<amp-img alt="Working online"
+						src="{{ site.cache.img }}{{ entry.img.src }}"
+						srcset="{{ site.cache.img }}{{ entry.img.srcset }}"
+						width="1"
+						height="1"
+						layout="responsive">
+					</amp-img>
+		  		</div>
+	            <div class="card border-0 bg-contact-cv-entry flex-grow-1">
+	  				<div class="card-body">
+	    				<h4 class="card-title text-center">{{ entry.name }}</h4>
+	    				<h6 class="card-subtitle mb-2 text-muted text-center">{{ entry.start }} - {{ entry.end }}</h6>
+	    				<hr />
+	   					<p class="card-text">
+	   						{% for content in entry.content %}
+				  			<p class="text-center">
+				  				{{ content.label }}
+				  				{% for misc in content.misc %}
+				  				<br/>
+				  				<small>{{ misc }}</small>
+				  				{% endfor %}
+				  			</p>
+				  			{% endfor %}
+			  			</p>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
 		</div>
 	</div>
 </div>

@@ -20,10 +20,19 @@ tooltype:
   activity: Activité
   training: Application
 
+levels:
+  sixieme: "6<sup>e</sup>"
+  cinquieme: "5<sup>e</sup>"
+  quatrieme: "4<sup>e</sup>"
+  troisieme: "3<sup>e</sup>"
+  seconde: "2<sup>e</sup>"
+  premiere: "1<sup>ère</sup>"
+  terminale: "Terminale"
+   
 themes:
   default:
-    score: "Score :"
-    combos: "Combos :"
+    score: "Score&nbsp;:&nbsp;"
+    combos: "Combos&nbsp;:&nbsp;"
   retro:
     score: SCORE
     combos: COMBOS
