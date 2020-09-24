@@ -1,6 +1,6 @@
 {% assign psize = site.categories.video.size %}
 {% assign gsize = site.categories.tool.size %}
-<header>
+<header class="mb-0">
 	<div class="container py-2 d-flex align-items-center">
 		<a class="d-flex align-items-center" href="/">
 			<amp-img alt="Logo"
@@ -19,7 +19,7 @@
 			<i class="fas fa-bars"></i>
 		</button>
 	</div>
-	<amp-mega-menu id="menu" height="64" layout="fixed-height" class="d-none d-md-block bg-navbar mb-2">
+	<amp-mega-menu id="menu" height="64" layout="fixed-height" class="d-none d-md-block bg-navbar">
 		<nav class="navbar navbar-expand-md nav-pills bg-transparent p-0 h-100 container">
 			<ul class="navbar-nav flex-grow-1 h-100 d-flex align-items-center justify-content-center">
 				{% for nav in site.data.navigation %}

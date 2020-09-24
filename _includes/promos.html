@@ -1,10 +1,36 @@
 {% assign today_date = 'now' | date: '%s' %}
 {% assign sorted_promos = site.promos | sort: "end" %}
 {% for promo in sorted_promos %}
+{% if promo.start %}
 {% assign start = promo.start | date: '%s' %}
+{% else %}
+{% assign start = today_date %}
+{% endif %}
+{% if promo.end %}
 {% assign end = promo.end | date: '%s' %}
+{% else %}
+{% assign end = today_date %}
+{% endif %}
 {% if promo.published and start <= today_date and end >= today_date %}
-<h2 class="h5 text-center text-md-left font-weight-bolder">{{ promo.title }}</h2>
-<p class="pt-2">{{ promo.content }}</p>
+<div class="card">
+	<div class="card-header bg-info">
+  		<h5 class="card-title text-center font-weight-bolder m-0">{{ promo.title }}</h5>
+  	</div>
+  	<div class="card-body row">
+  		{% if promo.icon %}
+  		<div class="col-2 text-center">
+  			<i class="text-info {{ promo.icon }}"></i>
+  		</div>
+  		{% endif %}
+  		<div class="{% if promo.icon %}col-10{% else %}col-12{% endif %}">
+			<p class="card-text">{{ promo.content }}</p>  	
+  		</div>
+  	</div>
+  	{% if promo.end %}
+  		<div class="card-footer">
+  		<small>Valable pour toute séance jusqu'au {% include utils/date.html date=end %}</small>
+  		</div>
+  	{% endif %}
+</div>
 {% endif %}
 {% endfor %}

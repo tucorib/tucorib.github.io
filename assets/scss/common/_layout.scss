@@ -8,14 +8,14 @@ body{
 	@extend .flex-column;
 }
 
+main{
+	flex: 1 1 auto;
+}
+
 .container{
 	@extend .mx-auto;
 	@extend .w-100;
 	max-width: $wrapper-max-width;
-}
-
-main{
-	flex: 1 1 auto;
 }
 
 ul:not(.navbar-nav){
