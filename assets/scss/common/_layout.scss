@@ -18,15 +18,6 @@ main{
 	flex: 1 1 auto;
 }
 
-.input-group-sm > .input-group-prepend > .input-group-text.rounded{
-	border-top-left-radius: 2em;
-	border-bottom-left-radius: 2em;
-}
-
-input[type=text].rounded{
-	border-radius: 2em;
-}
-
 ul:not(.navbar-nav){
 	@extend .pl-4;	
 }

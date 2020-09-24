@@ -11,16 +11,8 @@
 		</a>
 		<div class="flex-grow-1"></div>
 		{% if page.filter %}
-		<div class="d-block mx-2 mr-md-0">
-			<div class="input-group input-group-sm">
-				<div class="input-group-prepend">
-					<span class="input-group-text rounded bg-white"><i class="fas fa-search"></i></span>
-				</div>
-				<input class="form-control rounded"
-					type="text"
-					placeholder="Filtrer"
-					on="input-throttled:AMP.setState({filter: event.value.toLowerCase()}),{{ page.filter }}.changeToLayoutContainer()">
-			</div>
+		<div class="d-block d-md-none mx-2 mr-md-0">
+			{% include filter.html %}
 		</div>
 		{% endif %}
 		<button class="d-md-none sidebar-open-btn navbar-toggler border border-primary bg-body text-primary" type="button" on="tap:sidebar">

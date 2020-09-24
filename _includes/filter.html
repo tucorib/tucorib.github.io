@@ -1,0 +1,9 @@
+<div class="input-group">
+	<div class="input-group-prepend">
+		<span class="input-group-text rounded bg-white"><i class="fas fa-search"></i></span>
+	</div>
+	<input class="form-control"
+		type="text"
+		placeholder="Filtrer"
+		on="input-throttled:AMP.setState({filter: event.value.toLowerCase()}),{{ page.filter }}.changeToLayoutContainer()">
+</div>

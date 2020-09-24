@@ -5,7 +5,11 @@ permalink: /videos/
 filter: list
 ---
 <div class="container flex-fill d-flex flex-column">
-	<h1 class="h3 text-center text-md-left font-weight-bolder mb-5">{{ site.data.labels.navigation.videos }}</h1>
+	<h1 class="h3 text-center font-weight-bolder">{{ site.data.labels.navigation.videos }}</h1>
+	<div class="d-none d-md-block mx-4">
+		{% include filter.html %}
+	</div>
+	<b class="mb-3 mb-md-5"></b>
 	{% assign psize = site.categories.video.size %}
 	{% if psize > 0 %}
 	<amp-state id="data" src="/api/videos.json"></amp-state>
