@@ -21,11 +21,37 @@ filter: list
 			template="post-template"
 			src="amp-state:data"
 			[src]="data.items.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')).toLowerCase().indexOf(filter) != -1))">
-		  	<div placeholder><p class="p-4 my-auto text-center">{{ site.data.labels.waiting }}</p></div>
-		  	<div fallback><p class="p-4 my-auto text-center">{{ site.data.labels.error }}</p></div>
+		  	<div placeholder>
+		  	<div class="h2 my-auto text-center">
+					<p class="mb-2 mb-md-5">
+						<i class="{{ site.data.icons.videos }} fa-4x color-list-icon"></i>
+					</p>
+					<p>
+						{{ site.data.labels.waiting }}
+					</p>
+				</div>
+		  	</div>
+		  	<div fallback>
+		  		<div class="h2 my-auto text-center">
+					<p class="mb-2 mb-md-5">
+						<i class="{{ site.data.icons.videos }} fa-4x color-list-icon"></i>
+					</p>
+					<p>
+						{{ site.data.labels.error }}
+					</p>
+				</div>
+			</div>
+		</amp-list>
 		</amp-list>
 		{% else %}
-		<p class="p-4 my-auto text-center">Des vidéos mathématiques et ludiques sont en préparation sur la chaîne Youtube...</p>
+		<div class="h2 my-auto text-center">
+			<p class="mb-2 mb-md-5">
+				<i class="{{ site.data.icons.videos }} fa-4x color-list-icon"></i>
+			</p>
+			<p>
+				Des vidéos mathématiques et ludiques sont en préparation sur la chaîne Youtube...
+			</p>
+		</div>
 		{% endif %}
 	</div>
 </div>

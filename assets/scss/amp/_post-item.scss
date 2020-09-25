@@ -1,5 +1,9 @@
 @include background-variant("bg-tag", 	$tag-bg-color);
 
+.color-list-icon{
+	color: $list-icon-color;	
+}
+
 .card-post{
 	@extend .m-2;
 	width: calc(100% / #{$post-nb-per-row} - #{$post-nb-per-row}*#{$spacer});
