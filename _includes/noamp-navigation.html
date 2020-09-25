@@ -38,7 +38,9 @@
 				{% if nav.link != '/tools/' or gsize > 0 %}
 				<li class="nav-item flex-grow-1">
 					<a class="nav-link{% if page.url == nav.link %} active{% endif %}" href="{{ nav.link }}">
-						<i class="{{ site.data.icons[nav.name] }} pr-2"></i>{{ site.data.labels.navigation[nav.name] }}
+						<span>
+							<i class="{{ site.data.icons[nav.name] }} pr-2"></i>{{ site.data.labels.navigation[nav.name] }}
+						</span>
 					</a>
 				</li>
 				{% endif %}
