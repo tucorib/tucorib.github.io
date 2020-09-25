@@ -12,8 +12,9 @@ filter: list
 		{% include filter.html %}
 		<b class="mb-md-5"></b>
 		<amp-state id="data"src="/api/tools.json"></amp-state>
-		{% include amp-date.html id="date-template" %}
-		{% include amp-post-item.html id="post-template" date_template_id="date-template" %}
+		{% include amp-template-date.html id="date-template" %}
+		{% assign url="{{url}}" %}
+		{% include amp-template-post.html id="post-template" date_template_id="date-template" url=url %}
 		<amp-list
 		  id="list"
 		  layout="flex-item"

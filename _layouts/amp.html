@@ -21,17 +21,11 @@
   		{% include amp-cookies-head.html %}
   		{% include amp-analytics-head.html %}
 				  	
-	  	{% assign vsize = site.categories.video | size %}
-	  	{% assign tsize = site.categories.tools | size %}
-		{% if vsize| add: tsize > 0 %}
+		{% if page.url == '/videos/' or page.url == '/tools/' %}
 		<script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
 		<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
 		<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-latest.js"></script>
 		<script async custom-element="amp-date-display" src="https://cdn.ampproject.org/v0/amp-date-display-0.1.js"></script>
-		{% if vsize > 0 %}
-		<script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
-		<script async custom-element="amp-video-docking" src="https://cdn.ampproject.org/v0/amp-video-docking-0.1.js"></script>
-		{% endif %}
 		{% endif %}
 		
 		{% if page.url == '/' %}

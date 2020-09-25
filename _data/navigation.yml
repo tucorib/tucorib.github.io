@@ -1,12 +1,8 @@
 - name: home
   link: /
-  icon: fas fa-home
 - name: videos
   link: /videos/
-  icon: fab fa-youtube
 - name: tools
   link: /tools/
-  icon: fas fa-gamepad
 - name: contact
   link: /contact/
-  icon: fas fa-id-card

@@ -12,8 +12,9 @@ filter: list
 		{% assign psize = site.categories.video.size %}
 		{% if psize > 0 %}
 		<amp-state id="data" src="/api/videos.json"></amp-state>
-		{% include amp-date.html id="date-template" %}
-		{% include amp-post-item.html id="post-template" date_template_id="date-template" %}
+		{% include amp-template-date.html id="date-template" %}
+		{% assign url="https://www.youtube.com/watch?v={{youtube}}" %}
+		{% include amp-template-post.html id="post-template" date_template_id="date-template" url=url %}
 		<amp-list
 			id="list"
 			layout="flex-item"

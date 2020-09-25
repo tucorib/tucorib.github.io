@@ -1,5 +1,5 @@
 <template type="amp-mustache" id="{{ include.id }}">
-	<a class="my-3 card-post" href="{% raw %}{{url}}{% endraw %}">
+	<a class="my-3 card-post" href="{{ include.url }}">
 		<div class="card h-100 mb-3">
 			<amp-img alt="Youtube"
 				class="card-img"
@@ -26,7 +26,7 @@
 					{% raw %}{{{description}}}{% endraw %}
 				</p>
 			</div>
-			<div class="card-footer d-flex flex-row">
+			<div class="card-footer d-flex flex-row align-items-center">
 				<amp-date-display datetime="{% raw %}{{datetime}}{% endraw %}" locale="{{ site.language }}" layout="flex-item" class="text-right" template="{{ include.date_template_id }}">
 				</amp-date-display>
 			</div>

@@ -3,7 +3,7 @@
  		background-color: $background-color;
 		color: color-yiq($background-color);
 	}
-	.#{$name} a{
+	.#{$name} a:not(.btn){
 		color: color-yiq($background-color);
 	}
 }
