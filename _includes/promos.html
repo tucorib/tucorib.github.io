@@ -12,22 +12,22 @@
 {% assign end = today_date %}
 {% endif %}
 {% if promo.published and start <= today_date and end >= today_date %}
-<div class="card card-reduction border-info text-center">
-	<div class="card-header border-info bg-info">
-  		<h5 class="card-title text-bg-body text-center font-weight-bolder m-0">{{ promo.title }}</h5>
+<div class="card card-contact-reduction border-contact-reduction text-center">
+	<div class="card-header bg-contact-reduction">
+  		<h5 class="card-title text-center m-0">{{ promo.title }}</h5>
   	</div>
   	<div class="card-body row">
   		{% if promo.icon %}
-  		<div class="col-3 text-info">
+  		<div class="col-3">
   			<i class="{{ promo.icon }}"></i>
   		</div>
   		{% endif %}
-  		<div class="{% if promo.icon %}col-9{% else %}col-12{% endif %} text-body">
+  		<div class="{% if promo.icon %}col-9{% else %}col-12{% endif %}">
 			<p class="card-text">{{ promo.content }}</p>  	
   		</div>
   	</div>
   	{% if promo.end %}
-	<div class="card-footer border-info text-body">
+	<div class="card-footer border-contact-reduction">
   		<small>Valable pour toute séance jusqu'au {% include utils/date.html date=end %}</small>
 	</div>
   	{% endif %}

@@ -1,9 +1,51 @@
-@mixin background-variant($name, $background-color) {
+@use "sass:math";
+
+// Background color
+@mixin background-variant($name, $background-color, $color: color-yiq($background-color)) {
  	.#{$name} {
  		background-color: $background-color;
-		color: color-yiq($background-color);
+		color: $color;
 	}
 	.#{$name} a:not(.btn){
-		color: color-yiq($background-color);
+		color: $color;
 	}
+}
+
+// Background rotation
+$bg-rotation-height-coeff: math.tan($bg-rotation-angular);
+$bg-rotation-width-coeff: math.cos($bg-rotation-angular);
+
+:root {
+	--rotation: #{$bg-rotation-angular};
+	--rotation-height: calc(100vw * #{$bg-rotation-height-coeff});
+	--rotation-width: calc(100vw / #{$bg-rotation-width-coeff});
+}
+
+.bg-rotation-container{
+	position: relative;
+	overflow:hidden;
+	width: 100vw;
+	height: calc(var(--rotation-height));
+}
+
+.bg-rotation-overlay{
+	position: absolute;
+  	top: 0;
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+}
+
+.bg-rotation-top, .bg-rotation-bottom{
+	position: absolute;
+	width: 100vw;
+	transform: skewY(calc(-1*var(--rotation)));
+	height: calc(var(--rotation-height));
+}
+
+.bg-rotation-top{
+	bottom: calc(-1*var(--rotation-height)/2);
+}
+.bg-rotation-bottom{
+	top: calc(-1*var(--rotation-height)/2 - 1px);
 }

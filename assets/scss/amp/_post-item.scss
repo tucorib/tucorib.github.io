@@ -1,13 +1,13 @@
 @include background-variant("bg-tag", 	$tag-bg-color);
 
-.color-list-icon{
-	color: $list-icon-color;	
-}
-
 .card-post{
 	@extend .m-2;
 	width: calc(100% / #{$post-nb-per-row} - #{$post-nb-per-row}*#{$spacer});
 	max-width: calc(100% - #{$spacer});
+}
+
+.card-post .card-text:last-child{
+	color: $default-body-color;
 }
 
 @include media-breakpoint-down('md', $grid-breakpoints) {

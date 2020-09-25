@@ -3,73 +3,74 @@ layout: amp
 title: Soutien scolaire en ligne
 permalink: /
 ---
-<b class="mt-2"></b>
+<div class="card border-0 w-100">
+	<div class="card-img overlay-home-presentation">
+		{% include amp-img.html id="id" %}
+	</div>
+	<div class="card-img-overlay p-4 text-center text-bg-body">
+		<div class="mx-auto h-100 d-flex flex-column justify-content-center">
+			<h1 class="display-1 mb-5">Optez pour le cours de maths en ligne</h1>
+			<p class="h4 mb-5">Des lacunes à combler&nbsp;? Un examen à préparer&nbsp;? Envie d'approfondir vos connaissances&nbsp;?</p>
+			<p class="h4 mb-5">Quels que soient vos raisons et vos objectifs, je suis à votre disposition&nbsp;!</p>
+			<p class="h6 mt-5">Niveau&nbsp;:&nbsp;Collège et Lycée</p>
+		</div>
+	</div>
+	<div class="bg-rotation-overlay bg-rotation-container mt-auto">
+		<div class="bg-home-plus bg-rotation-top">
+		</div>
+	</div>
+</div>
+		
+<div class="section bg-home-plus">
+	<div class="container d-flex flex-column justify-content-center align-items-center">
+		<h1>{{ site.data.home.plus.title }}</h1>
+		{% include amp-img.html id=site.data.home.plus.img class="picture w-75 mb-4" %}
+		<div class="d-flex flex-row flex-wrap justify-content-around">
+			{% for plus in site.data.home.plus.content %}
+			{% assign mod = forloop.index0 | modulo: 2 %}
+			<div class="card card-home-plus border-0 bg-home-plus-item">
+				<div class="card-img-top d-flex flex-column align-items-center">
+					<div class="square-div m-2 border border-info rounded-circle box-shadow d-flex justify-content-center align-items-center">
+						<i class="{{ site.data.icons[plus.icon] }} fa-3x"></i>
+					</div>
+					<h5 class="mt-3 text-center">{{ plus.name }}</h5>
+				</div>
+				<div class="card-body d-flex flex-column">
+					{% for content in plus.content %}
+					<p class="mb-3">
+						<i class="{{ site.data.icons["check"] }} mr-2"></i><em>{{ content.name }}</em>
+						<br/>
+						{{ content.description }}
+					</p>
+					{% endfor %}
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+<div class="bg-rotation-container">
+	<div class="bg-home-plus bg-rotation-bottom">
+	</div>
+</div>
+
+<div class="section bg-home-group">
+	<div class="container">
+		<h1>{{ site.data.home.group.title }}</h1>
+		<div class="card w-100 d-flex flex-row">
+			<div class="card-body flex-grow-1">
+		       	<p class="card-text">La collaboration entre élèves assure le développement de qualités sociales qui seront primordiales pour leur avenir&nbsp;: expression et écoute, argumentation, répartition des tâches...</p>
+				<p class="card-text">De plus, la motivation d'étudier à plusieurs augmente l'implication et l'investissement lors des séances, favorisant grandement l'apprentissage.</p>
+				<p class="card-text">Pour toutes ces raisons, nous vous offrons la possibilité d'effectuer vos séances en collaboration avec d'autres élèves à des tarifs réduits.</p>
+			</div>
+			{% include amp-img.html id=site.data.home.group.img class="card-img picture w-50" %}
+		</div>
+	</div>
+</div>
+
 <div class="section">
-	<div class="container row align-items-center mb-md-4">
-		<div class="col-12 order-2 col-md-6 order-md-1">
-				<h1 class="text-center text-md-left font-weight-bolder mt-3 pb-2">Optez pour le cours de maths en ligne</h1>
-				<p>Des lacunes à combler&nbsp;? Un examen à préparer&nbsp;? Envie d'approfondir vos connaissances&nbsp;?</p>
-				<p>Que vous soyez au collège ou au lycée, quels que soient vos raisons et vos objectifs, je suis à votre disposition&nbsp;!</p>
-				<p>Une connexion internet suffit pour participer à toutes les séances.</p>
-		</div>
-		<div class="col-12 order-1 col-md-6 order-md-2">
-			<amp-img alt="Wallpaper"
-				class="picture mr-md-4"
-				src="{{ site.cache.img }}/assets/img/maths-wallpaper.webp"
-				srcset="{{ site.cache.img }}/assets/img/maths-wallpaper.webp 1140w,
-						{{ site.cache.img }}/assets/img/maths-wallpaper-768.webp 768w,
-						{{ site.cache.img }}/assets/img/maths-wallpaper-375.webp 375w"
-				width="1140"
-				height="641"
-				layout="responsive">
-			</amp-img>
-		</div>
-	</div>
-	<div class="container row align-items-center mb-md-4">
-		<div class="col-12 order-1 col-md-6 order-md-1">
-			<amp-img alt="Working online"
-				class="picture ml-md-4"
-				src="{{ site.cache.img }}/assets/img/stream.webp"
-				srcset="{{ site.cache.img }}/assets/img/stream.webp 1140w,
-						{{ site.cache.img }}/assets/img/stream-768.webp 768w,
-						{{ site.cache.img }}/assets/img/stream-375.webp 375w"
-				width="1920"
-				height="1043"
-				layout="responsive">
-			</amp-img>
-		</div>
-		<div class="col-12 order-2 col-md-6 order-md-2 pt-2">
-				<h2 class="text-center text-md-left font-weight-bolder mb-4">Les avantages</h2>
-				<ul>
-					<li><em>Séance en visio-conférence&nbsp;:</em> L'élève bénéficie d'une pédagogie adaptée à son raisonnement, et d'un suivi personnalisé sur la durée.</li>
-					<li><em>Contenu interactif&nbsp;:</em> Finie l'austérité d'un cours sur papier&nbsp;! Ici, l'élève a l'opportunité d'apprendre en manipulant différents outils multimédias. Des jeux ou autres outils interactifs sont réalisés sur mesure pour chaque notion abordée.</li>
-					<li><em>Replay disponible&nbsp;:</em> Besoin de revenir sur la séance&nbsp;? Pas de problème &nbsp; si vous le souhaitez, les vidéos resteront disponibles en téléchargement ou en visionnage pendant 14 jours.</li>
-				</ul>
-		</div>
-	</div>
-	<div class="container row align-items-center mb-md-4">
-		<div class="col-12 order-2 col-md-6 order-md-1 pt-2">
-			<h2 class="text-center text-md-left font-weight-bolder mb-4">Le travail de groupe</h2>
-			<p>La collaboration entre élèves assure le développement de qualités sociales qui seront primordiales pour leur avenir&nbsp;: expression et écoute, argumentation, répartition des tâches...</p>
-			<p>De plus, la motivation d'étudier à plusieurs augmente l'implication et l'investissement lors des séances, favorisant grandement l'apprentissage.</p>
-			<p>Pour toutes ces raisons, nous vous offrons la possibilité d'effectuer vos séances en collaboration avec d'autres élèves à des tarifs réduits.</p>
-		</div>
-		<div class="col-12 order-1 col-md-6 order-md-2">
-			<amp-img alt="Team Working"
-				class="picture mr-md-4"
-				src="{{ site.cache.img }}/assets/img/group.webp"
-				srcset="{{ site.cache.img }}/assets/img/group.webp 1140w,
-						{{ site.cache.img }}/assets/img/group-768.webp 768w,
-						{{ site.cache.img }}/assets/img/group-375.webp 375w"
-				width="1920"
-				height="1080"
-				layout="responsive">
-			</amp-img>
-		</div>
-	</div>
-	<div class="container row align-items-center mb-md-4">
-		<div class="col-12 d-flex justify-content-center">
-			<a href="/contact/" class="btn btn-primary btn-link">Consultez les différents tarifs</a>
-		</div>
+	<div class="container w-100 d-flex justify-content-center align-items-center mb-md-4">
+		<a href="/contact/" class="btn btn-primary btn-link">Consultez les différents tarifs</a>
 	</div>
 </div>

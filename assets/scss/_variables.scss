@@ -2,10 +2,12 @@
 $enable-rounded: false !default;
 $enable-responsive-font-sizes: true !default;
 
-$primary: #ff8939 !default;
+$primary: 	#ff8939 !default;
 $secondary: #4b6fbb !default;
-$info: #A38917 !default;
+$success:   #28a745 !default;
+$info:      #17a2b8 !default;
 
+$body-color: #143f6c !default;
 $link-color: #212529 !default;
 
 $border-width: 3px !default;
@@ -20,6 +22,8 @@ $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Lato", 
 $navbar-active-color: #416184 !default;
 
 // Backgrounds
+$bg-rotation-angular: 3deg;
+
 $body-bg-color: #e7e7e7 !default;
 $brand-bg-color: $body-bg-color !default;
 $navbar-bg-color: #143f6c !default;
@@ -28,14 +32,23 @@ $filter-bg-color: $body-bg-color !default;
 $cookies-bg-color: $secondary !default;
 $tag-bg-color: $navbar-bg-color !default;
 
+$home-plus-bg-color: $navbar-bg-color !default;
+$home-plus-item-bg-color: $navbar-bg-color !default;
+$home-group-bg-color: $body-bg-color !default;
+
 $contact-prices-bg-color: $navbar-bg-color !default;
+$content-reduction-bg-color: #A38917 !default;
 $contact-more-info-bg-color: $body-bg-color !default;
 $contact-cv-entry-bg-color: $body-bg-color !default;
 
 // Colors
+$default-body-color: #212529 !default;
 $list-icon-color: $navbar-bg-color !default;
 
 // Overlays
+$home-presentation-overlay-color: #000000 !default;
+$home-presentation-overlay-opacity: 0.5 !default;
+
 $contact-id-overlay-color-from: $contact-prices-bg-color !default;
 $contact-id-overlay-color-to: $body-bg-color !default;
 $contact-id-overlay-color-fallback: #C33764 !default;
@@ -44,6 +57,7 @@ $contact-id-overlay-opacity: 0.4 !default;
 // Borders
 $filter-border-size: 1px !default;
 $filter-border-color: $navbar-bg-color !default;
+$rounded-info-border-color: #17a2b8 !default;
 
 // Font awesome
 $fa-font-path: "https://use.fontawesome.com/releases/v5.14.0/webfonts" !default;
@@ -51,6 +65,7 @@ $fa-font-display: swap !default;
 
 // Containers
 $container-max-width: 1280px !default;
+$plus-nb-per-row: 4;
 $reductions-nb-per-row: 3;
 $cv-entry-nb-per-row: 4;
 $post-nb-per-row: 3;
@@ -80,3 +95,13 @@ $spacers: map-merge(
 $enable-transitions: false;
 $enable-print-styles: false;
 $enable-deprecation-messages: false;
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+  ),
+  $theme-colors
+);

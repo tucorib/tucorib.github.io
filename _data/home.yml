@@ -1,0 +1,40 @@
+plus:
+  title: Les avantages
+  img: plus
+  content:
+  - name: Enseignement à distance
+    icon: tv
+    content:
+      - name: Accessibilité
+        description: Nécessite uniquement une connexion Internet.
+      - name: Tout support
+        description: Ordinateur, smartphone.
+      - name: Mobilité
+        description: 
+  - name: Professeur attitré
+    icon: teacher
+    content:
+      - name: Dialogue
+        description: Dialogue direct entre le professeur et l'élève.
+      - name: Pédagogie
+        description: Pédagogie adaptée à la situation.
+      - name: Suivi
+        description: Suivi personnalisé sur la durée.
+  - name: Contenu interactif
+    icon: tools
+    content:
+      - name: Concrétisation
+        description: Concrétisation des notions par le multimédia.
+      - name: Manipulation
+        description: Concrétisation des notions par le multimédia.
+  - name: Replay disponible
+    icon: recycle
+    content:
+      - name: Possibilité
+        description: Possibilité de revenir sur le contenu de la séance a posteriori.
+      - name: Vidéo
+        description: Vidéo disponible en téléchargement, ou en visionnage pendant 14 jours.
+
+group:
+  title: Le travail de groupe
+  img: group

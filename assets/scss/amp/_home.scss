@@ -1,0 +1,21 @@
+@include overlay-variant("overlay-home-presentation", 	$home-presentation-overlay-color, $home-presentation-overlay-opacity);
+@include background-variant("bg-home-plus", 			$home-plus-bg-color);
+@include background-variant("bg-home-plus-item", 		$home-plus-item-bg-color);
+@include background-variant("bg-home-group", 			$home-group-bg-color, $body-color);
+
+.square-div{
+	width: 120px;
+	height: 120px;
+}
+
+.card-home-plus{
+	@extend .m-2;
+	width: calc(100% / #{$plus-nb-per-row} - #{$plus-nb-per-row}*#{$spacer});
+	max-width: calc(100% - #{$spacer});
+}
+
+@include media-breakpoint-down('md', $grid-breakpoints) {
+	.card-home-plus{
+		width: calc(100% - #{$spacer});
+	}
+}

@@ -1,0 +1,13 @@
+{% assign img = site.data.img[include.id] %}
+<amp-img alt="{{ img.alt }}"
+	src="{{ site.cache.img }}{{ img.src }}"
+	{% if img.srcset %}
+	srcset="{% for srcset in img.srcset %}{{ site.cache.img }}{{ srcset.src }} {{ srcset.width }}w,{% endfor %}"
+	{% endif %}
+	width="{{ img.width }}"
+	height="{{ img.height }}"
+	layout="responsive"
+	{% if include.class %}
+	class="{{ include.class }}"
+	{% endif %}>
+</amp-img>
