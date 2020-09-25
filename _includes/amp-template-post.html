@@ -4,6 +4,7 @@
 			<amp-img alt="Youtube"
 				class="card-img"
 				src="https://img.youtube.com/vi/{% raw %}{{#youtube}}{{youtube}}{{/youtube}}{{^youtube}}0{{/youtube}}{% endraw %}/hq720.jpg"
+				srcset="https://img.youtube.com/vi/{% raw %}{{#youtube}}{{youtube}}{{/youtube}}{{^youtube}}0{{/youtube}}{% endraw %}/hq720.jpg 1280w"
 				width="{{ site.home.youtube.width }}"
 				height="{{ site.home.youtube.height }}"
 				layout="responsive">
