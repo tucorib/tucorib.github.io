@@ -75,8 +75,8 @@ home:
     height_sm: 377
     height_xl: 187
   youtube:
-      width: 640
-      height: 480
+      width: 1280
+      height: 720
       autoplay: false
 
 videos:
