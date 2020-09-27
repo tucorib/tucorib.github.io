@@ -1,22 +1,23 @@
 <h1>En savoir plus</h1>
-<p class="text-center">L'idée de suivre du soutien scolaire en ligne vous intéresse, mais vous désirez savoir si l'enseignant est compétent&nbsp;?</p>
-<p class="text-center">Question tout à fait légitime&nbsp;! Voici quelques éléments clés afin de vous apporter les éclaircissements nécessaires&nbsp;:</p>
+<p class="display-6 text-center">L'idée de suivre du soutien scolaire en ligne vous intéresse, mais vous désirez savoir si l'enseignant est compétent&nbsp;?</p>
+<b class="p-2"></b>
+<p class="display-6 text-center">Question tout à fait légitime&nbsp;! Voici quelques éléments clés afin de vous apporter les éclaircissements nécessaires&nbsp;:</p>
 
-<div class="d-flex flex-column flex-md-row justify-content-around mt-5">
+<div class="d-flex flex-row flex-wrap justify-content-around mt-5">
 	{% assign sorted_entries = site.data.contact.more_infos | sort: "start" %}
 	{% for entry in sorted_entries %}
-	<div class="card-cv-entry d-flex flex-column justify-content-center">
-		<div class="card-img-center mb-2">
+	<div class="card-more-info-item d-flex flex-column justify-content-center align-items-center">
+		<div class="card-img mb-2">
 			{% include amp/img.html id=entry.img  %}
   		</div>
-        <div class="card border-0 bg-contact-cv-entry flex-grow-1">
+        <div class="card border-0 bg-contact-more-info-item flex-grow-1">
 			<div class="card-body">
 				<h4 class="card-title text-center">{{ entry.name }}</h4>
 				<h6 class="card-subtitle mb-2 text-muted text-center">{{ entry.start }} - {{ entry.end }}</h6>
 				<hr />
-				<p class="card-text">
+				<div class="d-flex flex-column justify-content-between">
 					{% for content in entry.content %}
-		  			<p class="text-center">
+		  			<p class="card-text text-center">
 		  				{{ content.label }}
 		  				{% for misc in content.misc %}
 		  				<br/>
@@ -24,7 +25,7 @@
 		  				{% endfor %}
 		  			</p>
 		  			{% endfor %}
-	  			</p>
+				</div>
 			</div>
 		</div>
 	</div>

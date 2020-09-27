@@ -19,24 +19,16 @@ em{
 	color: $body-bg-color;
 }
 
-h1, h2{
-	@extend .text-center;
+h1, h2, h3, h4, h5{
 	@extend .m-0;
 }
 
-h3, h4, h5{
-	@extend .m-0;
+h1, h2{
+	@extend .text-center;
+	@extend .mb-4;
+	@extend .mb-md-5;
 }
 
 h1{
-	@extend .mb-5;
-	@extend .display-4;	
-}
-
-h2{
-	@extend .mb-4;	
-}
-
-h3{
-	@extend .mb-3;	
+	@extend .display-4;
 }

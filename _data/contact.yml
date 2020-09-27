@@ -1,33 +1,73 @@
+id:
+  img:
+    name: id
+    sizes:
+      xs:
+        height: 350
+      sm:
+        height: 400
+      md:
+        height: 500
+
+prices:
+  - name: Séance individuelle (1 h)
+    color: secondary
+    max-students: 1 élève
+    content:
+      - name: Suivi de l'élève
+        checked: true
+      - name: Travaux dirigés 
+        checked: true
+      - name: Exercices de révision 
+        checked: true
+      - name: Evaluations
+        checked: true
+    ammount: 35 € TTC
+  - name: Séance de groupe (1 h)
+    color: success
+    max-students: 3 élèves maximum
+    content:
+      - name: Suivi de l'élève
+        checked: true
+      - name: Travaux dirigés 
+        checked: true
+      - name: Exercices de révision 
+        checked: true
+      - name: Evaluations
+        checked: true
+    ammount: 25 € TTC / élève 
+  
 more_infos:
-  - name: "Enseignant<br/>contractuel"
-    start: 2019
-    end: 2020
-    img: public
-    content:
-      - label: Remplacements en mathématiques effectués au sein de l'Education Nationale
-        misc:
-        - Toulouse, FR
-        - "Classes&nbsp;: de la 6<sup>e</sup> à la Terminale"
-  - name: Soutien scolaire à domicile
-    start: 2012
-    end: 2020
-    img: at-home
-    content:
-      - label: Soutien scolaire à domicile en mathématiques
-        misc:
-        - Nantes et Toulouse, FR
-        - "Niveaux&nbsp;: Collège et Lycée"
-  - name: Ingénieur en informatique
-    start: 2003
-    end: 2008
-    img: enseeiht
-    content:
-      - label: Diplôme d'Ingénieur en Informatique
-        misc:
-          - ENSEEIHT, Toulouse, FR
-      - label: Echange universitaire à l'Université de Montréal
-        misc:
-          - UdeM, Montréal, QC
-      - label: Classe Préparatoire aux Grandes Ecoles
-        misc: 
-          - Lycée Jean Dautet, La Rochelle, FR
+- name: Enseignant contractuel
+  start: 2019
+  end: 2020
+  img: public
+  content:
+    - label: Remplacements en mathématiques effectués au sein de l'Education Nationale
+      misc:
+      - Toulouse, FR
+      - "Classes&nbsp;: de la 6<sup>e</sup> à la Terminale"
+- name: Soutien scolaire à domicile
+  start: 2012
+  end: 2020
+  img: at-home
+  content:
+    - label: Soutien scolaire à domicile en mathématiques
+      misc:
+      - Nantes et Toulouse, FR
+      - "Niveaux&nbsp;: Collège et Lycée"
+- name: Ingénieur en informatique
+  start: 2003
+  end: 2008
+  img: enseeiht
+  content:
+    - label: Diplôme d'Ingénieur en Informatique
+      misc:
+        - ENSEEIHT, Toulouse, FR
+    - label: Echange universitaire à l'Université de Montréal
+      misc:
+        - UdeM, Montréal, QC
+    - label: Classe Préparatoire aux Grandes Ecoles
+      misc: 
+        - Lycée Jean Dautet, La Rochelle, FR
+        

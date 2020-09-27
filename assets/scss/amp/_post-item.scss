@@ -1,17 +1,3 @@
 @include background-variant("bg-tag", 	$tag-color);
 
-.card-post{
-	@extend .m-2;
-	width: calc(100% / #{$post-nb-per-row} - #{$post-nb-per-row}*#{$spacer});
-	max-width: calc(100% - #{$spacer});
-}
-
-.card-post .card-text:last-child{
-	color: $default-body-color;
-}
-
-@include media-breakpoint-down('md', $grid-breakpoints) {
-	.card-post{
-		width: calc(100% - #{$spacer});
-	}
-}
+@include card-set-variant("card-post", $post-nb-per-row);

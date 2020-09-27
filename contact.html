@@ -10,19 +10,26 @@ elements:
 	{% include amp/contact/id.html %}
 </div>
 
-<div class="section bg-contact-prices bg-rotation">
+<div class="section bg-contact-prices">
 	<div class="container">
 		{% include amp/contact/prices.html %}
 	</div>
 </div>
 
+{% if site.reductions %}
+<div class="section bg-contact-prices">
+	<div class="container">
+		{% include amp/contact/reductions.html %}
+	</div>
+</div>
+{% endif %}
 
 <div class="bg-rotation-container">
 	<div class="bg-contact-prices bg-rotation-bottom">
 	</div>
 </div>
 
-<div class="section bg-contact-more-info bg-rotation">
+<div class="section bg-contact-more-info">
 	<div class="container">
 		{% include amp/contact/more-infos.html %}
 	</div>

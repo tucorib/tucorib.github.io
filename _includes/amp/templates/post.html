@@ -18,13 +18,15 @@
 				<p class="card-text h6 text-center my-1">
 					{% raw %}{{#tags}}{% endraw %}<span class="badge badge-pill bg-tag rounded mx-1">{% raw %}{{.}}{% endraw %}</span>{% raw %}{{/tags}}{% endraw %}
 				</p>
-				<p class="card-text mt-2 px-4">
+				<p class="card-text text-dark mt-2 px-4">
 					{% raw %}{{{description}}}{% endraw %}
 				</p>
 			</div>
-			<div class="card-footer text-right">
+			<div class="card-footer">
 				{% capture timestamp %}{% raw %}{{timestamp}}{% endraw %}{% endcapture %}
-				<span class="small text-muted">Diffusé le&nbsp;:&nbsp;{% include amp/date.html timestamp=timestamp id="date-template" %}</small>
+				<span class="d-flex flex-row justify-content-end small text-muted">
+					Diffusé le&nbsp;:&nbsp;{% include amp/date.html timestamp=timestamp id="date-template" class="flex-grow-0" %}
+				</small>
 			</div>
 		</div>
 	</a>

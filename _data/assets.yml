@@ -1,19 +1,20 @@
 icons:
-  home: fas fa-home
-  videos: fab fa-youtube
-  tools: fas fa-gamepad
-  contact: fas fa-id-card
-  tv: fas fa-tv
-  recycle: fas fa-sync-alt
-  check: fas fa-check
-  email: fas fa-envelope
-  phone: fas fa-phone
-  teacher: fas fa-user-tie
-  users: fas fa-users
-  school: fas fa-school
-  info-circle: fas fa-info-circle
   bars: fas fa-bars
+  check: fas fa-check
+  contact: fas fa-id-card
+  email: fas fa-envelope
+  home: fas fa-home
+  info-circle: fas fa-info-circle
+  phone: fas fa-phone
+  photo-video: fas fa-photo-video
+  recycle: fas fa-sync-alt
   search: fas fa-search
+  school: fas fa-school
+  teacher: fas fa-chalkboard-teacher
+  tools: fas fa-gamepad
+  tv: fas fa-tv
+  users: fas fa-users
+  videos: fab fa-youtube
 
 img:
   id:

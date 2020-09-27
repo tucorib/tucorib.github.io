@@ -3,37 +3,39 @@ layout: amp
 title: Soutien scolaire en ligne
 permalink: /
 elements:
- - amp-carousel
+ - amp-youtube
+ - amp-video-docking
 ---
 <div class="section">
 	{% include amp/home/start.html %}
 </div>
-		
-<div class="section bg-home-plus">
+	
+<div class="section bg-home-presentation">
 	<div class="container d-flex flex-column justify-content-center align-items-center">
-		{% include amp/home/plus.html %}
-		<a href="/contact/" class="btn btn-lg btn-link btn-primary mt-5">Consultez les différents tarifs</a>
+		{% include amp/home/presentation.html %}
 	</div>
 </div>
 
 <div class="bg-rotation-container">
-	<div class="bg-home-group bg-rotation-top">
+	<div class="bg-home-plus bg-rotation-top">
+	</div>
+</div>
+
+<div class="section bg-home-plus">
+	<div class="container d-flex flex-column justify-content-center align-items-center">
+		{% include amp/home/plus.html %}
+	</div>
+</div>
+
+<div class="bg-rotation-container">
+	<div class="bg-home-plus bg-rotation-bottom">
 	</div>
 </div>
 
 <div class="section bg-home-group">
-	<div class="container">
-		{% include amp/home/group.html %}
-	</div>
-</div>
-
-<div class="bg-rotation-container">
-	<div class="bg-home-group bg-rotation-bottom">
-	</div>
-</div>
-	
-<div class="section bg-home-gallery">
 	<div class="container d-flex flex-column justify-content-center align-items-center">
-		{% include amp/home/gallery.html %}
+		{% include amp/home/group.html %}
+		<b class="p-4"></b>
+		<a href="/contact/" class="btn btn-lg btn-link btn-primary">Consultez les différents tarifs</a>
 	</div>
 </div>

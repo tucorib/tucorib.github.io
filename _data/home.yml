@@ -1,3 +1,22 @@
+start:
+  img:
+    name: id
+    sizes:
+      xs:
+        height: 600
+      sm:
+        height: 500
+      md:
+        height: 700
+
+presentation:
+  title: Présentation
+  youtube:
+    id: fhcrw_JeVOM
+    size:
+      width: 794
+      height: 447
+  
 plus:
   title: Les avantages
   content:
@@ -6,44 +25,35 @@ plus:
       content:
         - name: Accessibilité
           description: Nécessite uniquement une connexion Internet.
+        - name: Mobilité
+          description: Permet de suivre le cours partout, même en déplacement.
         - name: Tout support
           description: Ordinateur, smartphone.
-        - name: Mobilité
-          description: Permet de suivre le cours partout où vous êtes, même en déplacement.
+        - name: Multimodalité
+          description: Choix libre de la plateforme de discussion.
     - name: Professeur attitré
       icon: teacher
       content:
         - name: Temps réel
           description: Dialogue en direct entre l'élève et le professeur.
-        - name: Pédagogie
+        - name: Personnalisation
           description: Pédagogie adaptée à l'élève.
-        - name: Suivi
+        - name: Stabilité
           description: Suivi assuré par le même professeur à travers les séances.
-    - name: Contenu interactif
-      icon: tools
+    - name: Contenu multimédia
+      icon: photo-video
       content:
-        - name: Concrétisation
-          description: Concrétisation des notions par le multimédia.
-        - name: Manipulation
-          description: Concrétisation des notions par le multimédia.
+        - name: Interactivité
+          description: Manipulation des notions via des outils en ligne.
+        - name: Modernité
+          description: Illustrations animées, favorisant la compréhension.
     - name: Replay disponible
       icon: recycle
       content:
-        - name: Possibilité
-          description: Possibilité de revenir sur le contenu de la séance a posteriori.
-        - name: Accessibilité
-          description: Vidéo disponible en téléchargement, ou en visionnage pendant 14 jours.
+        - name: Revisionnage
+          description: Possibilité de revenir sur le contenu de la séance a posteriori sur demande.
+        - name: Disponibilité
+          description: Vidéo accessible en téléchargement ou en visionnage pendant 14 jours.
 
 group:
   title: Le travail de groupe
-  
-gallery:
-  title: Galerie
-  carousel:
-    width: 1920
-    height: 1080
-    delay: 4000
-    img:
-      - plus
-      - group
-    

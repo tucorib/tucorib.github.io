@@ -1,17 +1,20 @@
 <div class="card border-0 w-100">
-	<div class="card-img overlay-home-presentation">
-		{% include amp/img.html id="id" %}
+	<div class="card-img overlay-home-start">
+		{% include amp/img.html id=site.data.home.start.img.name sizes=site.data.home.start.img.sizes layout="fixed-height" %}
 	</div>
-	<div class="card-img-overlay p-4 text-center text-bg-body">
-		<div class="mx-auto h-100 d-flex flex-column justify-content-center">
-			<h1 class="display-1 mb-5">Optez pour le cours de maths en ligne</h1>
-			<p class="h4 mb-5">Des lacunes à combler&nbsp;? Un examen à préparer&nbsp;? Envie d'approfondir vos connaissances&nbsp;?</p>
-			<p class="h4 mb-5">Quels que soient vos raisons et vos objectifs, je suis à votre disposition&nbsp;!</p>
-			<p class="h6 mt-5">Niveau&nbsp;:&nbsp;Collège et Lycée</p>
+	<div class="card-img-overlay p-4 text-center text-bg-body d-flex flex-column">
+		<div class="my-auto">
+			<h1 class="display-1">Optez pour le cours de maths en ligne</h1>
+			<div class="d-flex flex-column justify-content-center">
+				<p class="display-5">Des lacunes à combler&nbsp;? Un examen à préparer&nbsp;? Envie d'approfondir vos connaissances&nbsp;?</p>
+				<p class="display-5">Quels que soient vos raisons et vos objectifs, je suis à votre disposition&nbsp;!</p>
+				<b class="p-2"></b>
+				<p class="display-6">Niveau&nbsp;:&nbsp;Collège et Lycée</p>
+			</div>
+		</div>
+		<div class="bg-rotation-overlay bg-rotation-container mt-auto">
+			<div class="bg-home-presentation bg-rotation-top">
 		</div>
 	</div>
-	<div class="bg-rotation-overlay bg-rotation-container mt-auto">
-		<div class="bg-home-plus bg-rotation-top">
-		</div>
 	</div>
 </div>

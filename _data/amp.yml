@@ -20,15 +20,18 @@ res:
   amp-bind:
     - custom: element
       url:            "https://cdn.ampproject.org/v0/amp-bind-0.1.js"
-  amp-carousel:
+  amp-youtube:
     - custom: element
-      url:        "https://cdn.ampproject.org/v0/amp-carousel-0.1.js"
+      url:        "https://cdn.ampproject.org/v0/amp-youtube-0.1.js"
   amp-analytics:
     - custom: element
       url:       "https://cdn.ampproject.org/v0/amp-analytics-0.1.js"
   amp-consent:
     - custom: element
       url:         "https://cdn.ampproject.org/v0/amp-consent-0.1.js"
+  amp-video-docking:
+    - custom: element
+      url:         "https://cdn.ampproject.org/v0/amp-video-docking-0.1.js"
 
 default:
   common:

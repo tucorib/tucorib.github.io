@@ -7,6 +7,17 @@ body{
 	@extend .flex-column;
 }
 
+@media only screen and (orientation:portrait){
+	.orientation-landscape{
+		display: none;
+	}
+}
+@media only screen and (orientation:landscape){
+  	.orientation-portrait{
+		display: none;
+	}
+}
+
 main{
 	@extend .flex-fill;
 }

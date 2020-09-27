@@ -1,8 +1,7 @@
 // Bootstrap
-$enable-rounded: false !default;
 $enable-responsive-font-sizes: true !default;
 
-$primary: 	#ff8939 !default;
+$primary: 	#E07731 !default;
 $secondary: #4b6fbb !default;
 $success:   #28a745 !default;
 
@@ -12,13 +11,29 @@ $link-color: #212529 !default;
 $border-width: 3px !default;
 $border-color: #fff !default;
 
+$input-btn-border-width: 0;
+
 $modal-content-bg: #212529 !default;
+
+// Breakpoints
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
 
 // Font
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Lato", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 
+// Type
+$display5-size:               2.5rem !default;
+$display5-weight:             300;
+$display6-size:               2rem !default;
+$display6-weight:             300;
+
 // Colors
-$default-body-color: #212529 !default;
 $body-bg-color: #e7e7e7 !default;
 $success:       #28a745 !default;
 $danger:        #dc3545 !default;
@@ -32,17 +47,16 @@ $filter-color: $body-bg-color !default;
 $cookies-color: $secondary !default;
 $tag-color: $main-color !default;
 
-$home-plus-color: $body-bg-color !default;
-$home-plus-item-color: $body-bg-color !default;
+$home-presentation-color: $body-bg-color !default;
+$home-plus-color: $main-color !default;
+$home-plus-item-color: $main-color !default;
 $home-plus-item-icon-border-color: #17a2b8 !default;
-$home-group-color: $main-color !default;
-$home-gallery-color: $body-bg-color !default;
+$home-group-color: $body-bg-color !default;
 
 $contact-prices-color: $main-color !default;
-$contact-reduction-color: #A38917 !default;
+$contact-reduction-color: #A38917 !default; 
 $contact-more-info-color: $body-bg-color !default;
-$contact-cv-entry-color: $body-bg-color !default;
-
+$contact-more-info-item-color: $body-bg-color !default;
 
 // Active
 $nav-pills-link-active-bg: #416184 !default;
@@ -51,13 +65,11 @@ $nav-pills-link-active-bg: #416184 !default;
 $bg-rotation-angular: 3deg;
 
 // Overlays
-$home-presentation-overlay-color: #000000 !default;
-$home-presentation-overlay-opacity: 0.5 !default;
+$home-start-overlay-color: #000000 !default;
+$home-start-overlay-opacity: 0.5 !default;
 
-$contact-id-overlay-color-from: $contact-prices-color !default;
-$contact-id-overlay-color-to: $body-bg-color !default;
-$contact-id-overlay-color-fallback: #C33764 !default;
-$contact-id-overlay-opacity: 0.4 !default;
+$contact-id-overlay-color: #000000 !default;
+$contact-id-overlay-opacity: 0.5 !default;
 
 // Borders
 $filter-border-size: 1px !default;
@@ -68,9 +80,8 @@ $fa-font-path: "https://use.fontawesome.com/releases/v5.14.0/webfonts" !default;
 $fa-font-display: swap !default;
 
 // Containers
-$home-plus-nb-per-row: 4;
+$home-plus-nb-per-row: ("xs": 1, "sm": 2, "md": 4);
 $container-max-width: 1280px !default;
-$contact-plus-nb-per-row: 4;
-$contact-reduction-nb-per-row: 3;
-$contact-cv-entry-nb-per-row: 4;
-$post-nb-per-row: 3;
+$contact-reduction-nb-per-row: ("xs": 1, "sm": 2, "md": 3);
+$contact-more-info-item-nb-per-row: ("xs": 1, "sm": 2, "md": 3);
+$post-nb-per-row: ("xs": 1, "sm": 2, "md": 3);

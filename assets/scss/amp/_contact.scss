@@ -1,4 +1,18 @@
-@include overlay-gradient-variant("overlay-contact-id", $contact-id-overlay-color-from, $contact-id-overlay-color-to, $contact-id-overlay-opacity, $contact-id-overlay-color-fallback);
+@include overlay-variant("overlay-contact-id", 			$contact-id-overlay-color, $contact-id-overlay-opacity);
+
+.card-contact-id .card-img-overlay{
+	@extend .p-0;
+	margin-left: 10%;
+	max-width: 80%;
+	top: 5%;
+	
+	@include media-breakpoint-up("md", $breakpoints) {
+		width: 30%;
+	}
+}
+.card-contact-id .card-img-overlay div{
+	
+}
 
 @include background-variant("bg-contact-prices", 	$contact-prices-color);
 @include background-variant("bg-contact-reduction", $contact-reduction-color);
@@ -6,15 +20,16 @@
 @include card-set-variant("card-contact-reduction", $contact-reduction-nb-per-row);
 
 @include background-variant("bg-contact-more-info", $contact-more-info-color);
-@include background-variant("bg-contact-cv-entry", 	$contact-cv-entry-color);
-@include card-set-variant("card-cv-entry", 			$contact-cv-entry-nb-per-row);
-.card-cv-entry .card-img-center{
-	margin-left: calc(200% / #{$contact-cv-entry-nb-per-row} - #{$contact-cv-entry-nb-per-row}*#{$spacer});
-	margin-right: calc(200% / #{$contact-cv-entry-nb-per-row} - #{$contact-cv-entry-nb-per-row}*#{$spacer});
+@include background-variant("bg-contact-more-info-item", 	$contact-more-info-item-color);
+@include card-set-variant("card-more-info-item", 			$contact-more-info-item-nb-per-row);
+
+.card-more-info-item .card-img{
+	width: 128px;
+	height: 128px;
 }
 
-.card-cv-entry .card-img-center img, .card-img-center amp-img{
+.card-more-info-item .card-img amp-img{
     @extend .border;
     @extend .rounded-circle;
-    border-color: $contact-cv-entry-color;
+    border-color: $contact-more-info-item-color;
 }

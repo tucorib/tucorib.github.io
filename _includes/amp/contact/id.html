@@ -1,30 +1,23 @@
-<div class="card border-0 w-100">
+<div class="card card-contact-id border-0 w-100">
 	<div class="card-img overlay-contact-id">
-		{% include amp/img.html id="id" %}
+		{% include amp/img.html id=site.data.contact.id.img.name sizes=site.data.contact.id.img.sizes layout="fixed-height"  %}
 	</div>
-	<div class="d-none d-md-block card-img-overlay">
-		<div class="d-flex h-100 ml-5">
-			<div class="h-100 d-flex flex-column justify-content-center text-bg-body text-center">
-				<h1 class="display-3">Me contacter</h1>
-				<b class="mb-4"></b>
-				<h2 class="h5 display-4 text-bg-body mb-4">{{ site.data.legal.owner.name }}</h2>
-			  	<p><a class="btn btn-lg btn-link btn-primary" href="mailto:{{ site.data.legal.owner.email }}">{% include icon.html id="email" class="mr-2" %}{{ site.data.legal.owner.email }}</a></p>
-			  	<p><a class="btn btn-lg btn-link btn-primary"  href="tel:{{ site.data.legal.owner.phone.num }}">{% include icon.html id="phone" class="mr-2" %}</i>{{ site.data.legal.owner.phone.display }}</a></p>
+	<div class="card-img-overlay d-flex">
+		<div class="d-flex flex-column text-center">
+			<span class="h1 display-4 text-nowrap text-bg-body">Me contacter</span>
+			<b class="p-2"></b>
+			<div class="card bg-body border-0">
+				<div class="card-body">
+					<span class="display-5 text-nowrap">{{ site.data.legal.owner.name }}</span>
+					<hr/>
+					<div class="d-flex flex-column justify-content-between p-2">
+						<a class="btn btn-lg btn-link btn-primary text-nowrap" href="mailto:{{ site.data.legal.owner.email }}">{% include icon.html id="email" class="mr-4" %}{{ site.data.legal.owner.email }}</a>
+						<b class="p-2"></b>
+				  		<a class="btn btn-lg btn-link btn-primary text-nowrap"  href="tel:{{ site.data.legal.owner.phone.num }}">{% include icon.html id="phone" class="mr-4" %}</i>{{ site.data.legal.owner.phone.display }}</a>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="flex-grow-1"></div>
-	</div>
-	<div class="d-block d-md-none card-img-overlay">
-		<div class="d-flex h-100">
-			<div class="h-100 d-flex flex-column justify-content-center text-bg-body text-center">
-				<h1 class="h5 display-4">Me contacter</h1>
-				<b class="mb-1"></b>
-				<h2 class="h5 text-bg-body mb-4">{{ site.data.legal.owner.name }}</h2>
-			  	<p><a class="btn btn-sm btn-link btn-primary" href="mailto:{{ site.data.legal.owner.email }}">{% include icon.html id="email" class="mr-2" %}</i>{{ site.data.legal.owner.email }}</a></p>
-			  	<p><a class="btn btn-sm btn-link btn-primary"  href="tel:{{ site.data.legal.owner.phone.num }}">{% include icon.html id="phone" class="mr-2" %}{{ site.data.legal.owner.phone.display }}</a></p>
-			</div>
-		</div>
-		<div class="flex-grow-1"></div>
 	</div>
 	<div class="bg-rotation-overlay bg-rotation-container mt-auto">
 		<div class="bg-contact-prices bg-rotation-top">

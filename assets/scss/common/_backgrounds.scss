@@ -1,5 +1,4 @@
 @include background-variant("bg-body", 			$body-bg-color);
-@include background-variant("bg-default-body", 	$body-bg-color, $default-body-color);
 @include background-variant("bg-header-brand", 	$brand-color);
 @include background-variant("bg-header-nav", 	$navbar-color);
 @include background-variant("bg-footer", 		$footer-color);

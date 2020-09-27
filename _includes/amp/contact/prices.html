@@ -1,91 +1,27 @@
 <h1>Les tarifs</h1>
-<div class="d-flex flex-column flex-md-row flex-nowrap justify-content-around">
-	<div class="card bg-transparent border-secondary flex-grow-1 m-2">
-		<div class="card-header bg-secondary border-secondary text-center">
-			<span class="h5 text-center font-weight-bolder">Séance individuelle (1 h)<br/><small>1 élève</small></span>
+<div class="d-flex flex-row flex-wrap justify-content-around">
+	{% for price in site.data.contact.prices %}
+	<div class="card bg-transparent border-{{ price.color }} flex-grow-1 m-2">
+		<div class="card-header bg-{{ price.color }} border-{{ price.color }} text-center">
+			<span class="h4 text-center font-weight-bolder">{{ price.name }}<br/><small>{{ price.max-students }}</small></span>
 		</div>
-		<div class="card-body">
-			<div class="row">
+		<div class="card-body h5">
+			{% for content in price.content %}
+			<div class="row my-2">
   				<div class="col-4 text-right">
-  					{% include icon.html id="check" class="text-success" %}
+  					{% if content.checked %}
+  					{% include icon.html id="check" %}
+  					{% endif %}
   				</div>
   				<div class="col-8">
-  					Suivi de l'élève
+  					{{ content.name }}
   				</div>
   			</div>
-  			<div class="row">
-  				<div class="col-4 text-right">
-  					{% include icon.html id="check" class="text-success" %}
-  				</div>
-  				<div class="col-8">
-  					Travaux dirigés
-  				</div>
-  			</div>
-  			<div class="row">
-  				<div class="col-4 text-right">
-  					{% include icon.html id="check" class="text-success" %}
-  				</div>
-  				<div class="col-8">
-  					Exercices de révision
-  				</div>
-  			</div>
-  			<div class="row">
-  				<div class="col-4 text-right">
-  					{% include icon.html id="check" class="text-success" %}
-  				</div>
-  				<div class="col-8">
-  					Evaluations
-  				</div>
-  			</div>
+			{% endfor %}
 		</div>
-		<div class="card-footer bg-transparent border-secondary text-center font-weight-bold">
-			35 € TTC
+		<div class="card-footer h4 m-0 bg-transparent border-{{ price.color }} text-center font-weight-bold">
+			{{ price.ammount }}
 		</div>
 	</div>
-	<div class="card bg-transparent border-success flex-grow-1 m-2">
-		<div class="card-header bg-success border-success text-center">
-			<span class="h5 text-center font-weight-bolder">Séance de groupe (1 h)<br/><small>3 élèves maximum</small></span>
-		</div>
-		<div class="card-body">
-			<div class="row">
-  				<div class="col-4 text-right">
-  					{% include icon.html id="check" class="text-success" %}
-  				</div>
-  				<div class="col-8">
-  					Suivi de l'élève
-  				</div>
-  			</div>
-  			<div class="row">
-  				<div class="col-4 text-right">
-  					{% include icon.html id="check" class="text-success" %}
-  				</div>
-  				<div class="col-8">
-  					Travaux dirigés
-  				</div>
-  			</div>
-  			<div class="row">
-  				<div class="col-4 text-right">
-  					{% include icon.html id="check" class="text-success" %}
-  				</div>
-  				<div class="col-8">
-  					Exercices de révision
-  				</div>
-  			</div>
-  			<div class="row">
-  				<div class="col-4 text-right">
-  					{% include icon.html id="check" class="text-success" %}
-  				</div>
-  				<div class="col-8">
-  					Evaluations
-  				</div>
-  			</div>
-		</div>
-		<div class="card-footer bg-transparent border-success text-center font-weight-bold">
-			25 € TTC / élève
-		</div>
-	</div>
+	{% endfor %}
 </div>
-{% if site.reductions %}
-<br/>
-{% include amp/contact/reductions.html %}
-{% endif %}

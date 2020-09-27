@@ -1,4 +1,38 @@
 {% assign img = site.data.assets.img[include.id] %}
+{% assign breakpoints = "xs,sm,md,lg,xl"| split: "," %}
+{% if include.sizes %}
+{% for breakpoint in include.sizes %}
+<amp-img alt="{{ img.alt }}"
+	src="{{ site.cache.img }}{{ img.src }}"
+	{% if img.srcset %}
+	srcset="{% for srcset in img.srcset %}{{ site.cache.img }}{{ srcset.src }} {{ srcset.width }}w,{% endfor %}"
+	{% endif %}
+	{% if include.layout == "fixed-height" %}
+	{% if include.sizes contains breakpoint[0] %}
+	height="{{ breakpoint[1].height }}"
+	{% else %}
+	height="{{ img.height }}"
+	{% endif %}
+	layout="fixed-height"
+	{% else %}
+	{% if include.sizes contains breakpoint[0] %}
+	width="{{ breakpoint[1].width }}"
+	height="{{ breakpoint[1].height }}"
+	{% else %}
+	width="{{ img.width }}"
+	height="{{ img.height }}"
+	{% endif %}
+	layout="responsive"
+	{% endif %}
+	class="{% for hide_breakpoint in include.sizes %}
+	{% if hide_breakpoint[0] == "xs" %}d-{% if breakpoint[0] != hide_breakpoint[0] %}none{% else %}block{% endif %}
+	{% else %}d-{{ hide_breakpoint[0] }}-{% if breakpoint[0] != hide_breakpoint[0] %}none{% else %}block{% endif %}
+	{% endif %}{% endfor %}
+	{% if include.class %} {{ include.class }}{% endif %}"
+	>
+</amp-img>
+{% endfor %}
+{% else %}
 <amp-img alt="{{ img.alt }}"
 	src="{{ site.cache.img }}{{ img.src }}"
 	{% if img.srcset %}
@@ -7,7 +41,8 @@
 	width="{{ img.width }}"
 	height="{{ img.height }}"
 	layout="responsive"
-	{% if include.class %}
-	class="{{ include.class }}"
-	{% endif %}>
+	class="{% if include.class %} {{ include.class }}{% endif %}"
+	>
 </amp-img>
+{% endif %}
+

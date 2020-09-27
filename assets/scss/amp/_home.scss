@@ -1,13 +1,11 @@
-@include overlay-variant("overlay-home-presentation", 			$home-presentation-overlay-color, $home-presentation-overlay-opacity);
-
+@include overlay-variant("overlay-home-start", 					$home-start-overlay-color, $home-start-overlay-opacity);
+@include background-variant("bg-home-presentation", 			$home-presentation-color);
 @include background-variant("bg-home-plus", 					$home-plus-color);
 @include card-set-variant("card-home-plus", 					$home-plus-nb-per-row);
 @include background-variant("bg-home-plus-item", 				$home-plus-item-color);
 @include border-variant("border-home-plus-item-icon-border", 	$home-plus-item-icon-border-color);
 
 @include background-variant("bg-home-group", 					$home-group-color);
-
-@include background-variant("bg-home-gallery", 					$home-gallery-color);
 
 .square-div{
 	width: 120px;
