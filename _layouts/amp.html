@@ -1,62 +1,23 @@
 <!DOCTYPE html>
 <html ⚡ lang="{{ site.language }}">
   	<head>
-    	<meta charset="utf-8">
-    	<link rel="shortcut icon" href="/assets/img/logo-128.png">
+    	{% include headers/favicon.html %}
+    	{% include headers/charset.html %}
+		{% include headers/seo.html %}
+    	{% include headers/viewport.html %}
     	
     	{% include lib/fontawesome.html %}
     	
     	<style amp-custom type="text/css">
     	{% include_relative assets/css/amp.css %}
     	</style>
-    	{% feed_meta %}
-    	{% seo %}
-    	<meta property="og:image" content="{{site.image}}">
     	
-    	<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     	<script async src="https://cdn.ampproject.org/v0.js"></script>
-	  	<script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
-	  	<script async custom-element="amp-mega-menu" src="https://cdn.ampproject.org/v0/amp-mega-menu-0.1.js"></script>
-	  	<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
-  		{% include amp-cookies-head.html %}
-  		{% include amp-analytics-head.html %}
+    	
+    	{% include amp/elements.html %}
 				  	
-		{% if page.url == '/videos/' or page.url == '/tools/' %}
-		<script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
-		<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-		<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-latest.js"></script>
-		<script async custom-element="amp-date-display" src="https://cdn.ampproject.org/v0/amp-date-display-0.1.js"></script>
-		{% endif %}
-		
 		{% if page.url == '/' %}
-		<script type="application/ld+json">
-		    {
-		      	"@context": "https://schema.org",
-		      	"@type": "Product",
-		      	"name": "{{ site.title }}",
-		      	"image": [
-		        	"{{ site.url }}/assets/img/stream.png"
-		       	],
-		       	"description": "{{ site.description }}",
-		       	"brand": {
-	          		"@type": "Organization",
-	          		"name": "{{ site.title }}",
-	          		"logo": "{{ site.url }}/assets/img/logo-128.png"
-	        	},
-			 	"offers": {
-		        	"@type": "Offer",
-		        	"url": "{{ site.url }}/contact/",
-		        	"priceCurrency": "EUR",
-		        	"price": "35",
-		        	"availability": "https://schema.org/OnlineOnly",
-		        	"seller": {
-		          		"@type": "Organization",
-		          		"name": "{{ site.title }}",
-		          		"logo": "{{ site.url }}/assets/img/logo-128.png"
-		        	}
-		      	}
-	     	}
-	    </script>
+		{% include amp/metadata.html %}
 		{% endif %}
 		
 		<style amp-boilerplate>
@@ -118,11 +79,10 @@
 			</style>
 		</noscript>
   	</head>
-  	<body class="bg-body">	
-  		{% include amp-cookies-body.html %}
-  		{% include amp-analytics-body.html %}
-  		{% include amp-sidebar.html %}
-  		{% include amp-navigation.html %}
+  	<body class="bg-body">
+  		{% include amp/cookies.html %}
+  		{% include amp/analytics.html %}
+  		{% include amp/navigation.html %}
   		<main class="bg-body d-flex flex-column">
     		{{ content }}
     	</main>

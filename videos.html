@@ -1,57 +1,12 @@
 ---
-layout: amp
+layout: amp-list
 title: Ma chaine Youtube
 permalink: /videos/
-filter: list
+
+icon: videos
+category: video
+post_url: "https://www.youtube.com/watch?v={{youtube}}"
+json_url: "/api/videos.json"
+filter_js: "a => ((a.title+a.description+a.tags.join('')+a.categories.join('')).toLowerCase().indexOf(filter) != -1)"
+empty_text: Des vidéos mathématiques et ludiques sont en préparation sur la chaîne Youtube...
 ---
-<div class="section bg-body flex-fill d-flex">
-	<div class="container flex-fill d-flex flex-column">
-		<h1>{{ site.data.labels.navigation.videos }}</h1>
-		{% include filter.html %}
-		<b class="mb-3 mb-md-5"></b>
-		{% assign psize = site.categories.video.size %}
-		{% if psize > 0 %}
-		<amp-state id="data" src="/api/videos.json"></amp-state>
-		{% include amp-template-date.html id="date-template" %}
-		{% assign url="https://www.youtube.com/watch?v={{youtube}}" %}
-		{% include amp-template-post.html id="post-template" date_template_id="date-template" url=url %}
-		<amp-list
-			id="list"
-			layout="flex-item"
-			template="post-template"
-			src="amp-state:data"
-			[src]="data.items.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')).toLowerCase().indexOf(filter) != -1))">
-		  	<div placeholder>
-		  	<div class="h2 my-auto text-center">
-					<p class="mb-2 mb-md-5">
-						<i class="{{ site.data.icons.videos }} fa-4x color-list-icon"></i>
-					</p>
-					<p>
-						{{ site.data.labels.waiting }}
-					</p>
-				</div>
-		  	</div>
-		  	<div fallback>
-		  		<div class="h2 my-auto text-center">
-					<p class="mb-2 mb-md-5">
-						<i class="{{ site.data.icons.videos }} fa-4x color-list-icon"></i>
-					</p>
-					<p>
-						{{ site.data.labels.error }}
-					</p>
-				</div>
-			</div>
-		</amp-list>
-		</amp-list>
-		{% else %}
-		<div class="h2 my-auto text-center">
-			<p class="mb-2 mb-md-5">
-				<i class="{{ site.data.icons.videos }} fa-4x color-list-icon"></i>
-			</p>
-			<p>
-				Des vidéos mathématiques et ludiques sont en préparation sur la chaîne Youtube...
-			</p>
-		</div>
-		{% endif %}
-	</div>
-</div>

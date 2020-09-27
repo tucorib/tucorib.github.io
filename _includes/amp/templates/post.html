@@ -1,14 +1,9 @@
+{% include amp/templates/date.html id="date-template" %}
 <template type="amp-mustache" id="{{ include.id }}">
 	<a class="my-3 card-post" href="{{ include.url }}">
 		<div class="card h-100 mb-3">
-			<amp-img alt="Youtube"
-				class="card-img"
-				src="https://img.youtube.com/vi/{% raw %}{{#youtube}}{{youtube}}{{/youtube}}{{^youtube}}0{{/youtube}}{% endraw %}/hq720.jpg"
-				srcset="https://img.youtube.com/vi/{% raw %}{{#youtube}}{{youtube}}{{/youtube}}{{^youtube}}0{{/youtube}}{% endraw %}/hq720.jpg 1280w"
-				width="{{ site.home.youtube.width }}"
-				height="{{ site.home.youtube.height }}"
-				layout="responsive">
-			</amp-img>
+			{% capture youtube_id %}{% raw %}{{#youtube}}{{youtube}}{{/youtube}}{{^youtube}}0{{/youtube}}{% endraw %}{% endcapture %}
+			{% include amp/youtube-img.html id=youtube_id class="card-img" %}
 			<div class="card-body d-flex flex-column text-center">
 				<p class="h2 card-title mb-0">{% raw %}{{title}}{% endraw %}</p>
 				<p class="card-text small text-muted mb-0">
@@ -27,9 +22,9 @@
 					{% raw %}{{{description}}}{% endraw %}
 				</p>
 			</div>
-			<div class="card-footer d-flex flex-row align-items-center">
-				<amp-date-display datetime="{% raw %}{{datetime}}{% endraw %}" locale="{{ site.language }}" layout="flex-item" class="text-right" template="{{ include.date_template_id }}">
-				</amp-date-display>
+			<div class="card-footer text-right">
+				{% capture timestamp %}{% raw %}{{timestamp}}{% endraw %}{% endcapture %}
+				<span class="small text-muted">Diffusé le&nbsp;:&nbsp;{% include amp/date.html timestamp=timestamp id="date-template" %}</small>
 			</div>
 		</div>
 	</a>

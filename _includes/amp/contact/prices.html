@@ -1,0 +1,91 @@
+<h1>Les tarifs</h1>
+<div class="d-flex flex-column flex-md-row flex-nowrap justify-content-around">
+	<div class="card bg-transparent border-secondary flex-grow-1 m-2">
+		<div class="card-header bg-secondary border-secondary text-center">
+			<span class="h5 text-center font-weight-bolder">Séance individuelle (1 h)<br/><small>1 élève</small></span>
+		</div>
+		<div class="card-body">
+			<div class="row">
+  				<div class="col-4 text-right">
+  					{% include icon.html id="check" class="text-success" %}
+  				</div>
+  				<div class="col-8">
+  					Suivi de l'élève
+  				</div>
+  			</div>
+  			<div class="row">
+  				<div class="col-4 text-right">
+  					{% include icon.html id="check" class="text-success" %}
+  				</div>
+  				<div class="col-8">
+  					Travaux dirigés
+  				</div>
+  			</div>
+  			<div class="row">
+  				<div class="col-4 text-right">
+  					{% include icon.html id="check" class="text-success" %}
+  				</div>
+  				<div class="col-8">
+  					Exercices de révision
+  				</div>
+  			</div>
+  			<div class="row">
+  				<div class="col-4 text-right">
+  					{% include icon.html id="check" class="text-success" %}
+  				</div>
+  				<div class="col-8">
+  					Evaluations
+  				</div>
+  			</div>
+		</div>
+		<div class="card-footer bg-transparent border-secondary text-center font-weight-bold">
+			35 € TTC
+		</div>
+	</div>
+	<div class="card bg-transparent border-success flex-grow-1 m-2">
+		<div class="card-header bg-success border-success text-center">
+			<span class="h5 text-center font-weight-bolder">Séance de groupe (1 h)<br/><small>3 élèves maximum</small></span>
+		</div>
+		<div class="card-body">
+			<div class="row">
+  				<div class="col-4 text-right">
+  					{% include icon.html id="check" class="text-success" %}
+  				</div>
+  				<div class="col-8">
+  					Suivi de l'élève
+  				</div>
+  			</div>
+  			<div class="row">
+  				<div class="col-4 text-right">
+  					{% include icon.html id="check" class="text-success" %}
+  				</div>
+  				<div class="col-8">
+  					Travaux dirigés
+  				</div>
+  			</div>
+  			<div class="row">
+  				<div class="col-4 text-right">
+  					{% include icon.html id="check" class="text-success" %}
+  				</div>
+  				<div class="col-8">
+  					Exercices de révision
+  				</div>
+  			</div>
+  			<div class="row">
+  				<div class="col-4 text-right">
+  					{% include icon.html id="check" class="text-success" %}
+  				</div>
+  				<div class="col-8">
+  					Evaluations
+  				</div>
+  			</div>
+		</div>
+		<div class="card-footer bg-transparent border-success text-center font-weight-bold">
+			25 € TTC / élève
+		</div>
+	</div>
+</div>
+{% if site.reductions %}
+<br/>
+{% include amp/contact/reductions.html %}
+{% endif %}

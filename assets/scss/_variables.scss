@@ -5,7 +5,6 @@ $enable-responsive-font-sizes: true !default;
 $primary: 	#ff8939 !default;
 $secondary: #4b6fbb !default;
 $success:   #28a745 !default;
-$info:      #17a2b8 !default;
 
 $body-color: #143f6c !default;
 $link-color: #212529 !default;
@@ -33,10 +32,11 @@ $filter-color: $body-bg-color !default;
 $cookies-color: $secondary !default;
 $tag-color: $main-color !default;
 
-$home-plus-color: $main-color !default;
-$home-plus-item-color: $main-color !default;
+$home-plus-color: $body-bg-color !default;
+$home-plus-item-color: $body-bg-color !default;
 $home-plus-item-icon-border-color: #17a2b8 !default;
-$home-group-color: $body-bg-color !default;
+$home-group-color: $main-color !default;
+$home-gallery-color: $body-bg-color !default;
 
 $contact-prices-color: $main-color !default;
 $contact-reduction-color: #A38917 !default;

@@ -23,7 +23,9 @@
 	{% if page.lives != nil %}
 	<div class="text-right lives">
 	{% for live in (1..page.lives) %}
-	<i class="life ml-2" data-life="{{ page.lives| minus: live }}"></i>
+	<span data-life="{{ page.lives| minus: live }}">
+		{% include icon.html id="life" class="ml-2" %}
+	</span>
 	{% endfor %}
 	</div>
 	{% endif %}

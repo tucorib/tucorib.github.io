@@ -1,10 +1,8 @@
-entries:
+more_infos:
   - name: "Enseignant<br/>contractuel"
     start: 2019
     end: 2020
-    img:
-      src: /assets/img/republique-francaise.webp
-      srcset: /assets/img/republique-francaise-375.webp 375w
+    img: public
     content:
       - label: Remplacements en mathématiques effectués au sein de l'Education Nationale
         misc:
@@ -13,9 +11,7 @@ entries:
   - name: Soutien scolaire à domicile
     start: 2012
     end: 2020
-    img:
-      src: /assets/img/soutien-scolaire.webp
-      srcset: /assets/img/soutien-scolaire-375.webp 375w
+    img: at-home
     content:
       - label: Soutien scolaire à domicile en mathématiques
         misc:
@@ -24,9 +20,7 @@ entries:
   - name: Ingénieur en informatique
     start: 2003
     end: 2008
-    img:
-      src: /assets/img/enseeiht.webp
-      srcset: /assets/img/enseeiht.webp 375w
+    img: enseeiht
     content:
       - label: Diplôme d'Ingénieur en Informatique
         misc:
@@ -37,4 +31,3 @@ entries:
       - label: Classe Préparatoire aux Grandes Ecoles
         misc: 
           - Lycée Jean Dautet, La Rochelle, FR
-    

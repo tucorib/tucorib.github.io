@@ -89,9 +89,20 @@ $form-feedback-invalid-color:       $danger !default;
 
 
 // Used
+.border-primary {
+    border-color: $primary ;
+}
 .btn-primary {
 	@include button-variant($primary, $primary);
 }
-@include background-variant("bg-secondary", 		$secondary);
-@include background-variant("bg-success", 			$success);
+@include text-emphasis-variant(".text-primary", $primary, true);
 
+@include background-variant("bg-secondary", 		$secondary);
+.border-secondary {
+    border-color: $secondary ;
+}
+ 
+@include background-variant("bg-success", 			$success);
+.border-success {
+    border-color: $success ;
+}

@@ -1,56 +1,12 @@
 ---
-layout: amp
+layout: amp-list
 title: Mes outils pédagogiques
 permalink: /tools/
-filter: list
+
+category: tool
+icon: tools
+post_url: "{{url}}"
+json_url: "/api/tools.json"
+filter_js: "a => ((a.title+a.description+a.tags.join('')+a.categories.join('')+a.tooltype).toLowerCase().indexOf(filter) != -1)"
+empty_text: Des outils pédagogiques sont en préparation...
 ---
-<div class="section bg-body flex-fill d-flex">
-	<div class="container flex-fill d-flex flex-column">
-		<h1>{{ site.data.labels.navigation.tools }}</h1>
-		{% assign tsize = site.categories.tool.size %}
-		{% if tsize > 0 %}
-		{% include filter.html %}
-		<b class="mb-md-5"></b>
-		<amp-state id="data"src="/api/tools.json"></amp-state>
-		{% include amp-template-date.html id="date-template" %}
-		{% assign url="{{url}}" %}
-		{% include amp-template-post.html id="post-template" date_template_id="date-template" url=url %}
-		<amp-list
-		  id="list"
-		  layout="flex-item"
-		  template="post-template"
-		  src="amp-state:data"
-		  [src]="data.items.filter(a => ((a.title+a.description+a.tags.join('')+a.categories.join('')+a.tooltype).toLowerCase().indexOf(filter) != -1))">
-		  <div placeholder>
-		  	<div class="h2 my-auto text-center">
-					<p class="mb-2 mb-md-5">
-						<i class="{{ site.data.icons.tools }} fa-4x color-list-icon"></i>
-					</p>
-					<p>
-						{{ site.data.labels.waiting }}
-					</p>
-				</div>
-		  	</div>
-		  	<div fallback>
-		  		<div class="h2 my-auto text-center">
-					<p class="mb-2 mb-md-5">
-						<i class="{{ site.data.icons.tools }} fa-4x color-list-icon"></i>
-					</p>
-					<p>
-						{{ site.data.labels.error }}
-					</p>
-				</div>
-			</div>
-		</amp-list>
-		{% else %}
-		<div class="h2 my-auto text-center">
-			<p class="mb-2 mb-md-5">
-				<i class="{{ site.data.icons.tools }} fa-4x color-list-icon"></i>
-			</p>
-			<p>
-				Des outils pédagogiques sont en préparation...
-			</p>
-		</div>
-		{% endif %}
-	</div>
-</div>

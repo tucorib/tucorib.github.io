@@ -1,4 +1,4 @@
-{% assign img = site.data.img[include.id] %}
+{% assign img = site.data.assets.img[include.id] %}
 <amp-img alt="{{ img.alt }}"
 	src="{{ site.cache.img }}{{ img.src }}"
 	{% if img.srcset %}

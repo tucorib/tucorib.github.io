@@ -1,0 +1,9 @@
+{% assign elements = site.data.amp.default.common | concat: site.data.amp.default[jekyll.environment] %}
+{% if page.elements %}
+{% assign elements = elements | concat: page.elements %}
+{% endif %}
+{% for element in elements | uniq %}
+{% for relement in site.data.amp.res[element] %}
+<script async custom-{{ relement.custom }}="{{ element }}" src="{{ relement.url }}"></script>
+{% endfor %}
+{% endfor %}

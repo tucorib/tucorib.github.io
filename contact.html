@@ -2,185 +2,28 @@
 layout: amp
 title: Me contacter
 permalink: /contact/
+elements:
+ - amp-mustache
+ - amp-date-display
 ---
-<div class="card border-0 w-100">
-	<div class="card-img overlay-contact-id">
-		{% include amp-img.html id="id" %}
-	</div>
-	<div class="d-none d-md-block card-img-overlay">
-		<div class="d-flex h-100 ml-5">
-			<div class="h-100 d-flex flex-column justify-content-center text-bg-body text-center">
-				<h1 class="display-3">Me contacter</h1>
-				<b class="mb-4"></b>
-				<h3 class="card-title text-bg-body font-weight-bolder mb-4">{{ site.data.legal.owner.name }}</h3>
-			  	<p><a class="btn btn-link btn-primary font-weight-bolder" href="mailto:{{ site.data.legal.owner.email }}"><i class="{{ site.data.icons["email"] }} mr-2"></i>{{ site.data.legal.owner.email }}</a></p>
-			  	<p><a class="btn btn-link btn-primary font-weight-bolder"  href="tel:{{ site.data.legal.owner.phone.num }}"><i class="{{ site.data.icons["phone"] }} mr-2"></i>{{ site.data.legal.owner.phone.display }}</a></p>
-			</div>
-		</div>
-		<div class="flex-grow-1"></div>
-	</div>
-	<div class="d-block d-md-none card-img-overlay">
-		<div class="d-flex h-100">
-			<div class="h-100 d-flex flex-column justify-content-center text-bg-body text-center">
-				<h3>Me contacter</h3>
-				<b class="mb-1"></b>
-				<h5 class="card-title text-bg-body font-weight-bolder mb-4">{{ site.data.legal.owner.name }}</h5>
-			  	<p><a class="btn btn-sm btn-link btn-primary font-weight-bolder" href="mailto:{{ site.data.legal.owner.email }}"><i class="fas fa-envelope mr-2"></i>{{ site.data.legal.owner.email }}</a></p>
-			  	<p><a class="btn btn-sm btn-link btn-primary font-weight-bolder"  href="tel:{{ site.data.legal.owner.phone.num }}"><i class="fas fa-phone mr-2"></i>{{ site.data.legal.owner.phone.display }}</a></p>
-			</div>
-		</div>
-		<div class="flex-grow-1"></div>
-	</div>
-	<div class="bg-rotation-overlay bg-rotation-container mt-auto">
-		<div class="bg-home-plus bg-rotation-top">
-		</div>
-	</div>
+<div class="section">
+	{% include amp/contact/id.html %}
 </div>
 
 <div class="section bg-contact-prices bg-rotation">
 	<div class="container">
-		<h1>Les tarifs</h1>
-		<div class="d-flex flex-column flex-md-row flex-nowrap justify-content-around">
-			<div class="card bg-transparent border-secondary flex-grow-1 m-2">
-  				<div class="card-header bg-secondary border-secondary text-center">
-					<span class="h5 text-center font-weight-bolder">Séance individuelle (1 h)<br/><small>1 élève</small></span>
-				</div>
-  				<div class="card-body">
-    				<div class="row">
-		  				<div class="col-4 text-right">
-		  					<i class="{{ site.data.icons["check"] }} text-success"></i>
-		  				</div>
-		  				<div class="col-8">
-		  					Suivi de l'élève
-		  				</div>
-		  			</div>
-		  			<div class="row">
-		  				<div class="col-4 text-right">
-		  					<i class="{{ site.data.icons["check"] }} text-success"></i>
-		  				</div>
-		  				<div class="col-8">
-		  					Travaux dirigés
-		  				</div>
-		  			</div>
-		  			<div class="row">
-		  				<div class="col-4 text-right">
-		  					<i class="{{ site.data.icons["check"] }} text-success"></i>
-		  				</div>
-		  				<div class="col-8">
-		  					Exercices de révision
-		  				</div>
-		  			</div>
-		  			<div class="row">
-		  				<div class="col-4 text-right">
-		  					<i class="{{ site.data.icons["check"] }} text-success"></i>
-		  				</div>
-		  				<div class="col-8">
-		  					Evaluations
-		  				</div>
-		  			</div>
-				</div>
-	  			<div class="card-footer bg-transparent border-secondary text-center font-weight-bold">
-					35 € TTC
-				</div>
-			</div>
-			<div class="card bg-transparent border-success flex-grow-1 m-2">
-  				<div class="card-header bg-success border-success text-center">
-					<span class="h5 text-center font-weight-bolder">Séance de groupe (1 h)<br/><small>3 élèves maximum</small></span>
-				</div>
-  				<div class="card-body">
-    				<div class="row">
-		  				<div class="col-4 text-right">
-		  					<i class="{{ site.data.icons["check"] }} text-success"></i>
-		  				</div>
-		  				<div class="col-8">
-		  					Suivi de l'élève
-		  				</div>
-		  			</div>
-		  			<div class="row">
-		  				<div class="col-4 text-right">
-		  					<i class="{{ site.data.icons["check"] }} text-success"></i>
-		  				</div>
-		  				<div class="col-8">
-		  					Travaux dirigés
-		  				</div>
-		  			</div>
-		  			<div class="row">
-		  				<div class="col-4 text-right">
-		  					<i class="{{ site.data.icons["check"] }} text-success"></i>
-		  				</div>
-		  				<div class="col-8">
-		  					Exercices de révision
-		  				</div>
-		  			</div>
-		  			<div class="row">
-		  				<div class="col-4 text-right">
-		  					<i class="fas fa-check text-success"></i>
-		  				</div>
-		  				<div class="col-8">
-		  					Evaluations
-		  				</div>
-		  			</div>
-				</div>
-	  			<div class="card-footer bg-transparent border-success text-center font-weight-bold">
-					25 € TTC / élève
-				</div>
-			</div>
-		</div>
-		{% if site.promos %}
-		<br/>
-		<h2>Réductions</h2>
-		<div class="d-flex flex-wrap justify-content-around flex-column flex-md-row">
-			{% include promos.html %}
-		</div>
-		{% endif %}
+		{% include amp/contact/prices.html %}
 	</div>
 </div>
 
 
 <div class="bg-rotation-container">
-	<div class="bg-home-plus bg-rotation-bottom">
+	<div class="bg-contact-prices bg-rotation-bottom">
 	</div>
 </div>
 
 <div class="section bg-contact-more-info bg-rotation">
 	<div class="container">
-		<h1>En savoir plus</h1>
-		<p class="text-center">L'idée de suivre du soutien scolaire en ligne vous intéresse, mais vous désirez savoir si l'enseignant est compétent&nbsp;?</p>
-		<p class="text-center">Question tout à fait légitime&nbsp;! Voici quelques éléments clés afin de vous apporter les éclaircissements nécessaires&nbsp;:</p>
-		
-		<div class="d-flex flex-column flex-md-row justify-content-around mt-5">
-			{% assign sorted_entries = site.data.cv.entries | sort: "start" %}
-			{% for entry in sorted_entries %}
-			<div class="card-cv-entry d-flex flex-column justify-content-center">
-				<div class="card-img-center mb-2">
-		    		<amp-img alt="Working online"
-						src="{{ site.cache.img }}{{ entry.img.src }}"
-						srcset="{{ site.cache.img }}{{ entry.img.srcset }}"
-						width="1"
-						height="1"
-						layout="responsive">
-					</amp-img>
-		  		</div>
-	            <div class="card border-0 bg-contact-cv-entry flex-grow-1">
-	  				<div class="card-body">
-	    				<h4 class="card-title text-center">{{ entry.name }}</h4>
-	    				<h6 class="card-subtitle mb-2 text-muted text-center">{{ entry.start }} - {{ entry.end }}</h6>
-	    				<hr />
-	   					<p class="card-text">
-	   						{% for content in entry.content %}
-				  			<p class="text-center">
-				  				{{ content.label }}
-				  				{% for misc in content.misc %}
-				  				<br/>
-				  				<small>{{ misc }}</small>
-				  				{% endfor %}
-				  			</p>
-				  			{% endfor %}
-			  			</p>
-					</div>
-				</div>
-			</div>
-			{% endfor %}
-		</div>
+		{% include amp/contact/more-infos.html %}
 	</div>
 </div>

@@ -2,9 +2,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr" dir="ltr">
 	<head>
-		<meta charset="UTF-8">
-		<!-- Smartphone screen dimension management -->
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		{% include headers/favicon.html %}
+		{% include headers/charset.html %}
+		{% include headers/seo.html %}
+    	{% include headers/viewport.html %}
+    	
 		<meta name="robots" content="noindex" />
 		
 		{% include lib/jquery.html %}
@@ -28,11 +30,6 @@
 		<link rel="stylesheet" href="/assets/css/tool.css" as="style" type="text/css">
 		{% endif %}
 		
-		{% feed_meta %}
-		{% seo %}
-		<link rel="shortcut icon" href="/assets/img/logo-128.png">
-		<meta property="og:image" content="{{site.image}}">
-
 		<!-- Libraries -->
 		{% for lib in page.libraries %}
 		{% include {{ lib }} %}
@@ -55,7 +52,8 @@
 		{% endfor %}
 	</head>
 	<body>
-		{% include noamp-navigation.html %}
+		{% include noamp/analytics.html %}
+		{% include noamp/navigation.html %}
 		<main class="bg-body">
 			<b class="mt-2"></b>
 			<div class="section">

@@ -4,10 +4,17 @@
 @include background-variant("bg-contact-reduction", $contact-reduction-color);
 @include border-variant("border-contact-reduction", $contact-reduction-color);
 @include card-set-variant("card-contact-reduction", $contact-reduction-nb-per-row);
-.card-contact-reduction{
-	color: $default-body-color;
+
+@include background-variant("bg-contact-more-info", $contact-more-info-color);
+@include background-variant("bg-contact-cv-entry", 	$contact-cv-entry-color);
+@include card-set-variant("card-cv-entry", 			$contact-cv-entry-nb-per-row);
+.card-cv-entry .card-img-center{
+	margin-left: calc(200% / #{$contact-cv-entry-nb-per-row} - #{$contact-cv-entry-nb-per-row}*#{$spacer});
+	margin-right: calc(200% / #{$contact-cv-entry-nb-per-row} - #{$contact-cv-entry-nb-per-row}*#{$spacer});
 }
 
-@include background-variant("bg-contact-more-info", $contact-more-info-color, $body-color);
-@include background-variant("bg-contact-cv-entry", 	$contact-cv-entry-color, $body-color);
-@include card-set-variant("card-cv-entry", 			$contact-cv-entry-nb-per-row);
+.card-cv-entry .card-img-center img, .card-img-center amp-img{
+    @extend .border;
+    @extend .rounded-circle;
+    border-color: $contact-cv-entry-color;
+}

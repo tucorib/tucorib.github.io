@@ -1,0 +1,84 @@
+icons:
+  home: fas fa-home
+  videos: fab fa-youtube
+  tools: fas fa-gamepad
+  contact: fas fa-id-card
+  tv: fas fa-tv
+  recycle: fas fa-sync-alt
+  check: fas fa-check
+  email: fas fa-envelope
+  phone: fas fa-phone
+  teacher: fas fa-user-tie
+  users: fas fa-users
+  school: fas fa-school
+  info-circle: fas fa-info-circle
+  bars: fas fa-bars
+  search: fas fa-search
+
+img:
+  id:
+    alt: id
+    src: /assets/img/maths-wallpaper.webp
+    width: 570
+    height: 320
+    srcset:
+      - src: /assets/img/maths-wallpaper.webp
+        width: 1140
+      - src: /assets/img/maths-wallpaper-768.webp
+        width: 768
+      - src: /assets/img/maths-wallpaper-375.webp
+        width: 375
+  
+  plus:
+    alt: Working online
+    src: /assets/img/stream.webp
+    width: 1920
+    height: 1043
+    srcset:
+      - src: /assets/img/stream.webp
+        width: 1140
+      - src: /assets/img/stream-768.webp
+        width: 768
+      - src: /assets/img/stream-375.webp
+        width: 375
+  
+  group:
+    alt: Team Working
+    src: /assets/img/group.webp
+    width: 1920
+    height: 1080
+    srcset:
+      - src: /assets/img/group.webp
+        width: 1140
+      - src: /assets/img/group-768.webp
+        width: 768
+      - src: /assets/img/group-375.webp
+        width: 375
+  
+  enseeiht:
+    alt: ENSEEIHT
+    src: /assets/img/enseeiht.webp
+    width: 1
+    height: 1
+    srcset:
+      - src: /assets/img/enseeiht.webp
+        width: 375
+        
+  at-home:
+    alt: Soutien scolaire à domicile
+    src: /assets/img/soutien-scolaire.webp
+    width: 1
+    height: 1
+    srcset:
+      - src: /assets/img/soutien-scolaire-375.webp
+        width: 375
+        
+  public:
+    alt: Enseignant contractuel
+    src: /assets/img/republique-francaise.webp
+    width: 1
+    height: 1
+    srcset:
+      - src: /assets/img/republique-francaise-375.webp
+        width: 375
+     

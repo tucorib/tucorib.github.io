@@ -1,12 +1,12 @@
 {% capture weekago %}{{ "now" | date: "%s" | minus: 604800 }}{% endcapture %}
 {
 	"items": [
-		{% for post in include.posts %}
+		{% for post in site.categories[page.category] %}
 		{% capture posttime %}{{ post.date | date: "%s" }}{% endcapture %}
 		{
 			"title": "{{ post.title }}",
 			"description": "{{ post.description }}",
-			"datetime": "{{ post.datetime }}",
+			"timestamp": {{ post.date | date: "%s" }},
 			"flash": {% if posttime > weekago %}"visible"{% else %}"invisible"{% endif %},
 			{% if post.link %}
 			"link": "{{ post.link }}",

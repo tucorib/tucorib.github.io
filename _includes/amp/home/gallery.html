@@ -1,0 +1,13 @@
+<h1>{{ site.data.home.gallery.title }}</h1>
+<amp-carousel width="{{ site.data.home.gallery.carousel.width }}"
+  	height="{{ site.data.home.gallery.carousel.height }}"
+  	class="w-75"
+  	layout="responsive"
+  	type="slides"
+  	role="region"
+  	autoplay
+  	delay="{{ site.data.home.gallery.carousel.delay }}">
+	{% for id in site.data.home.gallery.carousel.img %}
+	{% include amp/img.html id=id %}
+	{% endfor %}
+</amp-carousel>
