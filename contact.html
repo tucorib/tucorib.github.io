@@ -151,7 +151,7 @@ permalink: /contact/
 		<div class="d-flex flex-column flex-md-row justify-content-around mt-5">
 			{% assign sorted_entries = site.data.cv.entries | sort: "start" %}
 			{% for entry in sorted_entries %}
-			<div class="d-flex flex-column justify-content-center cv-entry">
+			<div class="card-cv-entry d-flex flex-column justify-content-center">
 				<div class="card-img-center mb-2">
 		    		<amp-img alt="Working online"
 						src="{{ site.cache.img }}{{ entry.img.src }}"

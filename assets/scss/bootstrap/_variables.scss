@@ -75,10 +75,7 @@ $danger:        $red !default;
 $light:         $gray-100 !default;
 $dark:          $gray-800 !default;
 
-$theme-colors: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
-$theme-colors: map-merge(
-  (
+$theme-colors: (
     "primary":    $primary,
     "secondary":  $secondary,
     "success":    $success,
@@ -87,9 +84,8 @@ $theme-colors: map-merge(
     "danger":     $danger,
     "light":      $light,
     "dark":       $dark
-  ),
-  $theme-colors
-);
+  ) !default;
+// stylelint-disable-next-line scss/dollar-variable-default
 
 // Set a specific jump point for requesting color jumps
 $theme-color-interval:      8% !default;

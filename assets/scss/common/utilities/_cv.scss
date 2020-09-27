@@ -1,10 +1,10 @@
-.card-img-center{
-	margin-left: calc(200% / #{$cv-entry-nb-per-row} - #{$cv-entry-nb-per-row}*#{$spacer});
-	margin-right: calc(200% / #{$cv-entry-nb-per-row} - #{$cv-entry-nb-per-row}*#{$spacer});
+.card-cv-entry .card-img-center{
+	margin-left: calc(200% / #{$contact-cv-entry-nb-per-row} - #{$contact-cv-entry-nb-per-row}*#{$spacer});
+	margin-right: calc(200% / #{$contact-cv-entry-nb-per-row} - #{$contact-cv-entry-nb-per-row}*#{$spacer});
 }
 
-.card-img-center img, .card-img-center amp-img{
+.card-cv-entry .card-img-center img, .card-img-center amp-img{
     @extend .border;
     @extend .rounded-circle;
-    border-color: $contact-cv-entry-bg-color;
+    border-color: $contact-cv-entry-color;
 }

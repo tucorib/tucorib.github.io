@@ -18,90 +18,59 @@ $modal-content-bg: #212529 !default;
 // Font
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Lato", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 
+// Colors
+$default-body-color: #212529 !default;
+$body-bg-color: #e7e7e7 !default;
+$success:       #28a745 !default;
+$danger:        #dc3545 !default;
+
+$main-color: #143f6c !default;
+
+$brand-color: $body-bg-color !default;
+$navbar-color: $main-color !default;
+$footer-color: #343a40 !default;
+$filter-color: $body-bg-color !default;
+$cookies-color: $secondary !default;
+$tag-color: $main-color !default;
+
+$home-plus-color: $main-color !default;
+$home-plus-item-color: $main-color !default;
+$home-plus-item-icon-border-color: #17a2b8 !default;
+$home-group-color: $body-bg-color !default;
+
+$contact-prices-color: $main-color !default;
+$contact-reduction-color: #A38917 !default;
+$contact-more-info-color: $body-bg-color !default;
+$contact-cv-entry-color: $body-bg-color !default;
+
+
 // Active
-$navbar-active-color: #416184 !default;
+$nav-pills-link-active-bg: #416184 !default;
 
 // Backgrounds
 $bg-rotation-angular: 3deg;
-
-$body-bg-color: #e7e7e7 !default;
-$brand-bg-color: $body-bg-color !default;
-$navbar-bg-color: #143f6c !default;
-$footer-bg-color: #343a40 !default;
-$filter-bg-color: $body-bg-color !default;
-$cookies-bg-color: $secondary !default;
-$tag-bg-color: $navbar-bg-color !default;
-
-$home-plus-bg-color: $navbar-bg-color !default;
-$home-plus-item-bg-color: $navbar-bg-color !default;
-$home-group-bg-color: $body-bg-color !default;
-
-$contact-prices-bg-color: $navbar-bg-color !default;
-$content-reduction-bg-color: #A38917 !default;
-$contact-more-info-bg-color: $body-bg-color !default;
-$contact-cv-entry-bg-color: $body-bg-color !default;
-
-// Colors
-$default-body-color: #212529 !default;
-$list-icon-color: $navbar-bg-color !default;
 
 // Overlays
 $home-presentation-overlay-color: #000000 !default;
 $home-presentation-overlay-opacity: 0.5 !default;
 
-$contact-id-overlay-color-from: $contact-prices-bg-color !default;
+$contact-id-overlay-color-from: $contact-prices-color !default;
 $contact-id-overlay-color-to: $body-bg-color !default;
 $contact-id-overlay-color-fallback: #C33764 !default;
 $contact-id-overlay-opacity: 0.4 !default;
 
 // Borders
 $filter-border-size: 1px !default;
-$filter-border-color: $navbar-bg-color !default;
-$rounded-info-border-color: #17a2b8 !default;
+$filter-border-color: $main-color !default;
 
 // Font awesome
 $fa-font-path: "https://use.fontawesome.com/releases/v5.14.0/webfonts" !default;
 $fa-font-display: swap !default;
 
 // Containers
+$home-plus-nb-per-row: 4;
 $container-max-width: 1280px !default;
-$plus-nb-per-row: 4;
-$reductions-nb-per-row: 3;
-$cv-entry-nb-per-row: 4;
+$contact-plus-nb-per-row: 4;
+$contact-reduction-nb-per-row: 3;
+$contact-cv-entry-nb-per-row: 4;
 $post-nb-per-row: 3;
-
-// Bootstrap clean
-$spacer: 1rem !default;
-$grid-breakpoints: (
-  xs: 0,
-  md: 768px,
-  xl: 1200px
-) !default;
-$container-max-widths: (
-  md: 720px,
-  xl: 1140px
-) !default;
-$spacers: () !default;
-$spacers: map-merge(
-  (
-    0: 0,
-    1: ($spacer * .25),
-    2: ($spacer * .5),
-    3: $spacer,
-    4: ($spacer * 1.5),
-  ),
-  $spacers
-);
-$enable-transitions: false;
-$enable-print-styles: false;
-$enable-deprecation-messages: false;
-$theme-colors: () !default;
-$theme-colors: map-merge(
-  (
-    "primary":    $primary,
-    "secondary":  $secondary,
-    "success":    $success,
-    "info":       $info,
-  ),
-  $theme-colors
-);

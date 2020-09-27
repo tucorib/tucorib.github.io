@@ -1,0 +1,12 @@
+@mixin card-set-variant($name, $nb-per-row) {
+ 	.#{$name} {
+ 		@extend .m-2;
+		width: calc(100% / #{$nb-per-row} - #{$nb-per-row}*#{$spacer});
+		max-width: calc(100% - #{$spacer});
+	}
+	@include media-breakpoint-down('md', $grid-breakpoints) {
+		.#{$name} {
+			width: calc(100% - #{$spacer});
+		}
+	}
+}

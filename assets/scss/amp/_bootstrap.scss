@@ -1,3 +1,34 @@
+// Bootstrap clean
+$spacer: 1rem !default;
+$grid-breakpoints: (
+  xs: 0,
+  md: 768px,
+  xl: 1200px
+) !default;
+$container-max-widths: (
+  md: 720px,
+  xl: 1140px
+) !default;
+$spacers: () !default;
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    3: $spacer,
+    4: ($spacer * 1.5),
+  ),
+  $spacers
+);
+$enable-transitions: false;
+$enable-print-styles: false;
+$enable-deprecation-messages: false;
+$theme-colors: () !default;
+$component-active-bg: $main-color !default;
+$custom-control-indicator-checked-disabled-bg:  rgba($main-color, .5) !default;
+$form-feedback-valid-color:         $success !default;
+$form-feedback-invalid-color:       $danger !default;
+
 @import "bootstrap/functions";
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
@@ -55,3 +86,12 @@
 @import "bootstrap/utilities/visibility";
 
 //@import "bootstrap/print";
+
+
+// Used
+.btn-primary {
+	@include button-variant($primary, $primary);
+}
+@include background-variant("bg-secondary", 		$secondary);
+@include background-variant("bg-success", 			$success);
+

@@ -1,4 +1,4 @@
-@include background-variant("bg-tag", 	$tag-bg-color);
+@include background-variant("bg-tag", 	$tag-color);
 
 .card-post{
 	@extend .m-2;

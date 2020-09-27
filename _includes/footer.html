@@ -5,8 +5,8 @@
 
 <footer class="bg-footer small py-4">
 	<div class="container">
-		<div class="d-flex flex-column flex-md-row justify-content-around">
-		  	<div>
+		<div class="d-flex flex-column justify-content-around flex-md-row">
+		  	<div class="mb-4 mb-md-0">
 		    	<h5>{{ site.data.labels.footer.navigation }}</h5>
 	    		{% for nav in site.data.navigation %}
 				{% if nav.link != '/videos/' or psize > 0 %}

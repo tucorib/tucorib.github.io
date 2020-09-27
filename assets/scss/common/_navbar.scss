@@ -15,7 +15,3 @@ ul.navbar-nav{
 	@extend .justify-content-center;
 	border-radius: 0;	
 }
-
-.nav-pills .nav-link.active{
-	background-color: $navbar-active-color;
-}
