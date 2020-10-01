@@ -38,7 +38,7 @@ plus:
           description: Dialogue en direct entre l'élève et le professeur.
         - name: Personnalisation
           description: Pédagogie adaptée à l'élève.
-        - name: Stabilité
+        - name: Accompagnement
           description: Suivi assuré par le même professeur à travers les séances.
     - name: Contenu multimédia
       icon: photo-video
@@ -47,12 +47,12 @@ plus:
           description: Manipulation des notions via des outils en ligne.
         - name: Modernité
           description: Illustrations animées, favorisant la compréhension.
-    - name: Replay disponible
+    - name: Retour sur la séance
       icon: recycle
       content:
-        - name: Revisionnage
+        - name: Replay disponible
           description: Possibilité de revenir sur le contenu de la séance a posteriori sur demande.
-        - name: Disponibilité
+        - name: Téléchargement
           description: Vidéo accessible en téléchargement ou en visionnage pendant 14 jours.
 
 group:
