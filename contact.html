@@ -15,14 +15,11 @@ elements:
 		{% include amp/contact/prices.html %}
 	</div>
 </div>
-
-{% if site.reductions %}
-<div class="section bg-contact-prices">
+<div class="section bg-contact-prices{% if site.reductions.size == 0 %} d-none{% endif %}">
 	<div class="container">
 		{% include amp/contact/reductions.html %}
 	</div>
 </div>
-{% endif %}
 
 <div class="bg-rotation-container">
 	<div class="bg-contact-prices bg-rotation-bottom">

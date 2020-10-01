@@ -71,8 +71,7 @@ $fa-font-path: "https://use.fontawesome.com/releases/v5.14.0/webfonts" !default;
 $fa-font-display: swap !default;
 
 // Containers
-$home-plus-nb-per-row: ("xs": 1, "sm": 2, "md": 4);
-$container-max-width: 1280px !default;
-$contact-reduction-nb-per-row: ("xs": 1, "sm": 2, "md": 3);
-$contact-more-info-item-nb-per-row: ("xs": 1, "sm": 2, "md": 3);
+$home-plus-nb-per-row: ("xs": 1, "sm": 2, "md": 2, "lg": 2, "xl": 4);
+$contact-reduction-nb-per-row: ("xs": 1, "sm": 2, "md": 2, "xl": 3);
+$contact-more-info-item-nb-per-row: ("xs": 1, "sm": 2, "md": 2, "lg": 3);
 $post-nb-per-row: ("xs": 1, "sm": 2, "md": 3);

@@ -17,6 +17,11 @@ icons:
   videos: fab fa-youtube
 
 img:
+  logo:
+    alt: logo
+    src: /assets/img/logo-128.png
+    width: 54
+    height: 54
   id:
     alt: id
     src: /assets/img/maths-wallpaper.webp

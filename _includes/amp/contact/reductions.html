@@ -23,11 +23,9 @@
 		  		</div>
 	  		</div>
 	  	</div>
-	  	{% if reduction.end %}
-		<div class="card-footer bg-body border-contact-reduction">
+		<div class="card-footer bg-body border-contact-reduction{% if reduction.end == none %} d-none{% endif %}">
 	  		<small class="text-dark">Valable pour toute séance jusqu'au&nbsp;:<br/>{% include amp/date.html timestamp=end id="date-template" %}</small>
 		</div>
-	  	{% endif %}
 	</div>
 	{% endif %}
 	{% endfor %}

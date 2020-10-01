@@ -1,3 +1,4 @@
+{% if jekyll.environment == 'production' and site.google_analytics %}
 <amp-consent id="myUserConsent"
 	layout="nodisplay">
   	<script type="application/json">
@@ -24,3 +25,4 @@
   		</div>
 	</div>
 </amp-consent>
+{% endif %}
