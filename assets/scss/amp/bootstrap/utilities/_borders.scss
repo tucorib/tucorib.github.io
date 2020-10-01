@@ -1,0 +1,10 @@
+$theme-colors: ();
+$theme-colors: map-merge(
+  (
+	  "primary": map.get($themes, "primary"),
+	  "secondary": map.get($themes, "secondary"),
+	  "success": map.get($themes, "success")
+	 ),
+	 $theme-colors
+);
+@import "bootstrap/utilities/borders";
