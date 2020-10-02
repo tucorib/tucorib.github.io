@@ -90,8 +90,8 @@ img:
 
 video:
   mountain:
-    src: /assets/video/Mt_Baker.mp4
-    type: video/mp4
+    src: /assets/video/Mt_Baker.webm
+    type: video/webm
     width: 1
     height: 1
     

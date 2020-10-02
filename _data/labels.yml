@@ -1,6 +1,9 @@
 waiting: Chargement...
 error: Un problème est survenu !
 
+video:
+  fallback: Votre navigateur ne supporte pas les vidéos HTML5 !
+  
 navigation:
   home: Présentation
   videos: Chaine Youtube
