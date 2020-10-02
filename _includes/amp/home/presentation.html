@@ -1,6 +1,12 @@
 <h1>{{ site.data.home.presentation.title }}</h1>
+{% if site.data.home.presentation.youtube %}
 {% include amp/youtube-video.html
-	id=site.data.home.presentation.youtube.id
-	size=site.data.home.presentation.youtube.size
+	id=site.data.home.presentation.youtube
 	class="w-75"
 %}
+{% else %}
+{% include amp/youtube-img.html
+	id=site.data.home.presentation.youtube
+	class="w-75"
+%}
+{% endif %}

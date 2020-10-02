@@ -59,23 +59,11 @@ future: false
     
 defaults:
   - scope:
-      layout: "amp-list"
-    values:
-      elements:
-        - amp-mustache
-        - amp-list
-        - amp-bind
-        - amp-date-display
-  - scope:
       category: "tool"
       type: "posts"
     values:
       layout: "tool"
       theme: "default"
-
-device:
-  sm: "(max-width: 768px)"
-  xl: "(min-width: 768px)"
   
 cache:
   img: "https://tucorib-github-io.cdn.ampproject.org/i/tucorib.github.io"

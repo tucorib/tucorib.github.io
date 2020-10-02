@@ -11,11 +11,7 @@ start:
 
 presentation:
   title: Présentation
-  youtube:
-    id: 0
-    size:
-      width: 794
-      height: 447
+  youtube: 
   
 plus:
   title: Les avantages

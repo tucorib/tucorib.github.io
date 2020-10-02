@@ -35,10 +35,6 @@
 			{% if post.youtube %}
 			"youtube": "{{ post.youtube }}",
 			{% endif %}
-			{% if post.youtube == nil %}
-			"youtube"  : "",
-			{% endif %}
-			
 			{% if post.categories contains "tool" %}
 			"tool": {
 				"type": "{{ site.data.labels.tooltype[post.tooltype] }}"
