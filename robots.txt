@@ -3,8 +3,6 @@ layout: null
 ---
 User-agent: *
 Allow: /$
-Allow: /videos/$
-Allow: /tools/$
 Allow: /contact/$
 Allow: /feed.xml$
 Disallow: /
