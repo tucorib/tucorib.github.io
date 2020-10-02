@@ -29,7 +29,10 @@
 		{% if include.noaudio %}noaudio="{{ include.noaudio }}"{% endif %}
 		{% if include.loop %}loop="{{ include.loop }}"{% endif %}
 		>
-		<source src="{{ video.src }}" type="{{ video.type }}">
+		<div fallback>
+    		<p>{{ site.data.labels.video.fallback }}</p>
+  		</div>
+  		<source src="{{ video.src }}" type="{{ video.type }}">
 	</amp-video>
 	{% endfor %}
 {% else %}
@@ -48,6 +51,9 @@
 		{% if include.noaudio %}noaudio="{{ include.noaudio }}"{% endif %}
 		{% if include.loop %}loop="{{ include.loop }}"{% endif %}
 		>
-		<source src="{{ video.src }}" type="{{ video.type }}">
+		<div fallback>
+    		<p>{{ site.data.labels.video.fallback }}</p>
+  		</div>
+  		<source src="{{ video.src }}" type="{{ video.type }}">
 	</amp-video>
 {% endif %}
