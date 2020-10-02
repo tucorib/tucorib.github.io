@@ -1,9 +1,14 @@
+{% if site.data.youtube contains include.id %}
+{% assign youtube = site.data.youtube[include.id] %} 
+{% else %}
+{% assign youtube = site.data.youtube["default"] %}
+{% endif %}
 <amp-youtube
   class="{% if include.class %}{{ include.class }}{% endif %}"
   data-videoid="{{ include.id }}"
   layout="responsive"
-  width="{{ include.size.width }}"
-  height="{{ include.size.height }}"
+  width="{{ youtube.width }}"
+  height="{{ youtube.height }}"
   dock
 >
 </amp-youtube>

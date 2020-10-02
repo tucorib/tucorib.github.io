@@ -2,8 +2,11 @@
 <template type="amp-mustache" id="{{ include.id }}">
 	<a class="my-3 card-post" href="{{ include.url }}">
 		<div class="card h-100 mb-3">
-			{% capture youtube_id %}{% raw %}{{#youtube}}{{youtube}}{{/youtube}}{{^youtube}}0{{/youtube}}{% endraw %}{% endcapture %}
-			{% include amp/youtube-img.html id=youtube_id class="card-img" %}
+			{% capture youtube_id %}{% raw %}{{youtube}}{% endraw %}{% endcapture %}
+			{% include amp/youtube-img.html
+				id=youtube_id
+				class="card-img"
+			%}
 			<div class="card-body d-flex flex-column text-center">
 				<p class="h2 card-title mb-0">{% raw %}{{title}}{% endraw %}</p>
 				<p class="card-text small text-muted mb-0">
