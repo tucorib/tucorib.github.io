@@ -1,18 +1,14 @@
-{% if include.id == nil %}
-	{% include amp/youtube-img.html class=include.class%}
+{% if site.data.youtube contains include.id %}
+{% assign youtube = site.data.youtube[include.id] %} 
 {% else %}
-	{% if site.data.youtube contains include.id %}
-	{% assign youtube = site.data.youtube[include.id] %} 
-	{% else %}
-	{% assign youtube = site.data.youtube["default"] %}
-	{% endif %}
-	<amp-youtube
-	  class="{% if include.class %}{{ include.class }}{% endif %}"
-	  data-videoid="{{ include.id }}"
-	  layout="responsive"
-	  width="{{ youtube.width }}"
-	  height="{{ youtube.height }}"
-	  dock
-	>
-	</amp-youtube>
+{% assign youtube = site.data.youtube["default"] %}
 {% endif %}
+<amp-youtube
+  class="{% if include.class %}{{ include.class }}{% endif %}"
+  data-videoid="{{ include.id }}"
+  layout="responsive"
+  width="{{ youtube.width }}"
+  height="{{ youtube.height }}"
+  dock
+>
+</amp-youtube>
