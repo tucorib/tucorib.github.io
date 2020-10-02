@@ -1,44 +1,77 @@
-// Wrapper
-$wrapper-color: #10927c !default;
-$wrapper-max-width: 1140px !default;
+// Bootstrap
+$enable-responsive-font-sizes: true !default;
 
-$body-color: #eeeeee !default;
-$primary: #ff8939 !default;
+$primary: 	#E07731 !default;
 $secondary: #4b6fbb !default;
-$btn-background: $body-color !default;
+$success:   #1dad63 !default;
+
+$body-color: #143f6c !default;
+$link-color: #212529 !default;
+
 $border-width: 3px !default;
 $border-color: #fff !default;
-$enable-rounded: true !default;
-$body-bg-color: #46a898 !default; // lighten($wrapper-color, 35%) !default;
+
+$input-btn-border-width: 0;
+
 $modal-content-bg: #212529 !default;
-$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", "Lato", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+// Font
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Lato", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+// Type
+$display5-size:               2.5rem !default;
+$display5-weight:             300;
+$display6-size:               1.5rem !default;
+$display6-weight:             300;
+
+// Colors
+$body-bg-color: #e7e7e7 !default;
+$success:       #28a745 !default;
+$danger:        #dc3545 !default;
+
+$main-color: #143f6c !default;
+
+$brand-color: $body-bg-color !default;
+$navbar-color: $main-color !default;
+$footer-color: #343a40 !default;
+$filter-color: $body-bg-color !default;
+$cookies-color: $secondary !default;
+$tag-color: $main-color !default;
+
+$home-presentation-color: $body-bg-color !default;
+$home-plus-color: $main-color !default;
+$home-plus-item-color: $main-color !default;
+$home-plus-item-icon-border-color: #17a2b8 !default;
+$home-group-color: $body-bg-color !default;
+
+$contact-prices-color: $main-color !default;
+$contact-reduction-color: #A38917 !default; 
+$contact-more-info-color: $body-bg-color !default;
+$contact-more-info-item-color: $body-bg-color !default;
+
+// Active
+$nav-pills-link-active-bg: #416184 !default;
+
+// Backgrounds
+$bg-rotation-angular: 3deg;
+
+// Overlays
+$home-start-overlay-color: #000000 !default;
+$home-start-overlay-opacity: 0.5 !default;
+
+$contact-id-overlay-color: #000000 !default;
+$contact-id-overlay-opacity: 0.5 !default;
+
+// Borders
+$filter-border-size: 1px !default;
+$filter-border-color: $main-color !default;
 
 // Font awesome
 $fa-font-path: "https://use.fontawesome.com/releases/v5.14.0/webfonts" !default;
 $fa-font-display: swap !default;
 
-// Bootstrap clean
-$spacer: 1rem !default;
-$grid-breakpoints: (
-  xs: 0,
-  md: 768px,
-  xl: 1200px
-) !default;
-$container-max-widths: (
-  md: 720px,
-  xl: 1140px
-) !default;
-$spacers: () !default;
-$spacers: map-merge(
-  (
-    0: 0,
-    1: ($spacer * .25),
-    2: ($spacer * .5),
-    3: $spacer,
-    4: ($spacer * 1.5),
-  ),
-  $spacers
-);
-$enable-transitions: false;
-$enable-print-styles: false;
-$enable-deprecation-messages: false;
+// Containers
+$home-plus-nb-per-row: ("xs": 1, "sm": 2, "md": 2, "lg": 2, "xl": 4);
+$contact-reduction-nb-per-row: ("xs": 1, "sm": 2, "md": 2, "xl": 3);
+$contact-more-info-item-nb-per-row: ("xs": 1, "sm": 2, "md": 2, "lg": 3);
+$post-nb-per-row: ("xs": 1, "sm": 2, "md": 3);

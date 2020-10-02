@@ -1,0 +1,19 @@
+$grid-breakpoints: ();
+$grid-breakpoints: map-merge(
+  (
+	  "xs": map.get($breakpoints, "xs"),
+	  "sm": map.get($breakpoints, "sm"),
+	  "md": map.get($breakpoints, "md"),
+	  "lg": map.get($breakpoints, "lg")
+	 ),
+	 $grid-breakpoints
+);
+$container-max-widths: ();
+$container-max-widths: map-merge(
+  (
+	  "md": map.get($container-breakpoints, "md"),
+	  "lg": map.get($container-breakpoints, "lg")
+	 ),
+	 $container-max-widths
+);
+@import "bootstrap/navbar";

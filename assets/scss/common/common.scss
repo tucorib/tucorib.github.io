@@ -1,12 +1,15 @@
 @use "sass:map";
 
-@import "common/utilities/background";
-@import "common/utilities/picture";
-@import "common/utilities/timeline";
+@import "common/mixins";
 
+@import "common/backgrounds";
+@import "common/borders";
+@import "common/buttons";
 @import "common/layout";
 @import "common/navbar";
+@import "common/sections";
 @import "common/typography";
+@import "common/type";
 
 @import "libs/fontawesome/solid";
 @import "libs/fontawesome/brands";

@@ -2,11 +2,15 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr" dir="ltr">
 	<head>
-		<meta charset="UTF-8">
-		<!-- Smartphone screen dimension management -->
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		{% include headers/favicon.html %}
+		{% include headers/charset.html %}
+		{% include headers/seo.html %}
+    	{% include headers/viewport.html %}
+    	
 		<meta name="robots" content="noindex" />
 		
+		{% include lib/jquery.html %}
+		{% include lib/bootstrap.html %}
 		{% include lib/fontawesome.html %}
 		
 		<!-- Theme -->
@@ -26,11 +30,6 @@
 		<link rel="stylesheet" href="/assets/css/tool.css" as="style" type="text/css">
 		{% endif %}
 		
-		{% feed_meta %}
-		{% seo %}
-		<link rel="shortcut icon" href="/assets/img/logo-128.png">
-		<meta property="og:image" content="{{site.image}}">
-
 		<!-- Libraries -->
 		{% for lib in page.libraries %}
 		{% include {{ lib }} %}
@@ -52,17 +51,17 @@
 		<script defer src="{{ script }}"></script>
 		{% endfor %}
 	</head>
-	<body>
-		<div class="wrapper">
-			{% include noamp-navigation.html %}
-		</div>
-		<div class="wrapper">
-			<h1 class="text-center">{{ page.title }}</h1>
-		</div>
-		<main class="wrapper pb-3">
-			<div class="container">
-				{% include tools/hud.html %}
-				{{ content }}
+	<body class="bg-body">
+		{% include noamp/analytics.html %}
+		{% include noamp/navigation.html %}
+		<main>
+			<b class="mt-2"></b>
+			<div class="section">
+				<div class="container">
+					<h1>{{ page.title }}</h1>
+					{% include tools/hud.html %}
+					{{ content }}
+				</div>
 			</div>
 		</main>
 		{% include footer.html %}

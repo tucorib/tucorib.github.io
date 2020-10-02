@@ -1,0 +1,30 @@
+<b class="screen-overlay"></b>
+<header>
+	<div class="bg-header-brand">
+		<div class="container d-flex align-items-center">
+			<a class="d-flex align-items-center" href="/">
+				<img alt="Logo"
+					src="{{ site.cache.img }}/assets/img/logo-128.png"
+					width="54"
+					height="54"
+					class="my-2">
+			</a>
+			<div class="flex-grow-1"></div>
+			<button class="d-md-none sidebar-open-btn navbar-toggler border border-primary bg-body text-primary" type="button">
+				{% include icon.html id="bars" %}
+			</button>
+			<nav class="mobile-offcanvas bg-header-nav navbar nav-pills nav-fill p-0 h-100 bg-navbar flex-column d-none">
+				<ul class="navbar-nav flex-grow-1 p-2">
+					{% include navigation.html %}
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<div class="bg-header-nav">
+		<nav class="navbar navbar-expand-md nav-pills bg-transparent p-0 h-100 container">
+			<ul class="navbar-nav flex-grow-1 h-100 d-flex align-items-center justify-content-center">
+				{% include navigation.html class="flex-grow-1" %}
+			</ul>
+		</nav>
+	</div>
+</header>

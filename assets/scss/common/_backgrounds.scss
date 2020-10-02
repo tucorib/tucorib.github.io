@@ -1,0 +1,10 @@
+@include background-variant("bg-body", 			$body-bg-color);
+@include background-variant("bg-header-brand", 	$brand-color);
+@include background-variant("bg-header-nav", 	$navbar-color);
+@include background-variant("bg-footer", 		$footer-color);
+@include background-variant("bg-filter", 		$filter-color);
+
+@include background-variant("bg-cookies", 		$cookies-color);
+.btn-cookies {
+	@include button-variant($cookies-color, $cookies-color);
+}

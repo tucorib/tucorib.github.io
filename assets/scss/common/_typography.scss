@@ -11,6 +11,24 @@ em{
 	@extend .font-weight-bold;
 }
 
-.btn:hover, .btn.btn-primary, .badge.badge-primary, .btn-outline-primary:not(:disabled):not(.disabled).active{
-	color: $body-color;
+.btn-link{
+	color: $body-bg-color;
+}
+
+.text-bg-body{
+	color: $body-bg-color;
+}
+
+h1, h2, h3, h4, h5{
+	@extend .m-0;
+}
+
+h1, h2{
+	@extend .text-center;
+	@extend .mb-4;
+	@extend .mb-md-5;
+}
+
+h1{
+	@extend .display-4;
 }

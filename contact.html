@@ -2,184 +2,32 @@
 layout: amp
 title: Me contacter
 permalink: /contact/
+elements:
+ - amp-mustache
+ - amp-date-display
 ---
-<div class="container mb-5">
-	<h1 class="h3 text-center text-md-left font-weight-bolder">Me contacter</h1>
-	<br/>
-	<p class="mx-auto h5 text-center font-weight-bolder">{{ site.data.legal.owner.name }}</p>
-	<div class="row">
-		<div class="col-12 col-md-6">
-		  	<a class="btn btn-link btn-primary w-100 font-weight-bolder" href="mailto:{{ site.data.legal.owner.email }}"><i class="fas fa-envelope mr-2"></i>{{ site.data.legal.owner.email }}</a>
-		</div>
-		<div class="col-12 col-md-6">
-		  	<a class="btn btn-link btn-primary w-100 font-weight-bolder mt-3 mt-md-0"  href="tel:{{ site.data.legal.owner.phone.num }}"><i class="fas fa-phone mr-2"></i>{{ site.data.legal.owner.phone.display }}</a>
-		</div>
+<div class="section">
+	{% include amp/contact/id.html %}
+</div>
+
+<div class="section bg-contact-prices">
+	<div class="container">
+		{% include amp/contact/prices.html %}
 	</div>
 </div>
-<div class="container mb-5">
-	<h1 class="h3 text-center text-md-left font-weight-bolder">Les tarifs</h1>
-	<br/>
-	<div class="row">
-		<div class="col-12 col-md-6">
-			<div class="d-flex flex-column bg-dark m-0">
-	  			<div class="p-2 text-center h5 font-weight-bolder bg-secondary">Séance individuelle (1 h)<br/><small>1 élève</small></div>
-	  			<div class="row">
-	  				<div class="col-4 text-right">
-	  					<i class="fas fa-check text-success"></i>
-	  				</div>
-	  				<div class="col-8">
-	  					Suivi de l'élève
-	  				</div>
-	  			</div>
-	  			<div class="row">
-	  				<div class="col-4 text-right">
-	  					<i class="fas fa-check text-success"></i>
-	  				</div>
-	  				<div class="col-8">
-	  					Travaux dirigés
-	  				</div>
-	  			</div>
-	  			<div class="row">
-	  				<div class="col-4 text-right">
-	  					<i class="fas fa-check text-success"></i>
-	  				</div>
-	  				<div class="col-8">
-	  					Exercices de révision
-	  				</div>
-	  			</div>
-	  			<div class="row">
-	  				<div class="col-4 text-right">
-	  					<i class="fas fa-check text-success"></i>
-	  				</div>
-	  				<div class="col-8">
-	  					Evaluations
-	  				</div>
-	  			</div>
-	  			<hr class="w-100 my-2 bg-secondary"/>
-	  			<div class="pb-2 text-center font-weight-bold">35 € TTC</div>
-			</div>
-			<br/>
-		</div>
-		<div class="col-12 col-md-6">
-			<div class="d-flex flex-column bg-dark m-0">
-	  			<div class="p-2 text-center h5 font-weight-bolder bg-success">Séance de groupe (1 h)<br/><small>3 élèves maximum</small></div>
-	  			<div class="row">
-	  				<div class="col-4 text-right">
-	  					<i class="fas fa-check text-success"></i>
-	  				</div>
-	  				<div class="col-8">
-	  					Suivi de l'élève
-	  				</div>
-	  			</div>
-	  			<div class="row">
-	  				<div class="col-4 text-right">
-	  					<i class="fas fa-check text-success"></i>
-	  				</div>
-	  				<div class="col-8">
-	  					Travaux dirigés
-	  				</div>
-	  			</div>
-	  			<div class="row">
-	  				<div class="col-4 text-right">
-	  					<i class="fas fa-check text-success"></i>
-	  				</div>
-	  				<div class="col-8">
-	  					Exercices de révision
-	  				</div>
-	  			</div>
-	  			<div class="row">
-	  				<div class="col-4 text-right">
-	  					<i class="fas fa-check text-success"></i>
-	  				</div>
-	  				<div class="col-8">
-	  					Evaluations
-	  				</div>
-	  			</div>
-	  			<hr class="w-100 my-2 bg-success"/>
-	  			<div class="pb-2 text-center font-weight-bold">25 € TTC / élève</div>
-			</div>
-			<br/>
-		</div>
+<div class="section bg-contact-prices{% if site.reductions.size == 0 %} d-none{% endif %}">
+	<div class="container">
+		{% include amp/contact/reductions.html %}
 	</div>
-	<h2 class="h5 text-center text-md-left font-weight-bolder">Réduction pour les familles</h2>
-	<p class="pt-2">Bénéficiez de 10% de réduction à partir de 2 élèves inscrits.</p>
-	{% include promos.html %}
 </div>
-<div class="container">
-	<h1 class="h3 text-center text-md-left font-weight-bolder">En savoir plus</h1>
-	<p class="pt-2">L'idée de suivre du soutien scolaire en ligne vous intéresse, mais vous désirez savoir si l'enseignant est compétent&nbsp;? Question tout à fait légitime&nbsp;! Voici quelques éléments clés afin de vous apporter les éclaircissements nécessaires&nbsp;:</p>
-	<br/>
-	<div class="row">
-		<div class="col-4 col-md-2">
-			<div class="timeline-image">
-	    		<amp-img alt="Working online"
-					src="{{ site.cache.img }}/assets/img/republique-francaise.webp"
-					srcset="{{ site.cache.img }}/assets/img/republique-francaise-375.webp 375w"
-					width="500"
-					height="500"
-					layout="responsive"
-					class="timeline-image">
-				</amp-img>
-	  		</div>
-	  	</div>
-		<div class="col-8 col-md-10 pl-2">
-			<h4 class="mb-0">Enseignant contractuel</h4>
-			<small>2019 - 2020</small>
-			<br/>
-	  		<p>
-	    		Remplacements en mathématiques effectués au sein de l'Education Nationale (Toulouse, FR).
-	  			<br/>
-	    		Classes&nbsp;: de la 6e à la terminale S.
-	  		</p>
-		</div>
+
+<div class="bg-rotation-container">
+	<div class="bg-contact-prices bg-rotation-bottom">
 	</div>
-	<br/>
-	<div class="row">
-		<div class="col-4 col-md-2">
-			<div class="timeline-image">
-	    		<amp-img alt="Working online"
-					src="{{ site.cache.img }}/assets/img/soutien-scolaire.webp"
-					srcset="{{ site.cache.img }}/assets/img/soutien-scolaire-375.webp 375w"
-					width="500"
-					height="500"
-					layout="responsive"
-					class="timeline-image">
-				</amp-img>
-	  		</div>
-	  	</div>
-		<div class="col-8 col-md-10 pl-2">
-			<h4 class="mb-0">Soutien scolaire</h4>
-			<small>2012 - 2020</small>
-			<p>
-				Soutien scolaire en mathématiques (Nantes et Toulouse, FR).
-				<br/>
-				Niveaux&nbsp;: collège et lycée.
-			</p>
-		</div>
-	</div>
-	<br/>
-	<div class="row">
-		<div class="col-4 col-md-2">
-			<div class="timeline-image">
-	    		<amp-img alt="Working online"
-					src="{{ site.cache.img }}/assets/img/enseeiht.webp"
-					width="500"
-					height="500"
-					layout="responsive"
-					class="timeline-image">
-				</amp-img>
-	  		</div>
-	  	</div>
-		<div class="col-8 col-md-10 pl-2">
-			<h4 class="mb-0">Ingénieur en informatique</h4>
-			<small>2003 - 2008</small>
-			<p>
-				- Classe Préparatoire aux Grandes Ecoles (Lycée Jean Dautet, La Rochelle, FR).
-				<br/>
-				- Echange universitaire à l'Université de Montréal (UdeM, Montréal, QC).
-				<br/>
-				- Diplôme d'Ingénieur en Informatique (ENSEEIHT, Toulouse, FR).
-			</p>
-		</div>
+</div>
+
+<div class="section bg-contact-more-info">
+	<div class="container">
+		{% include amp/contact/more-infos.html %}
 	</div>
 </div>

@@ -1,0 +1,5 @@
+@mixin border-variant($name, $color) {
+ 	.#{$name} {
+		border-color: $color;
+	}
+}

@@ -1,0 +1,18 @@
+$grid-breakpoints: ();
+$grid-breakpoints: map-merge(
+  (
+	  "xs": map.get($breakpoints, "xs"),
+	  "sm": map.get($breakpoints, "sm"),
+	  "md": map.get($breakpoints, "md")
+	 ),
+	 $grid-breakpoints
+);
+$container-max-widths: ();
+$container-max-widths: map-merge(
+  (
+	  "md": map.get($container-breakpoints, "md"),
+	  "xl": map.get($container-breakpoints, "xl")
+	 ),
+	 $container-max-widths
+);
+@import "bootstrap/utilities/spacing";

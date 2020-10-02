@@ -1,0 +1,9 @@
+<div class="input-group filter-border bg-filter sticky-top">
+	<div class="input-group-prepend">
+		<span class="input-group-text bg-transparent">{% include icon.html id="search" %}</span>
+	</div>
+	<input class="form-control bg-transparent"
+		type="text"
+		placeholder="Filtrer les résultats"
+		on="input-throttled:AMP.setState({filter: event.value.toLowerCase()}),{{ include.id }}.changeToLayoutContainer()">
+</div>

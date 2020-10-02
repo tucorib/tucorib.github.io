@@ -1,0 +1,16 @@
+$grid-breakpoints: ();
+$grid-breakpoints: map-merge(
+  (
+	  "xs": map.get($breakpoints, "xs"),
+	 ),
+	 $grid-breakpoints
+);
+$theme-colors: ();
+$theme-colors: map-merge(
+  (
+	  "primary": map.get($themes, "primary"),
+	  "dark": map.get($themes, "dark"),
+	 ),
+	 $theme-colors
+);
+@import "bootstrap/utilities/text";

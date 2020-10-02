@@ -1,0 +1,35 @@
+@include overlay-variant("overlay-contact-id", 			$contact-id-overlay-color, $contact-id-overlay-opacity);
+
+.card-contact-id .card-img-overlay{
+	@extend .p-0;
+	margin-left: 10%;
+	max-width: 80%;
+	top: 5%;
+	
+	@include media-breakpoint-up("md", $breakpoints) {
+		width: 30%;
+	}
+}
+.card-contact-id .card-img-overlay div{
+	
+}
+
+@include background-variant("bg-contact-prices", 	$contact-prices-color);
+@include background-variant("bg-contact-reduction", $contact-reduction-color);
+@include border-variant("border-contact-reduction", $contact-reduction-color);
+@include card-set-variant("card-contact-reduction", $contact-reduction-nb-per-row);
+
+@include background-variant("bg-contact-more-info", $contact-more-info-color);
+@include background-variant("bg-contact-more-info-item", 	$contact-more-info-item-color);
+@include card-set-variant("card-more-info-item", 			$contact-more-info-item-nb-per-row);
+
+.card-more-info-item .card-img{
+	width: 128px;
+	height: 128px;
+}
+
+.card-more-info-item .card-img amp-img{
+    @extend .border;
+    @extend .rounded-circle;
+    border-color: $contact-more-info-item-color;
+}
