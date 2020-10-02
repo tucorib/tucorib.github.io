@@ -90,7 +90,7 @@ img:
 
 video:
   mountain:
-    poster: /assets/img/mountain.png
+    poster: /assets/img/mountain.webp
     width: 1920
     height: 1080
     srcset:
