@@ -2,78 +2,34 @@
 layout: amp
 title: Soutien scolaire en ligne
 permalink: /
+elements:
+ - amp-youtube
+ - amp-video-docking
 ---
-<div class="row align-items-center mb-md-4">
-	<div class="col-12 order-2 col-md-6 order-md-1">
-		<div class="container">
-			<h1 class="h3 text-center text-md-left font-weight-bolder mt-3 pb-2">Optez pour le cours de maths en ligne</h1>
-			<p>Des lacunes à combler&nbsp;? Un examen à préparer&nbsp;? Envie d'approfondir vos connaissances&nbsp;?</p>
-			<p>Que vous soyez au collège ou au lycée, quels que soient vos raisons et vos objectifs, je suis à votre disposition&nbsp;!</p>
-			<p>Une connexion internet suffit pour participer à toutes les séances.</p>
-		</div>
-	</div>
-	<div class="col-12 order-1 col-md-6 order-md-2">
-		<amp-img alt="Wallpaper"
-			class="picture mr-md-4"
-			src="{{ site.cache.img }}/assets/img/maths-wallpaper.webp"
-			srcset="{{ site.cache.img }}/assets/img/maths-wallpaper.webp 1140w,
-					{{ site.cache.img }}/assets/img/maths-wallpaper-768.webp 768w,
-					{{ site.cache.img }}/assets/img/maths-wallpaper-375.webp 375w"
-			width="1140"
-			height="641"
-			layout="responsive">
-		</amp-img>
+<div class="section">
+	{% include amp/home/start.html %}
+</div>
+	
+<div class="section bg-home-presentation">
+	<div class="container d-flex flex-column justify-content-center align-items-center">
+		{% include amp/home/presentation.html %}
 	</div>
 </div>
-<div class="row align-items-center mb-md-4">
-	<div class="col-12 order-1 col-md-6 order-md-1">
-		<amp-img alt="Working online"
-			class="picture ml-md-4"
-			src="{{ site.cache.img }}/assets/img/stream.webp"
-			srcset="{{ site.cache.img }}/assets/img/stream.webp 1140w,
-					{{ site.cache.img }}/assets/img/stream-768.webp 768w,
-					{{ site.cache.img }}/assets/img/stream-375.webp 375w"
-			width="1920"
-			height="1043"
-			layout="responsive">
-		</amp-img>
-	</div>
-	<div class="col-12 order-2 col-md-6 order-md-2 pt-2">
-		<div class="container">
-			<h2 class="h5 text-center text-md-left font-weight-bolder mb-4">Les avantages</h2>
-			<ul>
-				<li><em>Séance en visio-conférence&nbsp;:</em> L'élève bénéficie d'une pédagogie adaptée à son raisonnement, et d'un suivi personnalisé sur la durée.</li>
-				<li><em>Contenu interactif&nbsp;:</em> Finie l'austérité d'un cours sur papier&nbsp;! Ici, l'élève a l'opportunité d'apprendre en manipulant différents outils multimédias. Des jeux ou autres outils interactifs sont réalisés sur mesure pour chaque notion abordée.</li>
-				<li><em>Replay disponible&nbsp;:</em> Besoin de revenir sur la séance&nbsp;? Pas de problème &nbsp; si vous le souhaitez, les vidéos resteront disponibles en téléchargement ou en visionnage pendant 14 jours.</li>
-			</ul>
-		</div>
+
+<div class="bg-rotation-container">
+	<div class="bg-home-plus bg-rotation-top">
 	</div>
 </div>
-<div class="row align-items-center mb-md-4">
-	<div class="col-12 order-2 col-md-6 order-md-1 pt-2">
-		<div class="container">
-			<h2 class="h5 text-center text-md-left font-weight-bolder mb-4">Le travail de groupe</h2>
-			<p>La collaboration entre élèves assure le développement de qualités sociales qui seront primordiales pour leur avenir&nbsp;: expression et écoute, argumentation, répartition des tâches...</p>
-			<p>De plus, la motivation d'étudier à plusieurs augmente l'implication et l'investissement lors des séances, favorisant grandement l'apprentissage.</p>
-			<p>Pour toutes ces raisons, nous vous offrons la possibilité d'effectuer vos séances en collaboration avec d'autres élèves à des tarifs réduits.</p>
-		</div>
-	</div>
-	<div class="col-12 order-1 col-md-6 order-md-2">
-		<amp-img alt="Team Working"
-			class="picture mr-md-4"
-			src="{{ site.cache.img }}/assets/img/group.webp"
-			srcset="{{ site.cache.img }}/assets/img/group.webp 1140w,
-					{{ site.cache.img }}/assets/img/group-768.webp 768w,
-					{{ site.cache.img }}/assets/img/group-375.webp 375w"
-			width="1920"
-			height="1080"
-			layout="responsive">
-		</amp-img>
+
+<div class="section bg-home-plus">
+	<div class="container d-flex flex-column justify-content-center align-items-center">
+		{% include amp/home/plus.html %}
+		<b class="p-4"></b>
+		<a href="/contact/" class="btn btn-lg btn-link btn-primary">Consultez les différents tarifs</a>
 	</div>
 </div>
-<div class="container pt-2">
-	{% include promos.html %}
-	<div class="d-flex justify-content-center">
-		<a href="/contact/" class="btn btn-primary font-weight-bolder">Consultez les différents tarifs</a>
+
+<div class="bg-rotation-container">
+	<div class="bg-home-plus bg-rotation-bottom">
 	</div>
 </div>

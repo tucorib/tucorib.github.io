@@ -1,0 +1,33 @@
+{% include amp/templates/date.html id="date-template" %}
+<template type="amp-mustache" id="{{ include.id }}">
+	<a class="my-3 card-post" href="{{ include.url }}">
+		<div class="card h-100 mb-3">
+			{% capture youtube_id %}{% raw %}{{#youtube}}{{youtube}}{{/youtube}}{{^youtube}}0{{/youtube}}{% endraw %}{% endcapture %}
+			{% include amp/youtube-img.html id=youtube_id class="card-img" %}
+			<div class="card-body d-flex flex-column text-center">
+				<p class="h2 card-title mb-0">{% raw %}{{title}}{% endraw %}</p>
+				<p class="card-text small text-muted mb-0">
+					{% raw %}{{#tool}}{% endraw %}
+					<span>Type&nbsp;:&nbsp;{% raw %}{{tool.type}}{% endraw %}</span>
+					<br/>
+					{% raw %}{{/tool}}{% endraw %}
+					{% raw %}{{#level}}{% endraw %}
+					<span>Niveau&nbsp;:&nbsp;{% raw %}{{{level}}}{% endraw %}</span>
+					{% raw %}{{/level}}{% endraw %}
+				</p>
+				<p class="card-text h6 text-center my-1">
+					{% raw %}{{#tags}}{% endraw %}<span class="badge badge-pill bg-tag rounded mx-1">{% raw %}{{.}}{% endraw %}</span>{% raw %}{{/tags}}{% endraw %}
+				</p>
+				<p class="card-text text-dark mt-2 px-4">
+					{% raw %}{{{description}}}{% endraw %}
+				</p>
+			</div>
+			<div class="card-footer">
+				{% capture timestamp %}{% raw %}{{timestamp}}{% endraw %}{% endcapture %}
+				<span class="d-flex flex-row justify-content-end small text-muted">
+					Diffusé le&nbsp;:&nbsp;{% include amp/date.html timestamp=timestamp id="date-template" class="flex-grow-0" %}
+				</small>
+			</div>
+		</div>
+	</a>
+</template>

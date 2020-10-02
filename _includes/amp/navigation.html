@@ -1,0 +1,33 @@
+{% assign psize = site.posts.size %}
+{% assign gsize = site.categories.tool.size %}
+<amp-sidebar id="sidebar" layout="nodisplay" class="bg-header-nav">
+    <ul class="navbar-nav flex-grow-1 p-2">
+		{% include navigation.html %}
+	</ul>
+</amp-sidebar>
+<header>
+	<div class="bg-header-brand">
+		<div class="container d-flex align-items-center">
+			<a class="d-flex align-items-center" href="/">
+				{% include amp/img.html
+					id="logo"
+					layout="fixed"
+					class="my-2"
+				%}
+			</a>
+			<div class="flex-grow-1"></div>
+			<button class="d-lg-none sidebar-open-btn navbar-toggler border border-primary bg-body text-primary" type="button" on="tap:sidebar">
+				{% include icon.html id="bars" %}
+			</button>
+		</div>
+	</div>
+	<div class="bg-header-nav">
+		<amp-mega-menu id="menu" height="64" layout="fixed-height" class="d-none d-lg-block">
+			<nav class="navbar navbar-expand-lg nav-pills bg-transparent p-0 h-100 container">
+				<ul class="navbar-nav flex-grow-1 h-100 d-flex align-items-center justify-content-center">
+					{% include navigation.html class="flex-grow-1" %}
+				</ul>
+			</nav>
+		</amp-mega-menu>
+	</div>
+</header>

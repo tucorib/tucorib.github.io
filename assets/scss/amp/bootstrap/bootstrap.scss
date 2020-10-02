@@ -1,0 +1,99 @@
+@use "sass:map";
+
+// Bootstrap clean
+$spacer: 1rem !default;
+$grid-breakpoints: () !default;
+$container-max-widths: () !default;
+$enable-transitions: false;
+$enable-print-styles: false;
+$enable-deprecation-messages: false;
+$theme-colors: () !default;
+$component-active-bg: $main-color !default;
+$custom-control-indicator-checked-disabled-bg:  rgba($main-color, .5) !default;
+$form-feedback-valid-color:         $success !default;
+$form-feedback-invalid-color:       $danger !default;
+
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+
+// Breakpoints
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+$container-breakpoints: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+) !default;
+// Colors
+$themes: (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $light,
+    "dark":       $dark
+  ) !default;
+
+@import "bootstrap/mixins";
+@import "bootstrap/reboot";
+@import "bootstrap/type";
+//@import "bootstrap/images";
+//@import "bootstrap/code";
+@import "bootstrap/forms";
+//@import "bootstrap/transitions";
+//@import "bootstrap/button-group";
+@import "bootstrap/input-group";
+//@import "bootstrap/custom-forms";
+@import "bootstrap/nav";
+@import "bootstrap/card";
+//@import "bootstrap/breadcrumb";
+//@import "bootstrap/pagination";
+@import "bootstrap/badge";
+//@import "bootstrap/jumbotron";
+//@import "bootstrap/alert";
+//@import "bootstrap/progress";
+//@import "bootstrap/media";
+//@import "bootstrap/close";
+//@import "bootstrap/toasts";
+//@import "bootstrap/modal";
+@import "bootstrap/tooltip";
+//@import "bootstrap/popover";
+//@import "bootstrap/carousel";
+//@import "bootstrap/spinners";
+
+//@import "bootstrap/utilities";
+@import "bootstrap/utilities/align";
+//@import "bootstrap/utilities/clearfix";
+//@import "bootstrap/utilities/embed";
+//@import "bootstrap/utilities/interactions";
+//@import "bootstrap/utilities/overflow";
+@import "bootstrap/utilities/position";
+//@import "bootstrap/utilities/screenreaders";
+//@import "bootstrap/utilities/shadows";
+@import "bootstrap/utilities/sizing";
+//@import "bootstrap/utilities/spacing";
+//@import "bootstrap/utilities/stretched-link";
+//@import "bootstrap/utilities/text";
+@import "bootstrap/utilities/visibility";
+
+//@import "bootstrap/print";
+
+
+@import "amp/bootstrap/buttons";
+@import "amp/bootstrap/grid";
+@import "amp/bootstrap/navbar";
+@import "amp/bootstrap/root";
+@import "amp/bootstrap/utilities/background";
+@import "amp/bootstrap/utilities/borders";
+@import "amp/bootstrap/utilities/display";
+@import "amp/bootstrap/utilities/flex";
+@import "amp/bootstrap/utilities/spacing";
+@import "amp/bootstrap/utilities/text";

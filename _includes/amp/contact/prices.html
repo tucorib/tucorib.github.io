@@ -1,0 +1,27 @@
+<h1>Les tarifs</h1>
+<div class="d-flex flex-row flex-wrap justify-content-around">
+	{% for price in site.data.contact.prices %}
+	<div class="card bg-transparent border-{{ price.color }} flex-grow-1 m-2">
+		<div class="card-header bg-{{ price.color }} border-{{ price.color }} text-center">
+			<span class="h4 text-center font-weight-bolder">{{ price.name }}<br/><small>{{ price.max-students }}</small></span>
+		</div>
+		<div class="card-body h5">
+			{% for content in price.content %}
+			<div class="row my-2">
+  				<div class="col-4 text-right">
+  					{% if content.checked %}
+  					{% include icon.html id="check" %}
+  					{% endif %}
+  				</div>
+  				<div class="col-8">
+  					{{ content.name }}
+  				</div>
+  			</div>
+			{% endfor %}
+		</div>
+		<div class="card-footer h4 m-0 bg-transparent border-{{ price.color }} text-center font-weight-bold">
+			{{ price.ammount }}
+		</div>
+	</div>
+	{% endfor %}
+</div>

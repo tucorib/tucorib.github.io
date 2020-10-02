@@ -1,0 +1,59 @@
+start:
+  img:
+    name: id
+    sizes:
+      xs:
+        height: 600
+      sm:
+        height: 500
+      md:
+        height: 700
+
+presentation:
+  title: Présentation
+  youtube:
+    id: fhcrw_JeVOM
+    size:
+      width: 794
+      height: 447
+  
+plus:
+  title: Les avantages
+  content:
+    - name: Enseignement à distance
+      icon: tv
+      content:
+        - name: Accessibilité
+          description: Nécessite uniquement une connexion Internet.
+        - name: Mobilité
+          description: Permet de suivre le cours partout, même en déplacement.
+        - name: Tout support
+          description: Ordinateur, smartphone.
+        - name: Multimodalité
+          description: Choix libre de la plateforme de discussion.
+    - name: Professeur attitré
+      icon: teacher
+      content:
+        - name: Temps réel
+          description: Dialogue en direct entre l'élève et le professeur.
+        - name: Personnalisation
+          description: Pédagogie adaptée à l'élève.
+        - name: Accompagnement
+          description: Suivi assuré par le même professeur à travers les séances.
+    - name: Contenu multimédia
+      icon: photo-video
+      content:
+        - name: Interactivité
+          description: Manipulation des notions via des outils en ligne.
+        - name: Modernité
+          description: Illustrations animées, favorisant la compréhension.
+    - name: Retour sur la séance
+      icon: recycle
+      content:
+        - name: Replay disponible
+          description: Possibilité de revenir sur le contenu de la séance a posteriori sur demande.
+        - name: Téléchargement
+          description: Vidéo accessible en téléchargement ou en visionnage pendant 14 jours.
+
+group:
+  title: Le travail de groupe

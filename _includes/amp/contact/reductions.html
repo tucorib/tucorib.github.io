@@ -1,0 +1,32 @@
+{% include amp/templates/date.html id="date-template" %}
+<h2 class="display-5">Réductions</h2>
+<div class="d-flex flex-row flex-wrap justify-content-around">
+	{% capture today %}{{ "today" | date: "%Y-%m-%d" | date: "%s" }}{% endcapture %}
+	{% assign sorted_reductions = site.reductions | sort: "end" %}
+	{% for reduction in sorted_reductions %}
+	{% capture start %}{% if reduction.start %}{{ reduction.start | date: "%s" }}{% else %}{{ today | date: "%s" }}{% endif %}{% endcapture %}
+	{% capture end %}{% if reduction.end %}{{ reduction.end | date: "%s" }}{% else %}{{ today | date: "%s" }}{% endif %}{% endcapture %}
+	{% if reduction.published and start <= today and end >= today %}
+	<div class="card card-contact-reduction border-contact-reduction text-center">
+		<div class="card-header bg-contact-reduction">
+	  		<p class="card-title h5 font-weight-bold text-center m-0">{{ reduction.title }}</p>
+	  	</div>
+	  	<div class="card-body bg-body">
+	  		<div class="row">
+	  			{% if reduction.icon %}
+		  		<div class="col-3 d-flex flex-column justify-content-center">
+		  			{% include icon.html id=reduction.icon class="fa-2x text-dark" %}
+		  		</div>
+		  		{% endif %}
+		  		<div class="{% if reduction.icon %}col-9{% else %}col-12{% endif %}">
+					<p class="card-text text-dark">{{ reduction.content }}</p>  	
+		  		</div>
+	  		</div>
+	  	</div>
+		<div class="card-footer bg-body border-contact-reduction{% if reduction.end == none %} d-none{% endif %}">
+	  		<small class="text-dark">Valable pour toute séance jusqu'au&nbsp;:<br/>{% include amp/date.html timestamp=end id="date-template" %}</small>
+		</div>
+	</div>
+	{% endif %}
+	{% endfor %}
+</div>

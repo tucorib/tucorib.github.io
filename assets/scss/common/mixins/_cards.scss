@@ -1,0 +1,14 @@
+@use "sass:map";
+@use "sass:math";
+	
+@mixin card-set-variant($name, $nb-per-row) {
+ 	.#{$name} {
+ 		@extend .m-2;
+ 		max-width: 100%;
+		@each $breakpoint in map-keys($nb-per-row) {
+		 	@include media-breakpoint-up($breakpoint, $breakpoints) {
+		    	width: calc(100% / #{map.get($nb-per-row, $breakpoint)} - #{map.get($nb-per-row, $breakpoint)}*#{$spacer});
+		    }
+	    }
+	}
+}

@@ -1,0 +1,48 @@
+res:
+  amp-fx-collection:
+    - custom: element
+      url:   "https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"
+  amp-mega-menu:
+    - custom: element
+      url:       "https://cdn.ampproject.org/v0/amp-mega-menu-0.1.js"
+  amp-sidebar:
+    - custom: element
+      url:         "https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"
+  amp-mustache:
+    - custom: template
+      url:        "https://cdn.ampproject.org/v0/amp-mustache-latest.js"
+  amp-date-display:
+    - custom: element
+      url:    "https://cdn.ampproject.org/v0/amp-date-display-0.1.js"
+  amp-list:
+    - custom: element
+      url:            "https://cdn.ampproject.org/v0/amp-list-0.1.js"
+  amp-bind:
+    - custom: element
+      url:            "https://cdn.ampproject.org/v0/amp-bind-0.1.js"
+  amp-youtube:
+    - custom: element
+      url:        "https://cdn.ampproject.org/v0/amp-youtube-0.1.js"
+  amp-analytics:
+    - custom: element
+      url:       "https://cdn.ampproject.org/v0/amp-analytics-0.1.js"
+  amp-consent:
+    - custom: element
+      url:         "https://cdn.ampproject.org/v0/amp-consent-0.1.js"
+  amp-video-docking:
+    - custom: element
+      url:         "https://cdn.ampproject.org/v0/amp-video-docking-0.1.js"
+
+default:
+  common:
+    - amp-fx-collection
+    # Navigation
+    - amp-mega-menu
+    - amp-sidebar
+  development:
+  production:
+    # Cookies
+    - amp-consent
+    # Analytics
+    - amp-analytics
+    

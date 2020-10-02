@@ -1,0 +1,12 @@
+{% assign thumb_url = include.id | default: 0 | prepend: "https://img.youtube.com/vi/" | append: "/hq720.jpg" %} 
+
+<amp-img alt="Youtube"
+	src="{{ thumb_url }}"
+	srcset="{{ thumb_url }} 1280w"
+	width="1280"
+	height="720"
+	layout="responsive"
+	{% if include.class %}
+	class="{{ include.class }}"
+	{% endif %}>
+</amp-img>

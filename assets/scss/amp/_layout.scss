@@ -1,0 +1,12 @@
+html:not([amp4ads]), html:not([amp4ads]) body{
+	@extend .min-vh-100;
+}
+
+#list div[role=list]{
+	@extend .d-flex;
+	@extend .flex-row;
+	@extend .flex-wrap;
+	@extend .justify-content-around;
+	position: static;	
+	@extend .h-100;	
+}
