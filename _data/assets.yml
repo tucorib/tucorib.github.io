@@ -90,10 +90,9 @@ img:
 
 video:
   mountain:
-    poster: /assets/img/maths-wallpaper.webp
-    type: video/webm
-    width: 1
-    height: 1
+    poster: /assets/img/mountain.png
+    width: 1920
+    height: 1080
     srcset:
       - src: /assets/video/Mt_Baker.mp4
         type: video/mp4
