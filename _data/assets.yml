@@ -90,7 +90,7 @@ img:
 
 video:
   mountain:
-    poster: https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Mount_Baker_from_Baker_Lake.jpg/1200px-Mount_Baker_from_Baker_Lake.jpg
+    poster: /assets/img/maths-wallpaper.webp
     type: video/webm
     width: 1
     height: 1
