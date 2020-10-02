@@ -1,5 +1,13 @@
 <div class="card border-0 w-100">
 	<div class="card-img overlay-home-start">
+		{% if site.data.home.start.img %}
+		{% include amp/img.html
+			id=site.data.home.start.img.id
+			sizes=site.data.home.start.img.sizes
+			layout="fixed-height"
+		 %}
+		{% endif %}
+		{% if site.data.home.start.video %}
 		{% include amp/video.html
 			id=site.data.home.start.video.id
 			sizes=site.data.home.start.video.sizes
@@ -8,6 +16,7 @@
 			noaudio="noaudio"
 			loop="loop"
 		 %}
+		{% endif %}
 	</div>
 	<div class="card-img-overlay p-4 text-center text-bg-body d-flex flex-column">
 		<div class="my-auto">

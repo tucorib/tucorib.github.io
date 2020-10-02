@@ -33,7 +33,9 @@
 		<div fallback>
     		<p>{{ site.data.labels.video.fallback }}</p>
   		</div>
-  		<source src="{{ video.src }}" type="{{ video.type }}">
+  		{% for src in video.srcset %}
+  		<source src="{{ src.src }}" type="{{ src.type }}">
+  		{% endfor %}
 	</amp-video>
 	{% endfor %}
 {% else %}
@@ -56,6 +58,8 @@
 		<div fallback>
     		<p>{{ site.data.labels.video.fallback }}</p>
   		</div>
-  		<source src="{{ video.src }}" type="{{ video.type }}">
+  		{% for src in video.srcset %}
+  		<source src="{{ src.src }}" type="{{ src.type }}">
+  		{% endfor %}
 	</amp-video>
 {% endif %}
