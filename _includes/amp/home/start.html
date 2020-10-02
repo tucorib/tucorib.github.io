@@ -1,6 +1,13 @@
 <div class="card border-0 w-100">
 	<div class="card-img overlay-home-start">
-		{% include amp/img.html id=site.data.home.start.img.name sizes=site.data.home.start.img.sizes layout="fixed-height" %}
+		{% include amp/video.html
+			id=site.data.home.start.video.id
+			sizes=site.data.home.start.video.sizes
+			layout="fixed-height"
+			autoplay="autoplay"
+			noaudio="noaudio"
+			loop="loop"
+		 %}
 	</div>
 	<div class="card-img-overlay p-4 text-center text-bg-body d-flex flex-column">
 		<div class="my-auto">

@@ -1,10 +1,19 @@
-{% assign thumb_url = include.id | default: 0 | prepend: "https://img.youtube.com/vi/" | append: "/hq720.jpg" %} 
-
+{% if site.data.youtube contains include.id %}
+{% assign youtube = site.data.youtube[include.id] %} 
+{% else %}
+{% assign youtube = site.data.youtube["default"] %}
+{% endif %}
+{% assign thumb_url = "https://img.youtube.com/vi/" | append: include.id %} 
 <amp-img alt="Youtube"
-	src="{{ thumb_url }}"
-	srcset="{{ thumb_url }} 1280w"
-	width="1280"
-	height="720"
+	src="{{ thumb_url | append: "/maxresdefault.jpg" }}"
+	srcset="{{ thumb_url | append: "/default.jpg" }} 120w,
+		{{ thumb_url | append: "/mqdefault.jpg" }} 320w,
+		{{ thumb_url | append: "/hqdefault.jpg" }} 480w,
+		{{ thumb_url | append: "/sddefault.jpg" }} 640w,
+		{{ thumb_url | append: "/maxresdefault.jpg" }} 1280w
+		"
+	width="{{ youtube.width }}"
+  	height="{{ youtube.height }}"
 	layout="responsive"
 	{% if include.class %}
 	class="{{ include.class }}"
