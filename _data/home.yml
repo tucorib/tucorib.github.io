@@ -1,6 +1,6 @@
 start:
-  img:
-    name: id
+  video:
+    id: mountain
     sizes:
       xs:
         height: 600

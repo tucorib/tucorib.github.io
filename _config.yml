@@ -67,6 +67,7 @@ defaults:
   
 cache:
   img: "https://tucorib-github-io.cdn.ampproject.org/i/tucorib.github.io"
+  res: "https://tucorib-github-io.cdn.ampproject.org/r/tucorib.github.io"
  
 collections:
   - reductions

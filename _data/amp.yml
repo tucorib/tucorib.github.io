@@ -32,6 +32,9 @@ res:
   amp-video-docking:
     - custom: element
       url:         "https://cdn.ampproject.org/v0/amp-video-docking-0.1.js"
+  amp-video:
+    - custom: element
+      url:         "https://cdn.ampproject.org/v0/amp-video-0.1.js"
 
 default:
   common:

@@ -87,4 +87,11 @@ img:
     srcset:
       - src: /assets/img/republique-francaise-375.webp
         width: 375
-     
+
+video:
+  mountain:
+    src: /assets/video/Mt_Baker.mp4
+    type: video/mp4
+    width: 1
+    height: 1
+    
