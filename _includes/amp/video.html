@@ -20,6 +20,7 @@
 			{% endif %}
 			layout="responsive"
 		{% endif %}
+		poster="{{ video.poster }}"
 		class="{% for hide_breakpoint in include.sizes %}
 		{% if hide_breakpoint[0] == "xs" %}d-{% if breakpoint[0] != hide_breakpoint[0] %}none{% else %}block{% endif %}
 		{% else %}d-{{ hide_breakpoint[0] }}-{% if breakpoint[0] != hide_breakpoint[0] %}none{% else %}block{% endif %}
@@ -46,6 +47,7 @@
 			height="{{ video.height }}"
 			layout="responsive"
 		{% endif %}
+		poster="{{ video.poster }}"
 		class="{% if include.class %} {{ include.class }}{% endif %}"
 		{% if include.autoplay %}autoplay="{{ include.autoplay }}"{% endif %}
 		{% if include.noaudio %}noaudio="{{ include.noaudio }}"{% endif %}

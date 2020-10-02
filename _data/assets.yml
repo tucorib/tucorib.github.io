@@ -91,6 +91,7 @@ img:
 video:
   mountain:
     src: /assets/video/Mt_Baker.webm
+    poster: https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Mount_Baker_from_Baker_Lake.jpg/1200px-Mount_Baker_from_Baker_Lake.jpg
     type: video/webm
     width: 1
     height: 1
