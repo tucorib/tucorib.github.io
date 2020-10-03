@@ -34,7 +34,9 @@
     		<p>{{ site.data.labels.video.fallback }}</p>
   		</div>
   		{% for src in video.srcset %}
+  		{% if src.type == "video/webm" %}
   		<source src="{{ src.src }}" type="{{ src.type }}">
+  		{% endif %}
   		{% endfor %}
 	</amp-video>
 	{% endfor %}
@@ -59,7 +61,9 @@
     		<p>{{ site.data.labels.video.fallback }}</p>
   		</div>
   		{% for src in video.srcset %}
+  		{% if src.type == "video/webm" %}
   		<source src="{{ src.src }}" type="{{ src.type }}">
+  		{% endif %}
   		{% endfor %}
 	</amp-video>
 {% endif %}

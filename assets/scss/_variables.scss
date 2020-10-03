@@ -42,6 +42,8 @@ $home-presentation-color: $body-bg-color !default;
 $home-plus-color: $main-color !default;
 $home-plus-item-color: $main-color !default;
 $home-plus-item-icon-border-color: #17a2b8 !default;
+$home-opt-item-color: $main-color !default;
+$home-opt-item-icon-border-color: #A38917 !default;
 $home-group-color: $body-bg-color !default;
 
 $contact-prices-color: $main-color !default;
@@ -71,7 +73,8 @@ $fa-font-path: "https://use.fontawesome.com/releases/v5.14.0/webfonts" !default;
 $fa-font-display: swap !default;
 
 // Containers
-$home-plus-nb-per-row: ("xs": 1, "sm": 2, "md": 2, "lg": 2, "xl": 4);
+$home-plus-nb-per-row: ("xs": 1, "sm": 2, "md": 3);
+$home-opt-nb-per-row: ("xs": 1, "sm": 2);
 $contact-reduction-nb-per-row: ("xs": 1, "sm": 2, "md": 2, "xl": 3);
 $contact-more-info-item-nb-per-row: ("xs": 1, "sm": 2, "md": 2, "lg": 3);
 $post-nb-per-row: ("xs": 1, "sm": 2, "md": 3);

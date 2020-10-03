@@ -4,6 +4,9 @@
 @include card-set-variant("card-home-plus", 					$home-plus-nb-per-row);
 @include background-variant("bg-home-plus-item", 				$home-plus-item-color);
 @include border-variant("border-home-plus-item-icon-border", 	$home-plus-item-icon-border-color);
+@include card-set-variant("card-home-opt", 						$home-opt-nb-per-row);
+@include background-variant("bg-home-opt-item", 				$home-opt-item-color);
+@include border-variant("border-home-opt-item-icon-border", 	$home-opt-item-icon-border-color);
 
 @include background-variant("bg-home-group", 					$home-group-color);
 
