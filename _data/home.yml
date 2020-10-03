@@ -43,13 +43,28 @@ plus:
           description: Manipulation des notions via des outils en ligne.
         - name: Modernité
           description: Illustrations animées, favorisant la compréhension.
+
+opt:
+  title: A la demande
+  content:
+    - name: Séance de groupe
+      icon: users
+      price: Réduction applicable
+      content:
+        - name: Développement social
+          description: Expression et écoute, argumentation, répartition des tâches.
+        - name: Motivation
+          description: Implication et l'investissement accrus, favorisant grandement l'apprentissage.
     - name: Retour sur la séance
       icon: recycle
+      price: Offert
       content:
         - name: Replay disponible
           description: Possibilité de revenir sur le contenu de la séance a posteriori sur demande.
         - name: Téléchargement
           description: Vidéo accessible en téléchargement ou en visionnage pendant 14 jours.
-
+    
+        
+  
 group:
   title: Le travail de groupe

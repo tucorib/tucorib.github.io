@@ -1,0 +1,24 @@
+<h2 class="display-5">{{ site.data.home.opt.title }}</h2>
+<div class="d-flex flex-row flex-wrap justify-content-around">
+	{% for opt in site.data.home.opt.content %}
+	<div class="card card-home-opt border-0 bg-home-plus-item">
+		<div class="card-img-top d-flex flex-column align-items-center">
+			<div class="square-div m-2 border border-home-opt-item-icon-border rounded-circle d-flex justify-content-center align-items-center">
+				{% include icon.html id=opt.icon class="fa-3x" %}
+			</div>
+			<h5 class="mt-3 text-center">{{ opt.name }}</h5>
+		</div>
+		<div class="card-body d-flex flex-column">
+			<p class="text-center"><em>{{ opt.price }}</em></p>
+			{% for content in opt.content %}
+			<p class="mb-4">
+				{% include icon.html id="check" class="mr-2" %}
+				<em>{{ content.name }}</em>
+				<br/>
+				{{ content.description }}
+			</p>
+			{% endfor %}
+		</div>
+	</div>
+	{% endfor %}
+</div>
