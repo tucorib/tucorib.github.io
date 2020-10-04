@@ -1,8 +1,8 @@
 - name: home
   link: /
 - name: videos
-  link: /videos/
+  link: /videos
 - name: tools
-  link: /tools/
+  link: /tools
 - name: contact
-  link: /contact/
+  link: /contact
