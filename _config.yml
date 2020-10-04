@@ -17,7 +17,7 @@ title: Matez les Maths
 description: >- # this means to ignore newlines until "baseurl:"
   Optez pour le cours de maths en ligne
 logo: /assets/img/logo-256.png
-image: /assets/img/maths-wallpaper-375.webp
+image: /assets/img/maths-wallpaper.webp
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://tucorib.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 lang: fr_FR
@@ -37,7 +37,6 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-sitemap
-  - jekyll-seo-tag
 
 exclude:
   - vendor
@@ -70,4 +69,9 @@ cache:
  
 collections:
   - reductions
-  
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - bin
+  - ssl

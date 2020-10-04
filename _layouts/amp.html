@@ -1,5 +1,8 @@
+---
+canonical_url: nil
+---
 <!DOCTYPE html>
-<html ⚡ lang="{{ site.language }}">
+<html {% if page.amp %}⚡{% endif %} lang="{{ site.language }}">
   	<head>
     	{% include headers/favicon.html %}
     	{% include headers/charset.html %}
@@ -9,17 +12,12 @@
     	{% include lib/fontawesome.html %}
     	
     	<style amp-custom type="text/css">
-    	{% include_relative assets/css/amp.css %}
+    	{% include css/amp.css %}
     	</style>
     	
     	<script async src="https://cdn.ampproject.org/v0.js"></script>
-    	
     	{% include amp/elements.html %}
 				  	
-		{% if page.url == '/' %}
-		{% include amp/metadata.html %}
-		{% endif %}
-		
 		{% include amp/boilerplate.html %}
   	</head>
   	<body class="bg-body">

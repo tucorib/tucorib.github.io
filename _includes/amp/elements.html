@@ -2,8 +2,8 @@
 {% if site.data.amp.default[jekyll.environment] %}
 {% assign elements = elements | concat: site.data.amp.default[jekyll.environment] %}
 {% endif %}
-{% if page.elements %}
-{% assign elements = elements | concat: page.elements %}
+{% if layout.elements %}
+{% assign elements = elements | concat: layout.elements %}
 {% endif %}
 {% for element in elements | uniq %}
 {% for relement in site.data.amp.res[element] %}

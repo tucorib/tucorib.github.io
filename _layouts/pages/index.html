@@ -1,7 +1,6 @@
 ---
 layout: amp
 title: Soutien scolaire en ligne
-permalink: /
 elements:
  - amp-video
  - amp-youtube
@@ -27,7 +26,7 @@ elements:
 		{% include amp/home/plus.html %}
 		{% include amp/home/opt.html %}
 		<b class="p-4"></b>
-		<a href="/contact/" class="btn btn-lg btn-link btn-primary">Consultez les différents tarifs</a>
+		<a href="{% if page.amp %}/m{% endif %}/contact/" class="btn btn-lg btn-link btn-primary">Consultez les différents tarifs</a>
 	</div>
 </div>
 

@@ -1,5 +1,5 @@
 echo "Building assets/css/amp.css"
-sass -I assets/scss/ --no-charset --no-source-map --style=compressed assets/scss/amp.scss assets/css/amp.css
+sass -I assets/scss/ --no-charset --no-source-map --style=compressed assets/scss/amp.scss _includes/css/amp.css
 perl -pi -e'BEGIN{$/=undef}s#/\*.*?\*/##gs' assets/css/amp.css
 
 echo "Building assets/css/tool.css"
@@ -7,7 +7,7 @@ sass -I assets/scss/ --no-charset --no-source-map --style=compressed assets/scss
 perl -pi -e'BEGIN{$/=undef}s#/\*.*?\*/##gs' assets/css/tool.css
 
 echo "Building assets/css/amp_keyframes.css"
-sass -I assets/scss/ --no-charset --no-source-map --style=compressed assets/scss/amp_keyframes.scss assets/css/amp_keyframes.css
+sass -I assets/scss/ --no-charset --no-source-map --style=compressed assets/scss/amp_keyframes.scss _includes/css/amp_keyframes.css
 perl -pi -e'BEGIN{$/=undef}s#/\*.*?\*/##gs' assets/css/amp_keyframes.css
 
 echo "Building assets/css/tools/themes/default.css"
