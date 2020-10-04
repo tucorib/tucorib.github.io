@@ -1,10 +1,12 @@
 {% assign psize = site.posts.size %}
 {% assign gsize = site.categories.tool.size %}
+{% capture prefix %}{% if page.amp %}/m{% endif %}{% endcapture %}
 {% for nav in site.data.navigation %}
-{% if nav.link != '/videos/' or psize > 0 %}
-{% if nav.link != '/tools/' or gsize > 0 %}
+{% if nav.link != '/videos' or psize > 0 %}
+{% if nav.link != '/tools' or gsize > 0 %}
+{% assign link_url = prefix | append: nav.link %}
 <li class="nav-item{% if include.class %} {{ include.class }}{% endif %}">
-	<a class="nav-link{% if page.url == nav.link %} active{% endif %}" href="{% if page.amp %}/m{% endif %}{{ nav.link }}">{% include icon.html id=nav.name class="mr-3" %}{{ site.data.labels.navigation[nav.name] }}</a>
+	<a class="nav-link{% if link_url == page.url %} active{% endif %}" href="{{ link_url }}">{% include icon.html id=nav.name class="mr-3" %}{{ site.data.labels.navigation[nav.name] }}</a>
 </li>
 {% endif %}
 {% endif %}
