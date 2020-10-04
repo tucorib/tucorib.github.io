@@ -11,15 +11,15 @@
 	    		{% for nav in site.data.navigation %}
 				{% if nav.link != '/videos/' or psize > 0 %}
 				{% if nav.link != '/tools/' or gsize > 0 %}
-				<div><a href="{{ nav.link }}">> {{ site.data.labels.navigation[nav.name] }}</a></div>
+				<div><a href="{% if page.amp %}/m{% endif %}{{ nav.link }}">> {{ site.data.labels.navigation[nav.name] }}</a></div>
 				{% endif %}
 				{% endif %}
 				{% endfor %}
 			</div>
 		  	<div>
 				<h5>{{ site.data.labels.footer.legal }}</h5>
-	  			<div><a href="/mentions-legales/">> {{ site.data.labels.legal.notice }}</a></div>
-	  			<div><a href="/info-cookies/">> {{ site.data.labels.legal.cookies }}</a></div>
+	  			<div><a href="{% if page.amp %}/m{% endif %}/mentions-legales/">> {{ site.data.labels.legal.notice }}</a></div>
+	  			<div><a href="{% if page.amp %}/m{% endif %}/info-cookies/">> {{ site.data.labels.legal.cookies }}</a></div>
 			</div>
 		</div>
 	</div>
