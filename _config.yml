@@ -38,9 +38,6 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
 
-exclude:
-  - vendor
-
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
@@ -71,7 +68,11 @@ collections:
   - reductions
 
 exclude:
+  - bin
   - Gemfile
   - Gemfile.lock
-  - bin
+  - post.template
+  - vendor
   - ssl
+  
+  
