@@ -14,21 +14,18 @@
 		{% include lib/fontawesome.html %}
 		
 		<!-- Theme -->
-		{% if page.theme %}
+		{% capture theme %}{% if page.theme %}{{ page.theme }}{% elsif jekyll.environment == 'stream' %}stream{% else %}default{% endif %}{% endcapture %}
 		<style>
-		{% for font in site.data.tools.themes[page.theme].fonts %}
+		{% for font in site.data.tools.themes[theme].fonts %}
 			@font-face{
 				font-family: {{ font.name }};
 				src: url({{ font.path }});	
 			}
 		{% endfor %}
 		</style>
-		{% for css in site.data.tools.themes[page.theme].css %}
+		{% for css in site.data.tools.themes[theme].css %}
 		<link rel="stylesheet" href="{{ css }}" as="style" type="text/css">
 		{% endfor %}
-		{% else %}
-		<link rel="stylesheet" href="/assets/css/tool.css" as="style" type="text/css">
-		{% endif %}
 		
 		<!-- Libraries -->
 		{% for lib in page.libraries %}
