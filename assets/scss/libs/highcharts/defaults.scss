@@ -1,0 +1,17 @@
+@import 'https://code.highcharts.com/css/highcharts.css';
+	
+.highcharts-background{
+	fill: $body-bg-color;
+}
+
+.highcharts-root{
+	font-family: inherit;
+}
+
+.highcharts-axis-title, .highcharts-axis-labels{
+	fill: $body-color;
+}
+
+.highcharts-grid-line, .highcharts-axis-line{
+	stroke: $body-color;
+}

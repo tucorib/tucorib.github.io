@@ -1,0 +1,15 @@
+@import "variables";
+
+$body-bg-color: $stream-body-bg-color;
+$main: $stream-body-color;
+$body-color: $stream-body-color;
+
+@import "tool";
+
+header, footer, .bg-rotation-container{
+	@extend .d-none;
+}
+
+body{
+	color: $body-color !important;	
+}

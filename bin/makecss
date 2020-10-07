@@ -14,6 +14,10 @@ echo "Building assets/css/tools/themes/default.css"
 sass -I assets/scss/ --no-charset --no-source-map --style=compressed assets/scss/tools/themes/default.scss assets/css/tools/themes/default.css
 perl -pi -e'BEGIN{$/=undef}s#/\*.*?\*/##gs' assets/css/tools/themes/default.css
 
+echo "Building assets/css/tools/themes/stream.css"
+sass -I assets/scss/ --no-charset --no-source-map --style=compressed assets/scss/tools/themes/stream.scss assets/css/tools/themes/stream.css
+perl -pi -e'BEGIN{$/=undef}s#/\*.*?\*/##gs' assets/css/tools/themes/stream.css
+
 echo "Building assets/css/tools/themes/retro.css"
 sass -I assets/scss/ --no-charset --no-source-map --style=compressed assets/scss/tools/themes/retro.scss assets/css/tools/themes/retro.css
 perl -pi -e'BEGIN{$/=undef}s#/\*.*?\*/##gs' assets/css/tools/themes/retro.css

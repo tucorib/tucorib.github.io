@@ -13,34 +13,6 @@ Highcharts.setOptions({
         '#a6c96a'
     ],
     chart: {
-        backgroundColor: null,
-        style: {
-            fontFamily: 'Lato',
-            color: '#143f6c'
-        }
-    },
-    xAxis: {
-    	labels: {
-    		style: {
-	            color: '#143f6c'
-	        }
-    	},
-    	title: {
-    		style: {
-	            color: '#143f6c'
-	        }
-    	}
-    },
-    yAxis: {
-    	labels: {
-    		style: {
-	            color: '#143f6c'
-	        }
-    	},
-    	title: {
-    		style: {
-	            color: '#143f6c'
-	        }
-    	}
+    	styledMode: true
     }
 });
