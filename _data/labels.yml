@@ -36,6 +36,9 @@ themes:
   default:
     score: "Score&nbsp;:&nbsp;"
     combos: "Combos&nbsp;:&nbsp;"
+  stream:
+    score: "Score&nbsp;:&nbsp;"
+    combos: "Combos&nbsp;:&nbsp;"
   retro:
     score: SCORE
     combos: COMBOS

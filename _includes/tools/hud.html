@@ -7,14 +7,14 @@
 	<!-- Score -->
 	{% if page.score != nil %}
 	<div class="d-flex flex-column mr-4">
-		<span class="text-center">{{ site.data.labels.themes[page.theme].score }}</span>
+		<span class="text-center">{{ site.data.labels.themes[theme].score }}</span>
 		<span class="score text-center">0</span>
 	</div>
 	{% endif %}
 	<!-- Combos -->
 	{% if page.combos != nil %}
 	<div class="d-flex flex-column mr-4">
-		<span class="text-center">{{ site.data.labels.themes[page.theme].combos }}</span>
+		<span class="text-center">{{ site.data.labels.themes[theme].combos }}</span>
 		<span class="combos text-center">0</span>
 	</div>
 	{% endif %}
