@@ -2,16 +2,14 @@
 
 .card-contact-id .card-img-overlay{
 	@extend .p-0;
-	margin-left: 10%;
+	margin-left: 1%;
 	max-width: 80%;
 	top: 5%;
 	
-	@include media-breakpoint-up("md", $breakpoints) {
+	@include media-breakpoint-up("sm", $breakpoints) {
+		margin-left: 5%;
 		width: 30%;
 	}
-}
-.card-contact-id .card-img-overlay div{
-	
 }
 
 @include background-variant("bg-contact-prices", 	$contact-prices-color);
