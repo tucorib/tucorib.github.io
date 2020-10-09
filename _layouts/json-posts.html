@@ -33,7 +33,11 @@
 			{% if post.tags == nil %}
 			"tags": [],{% endif %}
 			{% if post.youtube %}
-			"youtube": "{{ post.youtube }}",
+			"youtube": {
+				"id": "{{ post.youtube.id }}",
+				"upload_date": "{{ post.youtube.upload_date }}",
+				"duration": "{{ post.youtube.duration }}"
+			},
 			{% endif %}
 			{% if post.categories contains "tool" %}
 			"tool": {

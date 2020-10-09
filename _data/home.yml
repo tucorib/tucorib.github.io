@@ -11,7 +11,10 @@ start:
 
 presentation:
   title: Présentation
-  youtube: 0
+  youtube:
+    id: 0
+    upload_date: "2020-12-31T08:00:00+02:00"
+    duration: "PT1M54S"
   
 plus:
   title: Les avantages
@@ -63,8 +66,3 @@ opt:
           description: Possibilité de revenir sur le contenu de la séance a posteriori sur demande.
         - name: Téléchargement
           description: Vidéo accessible en téléchargement ou en visionnage pendant 14 jours.
-    
-        
-  
-group:
-  title: Le travail de groupe

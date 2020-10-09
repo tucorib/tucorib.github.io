@@ -1,0 +1,11 @@
+{
+	{%if include.context %}"@context": "https://schema.org",{%endif %}
+	"@type": "Organization",
+	"name": "{{ site.title }}",
+	"logo": {
+  		"@type": "ImageObject",
+  		"url": "{{ site.cache.img }}{{ site.logo}}",
+  		"width": 256,
+  		"height": 256
+	}
+}

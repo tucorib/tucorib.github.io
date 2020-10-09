@@ -16,34 +16,3 @@
 {% elsif page.amp == false %}
 <link rel="amphtml" href="/m{{ page.permalink }}">
 {% endif %}
-
-{% if page.amp and page.url == '/m/' %}
-<script type="application/ld+json">
-    {
-      	"@context": "https://schema.org",
-      	"@type": "Product",
-      	"name": "{{ site.title }}",
-      	"image": [
-        	"{{ site.url }}{{ site.image }}"
-       	],
-       	"description": "{{ site.description }}",
-       	"brand": {
-      		"@type": "Organization",
-      		"name": "{{ site.title }}",
-      		"logo": "{{ site.url }}/assets/img/logo-128.png"
-    	},
-	 	"offers": {
-        	"@type": "Offer",
-        	"url": "{{ site.url }}/contact/",
-        	"priceCurrency": "EUR",
-        	"price": "35",
-        	"availability": "https://schema.org/OnlineOnly",
-        	"seller": {
-          		"@type": "Organization",
-          		"name": "{{ site.title }}",
-          		"logo": "{{ site.url }}/assets/img/logo-128.png"
-        	}
-      	}
- 	}
-</script>
-{% endif %}
