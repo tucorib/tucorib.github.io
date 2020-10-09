@@ -20,9 +20,9 @@ $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Lato", 
 
 // Type
 $display5-size:               2.5rem !default;
-$display5-weight:             300;
+$display5-weight:             300 !default;
 $display6-size:               1.5rem !default;
-$display6-weight:             300;
+$display6-weight:             300 !default;
 
 // Colors
 $body-bg-color: #e7e7e7 !default;
@@ -78,7 +78,3 @@ $home-opt-nb-per-row: ("xs": 1, "sm": 2);
 $contact-reduction-nb-per-row: ("xs": 1, "sm": 2, "md": 2, "xl": 3);
 $contact-more-info-item-nb-per-row: ("xs": 1, "sm": 2, "md": 2, "lg": 3);
 $post-nb-per-row: ("xs": 1, "sm": 2, "md": 3);
-
-// Stream
-$stream-body-bg-color: #000000 !default;
-$stream-body-color: #FFFFFF !default;
