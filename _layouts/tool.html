@@ -1,9 +1,16 @@
+---
+elements:
+ - amp-video
+ - amp-youtube
+ - amp-video-docking
+---
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr" dir="ltr">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{ site.language }}" lang="{{ site.language }}" dir="ltr">
 	<head>
-		{% include headers/favicon.html %}
 		{% include headers/charset.html %}
+		{% include headers/favicon.html %}
+		{% include headers/rich-results.html %}
 		{% include headers/seo.html %}
     	{% include headers/viewport.html %}
     	
@@ -47,16 +54,22 @@
 		{% for script in page.scripts %}
 		<script defer src="{{ script }}"></script>
 		{% endfor %}
+		
+		<script async src="https://cdn.ampproject.org/v0.js"></script>
+		{% include amp/elements.html %}
 	</head>
 	<body class="bg-body">
 		{% include noamp/analytics.html %}
 		{% include noamp/navigation.html %}
-		<main>
-			<b class="p-4"></b>
+		<main class="bg-body d-flex flex-column">
+			<b class="d-none d-lg-block p-4"></b>
 			<div class="section">
 				<div class="container">
 					<h1>{{ page.title }}</h1>
-					{% include tools/hud.html %}
+					{% include amp/youtube-video.html
+						id=page.youtube.id
+						class="mx-auto w-75 mb-5"
+					%}
 					{{ content }}
 				</div>
 			</div>

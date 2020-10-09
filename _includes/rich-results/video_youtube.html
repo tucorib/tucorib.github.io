@@ -1,0 +1,14 @@
+{
+  	{%if include.context %}"@context": "https://schema.org",{%endif %}
+  	"@type": "VideoObject",
+  	"name": "{{ site.title }}",
+  	"description": "{{ site.description }}",
+  	"thumbnailUrl": [
+    	"{{ "https://img.youtube.com/vi/" | append: include.youtube.id | append: "/maxresdefault.jpg" }}"
+   	],
+  	"uploadDate": "{{ include.youtube.upload_date }}",
+  	"duration": "{{ include.youtube.duration }}",
+	"contentUrl": "{{ "https://youtube.googleapis.com/v/" | append: include.youtube.id }}",
+  	"embedUrl": "{{ "https://www.youtube.com/embed/" | append: include.youtube.id }}",
+  	"publisher": {% include rich-results/publisher.html context=false %}
+}

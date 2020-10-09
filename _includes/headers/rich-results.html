@@ -1,0 +1,10 @@
+{% if page.layout == 'pages/index' %}
+<script type="application/ld+json">
+	{% include rich-results/video_youtube.html context=true youtube=site.data.home.presentation.youtube %}
+</script>
+{% endif %}
+{% if page.layout == 'tool' %}
+<script type="application/ld+json">
+	{% include rich-results/video_youtube.html context=true youtube=page.youtube %}
+</script>
+{% endif %}
