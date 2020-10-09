@@ -1,13 +1,13 @@
 @use "sass:math";
 
 // Background color
-@mixin background-variant($name, $background-color, $dark: $body-color, $light: $body-bg-color) {
+@mixin background-variant($name, $background-color, $color: color-yiq($background-color, $body-color, $body-bg-color)) {
  	.#{$name} {
  		background-color: $background-color;
-		color: color-yiq($background-color, $dark, $light);
+		color: $color;
 	}
 	.#{$name} a:not(.btn){
-		color: color-yiq($background-color, $dark, $light);
+		color: $color;
 	}
 }
 
