@@ -13,6 +13,15 @@ Highcharts.setOptions({
         '#a6c96a'
     ],
     chart: {
-    	styledMode: true
+    	styledMode: true,
+    	spacingTop: 50
+    },
+    yAxis: {
+    	title: {
+	    	align:'high',
+	        rotation: 0,
+	        y: -30,
+	        offset: -30
+	    }
     }
 });
