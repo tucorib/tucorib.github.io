@@ -27,10 +27,6 @@ main{
 	@extend .w-100;
 }
 
-ul:not(.navbar-nav){
-	@extend .pl-4;	
-}
-
 ul:not(.navbar-nav) > li{
 	@extend .mb-4;
 }
