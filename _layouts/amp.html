@@ -1,3 +1,6 @@
+---
+libs: ["fontawesome"]
+---
 <!DOCTYPE html>
 <html {% if page.amp %}⚡{% endif %} lang="{{ site.language }}" dir="ltr">
   	<head>
@@ -15,13 +18,12 @@
 		{% include headers/seo.html %}
     	{% include headers/viewport.html %}
     	
-    	{% include lib/fontawesome.html %}
+    	{% include headers/libs.html %}
     	
     	<style amp-custom type="text/css">
     	{% include css/amp.css %}
     	</style>
     	
-    	<script async src="https://cdn.ampproject.org/v0.js"></script>
     	{% include amp/elements.html %}
 				  	
 		{% include amp/boilerplate.html %}

@@ -32,13 +32,6 @@ levels:
   premiere: "1<sup>ère</sup>"
   terminale: "Terminale"
    
-themes:
-  default:
-    score: "Score&nbsp;:&nbsp;"
-    combos: "Combos&nbsp;:&nbsp;"
-  stream:
-    score: "Score&nbsp;:&nbsp;"
-    combos: "Combos&nbsp;:&nbsp;"
-  retro:
-    score: SCORE
-    combos: COMBOS
+tools:
+  score: "Score"
+  combos: "Combos"

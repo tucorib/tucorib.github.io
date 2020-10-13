@@ -7,14 +7,11 @@ description: "description"
 
 tooltype: training
 
-libraries: ["lib/popper.html", "lib/jquery-ui.html"]
-scripts: ["/assets/tool/js/translations.js"]
-styles: ["/assets/tool/css/translations.css"]
-
-score: 0
-combos: 0
-lives: 3
+libs: ["jquery", "bootstrap", "fontawesome", "popper", "jquery-ui"]
+js: ["/assets/js/tools/translations.js"]
+css: ["/assets/css/tools/translations.css"]
 ---
+{% include tools/hud.html score=0 combos=0 lives=3 %}
 <!-- Rules -->
 <p class="mt-4 text-center font-weight-bold">Sélectionne l'image du bouton <button class="minibox btn btn-primary border border-dark" disabled></button> par la translation qui transforme le bouton <button class="minibox btn btn-secondary border border-dark" disabled></button> en bouton <button class="minibox btn btn-success border border-dark" disabled></button></p>
 

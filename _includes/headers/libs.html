@@ -1,0 +1,4 @@
+{% for lib in include.libs %}
+{% assign path = "headers/libs/" | append: lib | append: ".html" %}
+{% include {{ path }}  %}
+{% endfor %}

@@ -1,9 +1,3 @@
----
-elements:
- - amp-video
- - amp-youtube
- - amp-video-docking
----
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{ site.language }}" lang="{{ site.language }}" dir="ltr">
@@ -11,52 +5,31 @@ elements:
 		{% include headers/charset.html %}
 		{% include headers/favicon.html %}
 		{% include headers/rich-results.html %}
-		{% include headers/seo.html %}
+		{% include headers/seo.html index="false" %}
     	{% include headers/viewport.html %}
     	
-		<meta name="robots" content="noindex" />
-		
-		{% include lib/jquery.html %}
-		{% include lib/bootstrap.html %}
-		{% include lib/fontawesome.html %}
-		
 		<!-- Theme -->
 		{% capture theme %}{% if page.theme %}{{ page.theme }}{% elsif jekyll.environment == 'stream' %}stream{% else %}default{% endif %}{% endcapture %}
-		<style>
-		{% for font in site.data.tools.themes[theme].fonts %}
-			@font-face{
-				font-family: {{ font.name }};
-				src: url({{ font.path }});	
-			}
-		{% endfor %}
-		</style>
-		{% for css in site.data.tools.themes[theme].css %}
-		<link rel="stylesheet" href="{{ css }}" as="style" type="text/css">
-		{% endfor %}
+		<link rel="stylesheet" href="/assets/css/tools/themes/{{ theme }}.css" as="style" type="text/css">
 		
 		<!-- Libraries -->
-		{% for lib in page.libraries %}
-		{% include {{ lib }} %}
-		{% endfor %}
+		{% include headers/libs.html libs=page.libs %}
     	
 		<!-- Images -->
-		{% for img in page.images %}
-		<link rel="preload" href="{{ img }}" as="image">
+		{% for img in page.img %}
+		<link rel="preload" href="{{ img }}" as="image" />
 		{% endfor %}
 
 		<!-- Styles -->
-		{% for style in page.styles %}
-		<link rel="stylesheet" href="{{ style }}"></script>
+		{% for css in page.css %}
+		<link rel="stylesheet" href="{{ css }}"></link>
 		{% endfor %}
 		
 		<!-- Scripts -->
-		<script defer src="/assets/js/tools/tool.js"></script>
-		{% for script in page.scripts %}
-		<script defer src="{{ script }}"></script>
+		<script defer src="/assets/js/noamp.js"></script>
+		{% for js in page.js %}
+		<script defer src="{{ js }}"></script>
 		{% endfor %}
-		
-		<script async src="https://cdn.ampproject.org/v0.js"></script>
-		{% include amp/elements.html %}
 	</head>
 	<body class="bg-body">
 		{% include noamp/analytics.html %}
@@ -66,12 +39,6 @@ elements:
 			<div class="section">
 				<div class="container">
 					<h1>{{ page.title }}</h1>
-					{% if jekyll.environment != "stream" %}
-					{% include amp/youtube-video.html
-						id=page.youtube.id
-						class="mx-auto w-75 mb-5"
-					%}
-					{% endif %}
 					{{ content }}
 				</div>
 			</div>

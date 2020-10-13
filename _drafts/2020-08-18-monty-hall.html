@@ -11,12 +11,12 @@ description: "description"
 
 tooltype: activity
 
-libraries: ["lib/popper.html", "lib/highcharts.html"]
-images: ["/assets/tool/img/door-closed.png", "/assets/tool/img/door-opened-goat.png", "/assets/tool/img/door-opened-car.png"]
-scripts: ["/assets/tool/js/monty-hall.js"]
-styles: ["/assets/tool/css/monty-hall.css"]
+libs: ["jquery", "bootstrap", "fontawesome", "popper", "highcharts"]
+img: ["/assets/img/tools/door-closed.png", "/assets/img/tools/door-opened-goat.png", "/assets/img/tools/door-opened-car.png"]
+js: ["/assets/js/tools/monty-hall.js"]
+css: ["/assets/css/tools/monty-hall.css"]
 ---
-{% include tools/hud.html %}
+
 <ul id="tab-list" class="nav nav-pills nav-fill" role="tablist">
   	<li class="nav-item">
     	<a id="manual-tab" class="nav-link m-1 btn btn-outline-primary active" href="#manual" data-toggle="tab" role="tab" aria-controls="manual" aria-selected="true">Simulation manuelle</a>
@@ -32,19 +32,19 @@ styles: ["/assets/tool/css/monty-hall.css"]
 			<div class="row">
 				<div class="col font-weight-bold d-flex flex-column align-items-center">
 					<button class="btn bg-transparent p-0" id="btn-door-1" onclick="selectDoor(1);">
-						<img id="img-door-1" src="/assets/tool/img/door-closed.png" class="img-fluid"/>
+						<img id="img-door-1" src="/assets/img/tools/door-closed.png" class="img-fluid"/>
 					</button>
 					<span id="label-door-1" class="rounded mt-2 p-2">Porte 1</span>
 				</div>
 				<div class="col font-weight-bold d-flex flex-column align-items-center">
 					<button class="btn bg-transparent p-0" id="btn-door-2" onclick="selectDoor(2);">
-						<img id="img-door-2" src="/assets/tool/img/door-closed.png" class="img-fluid"/>
+						<img id="img-door-2" src="/assets/img/tools/door-closed.png" class="img-fluid"/>
 					</button>
 					<span id="label-door-2" class="rounded mt-2 p-2">Porte 2</span>
 				</div>
 				<div class="col font-weight-bold d-flex flex-column align-items-center">
 					<button class="btn bg-transparent p-0" id="btn-door-3" onclick="selectDoor(3);">
-						<img id="img-door-3" src="/assets/tool/img/door-closed.png" class="img-fluid" />
+						<img id="img-door-3" src="/assets/img/tools/door-closed.png" class="img-fluid" />
 					</button>
 					<span id="label-door-3" class="rounded mt-2 p-2">Porte 3</span>
 				</div>
