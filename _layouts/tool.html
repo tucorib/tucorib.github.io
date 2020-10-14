@@ -57,6 +57,39 @@ elements:
 					</div>
 					{% endif %}
 					{{ content }}
+					{% if jekyll.environment != "stream" %}
+					<hr style="border-top-width: 1px"/>
+					<div class="small text-muted">
+						<h6>Crédits</h6>
+						<br/>
+						<div class="d-flex">
+							{% if page.libs %}
+							<div class="mr-5">
+								<p>Librairies&nbsp;:
+									<ul>
+									{% assign sort_libs = page.libs |sort_natural %}
+									{% for lib in sort_libs %}
+										<li>{{ site.data.credits.libs[lib] }}</li>
+									{% endfor %}
+									</ul>
+								</p>
+							</div>
+							{% endif %}
+							{% if page.svg %}
+							<div class="mr-5">
+								<p>Icônes&nbsp;:
+									<ul>
+									{% assign sort_svg = page.svg |sort_natural %}
+									{% for svg in sort_svg %}
+										<li>{{ site.data.credits.svg[svg] }}</li>
+									{% endfor %}
+									</ul>
+								</p>
+							</div>
+							{% endif %}
+						</div>
+					</div>
+					{% endif %}
 				</div>
 			</div>
 		</main>

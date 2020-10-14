@@ -9,6 +9,9 @@
 	.#{$name} a:not(.btn){
 		color: $color;
 	}
+	.#{$name} .text-muted a{
+		color: $text-muted;	
+	}
 }
 
 // Background rotation

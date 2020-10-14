@@ -12,6 +12,9 @@ Highcharts.setOptions({
         '#c42525',
         '#a6c96a'
     ],
+    credits: {
+    	enabled: false
+    },
     chart: {
     	styledMode: true,
     	spacingTop: 50
