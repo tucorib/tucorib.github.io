@@ -6,3 +6,7 @@
 	@extend .fa-heart;
 	@extend .text-danger;
 }
+
+.custom-range::-moz-range-track{
+	background-color: $gray-600;	
+}

@@ -16,112 +16,125 @@ svg: ["question-mark", "sportive-car", "goat"]
 js: ["/assets/js/tools/monty-hall.js"]
 css: ["/assets/css/tools/monty-hall.css"]
 ---
-
-<ul id="tab-list" class="nav nav-pills nav-fill" role="tablist">
-  	<li class="nav-item">
-    	<a id="manual-tab" class="nav-link btn btn-outline-primary active" href="#manual" data-toggle="tab" role="tab" aria-controls="manual" aria-selected="true">Simulation manuelle</a>
-  	</li>
-  	<li class="nav-item">
-    	<a id="auto-tab" class="nav-link btn btn-outline-primary" href="#auto" data-toggle="tab" role="tab" aria-controls="auto" aria-selected="false">Simulation automatique</a>
-  	</li>
-</ul>
-<b class="p-4"></b>
-<div id="tab-content" class="tab-content">
-  	<div class="tab-pane fade show active" id="manual" role="tabpanel" aria-labelledby="manual-tab">
-  		<!-- Doors -->
-		<div id="doors" class="my-2 my-sm-3 my-xl-5">
-			<div class="row">
-				{% assign indexes ='1,2,3' | split: ',' %}
-				{% for i in indexes %}
-				<div class="col font-weight-bold d-flex flex-column align-items-center">
-					<div class="front-back-container w-100">
-						<div class="front-back d-flex justify-content-center">
-							<div class="front-side shadow-container-main text-center w-100">
-								<button class="btn hexagon-container w-100 bg-main hover-zoom" onclick="selectDoor({{ i }})">
-									<div class="bg-body d-flex justify-content-center align-items-center">
-										{% include svg.html id="question-mark" class="bg-main" %}
+<div id="tool-menu" class="accordion">
+	<div class="card border-0 bg-body">
+    	<div id="manual-header" class="card-header bg-secondary">
+      		<h2 class="mb-0">
+        		<button class="btn btn-link btn-block text-left d-flex justify-content-center" type="button" data-toggle="collapse" data-target="#manual" aria-expanded="true" aria-controls="manual">
+          			<i class="fas fa-tools mr-2"></i> Simulation manuelle
+    			</button>
+      		</h2>
+    	</div>
+    	<div id="manual" class="collapse show manual" aria-labelledby="manual-header" data-parent="#tool-menu">
+    		<div class="card-body bg-body">
+		  		<!-- Doors -->
+				<div id="doors">
+					<div class="row">
+						{% assign indexes ='1,2,3' | split: ',' %}
+						{% for i in indexes %}
+						<div class="col font-weight-bold d-flex flex-column align-items-center">
+							<div class="front-back-container w-100">
+								<div class="front-back d-flex justify-content-center">
+									<div class="front-side shadow-container-main text-center w-100">
+										<button class="btn hexagon-container w-100 bg-main hover-zoom" onclick="selectDoor({{ i }})">
+											<div class="bg-body d-flex justify-content-center align-items-center">
+												{% include svg.html id="question-mark" class="bg-main" %}
+											</div>
+										</button>
 									</div>
-								</button>
-							</div>
-							<div class="back-side shadow-container-main text-center w-100">
-								<button class="btn hexagon-container w-100 bg-main" disabled>
-									<div class="d-flex justify-content-center align-items-center">
-										{% include svg.html id="question-mark" class="bg-main" %}
+									<div class="back-side shadow-container-main text-center w-100">
+										<button class="btn hexagon-container w-100 bg-main" disabled>
+											<div class="d-flex justify-content-center align-items-center">
+												{% include svg.html id="question-mark" class="bg-main" %}
+											</div>
+										</button>
 									</div>
-								</button>
+								</div>
 							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+				<br/>
+				<!-- Rules -->
+				<div id="rules" class="carousel slide" data-interval="0" data-keyboard="false" data-touch="false">
+					<div class="carousel-inner text-center">
+						<div id="step-0" class="carousel-item active">
+							<p>Trois portes sont devant vous. Derrière la porte gagnante se cache une voiture, et derrière les deux autres se cache une chèvre.</p>
+							<p><em>Sélectionnez la porte que vous pensez être gagnante.</em></p>
+						</div>
+						<div id="step-1" class="carousel-item">
+							<p>Vous venez de sélectionner la porte <span class="badge badge-primary step-1-selected-door">0</span></p>
+							<p>On vous informe maintenant que la voiture ne se trouve pas derrière la porte <span class="badge badge-danger step-1-wrong-door">0</span></p>
+							<div class="alert alert-success">
+								<h4 class="alert-heading">Questions&nbsp;:</h4>
+								<b class="p-2"></b>
+								<ol class="text-left">
+									<li>
+										Connaissant cette nouvelle information, pensez-vous avec-vous plus de chances de gagner&nbsp;:
+											<ul>
+												<li>en conservant votre choix, et vous décidez d'ouvrir la porte <span class="badge badge-primary step-1-selected-door">0</span></li>
+												<li>en changeant votre choix, et vous décidez d'ouvrir la porte <span class="badge badge-secondary step-1-alt-door">0</span></li>
+											</ul>
+									</li>
+									<li>
+										A combien estimez-vous la probabilité de gagner dans chacun des deux cas (conserver, ou changer)&nbsp;?
+									</li>
+								</ol>
+							</div>
+							<p><em>Sélectionnez la porte que vous pensez être gagnante.</em></p>
+						</div>
+						<div id="step-2" class="carousel-item">
+							<h2 id="step-2-label" ></h2>
+							<div class="alert alert-info">
+								<p class="text-justify">Les tableaux et graphiques ci-dessous représentent les résultats de vos parties. En faisant un très grand nombre de parties, vous pourrez découvrir les probabilités réelles de gagner dans chacun des deux cas&nbsp;:&nbsp;les fréquences de parties gagnées s'approcheront des valeurs réelles.</p>
+								<p>Afin de gagner du temps, pensez à utiliser la simulation automatique&nbsp;!</p>
+							</div>
+							<button id="new-run" type="button" class="btn btn-primary font-weight-bolder" onclick="startRun();">Faire une nouvelle partie</button>
 						</div>
 					</div>
 				</div>
-				{% endfor %}
 			</div>
-		</div>
-		<br/>
-		<!-- Rules -->
-		<div id="rules" class="carousel slide" data-interval="0" data-keyboard="false" data-touch="false">
-			<div class="carousel-inner text-center">
-				<div id="step-0" class="carousel-item active">
-					<p>Trois portes sont devant vous. Derrière la porte gagnante se cache une voiture, et derrière les deux autres se cache une chèvre.</p>
-					<p><em>Sélectionnez la porte que vous pensez être gagnante.</em></p>
-				</div>
-				<div id="step-1" class="carousel-item">
-					<p>Vous venez de sélectionner la porte <span class="badge badge-primary step-1-selected-door">0</span></p>
-					<p>On vous informe maintenant que la voiture ne se trouve pas derrière la porte <span class="badge badge-danger step-1-wrong-door">0</span></p>
-					<div class="alert alert-success">
-						<h4 class="alert-heading">Questions&nbsp;:</h4>
-						<ol>
-							<li>
-								<p>Connaissant cette nouvelle information, pensez-vous avec-vous plus de chances de gagner&nbsp;:</p>
-								<ul>
-									<li>en conservant votre choix, et vous décidez d'ouvrir la porte <span class="badge badge-primary step-1-selected-door">0</span></li>
-									<li>en changeant votre choix, et vous décidez d'ouvrir la porte <span class="badge badge-secondary step-1-alt-door">0</span></li>
-								</ul>
-							</li>
-							<li>
-								<p>A combien estimez-vous la probabilité de gagner dans chacun des deux cas (conserver, ou changer)&nbsp;?</p>
-							</li>
-						</ol>
+    	</div>
+	</div>
+	<div class="card border-0">
+		<div id="auto-header" class="card-header bg-secondary d-flex justify-content-center">
+      		<h2 class="mb-0">
+        		<button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#auto" aria-expanded="false" aria-controls="auto">
+          			<i class="fas fa-cogs mr-2"></i> Simulation automatique
+    			</button>
+      		</h2>
+    	</div>
+    	<div id="auto" class="collapse" aria-labelledby="auto-header" data-parent="#tool-menu">
+    		<div class="card-body bg-body">
+    			<form>
+		 			<!-- Auto configuration -->
+			 		<div class="form-group text-center">
+						<span id="auto-count-label">Nombre de simulations &nbsp; <span id="auto-count-value">1</span></span>
+						<input id="auto-count" class="form-control-range custom-range" type="range" min="1" max="2000" step="1" />					
 					</div>
-					<p><em>Sélectionnez la porte que vous pensez être gagnante.</em></p>
-				</div>
-				<div id="step-2" class="carousel-item">
-					<h2 id="step-2-label" ></h2>
-					<div class="alert alert-info">
-						<p>Les tableaux et graphiques ci-dessous représentent les résultats de vos parties. En faisant un très grand nombre de parties, vous pourrez découvrir les probabilités réelles de gagner dans chacun des deux cas&nbsp;:&nbsp;les fréquences de parties gagnées s'approcheront des valeurs réelles.</p>
-						<p>Afin de gagner du temps, pensez à utiliser la simulation automatique&nbsp;!</p>
+					<br/>
+					<div class="text-center">
+						<button type="button" id="btn-auto" class="btn btn-primary">Lancer</button>
 					</div>
-					<button id="new-run" type="button" class="btn btn-primary font-weight-bolder" onclick="startRun();">Faire une nouvelle partie</button>
-				</div>
-			</div>
-		</div>
-  	</div>
- 	<div class="tab-pane fade" id="auto" role="tabpanel" aria-labelledby="auto-tab">
-		<form>
- 			<!-- Auto configuration -->
-	 		<div class="form-group text-center">
-				<span id="auto-count-label">Nombre de simulations &nbsp; <span id="auto-count-value">1</span></span>
-				<input id="auto-count" class="form-control-range custom-range" type="range" min="1" max="2000" step="1" />					
-			</div>
-			<br/>
-			<div class="text-center">
-				<button type="button" id="btn-auto" class="btn btn-primary">Lancer</button>
-			</div>
-			<br/>
-			<div class="progress">
-			  	<div id="auto-progress" class="progress-bar progress-bar-animated bg-primary font-weight-bold" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1000"></div>
-			  	<div id="auto-progress-working" class="progress-bar progress-bar-striped progress-bar-animated bg-secondary font-weight-bold w-100" style="display: none">Simulation en cours...</div>
-			</div>
-			<br/>
-			<div class="text-center">
-				<div class="custom-switch">
-					<input class="custom-control-input" type="checkbox" id="auto-display" />
-					<label class="custom-control-label active" for="auto-display">
-						Afficher les résultats en temps réel (peut prendre plus de temps)
-					</label>
-				</div>
-			</div>
-		</form>
- 	</div>
+					<br/>
+					<div class="text-center">
+						<div class="custom-switch">
+							<input class="custom-control-input" type="checkbox" id="auto-display" />
+							<label class="custom-control-label active" for="auto-display">
+								Afficher les résultats en temps réel (peut prendre plus de temps)
+							</label>
+						</div>
+					</div>
+					<br/>
+					<div class="progress bg-body">
+					  	<div id="auto-progress" class="progress-bar progress-bar-animated bg-primary font-weight-bold" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1000"></div>
+					  	<div id="auto-progress-working" class="progress-bar progress-bar-striped progress-bar-animated bg-secondary font-weight-bold w-100" style="display: none">Simulation en cours...</div>
+					</div>
+				</form>
+    		</div>
+    	</div>
+	</div>
 </div>
 
 <hr/>
