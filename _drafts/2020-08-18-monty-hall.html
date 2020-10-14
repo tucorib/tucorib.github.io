@@ -12,7 +12,7 @@ description: "description"
 tooltype: activity
 
 libs: ["jquery", "bootstrap", "fontawesome", "popper", "highcharts"]
-img: []
+svg: ["question-mark", "sportive-car", "goat"]
 js: ["/assets/js/tools/monty-hall.js"]
 css: ["/assets/css/tools/monty-hall.css"]
 ---
@@ -29,31 +29,29 @@ css: ["/assets/css/tools/monty-hall.css"]
 <div id="tab-content" class="tab-content">
   	<div class="tab-pane fade show active" id="manual" role="tabpanel" aria-labelledby="manual-tab">
   		<!-- Doors -->
-		<div id="doors">
+		<div id="doors" class="my-2 my-sm-3 my-xl-5">
 			<div class="row">
 				{% assign indexes ='1,2,3' | split: ',' %}
 				{% for i in indexes %}
 				<div class="col font-weight-bold d-flex flex-column align-items-center">
-					<div class="front-back-container">
+					<div class="front-back-container w-100">
 						<div class="front-back d-flex justify-content-center">
-							<div class="front-side">
-								<button class="btn hexagon-container bg-main hover-zoom shadow" onclick="selectDoor({{ i }})">
+							<div class="front-side shadow-container-main text-center w-100">
+								<button class="btn hexagon-container w-100 bg-main hover-zoom" onclick="selectDoor({{ i }})">
 									<div class="bg-body d-flex justify-content-center align-items-center">
 										{% include svg.html id="question-mark" class="bg-main" %}
 									</div>
 								</button>
 							</div>
-							<div class="back-side">
-								<button class="btn hexagon-container bg-main" disabled>
-									<div class="bg-body d-flex justify-content-center align-items-center">
+							<div class="back-side shadow-container-main text-center w-100">
+								<button class="btn hexagon-container w-100 bg-main" disabled>
+									<div class="d-flex justify-content-center align-items-center">
 										{% include svg.html id="question-mark" class="bg-main" %}
 									</div>
 								</button>
 							</div>
 						</div>
 					</div>
-					<b class="p-xl-3"></b>
-					<span class="btn rounded">Porte {{ i }}</span>
 				</div>
 				{% endfor %}
 			</div>
@@ -89,7 +87,7 @@ css: ["/assets/css/tools/monty-hall.css"]
 				<div id="step-2" class="carousel-item">
 					<h2 id="step-2-label" ></h2>
 					<div class="alert alert-info">
-						<p>Les tableaux et graphiques ci-dessous représentent les résultats de vos parties. En faisant un très grand nombre de parties, vous pourrez découvrir les probabilités réelles de gagner dans chacun des deux cas &nbsp; les fréquences de parties gagnées s'approcheront des valeurs réelles.</p>
+						<p>Les tableaux et graphiques ci-dessous représentent les résultats de vos parties. En faisant un très grand nombre de parties, vous pourrez découvrir les probabilités réelles de gagner dans chacun des deux cas&nbsp;:&nbsp;les fréquences de parties gagnées s'approcheront des valeurs réelles.</p>
 						<p>Afin de gagner du temps, pensez à utiliser la simulation automatique&nbsp;!</p>
 					</div>
 					<button id="new-run" type="button" class="btn btn-primary font-weight-bolder" onclick="startRun();">Faire une nouvelle partie</button>

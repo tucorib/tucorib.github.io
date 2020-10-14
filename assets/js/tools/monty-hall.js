@@ -11,6 +11,9 @@ var wrongDoor = null;
 // Simulation index
 var simulationIndex = 0;
 
+// Doors
+var doors = [1,2,3];
+
 // Auto-simulation
 var autoRun = false;
 // Auto-simulation spped
@@ -127,14 +130,22 @@ function flipFrontBack(frontBack, frontSide){
 }
 
 function updateButton(button, colorClass, svgId){
-	$(button).removeClass('bg-main bg-primary bg-danger bg-success').addClass('bg-' + colorClass);
-	$(button).find('.svg').removeClass('question-mark sportive-car goat bg-main bg-primary bg-danger bg-success').addClass(svgId).addClass('bg-' + colorClass);
-}
-
-function updateLabel(span, colorClass){
-	$(span).removeClass('bg-primary bg-danger bg-success');
-	if(colorClass)
-		$(span).addClass('bg-' + colorClass);
+	// Clean
+	$(button).removeClass('bg-main bg-primary bg-danger bg-success');
+	$(button).find('.svg').removeClass('question-mark sportive-car goat bg-main bg-primary bg-danger bg-success');
+	$(button).parent().removeClass('shadow-container-main shadow-container-primary shadow-container-danger shadow-container-success');
+	// Update
+	$(button).addClass('bg-' + colorClass);
+	$(button).find('.svg').addClass(svgId);
+	$(button).parent().addClass('shadow-container-' + colorClass);
+	
+	if($(button).parent().hasClass('front-side')){
+		$(button).find('.svg').addClass('bg-' + colorClass);
+	}
+	else{
+		$(button).removeClass('bg-body bg-primary bg-danger bg-success').addClass('bg-' + colorClass);
+		$(button).find('.svg').addClass('bg-white');
+	}
 }
 
 function startRun(){
@@ -153,11 +164,9 @@ function startRun(){
 			var container = getDoorContainer(index);
 			var frontButton = getDoorButton(index, 'front-side');
 			var backButton = getDoorButton(index, 'back-side');
-			var label = getDoorLabel(index);
 			
 			updateButton(frontButton, 'main', 'question-mark');
 			updateButton(backButton, 'main', 'question-mark');
-			updateLabel(label);
 			flipFrontBack(container, true);
 		}
 	}
@@ -181,31 +190,27 @@ function handleStep0Choice(doorIndex){
 	// Select door
 	selectedDoor = doorIndex;
 	
+	// Wrong door
+	var otherDoors = doors.filter(door => door != doorIndex && door != correctDoor);
+	wrongDoor = otherDoors[Math.floor(Math.random() * otherDoors.length)];
+	
 	// Update UI
 	if(!autoRun){
 		// Selected door
 		var selectedContainer = getDoorContainer(selectedDoor);
 		var selectedButton = getDoorButton(selectedDoor, 'front-side');
-		var selectedLabel = getDoorLabel(selectedDoor);
 		
 		updateButton($(selectedButton), 'primary', 'question-mark');
-		updateLabel($(selectedLabel), 'primary');
-		
-		// Wrong door
-		var otherDoors = [1,2,3].filter(door => door != doorIndex && door != correctDoor);
-		wrongDoor = otherDoors[Math.floor(Math.random() * otherDoors.length)];
 		
 		var wrongContainer = getDoorContainer(wrongDoor);
 		var wrongButton = getDoorButton(wrongDoor, 'back-side');
-		var wrongLabel = getDoorLabel(wrongDoor);
 		
 		updateButton($(wrongButton), 'danger', 'goat');
 		$(wrongButton).attr('disabled', true);
-		updateLabel($(wrongLabel), 'danger');
 		flipFrontBack($(wrongContainer));
 		
 		// Alt door
-		var altDoor = [1,2,3].filter(door => door != selectedDoor && door != wrongDoor);
+		var altDoor = doors.filter(door => door != selectedDoor && door != wrongDoor);
 		
 		// Update rules
 		$('.step-1-selected-door').text(selectedDoor);
@@ -223,7 +228,7 @@ function handleStep0Choice(doorIndex){
 			choice = selectedDoor;
 		}
 		else{
-			choice = [1,2,3].filter(door => door != selectedDoor && door != wrongDoor)[0];
+			choice = doors.filter(door => door != selectedDoor && door != wrongDoor)[0];
 		}
 		handleStep1Choice(choice);
 	}
@@ -231,46 +236,7 @@ function handleStep0Choice(doorIndex){
 
 function handleStep1Choice(doorIndex){
 	// Select door
-	confirmDoor = doorIndex;
-	
-	// Update UI
-	if(!autoRun){
-		// Confirm button
-		var confirmContainer = getDoorContainer(confirmDoor);
-		var confirmButton = getDoorButton(confirmDoor, 'back-side');
-		var confirmLabel = getDoorLabel(confirmDoor);
-		
-		// Alternate door
-		var altDoor = [1,2,3].filter(door => door != confirmDoor && door != wrongDoor);
-
-		var altContainer = getDoorContainer(altDoor);
-		var altButton = getDoorButton(altDoor, 'back-side');
-		var altLabel = getDoorLabel(altDoor);
-		
-		if(confirmDoor == correctDoor){
-			updateButton($(confirmButton), 'success', 'sportive-car');
-			updateLabel($(confirmLabel), 'success');
-			updateButton($(altButton), 'danger', 'goat');
-			updateLabel($(altLabel), 'danger');
-		}
-		else{
-			updateButton($(confirmButton), 'danger', 'goat');
-			updateLabel($(confirmLabel), 'danger');
-			updateButton($(altButton), 'success', 'sportive-car');
-			updateLabel($(altLabel), 'success');
-		}
-		flipFrontBack($(altContainer));
-		flipFrontBack($(confirmContainer));
-		
-		if(doorIndex == correctDoor){
-			$('#step-2-label').text('Vous avez gagné!');
-		}
-		else{
-			$('#step-2-label').text('Vous avez perdu...');
-		}
-		
-		$('#rules').carousel('next');
-	}
+	var confirmDoor = doorIndex;
 	
 	// Update session & rules
 	var autoChartDisplay = !autoRun || autoDisplay;
@@ -289,6 +255,39 @@ function handleStep1Choice(doorIndex){
 		}
 		session.change.freq = session.change.won / session.change.nb;
 		changeChart.series[0].addPoint([session.change.nb, session.change.freq], autoChartDisplay, false, false);
+	}
+	
+	// Update UI
+	if(!autoRun){
+		// Confirm button
+		var confirmContainer = getDoorContainer(confirmDoor);
+		var confirmButton = getDoorButton(confirmDoor, 'back-side');
+		
+		// Alternate door
+		var altDoor = doors.filter(door => door != confirmDoor && door != wrongDoor);
+
+		var altContainer = getDoorContainer(altDoor);
+		var altButton = getDoorButton(altDoor, 'back-side');
+		
+		if(confirmDoor == correctDoor){
+			updateButton($(confirmButton), 'success', 'sportive-car');
+			updateButton($(altButton), 'danger', 'goat');
+		}
+		else{
+			updateButton($(confirmButton), 'danger', 'goat');
+			updateButton($(altButton), 'success', 'sportive-car');
+		}
+		flipFrontBack($(altContainer));
+		flipFrontBack($(confirmContainer));
+		
+		if(confirmDoor == correctDoor){
+			$('#step-2-label').text('Vous avez gagné !');
+		}
+		else{
+			$('#step-2-label').text('Vous avez perdu...');
+		}
+		
+		$('#rules').carousel('next');
 	}
 	
 	simulationIndex += 1;

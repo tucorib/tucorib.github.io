@@ -1,14 +1,36 @@
 .hexagon-container{
 	-webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
 	clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
-	padding: 5px;
-	width: 200px;
-	height: 200px;
+	padding: $hexagon-container-padding;
+	max-width: $hexagon-container-max-size;
+	max-height: $hexagon-container-max-size;
+}
+
+.hexagon-container:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
 }
 
 .hexagon-container > *{
 	-webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
 	clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
-	@extend .w-100;
-	@extend .h-100;
+	max-width: calc(#{$hexagon-container-max-size} - 2*#{$hexagon-container-padding});
+	max-height: calc(#{$hexagon-container-max-size} - 2*#{$hexagon-container-padding});
+	width: calc(100% - 2*#{$hexagon-container-padding});
+	height: calc(100% - 2*#{$hexagon-container-padding});
+	position: absolute;
+	top: $hexagon-container-padding;
+}
+
+.shadow-container{
+	filter: drop-shadow(5px 10px 5px rgba(0,0,0,0.5));
+}
+.shadow-container-main{
+	filter: drop-shadow(5px 10px 5px rgba($main-color,0.5));
+}
+@each $color, $value in $theme-colors {
+	.shadow-container-#{$color}{
+		filter: drop-shadow(5px 10px 5px rgba($value,0.5));
+	}
 }

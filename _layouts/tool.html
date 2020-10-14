@@ -22,8 +22,8 @@ elements:
 		{% include headers/libs.html libs=page.libs %}
     	
 		<!-- Images -->
-		{% for img in page.img %}
-		<link rel="preload" href="{{ img }}" as="image" />
+		{% for svg in page.svg %}
+		<link rel="preload" href="{{ svg }}" as="image" />
 		{% endfor %}
 
 		<!-- Styles -->
@@ -43,17 +43,16 @@ elements:
 		{% include noamp/analytics.html %}
 		{% include noamp/navigation.html %}
 		<main class="bg-body d-flex flex-column">
-			{% if jekyll.environment != "stream" %}
-			<span class="position-absolute w-100 text-right">
-				<button class="btn btn-sm" type="button" data-toggle="collapse" href="#youtube" aria-expanded="false" aria-controls="youtube">Afficher/Cacher la vidéo</button>
-			</span>
-			{% endif %}
 			<b class="d-none d-lg-block p-4"></b>
 			<div class="section">
 				<div class="container">
 					<h1>{{ page.title }}</h1>
-					{% if jekyll.environment != "stream" %}
+					{% if jekyll.environment != "stream" and page.youtube.id %}
+					<div class="d-flex justify-content-end">
+						<button class="btn btn-sm" type="button" data-toggle="collapse" href="#youtube" aria-expanded="false" aria-controls="youtube">Afficher/Cacher la vidéo</button>
+					</div>
 					<div id="youtube" class="collapse mx-auto w-75 mb-5">
+						<b class="d-block p-2"></b>
 						{% include amp/youtube-video.html id=page.youtube.id %}
 					</div>
 					{% endif %}
