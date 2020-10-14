@@ -1,6 +1,3 @@
-#btn-door-1:focus,#btn-door-2:focus,#btn-door-3:focus{
-	box-shadow: none;
-}
-#btn-door-1:disabled,#btn-door-2:disabled,#btn-door-3:disabled{
+.btn.hexagon-container{
 	opacity: 1;
 }

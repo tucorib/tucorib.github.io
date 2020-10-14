@@ -1,0 +1,14 @@
+.hexagon-container{
+	-webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+	clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+	padding: 5px;
+	width: 200px;
+	height: 200px;
+}
+
+.hexagon-container > *{
+	-webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+	clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+	@extend .w-100;
+	@extend .h-100;
+}

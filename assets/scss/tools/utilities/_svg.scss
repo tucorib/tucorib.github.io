@@ -1,0 +1,19 @@
+.svg{
+	@extend .w-100;
+	@extend .h-100;
+	mask-size: 50%;
+	mask-repeat: no-repeat;
+	mask-position: center;
+}
+
+.svg.goat{
+	mask-image: url(/assets/img/tools/goat.svg);
+}
+
+.svg.sportive-car{
+	mask-image: url(/assets/img/tools/sportive-car.svg);
+}
+
+.svg.question-mark{
+	mask-image: url(/assets/img/tools/question-mark.svg);
+}

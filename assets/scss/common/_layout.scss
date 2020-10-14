@@ -27,14 +27,6 @@ main{
 	@extend .w-100;
 }
 
-ul:not(.navbar-nav) > li{
-	@extend .mb-4;
-}
-
-ol:not(.navbar-nav) > li{
-	@extend .mb-1;
-}
-
 .form-control:hover, .form-control:active, .form-control:focus{
 	border: none;
 	background: none;

@@ -105,6 +105,38 @@ function startSession(){
 	startRun();
 }
 
+function getDoorContainer(doorIndex){
+	return $('#doors .front-back').eq(doorIndex - 1);
+}
+
+function getDoorButton(doorIndex, sideClass){
+	return getDoorContainer(doorIndex).find('.' + sideClass + ' button');
+}
+
+function getDoorLabel(doorIndex){
+	return $('#doors span').eq(doorIndex - 1); 
+}
+
+function flipFrontBack(frontBack, frontSide){
+	if(frontSide){
+		$(frontBack).css('transform', 'rotateY(0deg)');
+	}
+	else{
+		$(frontBack).css('transform', 'rotateY(-180deg)');
+	}
+}
+
+function updateButton(button, colorClass, svgId){
+	$(button).removeClass('bg-main bg-primary bg-danger bg-success').addClass('bg-' + colorClass);
+	$(button).find('.svg').removeClass('question-mark sportive-car goat bg-main bg-primary bg-danger bg-success').addClass(svgId).addClass('bg-' + colorClass);
+}
+
+function updateLabel(span, colorClass){
+	$(span).removeClass('bg-primary bg-danger bg-success');
+	if(colorClass)
+		$(span).addClass('bg-' + colorClass);
+}
+
 function startRun(){
 	// Init step
 	step = 0;
@@ -116,18 +148,18 @@ function startRun(){
 	if(!autoRun){
 		// Update rules
 		$('#rules').carousel(0);
-		// Activate buttons
-		$('#btn-door-1').attr('disabled', false);
-		$('#btn-door-2').attr('disabled', false);
-		$('#btn-door-3').attr('disabled', false);
-		// Reset labels
-		$('#label-door-1').removeClass('bg-primary bg-secondary bg-danger bg-success');
-		$('#label-door-2').removeClass('bg-primary bg-secondary bg-danger bg-success');
-		$('#label-door-3').removeClass('bg-primary bg-secondary bg-danger bg-success');
-		// Reset doors
-		$('#img-door-1').attr('src', '/assets/img/tools/door-closed.png');
-		$('#img-door-2').attr('src', '/assets/img/tools/door-closed.png');
-		$('#img-door-3').attr('src', '/assets/img/tools/door-closed.png');
+		
+		for(var index = 1; index <= 3; index++){
+			var container = getDoorContainer(index);
+			var frontButton = getDoorButton(index, 'front-side');
+			var backButton = getDoorButton(index, 'back-side');
+			var label = getDoorLabel(index);
+			
+			updateButton(frontButton, 'main', 'question-mark');
+			updateButton(backButton, 'main', 'question-mark');
+			updateLabel(label);
+			flipFrontBack(container, true);
+		}
 	}
 	
 	if(autoRun){
@@ -149,29 +181,31 @@ function handleStep0Choice(doorIndex){
 	// Select door
 	selectedDoor = doorIndex;
 	
-	// Mark wrong door
-	var otherDoors = [1,2,3].filter(door => door != doorIndex && door != correctDoor);
-	wrongDoor = otherDoors[Math.floor(Math.random() * otherDoors.length)];
-	
 	// Update UI
 	if(!autoRun){
-		$('#label-door-' + selectedDoor)
-		.addClass('bg-primary');
+		// Selected door
+		var selectedContainer = getDoorContainer(selectedDoor);
+		var selectedButton = getDoorButton(selectedDoor, 'front-side');
+		var selectedLabel = getDoorLabel(selectedDoor);
 		
-		$('#btn-door-' + wrongDoor)
-		.attr('disabled', true);
-		$('#label-door-' + wrongDoor)
-		.addClass('bg-danger');
+		updateButton($(selectedButton), 'primary', 'question-mark');
+		updateLabel($(selectedLabel), 'primary');
 		
-		// Open wrong door
-		$('#img-door-' + wrongDoor).attr('src', '/assets/img/tools/door-opened-goat.png');
+		// Wrong door
+		var otherDoors = [1,2,3].filter(door => door != doorIndex && door != correctDoor);
+		wrongDoor = otherDoors[Math.floor(Math.random() * otherDoors.length)];
 		
-		// Get alternate door
+		var wrongContainer = getDoorContainer(wrongDoor);
+		var wrongButton = getDoorButton(wrongDoor, 'back-side');
+		var wrongLabel = getDoorLabel(wrongDoor);
+		
+		updateButton($(wrongButton), 'danger', 'goat');
+		$(wrongButton).attr('disabled', true);
+		updateLabel($(wrongLabel), 'danger');
+		flipFrontBack($(wrongContainer));
+		
+		// Alt door
 		var altDoor = [1,2,3].filter(door => door != selectedDoor && door != wrongDoor);
-	
-		// Update alt door
-		$('#label-door-' + altDoor)
-		.addClass('bg-secondary');
 		
 		// Update rules
 		$('.step-1-selected-door').text(selectedDoor);
@@ -196,43 +230,37 @@ function handleStep0Choice(doorIndex){
 };
 
 function handleStep1Choice(doorIndex){
-	var autoChartDisplay = !autoRun || autoDisplay;
-	
-	// Update session & rules
-	if(doorIndex == selectedDoor){
-		session.keep.nb += 1;
-		if(doorIndex == correctDoor){
-			session.keep.won += 1;
-		}
-		session.keep.freq = session.keep.won / session.keep.nb;
-		keepChart.series[0].addPoint([session.keep.nb, session.keep.freq], autoChartDisplay, false, false);
-	}
-	else{
-		session.change.nb += 1;
-		if(doorIndex == correctDoor){
-			session.change.won += 1;
-		}
-		session.change.freq = session.change.won / session.change.nb;
-		changeChart.series[0].addPoint([session.change.nb, session.change.freq], autoChartDisplay, false, false);
-	}
+	// Select door
+	confirmDoor = doorIndex;
 	
 	// Update UI
 	if(!autoRun){
-		$('#label-door-' + selectedDoor)
-		.removeClass('bg-primary');
+		// Confirm button
+		var confirmContainer = getDoorContainer(confirmDoor);
+		var confirmButton = getDoorButton(confirmDoor, 'back-side');
+		var confirmLabel = getDoorLabel(confirmDoor);
 		
-		if(doorIndex == correctDoor)
-			$('#label-door-' + doorIndex)
-			.addClass('bg-success');
-		else{
-			$('#label-door-' + doorIndex)
-			.addClass('bg-primary');
-			$('#label-door-' + correctDoor)
-			.addClass('bg-success');
+		// Alternate door
+		var altDoor = [1,2,3].filter(door => door != confirmDoor && door != wrongDoor);
+
+		var altContainer = getDoorContainer(altDoor);
+		var altButton = getDoorButton(altDoor, 'back-side');
+		var altLabel = getDoorLabel(altDoor);
+		
+		if(confirmDoor == correctDoor){
+			updateButton($(confirmButton), 'success', 'sportive-car');
+			updateLabel($(confirmLabel), 'success');
+			updateButton($(altButton), 'danger', 'goat');
+			updateLabel($(altLabel), 'danger');
 		}
-		$('#btn-door-1').attr('disabled', true);
-		$('#btn-door-2').attr('disabled', true);
-		$('#btn-door-3').attr('disabled', true);
+		else{
+			updateButton($(confirmButton), 'danger', 'goat');
+			updateLabel($(confirmLabel), 'danger');
+			updateButton($(altButton), 'success', 'sportive-car');
+			updateLabel($(altLabel), 'success');
+		}
+		flipFrontBack($(altContainer));
+		flipFrontBack($(confirmContainer));
 		
 		if(doorIndex == correctDoor){
 			$('#step-2-label').text('Vous avez gagné!');
@@ -242,11 +270,25 @@ function handleStep1Choice(doorIndex){
 		}
 		
 		$('#rules').carousel('next');
-		
-		// Show doors
-		$('#img-door-' + correctDoor).attr('src', '/assets/img/tools/door-opened-car.png');
-		if(doorIndex != correctDoor)
-			$('#img-door-' + selectedDoor).attr('src', '/assets/img/tools/door-opened-goat.png');
+	}
+	
+	// Update session & rules
+	var autoChartDisplay = !autoRun || autoDisplay;
+	if(confirmDoor == selectedDoor){
+		session.keep.nb += 1;
+		if(confirmDoor == correctDoor){
+			session.keep.won += 1;
+		}
+		session.keep.freq = session.keep.won / session.keep.nb;
+		keepChart.series[0].addPoint([session.keep.nb, session.keep.freq], autoChartDisplay, false, false);
+	}
+	else{
+		session.change.nb += 1;
+		if(confirmDoor == correctDoor){
+			session.change.won += 1;
+		}
+		session.change.freq = session.change.won / session.change.nb;
+		changeChart.series[0].addPoint([session.change.nb, session.change.freq], autoChartDisplay, false, false);
 	}
 	
 	simulationIndex += 1;

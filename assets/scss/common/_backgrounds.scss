@@ -1,3 +1,4 @@
+@include background-variant("bg-main", 			$main-color, $body-color);
 @include background-variant("bg-body", 			$body-bg-color, $body-color);
 @include background-variant("bg-header-brand", 	$brand-color);
 @include background-variant("bg-header-nav", 	$navbar-color);
@@ -7,4 +8,8 @@
 @include background-variant("bg-cookies", 		$cookies-color);
 .btn-cookies {
 	@include button-variant($cookies-color, $cookies-color);
+}
+
+@each $color, $value in $theme-colors {
+  @include background-variant("bg-#{$color}", $value);
 }

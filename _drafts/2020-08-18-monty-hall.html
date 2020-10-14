@@ -12,79 +12,87 @@ description: "description"
 tooltype: activity
 
 libs: ["jquery", "bootstrap", "fontawesome", "popper", "highcharts"]
-img: ["/assets/img/tools/door-closed.png", "/assets/img/tools/door-opened-goat.png", "/assets/img/tools/door-opened-car.png"]
+img: []
 js: ["/assets/js/tools/monty-hall.js"]
 css: ["/assets/css/tools/monty-hall.css"]
 ---
 
 <ul id="tab-list" class="nav nav-pills nav-fill" role="tablist">
   	<li class="nav-item">
-    	<a id="manual-tab" class="nav-link m-1 btn btn-outline-primary active" href="#manual" data-toggle="tab" role="tab" aria-controls="manual" aria-selected="true">Simulation manuelle</a>
+    	<a id="manual-tab" class="nav-link btn btn-outline-primary active" href="#manual" data-toggle="tab" role="tab" aria-controls="manual" aria-selected="true">Simulation manuelle</a>
   	</li>
   	<li class="nav-item">
-    	<a id="auto-tab" class="nav-link m-1 btn btn-outline-primary" href="#auto" data-toggle="tab" role="tab" aria-controls="auto" aria-selected="false">Simulation automatique</a>
+    	<a id="auto-tab" class="nav-link btn btn-outline-primary" href="#auto" data-toggle="tab" role="tab" aria-controls="auto" aria-selected="false">Simulation automatique</a>
   	</li>
 </ul>
-<div id="tab-content" class="tab-content my-3">
+<b class="p-4"></b>
+<div id="tab-content" class="tab-content">
   	<div class="tab-pane fade show active" id="manual" role="tabpanel" aria-labelledby="manual-tab">
   		<!-- Doors -->
 		<div id="doors">
 			<div class="row">
+				{% assign indexes ='1,2,3' | split: ',' %}
+				{% for i in indexes %}
 				<div class="col font-weight-bold d-flex flex-column align-items-center">
-					<button class="btn bg-transparent p-0" id="btn-door-1" onclick="selectDoor(1);">
-						<img id="img-door-1" src="/assets/img/tools/door-closed.png" class="img-fluid"/>
-					</button>
-					<span id="label-door-1" class="rounded mt-2 p-2">Porte 1</span>
+					<div class="front-back-container">
+						<div class="front-back d-flex justify-content-center">
+							<div class="front-side">
+								<button class="btn hexagon-container bg-main hover-zoom shadow" onclick="selectDoor({{ i }})">
+									<div class="bg-body d-flex justify-content-center align-items-center">
+										{% include svg.html id="question-mark" class="bg-main" %}
+									</div>
+								</button>
+							</div>
+							<div class="back-side">
+								<button class="btn hexagon-container bg-main" disabled>
+									<div class="bg-body d-flex justify-content-center align-items-center">
+										{% include svg.html id="question-mark" class="bg-main" %}
+									</div>
+								</button>
+							</div>
+						</div>
+					</div>
+					<b class="p-xl-3"></b>
+					<span class="btn rounded">Porte {{ i }}</span>
 				</div>
-				<div class="col font-weight-bold d-flex flex-column align-items-center">
-					<button class="btn bg-transparent p-0" id="btn-door-2" onclick="selectDoor(2);">
-						<img id="img-door-2" src="/assets/img/tools/door-closed.png" class="img-fluid"/>
-					</button>
-					<span id="label-door-2" class="rounded mt-2 p-2">Porte 2</span>
-				</div>
-				<div class="col font-weight-bold d-flex flex-column align-items-center">
-					<button class="btn bg-transparent p-0" id="btn-door-3" onclick="selectDoor(3);">
-						<img id="img-door-3" src="/assets/img/tools/door-closed.png" class="img-fluid" />
-					</button>
-					<span id="label-door-3" class="rounded mt-2 p-2">Porte 3</span>
-				</div>
+				{% endfor %}
 			</div>
-			<br/>
-			<!-- Rules -->
-			<div id="rules" class="carousel slide" data-interval="0" data-keyboard="false" data-touch="false">
-				<div class="carousel-inner text-center">
-					<div id="step-0" class="carousel-item active">
-						<p>Trois portes sont devant vous. Derrière la porte gagnante se cache une voiture, et derrière les deux autres se cache une chèvre.</p>
-						<p><em>Sélectionnez la porte que vous pensez être gagnante.</em></p>
+		</div>
+		<br/>
+		<!-- Rules -->
+		<div id="rules" class="carousel slide" data-interval="0" data-keyboard="false" data-touch="false">
+			<div class="carousel-inner text-center">
+				<div id="step-0" class="carousel-item active">
+					<p>Trois portes sont devant vous. Derrière la porte gagnante se cache une voiture, et derrière les deux autres se cache une chèvre.</p>
+					<p><em>Sélectionnez la porte que vous pensez être gagnante.</em></p>
+				</div>
+				<div id="step-1" class="carousel-item">
+					<p>Vous venez de sélectionner la porte <span class="badge badge-primary step-1-selected-door">0</span></p>
+					<p>On vous informe maintenant que la voiture ne se trouve pas derrière la porte <span class="badge badge-danger step-1-wrong-door">0</span></p>
+					<div class="alert alert-success">
+						<h4 class="alert-heading">Questions&nbsp;:</h4>
+						<ol>
+							<li>
+								<p>Connaissant cette nouvelle information, pensez-vous avec-vous plus de chances de gagner&nbsp;:</p>
+								<ul>
+									<li>en conservant votre choix, et vous décidez d'ouvrir la porte <span class="badge badge-primary step-1-selected-door">0</span></li>
+									<li>en changeant votre choix, et vous décidez d'ouvrir la porte <span class="badge badge-secondary step-1-alt-door">0</span></li>
+								</ul>
+							</li>
+							<li>
+								<p>A combien estimez-vous la probabilité de gagner dans chacun des deux cas (conserver, ou changer)&nbsp;?</p>
+							</li>
+						</ol>
 					</div>
-					<div id="step-1" class="carousel-item">
-						<p>Vous venez de sélectionner la porte <span class="badge badge-primary step-1-selected-door">0</span></p>
-						<p>On vous informe maintenant que la voiture ne se trouve pas derrière la porte <span class="badge badge-danger step-1-wrong-door">0</span></p>
-						<div class="alert alert-success">
-							<h4 class="alert-heading">Questions&nbsp;:</h4>
-							<ol>
-								<li>
-									<p>Connaissant cette nouvelle information, pensez-vous avec-vous plus de chances de gagner&nbsp;:</p>
-									<ul>
-										<li>en conservant votre choix, et vous décidez d'ouvrir la porte <span class="badge badge-primary step-1-selected-door">0</span></li>
-										<li>en changeant votre choix, et vous décidez d'ouvrir la porte <span class="badge badge-secondary step-1-alt-door">0</span></li>
-									</ul>
-								</li>
-								<li>
-									<p>A combien estimez-vous la probabilité de gagner dans chacun des deux cas (conserver, ou changer)&nbsp;?</p>
-								</li>
-							</ol>
-						</div>
-						<p><em>Sélectionnez la porte que vous pensez être gagnante.</em></p>
+					<p><em>Sélectionnez la porte que vous pensez être gagnante.</em></p>
+				</div>
+				<div id="step-2" class="carousel-item">
+					<h2 id="step-2-label" ></h2>
+					<div class="alert alert-info">
+						<p>Les tableaux et graphiques ci-dessous représentent les résultats de vos parties. En faisant un très grand nombre de parties, vous pourrez découvrir les probabilités réelles de gagner dans chacun des deux cas &nbsp; les fréquences de parties gagnées s'approcheront des valeurs réelles.</p>
+						<p>Afin de gagner du temps, pensez à utiliser la simulation automatique&nbsp;!</p>
 					</div>
-					<div id="step-2" class="carousel-item">
-						<h2 id="step-2-label" ></h2>
-						<div class="alert alert-info">
-							<p>Les tableaux et graphiques ci-dessous représentent les résultats de vos parties. En faisant un très grand nombre de parties, vous pourrez découvrir les probabilités réelles de gagner dans chacun des deux cas &nbsp; les fréquences de parties gagnées s'approcheront des valeurs réelles.</p>
-							<p>Afin de gagner du temps, pensez à utiliser la simulation automatique&nbsp;!</p>
-						</div>
-						<button id="new-run" type="button" class="btn btn-primary font-weight-bolder" onclick="startRun();">Faire une nouvelle partie</button>
-					</div>
+					<button id="new-run" type="button" class="btn btn-primary font-weight-bolder" onclick="startRun();">Faire une nouvelle partie</button>
 				</div>
 			</div>
 		</div>
