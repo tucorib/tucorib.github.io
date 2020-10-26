@@ -23,34 +23,26 @@ var autoSimulationNb = 1000;
 // Auto realtime display
 var autoDisplay = true;
 
-// Charts
-var keepChart = null;
-var changeChart = null;
+// Chart
+var chart = null;
 
-var decimalPlaces = 6;
+var decimalPlaces = 4;
 
 function displayResults(callback){
-	var promiseTables = new Promise (function (callback) {
-		if(!autoRun || autoDisplay || simulationIndex == 0 || simulationIndex == 2*autoSimulationNb){
-		    $('#keep-won').text(session.keep.won);
-			$('#keep-nb').text(session.keep.nb);
-			$('#keep-freq').text(session.keep.freq != null ? session.keep.freq.toPrecision(decimalPlaces) : '-');				
-			$('#change-won').text(session.change.won);
-			$('#change-nb').text(session.change.nb);
-			$('#change-freq').text(session.change.freq != null ? session.change.freq.toPrecision(decimalPlaces) : '-');
-		}
-		
-	   callback();
+	var promiseTable = new Promise(function(callback) {
+		$('#keep-won').text(session.keep.won != null ? session.keep.won : '-');
+		$('#change-won').text(session.change.won != null ? session.change.won : '-');
+		$('#keep-count').text(session.keep.nb != null ? session.keep.nb : '-');
+		$('#change-count').text(session.change.nb != null ? session.change.nb : '-');
+		$('#keep-freq').text(session.keep.freq != null ? session.keep.freq.toPrecision(decimalPlaces) : '-');
+		$('#change-freq').text(session.change.freq != null ? session.change.freq.toPrecision(decimalPlaces) : '-');
+		callback();
 	});
 	var promiseCharts = new Promise(function(callback) {
 		if(simulationIndex == 0 || simulationIndex == 2*autoSimulationNb){
-			keepChart.redraw({
+			chart.redraw({
 				complete: function(){
-					changeChart.redraw({
-						complete: function(){
-							callback();
-						}
-					});
+					callback();
 				}
 			});
 		}
@@ -77,7 +69,7 @@ function displayResults(callback){
 		callback();
 	});
 	
-	promiseTables
+	promiseTable
 	.then(promiseProgress)
 	.then(promiseCharts)
 	.then(function(){
@@ -100,8 +92,8 @@ function startSession(){
 		},
 	};
 	simulationIndex = 0;
-	keepChart.series[0].setData([]);
-	changeChart.series[0].setData([]);
+	chart.series[0].setData([]);
+	chart.series[1].setData([]);
 	displayResults(function(){
 		startRun();
 	});
@@ -246,7 +238,7 @@ function handleStep1Choice(doorIndex){
 			session.keep.won += 1;
 		}
 		session.keep.freq = session.keep.won / session.keep.nb;
-		keepChart.series[0].addPoint([session.keep.nb, session.keep.freq], autoChartDisplay, false, false);
+		chart.series[0].addPoint([session.keep.nb, session.keep.freq], autoChartDisplay, false, false);
 	}
 	else{
 		session.change.nb += 1;
@@ -254,7 +246,7 @@ function handleStep1Choice(doorIndex){
 			session.change.won += 1;
 		}
 		session.change.freq = session.change.won / session.change.nb;
-		changeChart.series[0].addPoint([session.change.nb, session.change.freq], autoChartDisplay, false, false);
+		chart.series[1].addPoint([session.change.nb, session.change.freq], autoChartDisplay, false, false);
 	}
 	
 	// Update UI
@@ -345,7 +337,7 @@ $(document).ready(function(){
 	$('#auto-display').prop('checked', autoDisplay);
 	
 	// Init charts
-	keepChart = Highcharts.chart('keep-chart', {
+	chart = Highcharts.chart('chart', {
 		chart: {
 		    animation: false,
 		    zoomType: 'x'
@@ -371,45 +363,18 @@ $(document).ready(function(){
         	max: 1,
         },
         legend: {
-			enabled: false,
+			enabled: true
 		},
-        series: [{
-            name: 'Fréquence',
-            data: []
-        }]
-    });
-    changeChart = Highcharts.chart('change-chart', {
-		chart: {
-		    animation: false,
-		    zoomType: 'y'
-		},
-		plotOptions: {
-		    series: {
-				animation: false
-	    	}
-	  	},
-	    title: null,
-        xAxis: {
-        	title: {
-        		text: "Nombre d'essais"
-        	},
-        	type: 'linear'
-        },
-        yAxis: {
-        	title: {
-        		text: "Fréquence"
-        	},
-        	type: 'linear',
-        	min: 0,
-        	max: 1,
-        },
-        legend: {
-			enabled: false,
-		},
-		series: [{
-            name: 'Fréquence',
-            data: []
-        }]
+        series: [
+        	{
+	            name: 'Conserver le choix initial',
+	            data: []
+	        },
+	        {
+	            name: 'Changer de choix',
+	            data: []
+	        }
+    	]
     });
 
 	startSession();
