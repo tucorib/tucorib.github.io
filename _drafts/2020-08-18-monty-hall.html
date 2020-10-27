@@ -112,22 +112,35 @@ css: ["/assets/css/tools/monty-hall.css"]
 			    		<div class="card-body bg-body">
 			    			<form>
 					 			<!-- Auto configuration -->
-						 		<div class="form-group text-center">
-									<span id="auto-count-label">Nombre de simulations &nbsp; <span id="auto-count-value">1</span></span>
+					 			<div class="form-group">
+					 				<label class="font-weight-bold">Expérience&nbsp;:</label>
+					 				<div class="text-center">
+										<div class="custom-control custom-radio custom-control-inline">
+										  	<input type="radio" class="custom-control-input" name="choice" id="conserveChoice" value="conserve" checked>
+										  	<label class="custom-control-label" for="conserveChoice">Conserver le choix</label>
+										</div>
+										<div class="custom-control custom-radio custom-control-inline">
+										  	<input type="radio" class="custom-control-input" name="choice" id="changeChoice" value="change">
+										  	<label class="custom-control-label" for="changeChoice">Changer de choix</label>
+										</div>
+									</div>
+					 			</div>
+								<div class="form-group">
+									<label class="font-weight-bold" for="auto-count">Nombre de simulations&nbsp;: <span id="auto-count-value" class="font-weight-normal">1</span></label>
 									<input id="auto-count" class="form-control-range custom-range" type="range" min="1" max="2000" step="1" />					
 								</div>
 								<br/>
-								<div class="text-center">
-									<button type="button" id="btn-auto" class="btn btn-primary">Lancer</button>
-								</div>
-								<br/>
-								<div class="text-center">
+								<div class="form-group text-center">
 									<div class="custom-switch">
 										<input class="custom-control-input" type="checkbox" id="auto-display" />
 										<label class="custom-control-label active" for="auto-display">
 											Afficher les résultats en temps réel (peut prendre plus de temps)
 										</label>
 									</div>
+								</div>
+								<br/>
+								<div class="text-center">
+									<button type="button" id="btn-auto" class="btn btn-primary">Lancer</button>
 								</div>
 								<br/>
 								<div class="progress bg-body">
@@ -141,28 +154,25 @@ css: ["/assets/css/tools/monty-hall.css"]
 			</div>
 		</div>
 		<div class="col-12 col-lg-6 p-3 p-xl-5">
-			<h2 id="results">Résultats</h2>
-			<div class="row text-center">
-				<div class="col-4">
-					Parties gagnées
-				</div>
-				<div class="col-4">
-					Parties totales
-				</div>
-				<div class="col-4">
-					Fréquence
-				</div>
-			</div>
-			<div class="row text-center">
-				<div id="keep-won" class="col-4"></div>
-				<div id="keep-count" class="col-4"></div>
-				<div id="keep-freq" class="col-4"></div>
-			</div>
-			<div class="row text-center">
-				<div id="change-won" class="col-4"></div>
-				<div id="change-count" class="col-4"></div>
-				<div id="change-freq" class="col-4"></div>
-			</div>
+			<h2 id="results" class="mb-2">Résultats</h2>
+			<h5 id="results-choice" class="text-center mb-2">Expérience&nbsp;: Conserver le choix</h5>
+			<br/>
+			<table class="table table-borderless text-center">
+				<thead>
+					<th>Parties gagnées</th>
+					<th></th>
+					<th>Parties totales</th>
+					<th></th>
+					<th>Fréquence</th>
+				</thead>
+				<tbody>
+					<td id="won"></td>
+					<td>/</td>
+					<td id="count"></td>
+					<td>=</td>
+					<td id="freq"></td>
+				</tbody>
+			</table>
 			<div id="chart" class="w-100"></div>
 		</div>
 	</div>

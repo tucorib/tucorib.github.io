@@ -16,7 +16,9 @@ var doors = [1,2,3];
 
 // Auto-simulation
 var autoRun = false;
-// Auto-simulation spped
+// Auto-simulation choice
+var autoSimulationChoice = 'conserve';
+// Auto-simulation speed
 var autoSimulationSpeed = 0;
 // Auto-simulation run count
 var autoSimulationNb = 1000;
@@ -30,16 +32,13 @@ var decimalPlaces = 4;
 
 function displayResults(callback){
 	var promiseTable = new Promise(function(callback) {
-		$('#keep-won').text(session.keep.won != null ? session.keep.won : '-');
-		$('#change-won').text(session.change.won != null ? session.change.won : '-');
-		$('#keep-count').text(session.keep.nb != null ? session.keep.nb : '-');
-		$('#change-count').text(session.change.nb != null ? session.change.nb : '-');
-		$('#keep-freq').text(session.keep.freq != null ? session.keep.freq.toPrecision(decimalPlaces) : '-');
-		$('#change-freq').text(session.change.freq != null ? session.change.freq.toPrecision(decimalPlaces) : '-');
+		$('#won').text(session.won != null ? session.won : '-');
+		$('#count').text(session.nb != null ? session.nb : '-');
+		$('#freq').text(session.freq != null ? session.freq.toPrecision(decimalPlaces) : '-');
 		callback();
 	});
 	var promiseCharts = new Promise(function(callback) {
-		if(simulationIndex == 0 || simulationIndex == 2*autoSimulationNb){
+		if(simulationIndex == 0 || simulationIndex == autoSimulationNb){
 			chart.redraw({
 				complete: function(){
 					callback();
@@ -50,14 +49,14 @@ function displayResults(callback){
 			callback();
 	});
 	var promiseProgress = new Promise(function(callback) {
-		if(autoRun && autoDisplay || simulationIndex == 0 || simulationIndex == 2*autoSimulationNb){
+		if(autoRun && autoDisplay || simulationIndex == 0 || simulationIndex == autoSimulationNb){
 			$('#auto-progress')
 			.attr('aria-valuenow', simulationIndex)
-			.css("width", (100*simulationIndex / (2*autoSimulationNb)) + '%')
-			.text(Math.round((100*simulationIndex / (2*autoSimulationNb))) + '%');
+			.css("width", (100*simulationIndex / autoSimulationNb) + '%')
+			.text(Math.round((100*simulationIndex / autoSimulationNb)) + '%');
 		}
 		
-		if(autoDisplay || simulationIndex == 0 || simulationIndex == 2*autoSimulationNb){
+		if(autoDisplay || simulationIndex == 0 || simulationIndex == autoSimulationNb){
 			$('#auto-progress').show();
 			$('#auto-progress-working').hide();
 		}
@@ -80,20 +79,12 @@ function displayResults(callback){
 function startSession(){
 	// Init session
 	session = {
-		keep: {
-			won: 0,
-			nb: 0,
-			freq: null
-		},
-		change: {
-			won: 0,
-			nb: 0,
-			freq: null
-		},
+		won: 0,
+		nb: 0,
+		freq: null
 	};
 	simulationIndex = 0;
 	chart.series[0].setData([]);
-	chart.series[1].setData([]);
 	displayResults(function(){
 		startRun();
 	});
@@ -216,10 +207,10 @@ function handleStep0Choice(doorIndex){
 	
 	if(autoRun){
 		var choice = null;
-		if(simulationIndex % 2 == 0){
+		if(autoSimulationChoice == 'conserve'){
 			choice = selectedDoor;
 		}
-		else{
+		if(autoSimulationChoice == 'change'){
 			choice = doors.filter(door => door != selectedDoor && door != wrongDoor)[0];
 		}
 		handleStep1Choice(choice);
@@ -232,22 +223,12 @@ function handleStep1Choice(doorIndex){
 	
 	// Update session & rules
 	var autoChartDisplay = !autoRun || autoDisplay;
-	if(confirmDoor == selectedDoor){
-		session.keep.nb += 1;
-		if(confirmDoor == correctDoor){
-			session.keep.won += 1;
-		}
-		session.keep.freq = session.keep.won / session.keep.nb;
-		chart.series[0].addPoint([session.keep.nb, session.keep.freq], autoChartDisplay, false, false);
+	session.nb += 1;
+	if(confirmDoor == correctDoor){
+		session.won += 1;
 	}
-	else{
-		session.change.nb += 1;
-		if(confirmDoor == correctDoor){
-			session.change.won += 1;
-		}
-		session.change.freq = session.change.won / session.change.nb;
-		chart.series[1].addPoint([session.change.nb, session.change.freq], autoChartDisplay, false, false);
-	}
+	session.freq = session.won / session.nb;
+	chart.series[0].addPoint([session.nb, session.freq], autoChartDisplay, false, false);
 	
 	// Update UI
 	if(!autoRun){
@@ -285,7 +266,7 @@ function handleStep1Choice(doorIndex){
 	simulationIndex += 1;
 	displayResults(function(){
 		if(autoRun){
-			if(simulationIndex < 2*autoSimulationNb){
+			if(simulationIndex < autoSimulationNb){
 				setTimeout(function(){
 					startRun();
 				}, autoSimulationSpeed);
@@ -299,7 +280,15 @@ function handleStep1Choice(doorIndex){
 };
 
 $(document).ready(function(){
-	// Init sliders
+	// Init choice
+	$('input[name=choice]').change(function(){
+		autoSimulationChoice = $(this).val();
+		if(autoSimulationChoice == 'conserve')
+			$('#results-choice').html('Expérience&nbsp;: Conserver le choix');
+		if(autoSimulationChoice == 'change')
+			$('#results-choice').html('Expérience&nbsp;: Changer de choix');
+	});
+	// Init slider
 	$("#auto-count")
 	.on('input', function(slideEvt) {
 		var value = parseInt($(slideEvt.target).val());
@@ -367,11 +356,7 @@ $(document).ready(function(){
 		},
         series: [
         	{
-	            name: 'Conserver le choix initial',
-	            data: []
-	        },
-	        {
-	            name: 'Changer de choix',
+	            name: 'Fréquence des parties gagnées',
 	            data: []
 	        }
     	]
