@@ -38,18 +38,6 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
-
 language: "fr"
 future: false
     
@@ -65,7 +53,11 @@ cache:
  
 collections:
   - reductions
+  - libs
 
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
 exclude:
   - bin
   - Gemfile

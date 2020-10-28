@@ -1,30 +1,32 @@
-{% if page.score != nil or page.combos != nil or page.lives != nil %}
+{% assign score = include.score %}
+{% assign combos = include.combos %}
+{% assign lives = include.lives %}
 <div class="hud d-flex align-items-center"
-	{% if page.score != nil %}data-score="{{ page.score }}"{% endif %}
-	{% if page.combos != nil %}data-combos="{{ page.combos }}"{% endif %}
-	{% if page.lives != nil %}data-lives="{{ page.lives }}"{% endif %}
+	{% if score != nil %}data-score="{{ score }}"{% endif %}
+	{% if combos != nil %}data-combos="{{ combos }}"{% endif %}
+	{% if lives != nil %}data-lives="{{ lives }}"{% endif %}
 	>
 	<!-- Score -->
-	{% if page.score != nil %}
+	{% if score != nil %}
 	<div class="d-flex flex-column mr-4">
-		<span class="text-center">{{ site.data.labels.themes[theme].score }}</span>
-		<span class="score text-center">0</span>
+		<span class="text-center">{{ site.data.labels.tools.score }}</span>
+		<span class="score text-center">{{ score }}</span>
 	</div>
 	{% endif %}
 	<!-- Combos -->
-	{% if page.combos != nil %}
+	{% if combos != nil %}
 	<div class="d-flex flex-column mr-4">
-		<span class="text-center">{{ site.data.labels.themes[theme].combos }}</span>
-		<span class="combos text-center">0</span>
+		<span class="text-center">{{ site.data.labels.tools.combos }}</span>
+		<span class="combos text-center">{{ combos }}</span>
 	</div>
 	{% endif %}
 	<div class="flex-grow-1"></div>
 	<!-- Lives -->
-	{% if page.lives != nil %}
+	{% if lives != nil %}
 	<div class="text-right lives">
-	{% for live in (1..page.lives) %}
-	<span data-life="{{ page.lives| minus: live }}">
-		{% include icon.html id="life" class="ml-2" %}
+	{% for life in (1..lives) %}
+	<span class="life" data-life="{{ lives| minus: life }}">
+		<i class="ml-2"></i>
 	</span>
 	{% endfor %}
 	</div>
@@ -33,4 +35,3 @@
 {% include tools/modal-greetings.html %}
 {% include tools/modal-gameover.html %}
 <script defer src="/assets/js/tools/hud.js" /></script>
-{% endif %}

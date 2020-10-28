@@ -8,10 +8,12 @@ ul.navbar-nav{
 
 .nav-link{
 	@extend .h5;
+	@extend .mb-0;
 	@extend .font-weight-normal;
 	@extend .h-100;
 	@extend .d-flex;
 	@extend .align-items-center;
 	@extend .justify-content-center;
+	@extend .px-5;
 	border-radius: 0;	
 }

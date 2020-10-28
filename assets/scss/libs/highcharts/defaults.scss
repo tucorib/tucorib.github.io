@@ -15,3 +15,7 @@
 .highcharts-grid-line, .highcharts-axis-line{
 	stroke: $body-color;
 }
+
+.highcharts-grid-line{
+	opacity: 50%;	
+}

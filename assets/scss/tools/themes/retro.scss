@@ -7,6 +7,11 @@ $border-color: #537a3e;
 $primary: #d3e29a;
 //$secondary: $primary;
 
+@font-face{
+	font-family: Arcade Classic;
+	src: url(/assets/webfonts/themes/fonts/ARCADECLASSIC.TTF);	
+}
+
 @import "tool";
 
 html, body, pre, code, kbd, samp {
@@ -88,3 +93,5 @@ div.modal-footer{
 button.navbar-toggler{
 	font-size: 2.5rem;
 }
+
+@import "https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap";

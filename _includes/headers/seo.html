@@ -16,3 +16,7 @@
 {% elsif page.amp == false %}
 <link rel="amphtml" href="/m{{ page.permalink }}">
 {% endif %}
+
+{% if !include.index %}
+<meta name="robots" content="noindex" />
+{% endif %}

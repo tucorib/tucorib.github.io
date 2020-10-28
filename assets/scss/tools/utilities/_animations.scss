@@ -1,0 +1,59 @@
+.fall-down {
+    animation: fall-down-animation 1s cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards;
+    transform-origin: 0% 100%;
+}
+@keyframes fall-down-animation {
+    0% {
+        opacity: 1;
+        transform: rotateZ(0);
+	}
+    100% {
+        opacity: 0;
+        transform: translateY(600px) rotateZ(90deg);
+    }
+}
+
+.hover-zoom{
+	transition: transform $hover-duration;
+}
+.hover-zoom:hover{
+  transform: scale(1.2);
+  transition: transform $hover-duration;
+  z-index: 10;
+}
+
+
+// --- Front / Back side
+
+.front-back-container{
+	perspective: 1000px;
+}
+
+.front-back{
+	@extend .position-relative;
+	transition: transform $flip-duration;
+  	transform-style: preserve-3d;
+}
+
+.front-back.auto-transform:hover{
+  	transform: rotateY(180deg);
+}
+
+.front-back, .front-side, .back-side{
+  	-webkit-backface-visibility: hidden;
+  	backface-visibility: hidden;
+}
+
+.front-side{
+  	@extend .position-relative;
+}
+
+.back-side{
+  	@extend .position-absolute;
+  	@extend .w-100;
+  	@extend .h-100;
+}
+
+.back-side{
+	transform: rotateY(180deg);
+}

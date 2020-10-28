@@ -1,0 +1,12 @@
+libs:
+  jquery: "jQuery: <a target='_blank' href='https://jquery.com/'>https://jquery.com</a>"
+  bootstrap: "Bootstrap: <a target='_blank' href='https://getbootstrap.com/'>https://getbootstrap.com</a>"
+  highcharts: "HighCharts: <a target='_blank' href='https://www.highcharts.com/'>https://www.highcharts.com</a>"
+  jquery-ui: "jQuery UI: <a target='_blank' href='https://jqueryui.com/'>https://jqueryui.com</a>"
+  popper: "Popper: <a target='_blank' href='https://popper.js.org/'>https://popper.js.org</a>"
+  fontawesome: "Font Awesome: <a target='_blank' href='https://fontawesome.com/'>https://fontawesome.com</a>"
+
+svg:
+  goat: "<div>Icône \"Chêvre\" réalisée par <a target='_blank' href='https://www.flaticon.com/authors/freepik' title='Freepik'>Freepik</a> sur <a target='_blank' href='https://www.flaticon.com/' title='Flaticon'>https://www.flaticon.com</a></div>"
+  sportive-car: "<div>Icône \"Voiture\" réalisée par <a target='_blank' href='https://www.flaticon.com/authors/freepik' title='Freepik'>Freepik</a> sur <a target='_blank' href='https://www.flaticon.com/' title='Flaticon'>https://www.flaticon.com</a></div>"
+  question-mark: "<div>Icône \"Point d'interrogation\" réalisée par <a target='_blank' href='https://www.flaticon.com/authors/freepik' title='Freepik'>Freepik</a> sur <a target='_blank' href='https://www.flaticon.com/' title='Flaticon'>https://www.flaticon.com</a></div>"

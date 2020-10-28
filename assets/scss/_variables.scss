@@ -78,3 +78,13 @@ $home-opt-nb-per-row: ("xs": 1, "sm": 2);
 $contact-reduction-nb-per-row: ("xs": 1, "sm": 2, "md": 2, "xl": 3);
 $contact-more-info-item-nb-per-row: ("xs": 1, "sm": 2, "md": 2, "lg": 3);
 $post-nb-per-row: ("xs": 1, "sm": 2, "md": 3);
+
+$hexagon-container-max-size: 200px;
+$hexagon-container-padding: 5px;
+
+// Animation
+$hover-duration: 0.2s;
+$flip-duration: 0.8s;
+
+// Flash
+$flash-text-shadow-from: 0 0 5px $body-color, 0 0 10px $body-color, 0 0 15px $primary, 0 0 20px $primary;
