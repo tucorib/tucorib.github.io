@@ -1,6 +1,7 @@
 icons:
   bars: fas fa-bars
   check: fas fa-check
+  cogs: fas fa-cogs
   contact: fas fa-id-card
   email: fas fa-envelope
   heart: fas fa-heart

@@ -25,28 +25,30 @@ var autoSimulationNb = 1000;
 // Auto realtime display
 var autoDisplay = true;
 
-// Chart
-var chart = null;
+// Charts
+var resultsChart = null;
+var historyChart = null;
 
-var decimalPlaces = 4;
+var decimalPlaces = 1;
+
+function freqAsPercent(){
+	return (Math.round(Math.pow(10, 2 + decimalPlaces)*session.freq) / Math.pow(10, decimalPlaces)).toFixed(decimalPlaces) + ' %';
+}
 
 function displayResults(callback){
 	var promiseTable = new Promise(function(callback) {
 		$('#won').text(session.won != null ? session.won : '-');
 		$('#count').text(session.nb != null ? session.nb : '-');
-		$('#freq').text(session.freq != null ? session.freq.toPrecision(decimalPlaces) : '-');
+		$('#freq').text(session.freq != null ? session.freq.toFixed(2 + decimalPlaces) + ' (' + freqAsPercent() + ')' : '-');
 		callback();
 	});
-	var promiseCharts = new Promise(function(callback) {
-		if(simulationIndex == 0 || simulationIndex == autoSimulationNb){
-			chart.redraw({
-				complete: function(){
-					callback();
-				}
-			});
-		}
-		else
-			callback();
+	var promiseCharts = new Promise(function(callback){
+		// Display results
+		var autoChartDisplay = !autoRun || autoDisplay || simulationIndex == 0 || simulationIndex == autoSimulationNb;
+		if(session.nb > 0)
+			resultsChart.series[0].setData([{ name: 'Parties gagnées', y: session.freq  }, { name: 'Parties perdues', y: 1 - session.freq }], autoChartDisplay, false, false);
+		historyChart.series[0].addPoint([session.nb, session.freq], autoChartDisplay, false, false);
+		callback();
 	});
 	var promiseProgress = new Promise(function(callback) {
 		if(autoRun && autoDisplay || simulationIndex == 0 || simulationIndex == autoSimulationNb){
@@ -69,8 +71,8 @@ function displayResults(callback){
 	});
 	
 	promiseTable
-	.then(promiseProgress)
 	.then(promiseCharts)
+	.then(promiseProgress)
 	.then(function(){
 		callback();
 	});
@@ -84,7 +86,8 @@ function startSession(){
 		freq: null
 	};
 	simulationIndex = 0;
-	chart.series[0].setData([]);
+	resultsChart.series[0].setData([]);
+	historyChart.series[0].setData([]);
 	displayResults(function(){
 		startRun();
 	});
@@ -221,14 +224,14 @@ function handleStep1Choice(doorIndex){
 	// Select door
 	var confirmDoor = doorIndex;
 	
-	// Update session & rules
-	var autoChartDisplay = !autoRun || autoDisplay;
-	session.nb += 1;
-	if(confirmDoor == correctDoor){
-		session.won += 1;
+	// Update session
+	if(autoRun){
+		session.nb += 1;
+		if(confirmDoor == correctDoor){
+			session.won += 1;
+		}
+		session.freq = session.won / session.nb;
 	}
-	session.freq = session.won / session.nb;
-	chart.series[0].addPoint([session.nb, session.freq], autoChartDisplay, false, false);
 	
 	// Update UI
 	if(!autoRun){
@@ -263,9 +266,9 @@ function handleStep1Choice(doorIndex){
 		$('#rules').carousel('next');
 	}
 	
-	simulationIndex += 1;
-	displayResults(function(){
-		if(autoRun){
+	if(autoRun){
+		simulationIndex += 1;
+		displayResults(function(){
 			if(simulationIndex < autoSimulationNb){
 				setTimeout(function(){
 					startRun();
@@ -275,8 +278,8 @@ function handleStep1Choice(doorIndex){
 				$('#btn-auto').trigger('click');
 				$('#auto-progress').removeClass('progress-bar-striped progress-bar-animated');
 			}
-		}
-	});
+		});
+	}
 };
 
 $(document).ready(function(){
@@ -284,20 +287,17 @@ $(document).ready(function(){
 	$('input[name=choice]').change(function(){
 		autoSimulationChoice = $(this).val();
 		if(autoSimulationChoice == 'conserve')
-			$('#results-choice').html('Expérience&nbsp;: Conserver le choix');
+			$('#exp-choice').html('Conserver le choix');
 		if(autoSimulationChoice == 'change')
-			$('#results-choice').html('Expérience&nbsp;: Changer de choix');
+			$('#exp-choice').html('Changer de choix');
 	});
 	// Init slider
 	$("#auto-count")
 	.on('input', function(slideEvt) {
-		var value = parseInt($(slideEvt.target).val());
-		autoSimulationNb = value;
-		$("#auto-count-value").text(value);
-		$('#auto-progress').attr('aria-valuemax', 2*value);
+		autoSimulationNb = parseInt($(slideEvt.target).val());
+		$('#auto-progress').attr('aria-valuemax', autoSimulationNb);	
 	})
-	.val(autoSimulationNb)
-	.trigger('input');
+	.val(autoSimulationNb);
 	// Init toggle auto run
 	$('#btn-auto').click(function(event){
 		autoRun = !autoRun;
@@ -307,7 +307,7 @@ $(document).ready(function(){
 			startSession();
 		}
 		else{
-			$(this).removeClass('btn-danger').addClass('btn-primary').text('Lancer');
+			$(this).removeClass('btn-danger').addClass('btn-primary').text('Démarrer');
 			$('#auto-progress').removeClass('progress-bar-striped progress-bar-animated');
 		}
 	});
@@ -326,7 +326,34 @@ $(document).ready(function(){
 	$('#auto-display').prop('checked', autoDisplay);
 	
 	// Init charts
-	chart = Highcharts.chart('chart', {
+	resultsChart = Highcharts.chart('results-chart', {
+		chart: {
+		      type: 'pie'
+		},
+		title: null,
+		tooltip: {
+			enabled: false
+		},
+		plotOptions: {
+			pie: {
+	            dataLabels: {
+	                distance: -60,
+	                enabled: true,
+	                format: '{point.percentage:.' + decimalPlaces + 'f} %',
+                    style: {
+                    	fontSize: '12pt',
+                    	textOutline: 0
+                    }
+	            },
+	            showInLegend: true
+	        }
+	  	},
+        series: [{
+            name: 'Fréquence',
+            data: []
+          }]
+    });
+	historyChart = Highcharts.chart('history-chart', {
 		chart: {
 		    animation: false,
 		    zoomType: 'x'
@@ -352,7 +379,7 @@ $(document).ready(function(){
         	max: 1,
         },
         legend: {
-			enabled: true
+			enabled: false
 		},
         series: [
         	{
