@@ -1,8 +1,10 @@
 icons:
   bars: fas fa-bars
   check: fas fa-check
+  cogs: fas fa-cogs
   contact: fas fa-id-card
   email: fas fa-envelope
+  heart: fas fa-heart
   home: fas fa-home
   info-circle: fas fa-info-circle
   phone: fas fa-phone
@@ -98,4 +100,3 @@ video:
         type: video/mp4
       - src: /assets/video/Mt_Baker.webm
         type: video/webm
-    
