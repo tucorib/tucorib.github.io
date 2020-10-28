@@ -1,0 +1,3 @@
+---
+---
+RedirectPermanent / {{ site.redirect_url }}
