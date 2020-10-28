@@ -65,4 +65,5 @@ exclude:
   - post.template
   - vendor
   - ssl
-  
+
+redirect_url: "https://www.matezlesmaths.fr"
