@@ -12,7 +12,7 @@ start:
 presentation:
   title: Présentation
   youtube:
-    id: 0
+    id: 
     upload_date: "2020-12-31T08:00:00+02:00"
     duration: "PT1M54S"
   
@@ -48,7 +48,7 @@ plus:
           description: Illustrations animées, favorisant la compréhension.
 
 opt:
-  title: A la demande
+  title: Les services
   content:
     - name: Séance de groupe
       icon: users
@@ -60,9 +60,9 @@ opt:
           description: Implication et l'investissement accrus, favorisant grandement l'apprentissage.
     - name: Retour sur la séance
       icon: recycle
-      price: Offert
+      price: A la demande
       content:
         - name: Replay disponible
-          description: Possibilité de revenir sur le contenu de la séance a posteriori sur demande.
+          description: Possibilité de revenir sur le contenu de la séance a posteriori.
         - name: Téléchargement
-          description: Vidéo accessible en téléchargement ou en visionnage pendant 14 jours.
+          description: Vidéo accessible en téléchargement pendant 14 jours.
