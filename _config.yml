@@ -37,7 +37,7 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-sitemap
-  - jekyll-redirect-from
+#  - jekyll-redirect-from
 
 language: "fr"
 future: false
@@ -70,4 +70,4 @@ exclude:
   - vendor
   - ssl
 
-redirect_url: "https://www.matezlesmaths.fr"
+#redirect_url: "https://www.matezlesmaths.fr"
